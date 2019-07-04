@@ -1,0 +1,52 @@
+
+.top-navbar
+  background: map-get($sectionColor,'darkGray')
+
+.top-navbar__container
+  @include padding('',0.5rem)
+
+.top-navbar__search
+  @include margin('top',1rem)
+  width: inherit
+  border-radius: 2rem
+  height: 2.5rem
+  background: transparentize(map-get($fontColor, 'black'), 1)
+  border: 1px solid map-get($fontColor, 'white')
+  outline: 0px
+  @include padding('left',2rem)
+  color: map-get($fontColor, 'white')
+  @include placeholder
+    color: transparentize(map-get($fontColor, 'white'),0.5)
+    font-size: 0.8rem
+
+.top-navbar__select-country
+  @include margin('top',1rem)
+  background: map-get($sectionColor, 'yellow')
+  width: 10rem
+  height: 2.5rem
+  padding: 0.5rem 1rem
+  border-radius: 2rem
+  a
+    color: map-get($fontColor, 'black')
+    text-decoration: none
+
+.top-navbar__select-language
+  @include margin('top',1.5rem)
+  width: 10rem
+  font-size: 0.8rem
+  background: transparentize(map-get($fontColor, 'black'), 1)
+  a
+    color: map-get($fontColor, 'white')
+    text-decoration: none
+
+.top-navbar__login-btn
+  @include margin('top',1.2rem)
+  border: 0px
+  color: map-get($fontColor, 'white')
+  font-size: 0.8rem
+  background: transparentize(map-get($fontColor, 'black'), 1)
+
+.top-navbar__join-btn
+  @extend .top-navbar__login-btn
+  color: map-get($fontColor, 'yellow')
+  font-size: 1rem
