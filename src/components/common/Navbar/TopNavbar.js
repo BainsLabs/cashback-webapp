@@ -7,6 +7,9 @@ import {
   faMapMarkerAlt,
   faSortDown
 } from '@fortawesome/fontawesome-free-solid';
+
+
+
 const TopNavbar = () => (
   <section className="top-navbar">
     <div className="container top-navbar__container">

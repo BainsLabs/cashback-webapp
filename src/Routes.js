@@ -1,11 +1,10 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
-import Navbar from 'components/common/Navbar';
 import LandingPage from 'components/LandingPage';
-import Home from 'containers/Home';
 // import Login from 'containers/Login';
 // import Signup from 'containers/Signup';
 import NotFound from 'containers/NotFound';
+import ContactUs from 'components/ContactUs';
 import AppliedRoute from 'utils/AppliedRoute';
 import UnauthenticatedRoute from 'utils/UnauthenticatedRoute';
 
@@ -26,6 +25,7 @@ export default ({ childProps }) => (
       props={childProps}
     /> */}
     {/* Finally, catch all unmatched routes */}
+    <UnauthenticatedRoute path="/contact" component={ContactUs} exact props={childProps} />
     <Route component={NotFound} />
   </Switch>
 );
