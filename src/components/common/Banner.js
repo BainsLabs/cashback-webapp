@@ -6,6 +6,7 @@ const StyledDiv = styled.div`
   background-size: cover;
   background-position: center;
   text-align: ${props => (props.textPosition ? props.textPosition : 'left')};
+  height: ${props => props.height};
 `;
 
 export default props => <StyledDiv {...props}>{props.children}</StyledDiv>;

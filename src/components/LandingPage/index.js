@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container } from 'react-bootstrap';
+import { Container, Row, Col } from 'react-bootstrap';
 import Banner from 'components/common/Banner';
 import bannerImg from 'static/icons-images/bannerimage.jpg';
 import Navbar from 'components/common/Navbar';
@@ -7,6 +7,7 @@ import CategorySection from 'components/LandingPage/CategorySection';
 import Card from 'components/common/Card';
 import Amazon from 'static/icons-images/amazon.png';
 import BlackLine from 'static/icons-images/black-line.png';
+import ReferAFriendBG from 'static/icons-images/refer-a-friend-banner.jpg';
 export default () => (
   <>
     <Navbar />
@@ -48,5 +49,17 @@ export default () => (
         </div>
       </>
     </Card>
+    <Banner imgSrc={ReferAFriendBG} textPosition="center" height="20rem">
+      <>
+        <Row>
+          <Col>
+            <p className="refer__banner">REFER A FRIEND</p>
+          </Col>
+          <Col>
+            <button className="home__book-btn">BOOK NOW</button>
+          </Col>
+        </Row>
+      </>
+    </Banner>
   </>
 );
