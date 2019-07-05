@@ -1,5 +1,6 @@
 .home__category
   background: map-get($sectionColor, 'blue')
+  @include padding('bottom',2rem)
 
 .home__category-list
   list-style: none
@@ -12,5 +13,5 @@
     font-weight: bold
   li
     display: inline-block
-  li:not(:first-child)
-    @include margin('left',9rem)
+    &:not(:first-child)
+      @include margin('left',9rem)

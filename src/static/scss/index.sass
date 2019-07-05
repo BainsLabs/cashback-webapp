@@ -8,9 +8,22 @@
 @import '/partials/_homeBanner.sass'
 @import '/partials/_homeCategory.sass'
 @import '/partials/_card.sass'
+@import '/partials/_referBanner.sass'
+@import '/partials/_subscribe.sass'
+@import '/partials/_footer.sass'
 
 
 .line
   height: 0.1rem
   width: 35%
   background: map-get($fontColor, 'white')
+
+p
+  @include margin('',0)
+  @include padding('',0)
+
+.footer__line
+  @extend .line
+  background: transparentize(map-get($fontColor,'white'),0.7)
+  width: inherit
+  @include margin('',2.5rem 0 1rem 0)

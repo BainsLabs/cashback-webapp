@@ -1,8 +1,10 @@
 import React, { Component, Fragment } from 'react';
 import { Auth } from 'aws-amplify';
 import { Link, withRouter } from 'react-router-dom';
-import { Nav, Navbar, NavItem } from 'react-bootstrap';
-import { LinkContainer } from 'react-router-bootstrap';
+import '@fortawesome/fontawesome-free/css/all.css';
+import Navbar from 'components/common/Navbar';
+import Footer from 'components/common/Footer';
+import Subscribe from 'components/common/Subscribe';
 import Routes from 'Routes';
 
 class App extends Component {
@@ -47,37 +49,12 @@ class App extends Component {
     };
 
     return (
-      !this.state.isAuthenticating && (
-        <div className="App">
-          {/* <Navbar fluid collapseOnSelect>
-            <Navbar.Header>
-              <Navbar.Brand>
-                <Link to="/">Cashback</Link>
-              </Navbar.Brand>
-              <Navbar.Toggle />
-            </Navbar.Header>
-            <Navbar.Collapse>
-              <Nav pullRight>
-                {this.state.isAuthenticated ? (
-                  <Fragment>
-                    <NavItem onClick={this.handleLogout}>Logout</NavItem>
-                  </Fragment>
-                ) : (
-                  <Fragment>
-                    <LinkContainer to="/signup">
-                      <NavItem>Signup</NavItem>
-                    </LinkContainer>
-                    <LinkContainer to="/login">
-                      <NavItem>Login</NavItem>
-                    </LinkContainer>
-                  </Fragment>
-                )}
-              </Nav>
-            </Navbar.Collapse>
-          </Navbar> */}
-          <Routes childProps={childProps} />
-        </div>
-      )
+      <div className="App">
+        <Navbar />
+        <Routes childProps={childProps} />
+        <Subscribe />
+        <Footer />
+      </div>
     );
   }
 }

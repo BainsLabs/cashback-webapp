@@ -4,6 +4,7 @@
     @include margin('',0)
     font-size: 4rem
     font-weight: bolder
+    line-height: 4.2rem
   span:not(:first-child)
     @include margin('left',1.5rem)
   span
@@ -11,8 +12,9 @@
     letter-spacing: 0.5rem
 
 .home__book-btn
+  @include margin('top',2rem)
   background: map-get($fontColor,'white')
   border-radius: 10rem
   width: 15rem
-  padding: 1rem 2rem
+  @include padding('',1rem 2rem)
   border: 0px
