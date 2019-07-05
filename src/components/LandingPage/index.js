@@ -24,13 +24,29 @@ export default () => (
       </Container>
     </Banner>
     <CategorySection />
-    <Card backgroundColor="#4A535E">
-      <div className="card">
+    <Card backgroundColor="#B7BFCD" textPosition="center">
+      <>
         <img src={Amazon} alt="amazon" />
-        <p>2.5%</p>
-        <p>cashback</p>
-        <img src={BlackLine} alt="line" />
-      </div>
+        <div className="card__content">
+          <p>2.5%</p>
+          <p>Cash Back</p>
+          <img
+            src={BlackLine}
+            alt="line"
+            className="mx-auto"
+            height="1rem"
+            widht="inherit"
+          />
+          <p>
+            Plus 3 TLC <br />
+            Rewards
+          </p>
+          <p>
+            CODE <span>JULY 2019</span>
+          </p>
+          <p>Expire 7/07/2019</p>
+        </div>
+      </>
     </Card>
   </>
 );

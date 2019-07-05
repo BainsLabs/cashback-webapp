@@ -8,4 +8,8 @@ const StyledDiv = styled.div`
   text-align: ${props => (props.textPosition ? props.textPosition : 'center')};
 `;
 
-export default props => <StyledDiv {...props}>{props.children}</StyledDiv>;
+export default props => (
+  <StyledDiv {...props}>
+    <div className="card">{props.children}</div>
+  </StyledDiv>
+);
