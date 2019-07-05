@@ -1,6 +1,7 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
-import TopNavbar from 'components/common/Navbar/TopNavbar';
+import Navbar from 'components/common/Navbar';
+import LandingPage from 'components/LandingPage';
 import Home from 'containers/Home';
 // import Login from 'containers/Login';
 // import Signup from 'containers/Signup';
@@ -10,7 +11,8 @@ import UnauthenticatedRoute from 'utils/UnauthenticatedRoute';
 
 export default ({ childProps }) => (
   <Switch>
-    <AppliedRoute path="/" exact component={TopNavbar} props={childProps} />
+    {/* <AppliedRoute path="/" exact component={Navbar} props={childProps} /> */}
+    <AppliedRoute path="/" exact component={LandingPage} props={childProps} />
     {/* <UnauthenticatedRoute
       path="/login"
       exact
