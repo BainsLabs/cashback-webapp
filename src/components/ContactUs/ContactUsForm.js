@@ -8,8 +8,10 @@ class ContactUsForm extends Component {
   render() {
     return (
       <div className="container contact_us">
-        <h2 className="text-center">Get In Touch</h2>
-        <p className="text-center">Have a Feedback or need some help ?</p>
+        <h2 className="text-center font-weight-bold">Get In Touch</h2>
+        <p className="text-center contactus__text">
+          Have a Feedback or need some help ?
+        </p>
         <div className="contactus__form">
           <Row className="contactus__general">
             <Col md={6}>
