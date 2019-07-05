@@ -8,7 +8,7 @@ import ContactServices from "components/ContactUs/ContactServices";
 const ContactUs = () => (
   <>
     <TopNavbar />
-    <Banner imgSrc={ContactBanner} />
+    <Banner imgSrc={ContactBanner} height="25rem" />
     <ContactUsForm />
     <ContactServices />
   </>

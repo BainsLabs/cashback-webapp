@@ -1,0 +1,27 @@
+.modal__header
+  border-bottom: none;
+
+.usermodal__container
+  height: auto;
+
+
+.signup__textfield
+  @extend .top-navbar__search
+  color: map-get($fontColor,'black')
+  border: 0.1rem solid map-get($fontColor,'lightGray')
+  height: 3rem
+  @include margin('bottom', 1rem)
+  @include placeholder
+    color: map-get($fontColor,'lightGray')
+    font-size: 0.8rem
+
+.signup__select
+  @extend .signup__textfield
+
+.signup__selectlabel
+  @include padding('left',1rem)
+
+.signup__option
+  border-radius: 1rem;
+  background: transparentize(map-get($fontColor, 'black'), 1)
+  color: map-get($fontColor,'lightGray')
