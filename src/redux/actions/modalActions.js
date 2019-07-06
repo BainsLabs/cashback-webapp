@@ -17,6 +17,6 @@ export const SignUpModal = () => dispatch => {
 export const CloseModal = () => dispatch => {
   return dispatch({
     type: ModalTypes.CLOSE_MODAL,
-    payload: null
+    payload: {open: false}
   });
 };

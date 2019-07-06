@@ -3,12 +3,16 @@ import { Row, Col } from "react-bootstrap";
 import Input from "components/common/inputField";
 import Select from "components/common/selectField";
 import { ReferOptions } from "constants/referOptions";
+import {
+  faUser
+} from "@fortawesome/fontawesome-free-solid";
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 class SignUp extends Component {
   render() {
     return (
       <section className="signup">
-        <div className="container signup__container">
+        <div className="container signup__container text-center">
           <h2>Create Account</h2>
         </div>
         <Row>
@@ -29,6 +33,7 @@ class SignUp extends Component {
             <Input
               placeholder="Create Password"
               className="signup__textfield"
+              type="password"
             />
           </Col>
         </Row>
@@ -45,14 +50,14 @@ class SignUp extends Component {
         </Row>
         <Row>
           <Col>
-            <Input id="isAccepted" type="checkbox" />
+            <Input id="isAccepted" type="checkbox" className="signup__check"/>
             &nbsp;
             <span>I agree to terms & conditions and privacy policy.</span>
           </Col>
         </Row>
         <Row>
-          <Col>
-            <button>Sign Up</button>
+          <Col className="text-center">
+            <button className="signup__button">Join Now</button>
           </Col>
         </Row>
       </section>

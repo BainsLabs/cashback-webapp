@@ -1,37 +1,42 @@
 import React, { Component } from "react";
 import {
-  ModalBody,
-  ModalTitle,
-  Modal,
-  ModalFooter,
-  Button,
   Row,
   Col
 } from "react-bootstrap";
+import Modal from "react-responsive-modal"
 import { connect } from "react-redux";
 import SignIn from "components/UserForm/SignIn";
 import SignUp from "components/UserForm/SignUp";
+import LogoIcon from "static/icons-images/logo-icon.png"
+import SignUpContent from "components/UserForm/SignUp/SignUpContent"
+import SignInContent from "components/UserForm/SignIn/SignInContent"
+
 
 class UserModal extends Component {
   render() {
     const { name, open } = this.props.userModal || {};
     return (
       <Modal
-        show={open}
-        {...this.props}
-        size="lg"
-        aria-labelledby="contained-modal-title-vcenter"
-        centered
+        open={open}
+        onClose={this.props.onHide}
+        center
+        blockScroll={true}
       >
-        <Modal.Header closeButton className="modal__header" />
-        <ModalBody className="container usermodal__container">
-          <div className="container">
-            <Row>
-              <Col md={6}>Content</Col>
-              <Col md={6}>{name == "signin" ? <SignIn /> : <SignUp />}</Col>
+             <Row>
+              <Col md={6} className="usermodal__content">
+              <p>
+              <img src={LogoIcon} className="mx-auto d-block usermodal__logo"/>
+                <p className="text-center userModal__text"><strong className="userModal__brandName">6Degrees.CASH</strong><br />Friends Shopping Network</p>
+
+              </p>
+              {name == "signin" ? <SignInContent label="SignUp"/> :<SignUpContent label="SignIn"/>}
+
+              </Col>
+              <Col md={6} className="usermodal__form">
+              <img src={LogoIcon} className="mx-auto d-block usermodal__logo"/>
+              {name == "signin" ? <SignIn /> : <SignUp />}
+              </Col>
             </Row>
-          </div>
-        </ModalBody>
       </Modal>
     );
   }
