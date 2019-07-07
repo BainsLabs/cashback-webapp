@@ -11,22 +11,21 @@ export default () => (
         <Container className="footer__logo">
           <img src={logo} width="inherit" alt="logo" />
           <p className="footer__description">
-            Deserunt tempor ad irure dolor.Duis sit officia consequat magna
-            nostrud.Est id Lorem voluptate proident nulla proident dolore
-            incididunt et est occaecat irure non.
+            Deserunt tempor ad irure dolor.Duis sit officia consequat magna nostrud.Est id Lorem
+            voluptate proident nulla proident dolore incididunt et est occaecat irure non.
           </p>
           <div className="footer__social-icons">
             <a href="#">
-              <i class="fab fa-facebook-f" />
+              <i className="fab fa-facebook-f" />
             </a>
             <a href="#">
-              <i class="fab fa-instagram" />
+              <i className="fab fa-instagram" />
             </a>
             <a href="#">
-              <i class="fab fa-twitter" />
+              <i className="fab fa-twitter" />
             </a>
             <a href="#">
-              <i class="fab fa-pinterest-p" />
+              <i className="fab fa-pinterest-p" />
             </a>
           </div>
         </Container>

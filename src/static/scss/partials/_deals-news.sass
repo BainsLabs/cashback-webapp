@@ -1,0 +1,87 @@
+.deals-news
+  +margin('', 2rem 0)
+  +padding('', 0)
+
+.deals__section
+  background: map-get($fontColor, 'lightGray')
+  border: 1px solid map-get($fontColor, 'black')
+
+.deals__section-heading
+  font-size: 2rem
+  font-weight: bold
+
+  +padding('', 0 2rem)
+
+.deals__section-see-all
+  +margin('top', 0.8rem)
+
+  background: none
+  border: 0px
+
+.deals__section-content
+  +margin('', 0)
+  +padding('', 1rem 0)
+
+  border-top: 1px solid map-get($fontColor, 'black')
+
+  p
+    font-size: 1rem
+    font-weight: 100
+
+    +margin('', 1rem 0)
+
+  button
+    background: none
+    border: 2px solid map-get($fontColor, 'yellow')
+    border-radius: 2rem
+
+    +padding('', 0.2rem 1rem)
+
+    &:hover
+      background: map-get($fontColor, 'yellow')
+      color: map-get($fontColor, 'white')
+
+.deals__section-cashback
+  font-size: 1rem
+  font-weight: bolder
+
+.deals__section-code
+  background: map-get($fontColor, 'yellow')
+  color: map-get($fontColor, 'black')
+
+  +padding('', 0.2rem)
+
+  letter-spacing: 0.1rem
+
+.news__section
+  background: map-get($fontColor, 'darkGray')
+  color: map-get($fontColor, 'white')
+
+.news__section-heading
+  font-size: 1rem
+  font-weight: bolder
+  line-height: 3rem
+
+  +padding('', 1rem)
+
+.news__section-see-all
+  background: none
+  border: 0px
+
+  +margin('top', 0.7rem)
+
+.news__section-content
+  border-top: 1px solid map-get($fontColor, 'white')
+  text-justify: left
+  word-break: break-all
+
+  +padding('', 1rem)
+
+  p
+    font-size: 0.7rem
+    color: transparentize(map-get($fontColor, 'white'), 0.2)
+
+  span
+    font-size: 0.8rem
+
+    +padding('', 0 0.2rem)

@@ -19,14 +19,17 @@ const StyledDiv = styled.div`
 `;
 
 export default (props) => {
-  const { brandLogo } = props;
+  const { brandLogo, data } = props;
   return (
     <>
       <div className="card__container">
         <Row>
-          <Col lg={8}>
-            <p>48%</p>
-            <p>off</p>
+          <Col lg={4}>
+            <p>{data.cahsback}</p>
+            <p>{data.offerType}</p>
+          </Col>
+          <Col lg={4}>
+            <p>{data.tlc}</p>
           </Col>
           <Col lg={4}>
             <img src={brandLogo} alt="KFC-LOGO" className="card__content-image" />

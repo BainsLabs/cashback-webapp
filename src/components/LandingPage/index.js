@@ -4,11 +4,12 @@ import CategorySection from 'components/LandingPage/CategorySection';
 import { Container, Row, Col } from 'react-bootstrap';
 import bannerImg from 'static/icons-images/bannerimage.jpg';
 import Card from 'components/common/Card';
-import Amazon from 'static/icons-images/amazon.png';
 import BlackLine from 'static/icons-images/black-line.png';
 import ReferAFriendBG from 'static/icons-images/refer-a-friend-banner.jpg';
 import joinNow from 'static/icons-images/join-now.png';
-import AddSection from './AddSection';
+import AddSection from 'components/LandingPage/AddSection';
+import DealsNews from 'components/LandingPage/DealsNews';
+import { merchants } from 'constants/merchants';
 
 export default () => (
   <>
@@ -56,26 +57,49 @@ export default () => (
         </div>
       </Banner>
       <div className="merchant">
-        <Card backgroundColor="#B7BFCD" textPosition="center">
-          <>
-            <img src={Amazon} alt="amazon" />
-            <div className="card__content">
-              <p>2.5%</p>
-              <p>Cash Back</p>
-              <img src={BlackLine} alt="line" className="mx-auto" height="1rem" widht="inherit" />
-              <p>
-                Plus 3 TLC
-                <br />
-                Rewards
-              </p>
-              <p>
-                CODE
-                <span>JULY 2019</span>
-              </p>
-              <p>Expire 7/07/2019</p>
-            </div>
-          </>
-        </Card>
+        <Row>
+          <Col xs={12}>
+            <h3>CASHBACK OFFERS</h3>
+          </Col>
+        </Row>
+        <Row>
+          <Col lg={12}>
+            <Row>
+              {merchants.map(item => (
+                <Col xs={12} md={6} lg={3} className="mb-2">
+                  <Card backgroundColor="#B7BFCD" width="16rem">
+                    <>
+                      <img src={item.brandImg} className="mx-auto" alt="amazon" />
+                      <div className="card__content">
+                        <p>{item.offer}</p>
+                        <p>{item.offerType}</p>
+                        <img
+                          src={BlackLine}
+                          alt="line"
+                          className="mx-auto"
+                          height="1rem"
+                          widht="inherit"
+                        />
+                        <p>
+                          Plus
+                          {' '}
+                          {item.tlc}
+                          <br />
+                          Rewards
+                        </p>
+                        <p>
+                          CODE
+                          <span>JULY 2019</span>
+                        </p>
+                        <p>Expire 7/07/2019</p>
+                      </div>
+                    </>
+                  </Card>
+                </Col>
+              ))}
+            </Row>
+          </Col>
+        </Row>
       </div>
       <Banner imgSrc={ReferAFriendBG} textPosition="center">
         <>
@@ -91,6 +115,7 @@ export default () => (
           </Row>
         </>
       </Banner>
+      <DealsNews />
     </Container>
   </>
 );
