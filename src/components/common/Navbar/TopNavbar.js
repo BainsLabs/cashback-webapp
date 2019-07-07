@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import { Row, Col } from 'react-bootstrap';
 import logo from 'static/icons-images/logo.png';
 import Input from 'components/common/inputField';
@@ -11,19 +11,19 @@ const TopNavbar = () => (
   <section className="top-navbar">
     <div className="container top-navbar__container">
       <Row>
-        <Col md={3}>
-          <img src={logo} width="250rem" />
+        <Col lg={3}>
+          <img src={logo} width="250rem" alt="logo" />
         </Col>
-        <Col md={5}>
+        <Col lg={5}>
           <Row>
-            <Col md={8}>
+            <Col lg={8}>
               <Input
                 placeholder="Search"
                 autoFocus
                 className="top-navbar__search"
               />
             </Col>
-            <Col md={4}>
+            <Col lg={4}>
               <DropdownComponent
                 icon={faMapMarkerAlt}
                 iconLeft={true}
@@ -33,9 +33,9 @@ const TopNavbar = () => (
             </Col>
           </Row>
         </Col>
-        <Col md={4}>
+        <Col lg={4}>
           <Row>
-            <Col md={4}>
+            <Col lg={4}>
               <DropdownComponent
                 icon={faSortDown}
                 label="Language"

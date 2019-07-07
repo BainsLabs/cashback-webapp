@@ -1,0 +1,20 @@
+.home__banner
+  padding: 8rem 0 5rem 0
+  p:not(:nth-child(4))
+    @include margin('',0)
+    font-size: 4rem
+    font-weight: bolder
+    line-height: 4.2rem
+  span:not(:first-child)
+    @include margin('left',1.5rem)
+  span
+    font-size: 1.5rem
+    letter-spacing: 0.5rem
+
+.home__book-btn
+  @include margin('top',2rem)
+  background: map-get($fontColor,'white')
+  border-radius: 10rem
+  width: 15rem
+  @include padding('',1rem 2rem)
+  border: 0px
