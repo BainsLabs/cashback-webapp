@@ -14,10 +14,14 @@
   padding: 5px;
   outline: none
 
+.forgot__container
+  @include margin('top',1rem)
 
-// .usermodal__container
-//   height: auto;
-//   @include padding('',0px)
+.forgot_password
+  border: none
+  background: none
+  float: right
+  color: map-get($fontColor,'darkGray')
 
 .usermodal__content
   background-image: url('/images/bg.png');
@@ -96,6 +100,12 @@
 .signup__button
   @extend .contactus__button
   @include margin('top',2rem)
+  color: map-get($fontColor,'darkGray')
+
+.signup__button:disabled
+  background: map-get($fontColor,"lightGray")
+  cursor: not-allowed
+
 .signup__button:focus
   outline: none
 

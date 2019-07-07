@@ -13,6 +13,12 @@ export const SignUpModal = () => dispatch => {
     payload: { open: true, name: "signup" }
   });
 };
+export const ForgotModal = () => dispatch => {
+  return dispatch({
+    type: ModalTypes.FORGOT_MODAL,
+    payload: { open: true, name: "forgot" }
+  });
+};
 
 export const CloseModal = () => dispatch => {
   return dispatch({

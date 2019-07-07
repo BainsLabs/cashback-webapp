@@ -7,7 +7,7 @@ export const ReferOptions = [
   },
   {
     label: "Social Media",
-    value: "Social-Media"
+    value: "socialMedia"
   },
   {
     label: "Friend",
