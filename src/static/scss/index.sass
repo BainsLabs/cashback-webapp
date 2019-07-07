@@ -1,29 +1,49 @@
-@import '~bootstrap/scss/bootstrap.scss'
-@import '/partials/_reset.sass'
-@import '/partials/_variables.sass'
-@import '/mixins/mixins.sass'
-@import '/partials/_loaderButton.sass'
-@import '/partials/_topNavbar.sass'
-@import '/partials/_navbar.sass'
-@import '/partials/_homeBanner.sass'
-@import '/partials/_homeCategory.sass'
-@import '/partials/_card.sass'
-@import '/partials/_referBanner.sass'
-@import '/partials/_subscribe.sass'
-@import '/partials/_footer.sass'
-
+@import ~bootstrap/scss/bootstrap.scss
+@import /partials/_reset.sass
+@import /partials/_variables.sass
+@import /mixins/mixins.sass
+@import /partials/_loaderButton.sass
+@import /partials/_topNavbar.sass
+@import /partials/_navbar.sass
+@import /partials/_homeBanner.sass
+@import /partials/_homeCategory.sass
+@import /partials/_card.sass
+@import /partials/_joinNowBanner.sass
+@import /partials/_referBanner.sass
+@import /partials/_subscribe.sass
+@import /partials/_footer.sass
+@import /partials/_add-section.sass
+@import /partials/_merchants.sass
 
 .line
-  height: 0.1rem
-  width: 35%
-  background: map-get($fontColor, 'white')
+    height: 0.1rem
+    width: 35%
+    background: map-get($fontColor, 'white')
 
 p
-  @include margin('',0)
-  @include padding('',0)
+    +margin('', 0)
+    +padding('', 0)
 
 .footer__line
-  @extend .line
-  background: transparentize(map-get($fontColor,'white'),0.7)
-  width: inherit
-  @include margin('',2.5rem 0 1rem 0)
+    @extend .line
+
+    background: transparentize(map-get($fontColor, 'white'), 0.7)
+    width: inherit
+
+    +margin('', 2.5rem 0 1rem 0)
+
+.banner-btn
+    @extend .refer__banner
+
+    +padding('', 1rem)
+    +margin('left', 4rem)
+    +margin('top', 7rem)
+
+    background: map-get($fontColor, 'white')
+    border: 0
+    font-size: 1rem
+    border-radius: 10rem
+    width: 15rem
+    color: map-get($fontColor, 'black')
+    font-weight: normal
+    letter-spacing: 0rem

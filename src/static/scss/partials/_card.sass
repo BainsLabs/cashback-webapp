@@ -1,38 +1,79 @@
 .card
-  @include padding('top',2rem)
-  color: map-get($fontColor, 'white')
-  background: none
-  border: 0px
-  img
-    width: 10rem
-    @include margin('',0rem 5.7rem)
-  &:hover
-    cursor: pointer
-    background: transparentize(map-get($fontColor, 'black'),0.3)
+    +padding('top', 2rem)
 
+    color: map-get($fontColor, 'white')
+    background: none
+    border: 0px
+
+    img
+        width: 10rem
+
+        +margin('', 0rem 5.7rem)
+
+    &:hover
+        cursor: pointer
+        background: transparentize(map-get($fontColor, 'black'), 0.3)
 
 .card__content
-  @include margin('top',1rem)
-  p:nth-child(1)
-    font-size: 2rem
-    font-weight: bolder
-  p
-    @include margin('',0rem)
-    @include padding('',0rem)
-    font-weight: bold
-    font-size: 1rem
-    line-height: 1.5rem
-  p:nth-child(4)
-    line-height: 1.2rem
-  p:nth-child(5)
-    font-size: 1rem
-    @include margin('top',1rem)
-    span
-      background: map-get($fontColor, 'yellow')
-      color: map-get($fontColor, 'black')
-      @include padding('',0.2rem)
-      letter-spacing: 0.1rem
-  p:nth-child(6)
-    font-size: 0.5rem
-    @include margin('top',0.7rem)
-    @include margin('bottom',0.7rem)
+    +margin('top', 1rem)
+
+    p:nth-child(1)
+        font-size: 2rem
+        font-weight: bolder
+
+    p
+        +margin('', 0rem)
+        +padding('', 0rem)
+
+        font-weight: bold
+        font-size: 1rem
+        line-height: 1.5rem
+
+    p:nth-child(4)
+        line-height: 1.2rem
+
+    p:nth-child(5)
+        font-size: 1rem
+
+        +margin('top', 1rem)
+
+        span
+            background: map-get($fontColor, 'yellow')
+            color: map-get($fontColor, 'black')
+
+            +padding('', 0.2rem)
+
+            letter-spacing: 0.1rem
+
+    p:nth-child(6)
+        font-size: 0.5rem
+
+        +margin('top', 0.7rem)
+        +margin('bottom', 0.7rem)
+
+.card__container
+    @extend .card
+
+    height: 10rem
+    color: map-get($fontColor, 'black')
+    justify-content: flex-end
+    text-align: left
+    color: map-get($fontColor, 'white')
+
+    +padding('', 0rem)
+
+    &:hover
+        opacity: 0
+
+    p
+        line-height: 1.2rem
+        font-weight: bolder
+
+    img
+        width: 2rem
+
+        +margin('', 0rem)
+
+.cardBorder
+    border: 1px solid map-get($fontColor, 'yellow')
+    border-radius: 0px
