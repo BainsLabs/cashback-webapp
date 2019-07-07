@@ -7,6 +7,7 @@ import NotFound from 'containers/NotFound';
 import ContactUs from 'components/ContactUs';
 import AppliedRoute from 'utils/AppliedRoute';
 import UnauthenticatedRoute from 'utils/UnauthenticatedRoute';
+import ReferFriend from 'components/ReferAFriend';
 
 export default ({ childProps }) => (
   <Switch>
@@ -26,6 +27,7 @@ export default ({ childProps }) => (
     /> */}
     {/* Finally, catch all unmatched routes */}
     <UnauthenticatedRoute path="/contact" component={ContactUs} exact props={childProps} />
+    <UnauthenticatedRoute path="/refer-friend" component={ReferFriend} exact props={childProps} />
     <Route component={NotFound} />
   </Switch>
 );
