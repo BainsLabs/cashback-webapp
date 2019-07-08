@@ -4,8 +4,10 @@ import LandingPage from 'components/LandingPage';
 // import Login from 'containers/Login';
 // import Signup from 'containers/Signup';
 import NotFound from 'containers/NotFound';
+import ContactUs from 'components/ContactUs';
 import AppliedRoute from 'utils/AppliedRoute';
 import UnauthenticatedRoute from 'utils/UnauthenticatedRoute';
+import ReferFriend from 'components/ReferAFriend';
 import Categories from 'components/CategoryPage';
 
 export default ({ childProps }) => (
@@ -28,5 +30,9 @@ export default ({ childProps }) => (
       props={childProps}
     /> */}
     {/* Finally, catch all unmatched routes */}
+
+    <UnauthenticatedRoute path="/contact" component={ContactUs} exact props={childProps} />
+    <UnauthenticatedRoute path="/refer-friend" component={ReferFriend} exact props={childProps} />
+    <Route component={NotFound} />
   </Switch>
 );

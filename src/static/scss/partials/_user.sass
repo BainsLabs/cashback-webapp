@@ -1,0 +1,119 @@
+
+.styles_modal__gNwvD
+  @include padding('',0px);
+  border-radius: 2.5rem;
+  width: 100%
+  // height: auto
+
+.styles_closeIcon__1QwbI
+  background: map-get($sectionColor,'darkGray')
+  fill: white
+  border-radius: 50%;
+  height: 30px;
+  width: 30px;
+  padding: 5px;
+  outline: none
+
+.forgot__container
+  @include margin('top',1rem)
+
+.forgot_password
+  border: none
+  background: none
+  float: right
+  color: map-get($fontColor,'darkGray')
+
+.usermodal__content
+  background-image: url('/images/bg.png');
+  background-size: cover;
+  background-repeat: no-repeat
+
+.userModal__brandName
+  @include padding ('', 2rem)
+  font-size: 1.6rem
+  color: map-get($fontColor,'white')
+
+.userModal__text
+  @extend .userModal__brandName
+  font-size: .9rem
+
+
+.signup__heading
+  @include padding('top', 5rem)
+  color: map-get($fontColor,'white')
+
+.signup__text
+  color: map-get($fontColor,'white')
+
+
+.signin__heading
+  @extend .signup__heading
+  @include padding('top', 2rem)
+
+.usermodal__logo
+  @include padding('top',2rem)
+
+
+.usermodal__form
+  background: transparentize(map-get($fontColor, 'black'), .92)
+
+
+.signup
+  @include padding('', 2rem)
+  width: 100%;
+
+
+.signup__textfield
+  @extend .top-navbar__search
+  color: map-get($fontColor,'black')
+  border: 0.1rem solid map-get($fontColor,'lightGray')
+  height: 3rem
+  @include margin('bottom', 1rem)
+  @include placeholder
+    color: map-get($fontColor,'lightGray')
+    font-size: 0.8rem
+
+.signup__select
+  @extend .signup__textfield
+  appearance: none;
+  background-image: url('/images/angle-down-solid.svg')
+  background-repeat: no-repeat;
+  background-position-x: 17rem;
+  background-position-y: 0.9rem;
+  background-size: 1rem 1rem;
+  color: map-get($fontColor,'lightGray')
+
+
+.signup__selectlabel
+  @include padding('left',1rem)
+  color: map-get($fontColor,'Gray')
+
+.signup__option
+  background: transparentize(map-get($fontColor, 'black'), 1)
+  color: map-get($fontColor,'black')
+
+.signup__check
+  @include margin('left',1rem)
+
+
+
+.signup__button
+  @extend .contactus__button
+  @include margin('top',2rem)
+  color: map-get($fontColor,'darkGray')
+
+.signup__button:disabled
+  background: map-get($fontColor,"lightGray")
+  cursor: not-allowed
+
+.signup__button:focus
+  outline: none
+
+.signup__Sbutton
+  @extend .signup__button
+  @include margin('top', 4rem)
+
+
+.signin__Sbutton
+  @extend .signup__button
+  @include margin('top', 1.9rem)

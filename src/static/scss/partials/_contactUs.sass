@@ -1,0 +1,73 @@
+
+.contactus__banner
+  background-image: url(/contactus.png)
+  background-size: cover;
+  height: 25rem;
+
+
+.contact_us
+  @include margin('bottom', 3rem)
+  padding: 50px;
+
+.contactus__form
+  background-color: map-get($sectionColor,'lightGray')
+  border-radius: 2rem;
+  padding: 2rem 4rem;
+  height: auto;
+  margin: auto;
+
+.contactus__field
+  @extend .top-navbar__search
+  height: 3rem
+
+.contactus__general
+  @include margin('bottom',3rem);
+
+.contactus__textarea
+  @extend .top-navbar__search
+  height: 3rem
+  @include padding('top',1rem);
+  @include padding('bottom',8rem);
+
+.contactus__message
+  @include margin('bottom',2.5rem);
+
+
+.contactus__label
+  color: map-get($fontColor,'darkGray');
+  font-weight: bolder;
+  @include padding('left',1.2rem);
+  @include padding('top',2rem);
+
+.contactus__button
+  @include margin('bottom',3rem)
+  background: map-get($sectionColor, 'yellow')
+  width: 15rem
+  height: 4rem
+  border-radius: 2rem
+  border: none
+
+.contact_services
+  @include margin('bottom',4rem)
+
+
+.contactus__text
+  font-size: 0.8rem;
+
+.contactservices__text
+  font-size: 1rem;
+  color: map-get($fontColor,'yellow')
+
+.contactservices__title
+  font-size: 0.9rem
+
+.contactservices__support
+  font-size: 0.8rem
+
+.contactservices__image
+  background-color: map-get($fontColor,'darkGray')
+  border-radius: 50%;
+  @include padding('',1rem)
+
+.contactservices__border
+  border-right: 1px solid map-get($fontColor,'lightGray')
