@@ -1,23 +1,13 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import Amplify from "aws-amplify";
-import { Provider } from "react-redux";
-import store from "redux/store";
-import { BrowserRouter as Router } from "react-router-dom";
-import App from "./App";
-import * as serviceWorker from "./serviceWorker";
-import config from "./config";
-import "static/scss/index.sass";
+import React from 'react';
+import ReactDOM from 'react-dom';
 
-Amplify.configure({
-  Auth: {
-    mandatorySignIn: true,
-    region: config.cognito.REGION,
-    userPoolId: config.cognito.USER_POOL_ID,
-    identityPoolId: config.cognito.IDENTITY_POOL_ID,
-    userPoolWebClientId: config.cognito.APP_CLIENT_ID
-  }
-});
+import { Provider } from 'react-redux';
+import store from 'redux/store';
+import { BrowserRouter as Router } from 'react-router-dom';
+import App from './App';
+import * as serviceWorker from './serviceWorker';
+
+import 'static/scss/index.sass';
 
 ReactDOM.render(
   <Provider store={store}>
@@ -25,7 +15,8 @@ ReactDOM.render(
       <App />
     </Router>
   </Provider>,
-  document.getElementById("root")
+  // eslint-disable-next-line no-undef
+  document.getElementById('root'),
 );
 
 // If you want your app to work offline and load faster, you can change

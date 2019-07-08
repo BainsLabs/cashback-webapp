@@ -1,45 +1,50 @@
-import React, { Component } from "react";
-import { Row, Col } from "react-bootstrap";
-import Input from "components/common/inputField";
-import Select from "components/common/selectField";
-import { ReferOptions } from "constants/referOptions";
-import { faUser } from "@fortawesome/fontawesome-free-solid";
-import { Auth } from "aws-amplify";
-import LoaderButton from "components/common/LoaderButton";
+import React, { Component } from 'react';
+import { Row, Col } from 'react-bootstrap';
+import Input from 'components/common/inputField';
+import Select from 'components/common/selectField';
+import { ReferOptions } from 'constants/referOptions';
+import { Auth } from 'aws-amplify';
+import config from 'config';
+import Amplify from 'aws-amplify';
+import LoaderButton from 'components/common/LoaderButton';
 
+Amplify.configure({
+  Auth: {
+    mandatorySignIn: true,
+    region: config.cognito.REGION,
+    userPoolId: config.cognito.USER_POOL_ID,
+    identityPoolId: config.cognito.IDENTITY_POOL_ID,
+    userPoolWebClientId: config.cognito.APP_CLIENT_ID,
+  },
+});
 class SignUp extends Component {
   state = {
     isLoading: false,
-    username: "",
-    usernameError: "",
-    email: "",
-    password: "",
-    passwordError: "",
-    refer: "",
-    friendUsername: "",
+    username: '',
+    usernameError: '',
+    email: '',
+    password: '',
+    passwordError: '',
+    refer: '',
+    friendUsername: '',
     isAccepted: false,
-    newUser: null
+    newUser: null,
   };
 
   validateForm() {
     const { username, email, password, isAccepted } = this.state;
-    return (
-      username.length > 0 &&
-      email.length > 0 &&
-      password.length > 0 &&
-      isAccepted
-    );
+    return username.length > 0 && email.length > 0 && password.length > 0 && isAccepted;
   }
 
   userCheck = () => {
     const { username } = this.state;
     if (username.length > 0) {
-      Auth.signIn(username, "a")
+      Auth.signIn(username, 'a')
         .then(user => console.log(user))
         .catch(err => {
-          if (err.code !== "UserNotFoundException") {
+          if (err.code !== 'UserNotFoundException') {
             this.setState({
-              usernameError: "Username already exist"
+              usernameError: 'Username already exist',
             });
             return;
           }
@@ -53,16 +58,16 @@ class SignUp extends Component {
       usernameError:
         username.length > 3 || username.length === 0
           ? null
-          : "username length should be greater then 3 characters",
-      passwordError: passwordRegularExpression.test(password) ? null : "error"
+          : 'username length should be greater then 3 characters',
+      passwordError: passwordRegularExpression.test(password) ? null : 'error',
     });
   };
   handleChange = event => {
     this.setState(
       {
-        [event.target.name]: event.target.value
+        [event.target.name]: event.target.value,
       },
-      () => this.validateFields()
+      () => this.validateFields(),
     );
   };
 
@@ -75,11 +80,11 @@ class SignUp extends Component {
         username: this.state.username,
         password: this.state.password,
         attributes: {
-          email: this.state.email
-        }
+          email: this.state.email,
+        },
       });
       this.setState({
-        newUser
+        newUser,
       });
       await this.handleConfirmationSubmit();
     } catch (e) {
@@ -93,7 +98,7 @@ class SignUp extends Component {
     try {
       await Auth.signIn(this.state.username, this.state.password);
       this.props.userHasAuthenticated(true);
-      this.props.history.push("/");
+      this.props.history.push('/');
     } catch (e) {
       alert(e.message);
       this.setState({ isLoading: false });
@@ -108,7 +113,7 @@ class SignUp extends Component {
       usernameError,
       passwordError,
       refer,
-      friendUsername
+      friendUsername,
     } = this.state;
     return (
       <section className="signup">
@@ -126,8 +131,8 @@ class SignUp extends Component {
               autoFocus
               name="username"
             />
+            <span className="text-danger no-padding">{usernameError}</span>
           </Col>
-          <span className="text-danger">{usernameError}</span>
         </Row>
         <Row>
           <Col>
@@ -167,7 +172,7 @@ class SignUp extends Component {
             />
           </Col>
         </Row>
-        {refer === "friend" ? (
+        {refer === 'friend' ? (
           <Row>
             <Col>
               <Input
@@ -182,7 +187,7 @@ class SignUp extends Component {
             {/* <span className="text-danger">{passwordError}</span> */}
           </Row>
         ) : (
-          ""
+          ''
         )}
         <Row>
           <Col>
@@ -195,7 +200,7 @@ class SignUp extends Component {
           <Col className="text-center">
             <LoaderButton
               block
-              disabled={!this.validateForm()}
+              disabled={this.validateForm()}
               isLoading={this.state.isLoading}
               className="signup__button"
               text="Join Now"

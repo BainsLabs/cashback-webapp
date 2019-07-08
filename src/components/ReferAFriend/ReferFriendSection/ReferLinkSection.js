@@ -1,8 +1,8 @@
-import React from "react";
-import { Row, Col } from "react-bootstrap";
-import Input from "components/common/inputField";
+import React from 'react';
+import { Row, Col } from 'react-bootstrap';
+import Input from 'components/common/inputField';
 
-const ReferLinkSection = () => (
+export default () => (
   <div className="refer__link">
     <Row>
       <Col className="text-center">
@@ -29,12 +29,12 @@ const ReferLinkSection = () => (
     <Row>
       <Col className="text-center">
         <h6 className="muted mt-3 text-center refer__text">
-          To receive your Referral Bonus, the person you hace referred must earn
-          $25
-          <br /> payable cashback or more
+          To receive your Referral Bonus, the person you hace referred must earn $25
+          <br />
+          {' '}
+payable cashback or more
         </h6>
       </Col>
     </Row>
   </div>
 );
-export default ReferLinkSection;

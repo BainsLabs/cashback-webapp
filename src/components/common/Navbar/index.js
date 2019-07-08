@@ -16,7 +16,7 @@ export default () => (
             <Link to="/categories">How Cashback Works</Link>
           </Nav.Item>
           <Nav.Item>
-            <Link to="/categories">Refer a Friend</Link>
+            <Link to="/refer-friend">Refer a Friend</Link>
           </Nav.Item>
           <Nav.Item>
             <Link to="/categories">VIP Beifits</Link>

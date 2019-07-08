@@ -1,8 +1,8 @@
-import React from "react";
-import { Row, Col } from "react-bootstrap";
-import Input from "components/common/inputField";
+import React from 'react';
+import { Row, Col } from 'react-bootstrap';
+import Input from 'components/common/inputField';
 
-const ReferUsernameSection = () => (
+export default () => (
   <div className="refer__username">
     <Row>
       <Col className="text-center">
@@ -21,4 +21,3 @@ const ReferUsernameSection = () => (
     </Row>
   </div>
 );
-export default ReferUsernameSection;
