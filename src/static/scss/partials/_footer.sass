@@ -1,26 +1,37 @@
 .footer
   background: map-get($fontColor, 'darkGray')
-  @include padding('',7rem 0rem 5rem 4rem)
-  color: map-get($fontColor,'white')
+
+  +padding('', 7rem 0rem 5rem 0rem)
+
+  color: map-get($fontColor, 'white')
+
+  img
+    width: 15rem
+
   a
-    color: transparentize(map-get($fontColor,'white'),0.3)
+    color: transparentize(map-get($fontColor, 'white'), 0.3)
     text-decoration: none
+
     &:hover
-      color: transparentize(map-get($fontColor,'yellow'),0.2)
+      color: transparentize(map-get($fontColor, 'yellow'), 0.2)
+
   ul
     list-style: none
-    li
-      @include margin('top',0.5rem)
 
+    li
+      +margin('top', 0.5rem)
 
 .footer__social-icons
   a:not(:first-child)
-    @include margin('left',1rem)
+    +margin('left', 1rem)
+
 .footer__links
-  @include margin('top',0.5rem)
+  +margin('top', 0.5rem)
+
 .footer__description
-  color: transparentize(map-get($fontColor,'white'),0.3)
+  color: transparentize(map-get($fontColor, 'white'), 0.3)
   text-justify: left
   text-align: left
   font-size: 0.7rem
-  @include margin('', 1rem 0)
+
+  +margin('', 1rem 0)

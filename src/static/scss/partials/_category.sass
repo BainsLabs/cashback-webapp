@@ -1,0 +1,43 @@
+.category__banner
+  +padding('', 10rem 0)
+
+  color: map-get($fontColor, 'white')
+
+  h3
+    font-size: 2rem
+    font-weight: bolder
+
+  p
+    font-size: 0.8rem
+
+.filter-line
+  width: inherit
+  background: transparentize(map-get($fontColor, 'white'), 0.5)
+  height: 0.1rem
+
+.category__filter
+  background: map-get($fontColor, 'darkGray')
+  color: map-get($fontColor, 'white')
+
+  +padding('top', 1rem)
+
+  .filters:not(:first-child)
+    border-top: 1px solid map-get($fontColor, 'white')
+
+    +margin('top', 2rem)
+    +padding('top', 1rem)
+    +padding('bottom', 1rem)
+
+.category__content
+  +margin('top', 2rem)
+
+.category-section
+  @extend .add-section
+
+  +margin('', 0)
+  +padding('', 0)
+
+.category-section__heading
+  @extend .add-section__heading
+
+  +margin('top', 0)
