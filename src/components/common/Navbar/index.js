@@ -1,13 +1,7 @@
 import React from 'react';
+import { Navbar, Nav, Container } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 import TopNavbar from './TopNavbar';
-import {
-  Navbar,
-  Nav,
-  Form,
-  FormControl,
-  Button,
-  Container
-} from 'react-bootstrap';
 
 export default () => (
   <>
@@ -15,11 +9,21 @@ export default () => (
     <Navbar className="navbar" expand="lg">
       <Container>
         <Nav className="navbar__list">
-          <Nav.Link href="#home">Shop Categories</Nav.Link>
-          <Nav.Link href="#link">How Cashback Works</Nav.Link>
-          <Nav.Link href="#link">Refer a Friend</Nav.Link>
-          <Nav.Link href="#link">VIP Beifits</Nav.Link>
-          <Nav.Link href="#link">My Account</Nav.Link>
+          <Nav.Item>
+            <Link to="/categories">Shop Categories</Link>
+          </Nav.Item>
+          <Nav.Item>
+            <Link to="/categories">How Cashback Works</Link>
+          </Nav.Item>
+          <Nav.Item>
+            <Link to="/categories">Refer a Friend</Link>
+          </Nav.Item>
+          <Nav.Item>
+            <Link to="/categories">VIP Beifits</Link>
+          </Nav.Item>
+          <Nav.Item>
+            <Link to="/categories">My Account</Link>
+          </Nav.Item>
         </Nav>
       </Container>
     </Navbar>

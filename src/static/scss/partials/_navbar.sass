@@ -2,5 +2,9 @@
   background: map-get($sectionColor, 'lightGray')
 
 .navbar__list
-  a:not(:first-child)
-    @include margin('left',6rem)
+  div:not(:first-child)
+    +margin('left', 8rem)
+
+  a
+    color: map-get($fontColor, 'black')
+    text-decoration: none
