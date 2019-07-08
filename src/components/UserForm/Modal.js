@@ -1,19 +1,19 @@
-import React, { Component } from "react";
-import { Row, Col } from "react-bootstrap";
-import Modal from "react-responsive-modal";
-import { connect } from "react-redux";
-import SignIn from "components/UserForm/SignIn";
-import SignUp from "components/UserForm/SignUp";
-import LogoIcon from "static/icons-images/logo-icon.png";
-import SignUpContent from "components/UserForm/SignUp/SignUpContent";
-import SignInContent from "components/UserForm/SignIn/SignInContent";
-import ForgotPassword from "components/UserForm/ForgotPassword";
+import React, { Component } from 'react';
+import { Row, Col } from 'react-bootstrap';
+import Modal from 'react-responsive-modal';
+import { connect } from 'react-redux';
+import SignIn from 'components/UserForm/SignIn';
+import SignUp from 'components/UserForm/SignUp';
+import LogoIcon from 'static/icons-images/logo-icon.png';
+import SignUpContent from 'components/UserForm/SignUp/SignUpContent';
+import SignInContent from 'components/UserForm/SignIn/SignInContent';
+import ForgotPassword from 'components/UserForm/ForgotPassword';
 
 class UserModal extends Component {
   render() {
     const { name, open } = this.props.userModal || {};
     return (
-      <Modal open={open} onClose={this.props.onHide} center blockScroll={true}>
+      <Modal open={open} onClose={this.props.onHide} center blockScroll>
         <Row>
           <Col md={6} className="usermodal__content">
             <p>
@@ -24,7 +24,7 @@ class UserModal extends Component {
                 Friends Shopping Network
               </p>
             </p>
-            {name == "signin" || name == "forgot" ? (
+            {name == 'signin' || name == 'forgot' ? (
               <SignInContent label="SignUp" />
             ) : (
               <SignUpContent label="SignIn" />
@@ -32,13 +32,7 @@ class UserModal extends Component {
           </Col>
           <Col md={6} className="usermodal__form">
             <img src={LogoIcon} className="mx-auto d-block usermodal__logo" />
-            {name == "signin" ? (
-              <SignIn />
-            ) : name == "signup" ? (
-              <SignUp />
-            ) : (
-              <ForgotPassword />
-            )}
+            {name == 'signin' ? <SignIn /> : name == 'signup' ? <SignUp /> : <ForgotPassword />}
           </Col>
         </Row>
       </Modal>
@@ -46,12 +40,12 @@ class UserModal extends Component {
   }
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   console.log(state);
   return { userModal: state.UserModal.path };
 };
 
 export default connect(
   mapStateToProps,
-  null
+  null,
 )(UserModal);

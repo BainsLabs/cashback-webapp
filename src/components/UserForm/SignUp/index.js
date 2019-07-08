@@ -97,7 +97,7 @@ class SignUp extends Component {
     this.setState({ isLoading: true });
     try {
       await Auth.signIn(this.state.username, this.state.password);
-      this.props.userHasAuthenticated(true);
+      // this.props.userHasAuthenticated(true);
       this.props.history.push('/');
     } catch (e) {
       alert(e.message);
@@ -205,6 +205,7 @@ class SignUp extends Component {
               className="signup__button"
               text="Join Now"
               loadingText="Signing up…"
+              onClick={this.handleSubmit}
             />
             {/* <button className="signup__button">Join Now</button> */}
           </Col>

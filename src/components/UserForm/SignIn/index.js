@@ -1,27 +1,28 @@
-import React, { Component } from "react";
-import { Row, Col } from "react-bootstrap";
-import Input from "components/common/inputField";
-import { Auth } from "aws-amplify";
-import LoaderButton from "components/common/LoaderButton";
-import { ForgotModal } from "redux/actions/modalActions";
-import { connect } from "react-redux";
+import React, { Component } from 'react';
+import { Row, Col } from 'react-bootstrap';
+import Input from 'components/common/inputField';
+import { Auth } from 'aws-amplify';
+import LoaderButton from 'components/common/LoaderButton';
+import { ForgotModal, CloseModal } from 'redux/actions/modalActions';
+import { isAuthenticated } from 'redux/actions/userActions';
+import { connect } from 'react-redux';
 
 class SignIn extends Component {
   state = {
     isLoading: false,
-    username: "",
-    password: "",
-    usernameError: "",
+    username: '',
+    password: '',
+    usernameError: '',
     mailSent: false,
-    loginError: "",
-    confirmationCode: "",
-    is_forgotPassword: false
+    loginError: '',
+    confirmationCode: '',
+    is_forgotPassword: false,
   };
 
   showForgotPasswordForm = () => {
-    console.log("Testing");
+    console.log('Testing');
     this.setState({
-      is_forgotPassword: true
+      is_forgotPassword: true,
     });
   };
   validateConfirmationForm() {
@@ -34,21 +35,22 @@ class SignIn extends Component {
   handleChange = event => {
     this.setState({
       [event.target.name]: event.target.value,
-      usernameError: "",
-      loginError: ""
+      usernameError: '',
+      loginError: '',
     });
   };
 
   handleSubmit = async event => {
     event.preventDefault();
 
-    this.setState({ isLoading: true, usernameError: "", loginError: "" });
+    this.setState({ isLoading: true, usernameError: '', loginError: '' });
 
     try {
-      await Auth.signIn(this.state.username, this.state.password);
-      this.props.userHasAuthenticated(true);
+      let user = await Auth.signIn(this.state.username, this.state.password);
+      this.props.isAuthenticated(user);
+      this.props.CloseModal();
     } catch (e) {
-      console.log(e, "error");
+      console.log(e, 'error');
       this.setState({ isLoading: false, loginError: e.message });
     }
   };
@@ -64,7 +66,7 @@ class SignIn extends Component {
     const { username } = this.state;
     await Auth.forgotPassword(username);
     this.setState({
-      mailSent: true
+      mailSent: true,
     });
   };
 
@@ -109,10 +111,7 @@ class SignIn extends Component {
         </Row>
         <Row>
           <Col className="text-center forgot__container">
-            <button
-              className="forgot_password"
-              onClick={this.props.ForgotModal}
-            >
+            <button className="forgot_password" onClick={this.props.ForgotModal}>
               Forgot Password
             </button>
           </Col>
@@ -126,6 +125,7 @@ class SignIn extends Component {
               text="Login"
               className="text-uppercase signup__button"
               loadingText="Logging in…"
+              onClick={this.handleSubmit}
             />
             {/* <button className="text-uppercase signup__button">Login</button> */}
           </Col>
@@ -136,10 +136,12 @@ class SignIn extends Component {
 }
 
 const mapDispatchToProps = {
-  ForgotModal
+  ForgotModal,
+  isAuthenticated,
+  CloseModal,
 };
 
 export default connect(
   null,
-  mapDispatchToProps
+  mapDispatchToProps,
 )(SignIn);
