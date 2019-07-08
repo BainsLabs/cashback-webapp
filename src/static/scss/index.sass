@@ -15,38 +15,37 @@
 @import /partials/_add-section.sass
 @import /partials/_merchants.sass
 @import /partials/_deals-news.sass
+@import /partials/_category.sass
 
 .line
-    height: 0.1rem
-    width: 35%
-    background: map-get($fontColor, 'white')
+  height: 0.1rem
+  width: 35%
+  background: map-get($fontColor, 'white')
 
 p
-    +margin('', 0)
-    +padding('', 0)
+  +margin('', 0)
+  +padding('', 0)
 
 .footer__line
-    @extend .line
+  @extend .line
 
-    background: transparentize(map-get($fontColor, 'white'), 0.7)
-    width: inherit
+  background: transparentize(map-get($fontColor, 'white'), 0.7)
+  width: inherit
 
-    +margin('', 2.5rem 0 1rem 0)
+  +margin('', 2.5rem 0 1rem 0)
 
 .banner-btn
-    @extend .refer__banner
+  @extend .refer__banner
 
-    +padding('', 1rem)
-    +margin('left', 4rem)
-    +margin('top', 7rem)
+  +padding('', 1rem)
+  +margin('left', 4rem)
+  +margin('top', 7rem)
 
-    background: map-get($fontColor, 'white')
-    border: 0
-    font-size: 1rem
-    border-radius: 10rem
-    width: 15rem
-    color: map-get($fontColor, 'black')
-    font-weight: normal
-    letter-spacing: 0rem
-
-
+  background: map-get($fontColor, 'white')
+  border: 0
+  font-size: 1rem
+  border-radius: 10rem
+  width: 15rem
+  color: map-get($fontColor, 'black')
+  font-weight: normal
+  letter-spacing: 0rem
