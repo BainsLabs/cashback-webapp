@@ -16,22 +16,23 @@ class NavBar extends Component {
               <Nav.Item>
                 <Link to="/categories">Shop Categories</Link>
               </Nav.Item>
-              <Nav.Item>
+              {/* <Nav.Item>
                 <Link to="/categories">How Cashback Works</Link>
-              </Nav.Item>
+              </Nav.Item> */}
               <Nav.Item>
                 <Link to="/refer-friend">Refer a Friend</Link>
               </Nav.Item>
               <Nav.Item>
                 <Link to="/categories">VIP Beifits</Link>
               </Nav.Item>
+              <Nav.Item>
+                <Link to="/contact">Contact Us</Link>
+              </Nav.Item>
               {user.authenticated ? (
                 <Nav.Item>
                   <Link to="/categories">My Account</Link>
                 </Nav.Item>
-              ) : (
-                ''
-              )}
+              ) : null}
             </Nav>
           </Container>
         </Navbar>
