@@ -5,7 +5,7 @@ import { Container, Row, Col } from 'react-bootstrap';
 import bannerImg from 'static/icons-images/bannerimage.jpg';
 import Card from 'components/common/Card';
 import BlackLine from 'static/icons-images/black-line.png';
-import ReferAFriendBG from 'static/icons-images/refer-a-friend-banner.jpg';
+import ReferAFriendBG from 'static/icons-images/joinnow.jpg';
 import joinNow from 'static/icons-images/join-now.png';
 import AddSection from 'components/LandingPage/AddSection';
 import DealsNews from 'components/LandingPage/DealsNews';
