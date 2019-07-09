@@ -1,17 +1,25 @@
 .home__category
   background: map-get($sectionColor, 'blue')
-  @include padding('bottom',2rem)
+
+  +padding('bottom', 2rem)
 
 .home__category-list
   list-style: none
-  @include padding('',2rem)
-  @include padding('bottom',0rem)
+
+  +padding('', 2rem)
+  +padding('bottom', 0rem)
+
   text-align: center
+
   p
     color: map-get($fontColor, 'white')
-    @include margin('top',1rem)
+
+    +margin('top', 1rem)
+
     font-weight: bold
+
   li
     display: inline-block
+
     &:not(:first-child)
-      @include margin('left',9rem)
+      +margin('left', 9rem)
