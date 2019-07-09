@@ -9,7 +9,7 @@ import BenefitsCard from 'components/common/benefitscard';
 export default () => (
   <section>
     <Row>
-      <BenefitsCard>
+      <BenefitsCard className="benefits">
         <Row>
           <Col xs={12} className="no-padding ">
             <span className="benefits__headingtext">
@@ -28,7 +28,7 @@ export default () => (
       </BenefitsCard>
     </Row>
     <Row>
-      <BenefitsCard color="white" backgroundColor="#272F3A">
+      <BenefitsCard color="white" backgroundColor="#272F3A" className="benefits">
         <Row>
           <Col xs={12} className="no-padding ">
             <span className="benefits__headingtext">
@@ -47,7 +47,7 @@ export default () => (
       </BenefitsCard>
     </Row>
     <Row>
-      <BenefitsCard backgroundColor="#43bae9">
+      <BenefitsCard backgroundColor="#43bae9" className="benefits">
         <Row>
           <Col xs={12} className="no-padding ">
             <span className="benefits__headingtext">
