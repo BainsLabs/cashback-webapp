@@ -3,7 +3,6 @@ import styled from 'styled-components';
 
 const StyledDiv = styled.div`
   background: ${props => (props.backgroundColor ? props.backgroundColor : '#ffb422')};
-  width: inherit;
   color: ${props => (props.color ? props.color : '#000')};
   padding: 1rem;
   margin-top: 3rem;

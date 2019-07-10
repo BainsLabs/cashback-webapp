@@ -13,7 +13,7 @@ const HowAffiliateWorks = () => (
         </Row>
         <Row>
           {CashbackImg.map(image => (
-            <Col md={3} className="text-left text-sm-center">
+            <Col md={3} className="text-left">
               <Col className="affiliate__img no-padding">
                 <img src={image.path} alt={image.alt} height="90px" />
               </Col>
