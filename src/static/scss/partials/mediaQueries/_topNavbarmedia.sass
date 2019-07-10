@@ -1,0 +1,16 @@
+@include media-breakpoint-down(md)
+  .navbar,
+  .top-navbar
+    display: none
+
+
+
+@include media-breakpoint-up(md)
+  .cell
+    display: none
+  .bm-overlay
+    background: map-get($fontColor,'white')
+    color: #fff
+    padding: 2.5em 1.5em 0;
+    font-size: 1.15em;
+

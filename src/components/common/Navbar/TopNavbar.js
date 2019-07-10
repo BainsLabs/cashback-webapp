@@ -11,10 +11,6 @@ import { isLogout } from 'redux/actions/userActions';
 import UserModal from 'components/UserForm/Modal';
 
 class TopNavbar extends Component {
-  state = {
-    loggedIn: false,
-  };
-
   ModalOpen = e => {
     if (e === 'SignIn') {
       this.props.SignInModal();

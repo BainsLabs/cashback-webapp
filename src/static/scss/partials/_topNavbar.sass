@@ -50,3 +50,20 @@
   @extend .top-navbar__login-btn
   color: map-get($fontColor, 'yellow')
   font-size: 1rem
+
+  .nav-overlay
+    display: none;
+    position: fixed;
+    z-index: 99999;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+
+    // background-color: #ffffff; // fallback
+    background: rgba(255, 255, 255, 1); // no transparency
+
+  &.is-open
+    display: block;
