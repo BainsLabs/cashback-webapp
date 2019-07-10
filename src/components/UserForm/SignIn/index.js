@@ -1,5 +1,6 @@
+/* eslint-disable no-shadow */
 import React, { Component } from 'react';
-import { Row, Col } from 'react-bootstrap';
+import { Col, Form } from 'react-bootstrap';
 import Input from 'components/common/inputField';
 import { Auth } from 'aws-amplify';
 import LoaderButton from 'components/common/LoaderButton';
@@ -13,47 +14,46 @@ class SignIn extends Component {
     username: '',
     password: '',
     usernameError: '',
-    mailSent: false,
-    loginError: '',
     confirmationCode: '',
-    is_forgotPassword: false,
   };
 
   showForgotPasswordForm = () => {
-    console.log('Testing');
     this.setState({
       is_forgotPassword: true,
     });
   };
-  validateConfirmationForm() {
-    return this.state.username.length > 0;
-  }
+
   validateForm() {
-    return this.state.username.length > 0 && this.state.password.length > 0;
+    const { username, password } = this.state;
+    return username.length > 0 && password.length > 0;
   }
 
-  handleChange = event => {
+  handleChange = (event) => {
     this.setState({
       [event.target.name]: event.target.value,
       usernameError: '',
-      loginError: '',
     });
   };
 
-  handleSubmit = async event => {
+  handleSubmit = async (event) => {
     event.preventDefault();
-
+    const { username, password } = this.state;
+    const { isAuthenticated, CloseModal } = this.props;
     this.setState({ isLoading: true, usernameError: '', loginError: '' });
 
     try {
-      let user = await Auth.signIn(this.state.username, this.state.password);
-      this.props.isAuthenticated(user);
-      this.props.CloseModal();
+      const user = await Auth.signIn(username, password);
+      isAuthenticated(user);
+      CloseModal();
     } catch (e) {
-      console.log(e, 'error');
       this.setState({ isLoading: false, loginError: e.message });
     }
   };
+
+  validateConfirmationForm() {
+    const { username } = this.state;
+    return username.length > 0;
+  }
 
   forgotPassword = async () => {
     const { username, confirmationCode, password } = this.state;
@@ -61,75 +61,68 @@ class SignIn extends Component {
       .then(data => console.log(data))
       .catch(e => console.log(e));
   };
-  handleConfirmationSubmit = async e => {
+
+  handleConfirmationSubmit = async (e) => {
     e.preventDefault();
     const { username } = this.state;
     await Auth.forgotPassword(username);
-    this.setState({
-      mailSent: true,
-    });
   };
 
   render() {
-    const { username, password, usernameError } = this.state;
+    const {
+      username, password, usernameError, isLoading,
+    } = this.state;
+    const { ForgotModal } = this.props;
 
     return (
-      <section className="signup">
-        <div className="container signup__container text-center">
-          <h3>SignIn to 6Degree.CASH</h3>
+      <section className="auth-right__signIn">
+        <h3>Sign in to 6Degrees.CASH</h3>
+        <Form>
+          <Form.Row>
+            <Col>
+              <Input
+                placeholder="Enter Username"
+                name="username"
+                value={username}
+                onChange={this.handleChange}
+              />
+
+              <span className="text-danger">{usernameError}</span>
+            </Col>
+            <Col>
+              <Input
+                placeholder="Enter Password"
+                type="password"
+                name="password"
+                onChange={this.handleChange}
+                value={password}
+              />
+            </Col>
+            <Col xs={12}>
+              <Input id="isAccepted" type="checkbox" className="signup__check" />
+              &nbsp;
+              <span>Stay Logged In</span>
+            </Col>
+            <Col>
+              <LoaderButton
+                block
+                disabled={!this.validateForm()}
+                type="submit"
+                isLoading={isLoading}
+                text="Login"
+                className="auth-right__signIn-btn"
+                loadingText="Logging in…"
+                onClick={this.handleSubmit}
+              />
+            </Col>
+          </Form.Row>
+        </Form>
+
+        <div className="forgot-password__container">
+          <button type="button" className="forgot_password" onClick={ForgotModal}>
+            Click here to reset your password
+          </button>
         </div>
-        <Row>
-          <Col>
-            <Input
-              placeholder="Choose Username"
-              className="signup__textfield"
-              name="username"
-              value={username}
-              onChange={this.handleChange}
-            />
-            <span className="text-danger">{usernameError}</span>
-          </Col>
-        </Row>
-        <Row>
-          <Col>
-            <Input
-              placeholder="Create Password"
-              className="signup__textfield"
-              type="password"
-              name="password"
-              onChange={this.handleChange}
-              value={password}
-            />
-          </Col>
-        </Row>
-        <Row>
-          <Col className="text-center">
-            <Input id="isAccepted" type="checkbox" className="signup__check" />
-            &nbsp;
-            <span>Stay Logged In</span>
-          </Col>
-        </Row>
-        <Row>
-          <Col className="text-center forgot__container">
-            <button className="forgot_password" onClick={this.props.ForgotModal}>
-              Forgot Password
-            </button>
-          </Col>
-          <Col className="text-center">
-            <LoaderButton
-              block
-              bsSize="large"
-              disabled={!this.validateForm()}
-              type="submit"
-              isLoading={this.state.isLoading}
-              text="Login"
-              className="text-uppercase signup__button"
-              loadingText="Logging in…"
-              onClick={this.handleSubmit}
-            />
-            {/* <button className="text-uppercase signup__button">Login</button> */}
-          </Col>
-        </Row>
       </section>
     );
   }

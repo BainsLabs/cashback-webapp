@@ -1,120 +1,90 @@
+.auth-modal__left-side
+  +padding('', 3rem)
 
-.styles_modal__gNwvD
-  @include padding('',0px);
-  border-radius: 2.5rem;
-  width: 100%
-  // height: auto
+.auth-modal__right-side
+  @extend .auth-modal__left-side
 
-.styles_closeIcon__1QwbI
-  background: map-get($sectionColor,'darkGray')
-  fill: white
-  border-radius: 50%;
-  height: 30px;
-  width: 30px;
-  padding: 5px;
-  outline: none
-  box-shadow: 1px 2px 5px grey;
+  +padding('', 2rem)
 
-.forgot__container
-  @include margin('top',1rem)
+  background: transparentize(map-get($fontColor, 'gray'), 0.9)
 
-.forgot_password
-  border: none
-  background: none
-  float: right
-  color: map-get($fontColor,'darkGray')
+.auth-left__signup, .auth-left__signin
+  color: map-get($fontColor, 'white')
 
-.usermodal__content
-  background-image: url('/images/bg.png');
-  background-size: cover;
-  background-repeat: no-repeat
+  +margin('top', 2.5rem)
 
-.userModal__brandName
-  @include padding ('', 2rem)
-  font-size: 1.6rem
-  color: map-get($fontColor,'white')
+  h2
+    font-size: 2.2rem
 
-.userModal__text
-  @extend .userModal__brandName
-  font-size: .9rem
+  p
+    color: transparentize(map-get($fontColor, 'white'), 0.2)
 
+  button
+    +margin('top', 5rem)
 
-.signup__heading
-  @include padding('top', 5rem)
-  color: map-get($fontColor,'white')
+    color: map-get($fontColor, 'black')
+    background: map-get($fontColor, 'yellow')
+    border: 0
+    outline: 0
 
-.signup__text
-  color: map-get($fontColor,'white')
+    +padding('', 1.2rem 4rem)
 
+    border-radius: 2rem
 
-.signin__heading
-  @extend .signup__heading
-  @include padding('top', 2rem)
+.auth-right__signIn, .auth-right__signUp, .auth-right__forgot
+  text-align: center
 
-.usermodal__logo
-  @include padding('top',2rem)
+  +padding('', 3rem 0)
 
+  input
+    +padding('', 0.5rem 1.5rem)
+    +margin('', 0.5rem 0)
 
-.usermodal__form
-  background: transparentize(map-get($fontColor, 'black'), .92)
+    width: 20rem
+    border: 1.8px solid transparentize(map-get($fontColor, 'gray'), 0.7)
+    border-radius: 2rem
+    outline: 0px
 
+  input[type='checkbox']
+    +padding('', 0)
+    +margin('', 1rem 0 0 0)
 
-.signup
-  @include padding('', 2rem)
-  width: 100%;
+    width: 1rem
 
+  span
+    color: map-get($fontColor, 'black')
+    font-weight: 400
 
-.signup__textfield
-  @extend .top-navbar__search
-  color: map-get($fontColor,'black')
-  border: 0.1rem solid map-get($fontColor,'lightGray')
-  height: 3rem
-  @include margin('bottom', 1rem)
-  @include placeholder
-    color: map-get($fontColor,'lightGray')
+.forgot-password__container
+  position: relative
+  text-align: center
+
+  button
     font-size: 0.8rem
+    background: none
+    border: 0px
+    position: absolute
+    top: 5rem
+    left: 5rem
 
-.signup__select
-  @extend .signup__textfield
-  appearance: none;
-  background-image: url('/images/angle-down-solid.svg')
-  background-repeat: no-repeat;
-  background-position-x: 17rem;
-  background-position-y: 0.9rem;
-  background-size: 1rem 1rem;
-  color: map-get($fontColor,'lightGray')
+    &:hover
+      text-decoration: underline
 
+  // +padding('top', 5rem)
 
-.signup__selectlabel
-  @include padding('left',1rem)
-  color: map-get($fontColor,'Gray')
+.auth-right__signIn-btn, .auth-right__forgot-btn
+  color: map-get($fontColor, 'black')
+  background: map-get($fontColor, 'yellow')
+  border: 0
+  outline: 0
 
-.signup__option
-  background: transparentize(map-get($fontColor, 'black'), 1)
-  color: map-get($fontColor,'black')
+  +margin('', 2rem 0 0 0)
+  +padding('', 1rem 4rem)
 
-.signup__check
-  @include margin('left',1rem)
+  border-radius: 2rem
 
+.auth-right__signUp-btn
+  @extend .auth-right__signIn-btn
 
-
-.signup__button
-  @extend .contactus__button
-  @include margin('top',2rem)
-  color: map-get($fontColor,'darkGray')
-
-.signup__button:disabled
-  background: map-get($fontColor,"lightGray")
-  cursor: not-allowed
-
-.signup__button:focus
-  outline: none
-
-.signup__Sbutton
-  @extend .signup__button
-  @include margin('top', 4rem)
-
-
-.signin__Sbutton
-  @extend .signup__button
-  @include margin('top', 1.9rem)
+  +margin('', 0rem 0 0 0)
+  +padding('', 1rem 4rem)

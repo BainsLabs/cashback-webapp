@@ -4,7 +4,6 @@ import classNames from 'classnames';
 
 const StyledDiv = styled.div`
   background: ${props => (props.backgroundColor ? props.backgroundColor : '#ffffff')};
-  width: ${props => (props.width ? props.width : '20rem')};
   background-image: url(${props => props.backgroundImage});
   background-size: cover;
   background-position: center;

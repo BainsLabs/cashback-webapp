@@ -7,19 +7,15 @@ const SignUpContent = (props) => {
   // eslint-disable-next-line no-shadow
   const { label, SignInModal } = props;
   return (
-    <>
+    <div className="auth-left__signin">
       <Row>
         <Col>
-          <h1 className="text-capitalize text-center font-weight-bold signup__heading">
-            welcome back!
-          </h1>
-          <p className="text-capitalize text-center signup__text">
-            to keep connected with us please login with your personal info
-          </p>
+          <h2>welcome back!</h2>
+          <p>to keep connected with us please login with your personal info</p>
         </Col>
       </Row>
       <Row>
-        <Col className="text-center">
+        <Col>
           <button
             type="button"
             className="signup__Sbutton text-uppercase"
@@ -29,7 +25,7 @@ const SignUpContent = (props) => {
           </button>
         </Col>
       </Row>
-    </>
+    </div>
   );
 };
 

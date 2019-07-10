@@ -1,46 +1,44 @@
-import React, { Component } from "react";
-import { FormGroup, FormControl, FormLabel } from "react-bootstrap";
-import { Auth } from "aws-amplify";
-import LoaderButton from "components/common/LoaderButton";
-import "./Signup.css";
+import React, { Component } from 'react';
+import { FormGroup, FormControl, FormLabel } from 'react-bootstrap';
+import { Auth } from 'aws-amplify';
+import LoaderButton from 'components/common/LoaderButton';
+import './Signup.css';
 
 export default class Signup extends Component {
   state = {
     isLoading: false,
-    username: "",
-    usernameError: "",
-    email: "",
-    password: "",
-    passwordError: "",
-    refer: "",
+    username: '',
+    usernameError: '',
+    email: '',
+    password: '',
+    passwordError: '',
+    refer: '',
     isAccepted: false,
-    newUser: null
+    newUser: null,
   };
 
   validateForm() {
-    const { username, email, password, isAccepted } = this.state;
-    return (
-      username.length > 0 &&
-      email.length > 0 &&
-      password.length > 0 &&
-      isAccepted
-    );
+    const {
+      username, email, password, isAccepted,
+    } = this.state;
+    return username.length > 0 && email.length > 0 && password.length > 0 && isAccepted;
   }
+
   userCheck = () => {
     const { username } = this.state;
     if (username.length > 0) {
-      Auth.signIn(username, "a")
+      Auth.signIn(username, 'a')
         .then(user => console.log(user))
-        .catch(err => {
-          if (err.code !== "UserNotFoundException") {
+        .catch((err) => {
+          if (err.code !== 'UserNotFoundException') {
             this.setState({
-              usernameError: "Username already exist"
+              usernameError: 'Username already exist',
             });
-            return;
           }
         });
     }
   };
+
   validateFields = () => {
     const { username, password } = this.state;
     const passwordRegularExpression = /^(?=.{8,})(?=.*[a-zA-Z])(?=.*\d)(?=.*[!#$%&? "]) $/;
@@ -48,20 +46,21 @@ export default class Signup extends Component {
       usernameError:
         username.length > 3 || username.length === 0
           ? null
-          : "username length should be greater then 3 characters",
-      passwordError: passwordRegularExpression.test(password) ? null : "error"
+          : 'username length should be greater then 3 characters',
+      passwordError: passwordRegularExpression.test(password) ? null : 'error',
     });
   };
-  handleChange = event => {
+
+  handleChange = (event) => {
     this.setState(
       {
-        [event.target.name]: event.target.value
+        [event.target.name]: event.target.value,
       },
-      () => this.validateFields()
+      () => this.validateFields(),
     );
   };
 
-  handleSubmit = async event => {
+  handleSubmit = async (event) => {
     event.preventDefault();
     this.setState({ isLoading: true });
     try {
@@ -70,11 +69,11 @@ export default class Signup extends Component {
         username: this.state.username,
         password: this.state.password,
         attributes: {
-          email: this.state.email
-        }
+          email: this.state.email,
+        },
       });
       this.setState({
-        newUser
+        newUser,
       });
       await this.handleConfirmationSubmit();
     } catch (e) {
@@ -88,7 +87,7 @@ export default class Signup extends Component {
     try {
       await Auth.signIn(this.state.username, this.state.password);
       this.props.userHasAuthenticated(true);
-      this.props.history.push("/");
+      this.props.history.push('/');
     } catch (e) {
       alert(e.message);
       this.setState({ isLoading: false });
@@ -140,7 +139,7 @@ export default class Signup extends Component {
             <option value="friend">Friend</option>
           </FormControl>
         </FormGroup>
-        {this.state.refer === "friend" && (
+        {this.state.refer === 'friend' && (
           <FormGroup controlId="username" bsSize="large">
             <FormLabel>Username</FormLabel>
             <FormControl
@@ -164,7 +163,6 @@ export default class Signup extends Component {
         <span>I agree to terms & conditions and privacy policy.</span>
         <LoaderButton
           block
-          bsSize="large"
           disabled={!this.validateForm()}
           type="submit"
           isLoading={this.state.isLoading}
@@ -176,10 +174,6 @@ export default class Signup extends Component {
   }
 
   render() {
-    return (
-      <div className="Signup">
-        {this.state.newUser === null ? this.renderForm() : null}
-      </div>
-    );
+    return <div className="Signup">{this.state.newUser === null ? this.renderForm() : null}</div>;
   }
 }
