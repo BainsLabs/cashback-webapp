@@ -63,42 +63,37 @@ export default () => (
           </Col>
         </Row>
         <Row>
-          <Col lg={12}>
-            <Row>
-              {merchants.map(item => (
-                <Col xs={12} md={6} lg={3} className="mb-2">
-                  <Card backgroundColor="#B7BFCD" width="16rem">
-                    <>
-                      <img src={item.brandImg} className="mx-auto" alt="amazon" />
-                      <div className="card__content">
-                        <p>{item.offer}</p>
-                        <p>{item.offerType}</p>
-                        <img
-                          src={BlackLine}
-                          alt="line"
-                          className="mx-auto"
-                          height="1rem"
-                          widht="inherit"
-                        />
-                        <p>
-                          Plus
-                          {' '}
-                          {item.tlc}
-                          <br />
-                          Rewards
-                        </p>
-                        <p>
-                          CODE
-                          <span>JULY 2019</span>
-                        </p>
-                        <p>Expire 7/07/2019</p>
-                      </div>
-                    </>
-                  </Card>
-                </Col>
-              ))}
-            </Row>
-          </Col>
+          {merchants.map(item => (
+            <Col xs={12} md={6} lg={3} className="mb-2">
+              <Card>
+                <>
+                  <img src={item.brandImg} className="mx-auto" alt="amazon" />
+                  <div className="card__content">
+                    <p>{item.offer}</p>
+                    <p>{item.offerType}</p>
+                    <img
+                      src={BlackLine}
+                      alt="line"
+                      className="mx-auto"
+                      height="1rem"
+                      widht="inherit"
+                    />
+                    <p>
+                      Plus
+                      {item.tlc}
+                      <br />
+                      Rewards
+                    </p>
+                    <p>
+                      CODE
+                      <span>JULY 2019</span>
+                    </p>
+                    <p>Expire 7/07/2019</p>
+                  </div>
+                </>
+              </Card>
+            </Col>
+          ))}
         </Row>
       </div>
       <Banner imgSrc={ReferAFriendBG} textPosition="center">

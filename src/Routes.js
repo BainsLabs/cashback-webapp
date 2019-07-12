@@ -14,7 +14,7 @@ export default ({ childProps }) => (
   <Switch>
     {/* <AppliedRoute path="/" exact component={Navbar} props={childProps} /> */}
     <AppliedRoute path="/" exact component={LandingPage} props={childProps} />
-    <UnauthenticatedRoute path="/categories" exact component={Categories} props={childProps} />
+    <Route path="/categories" exact component={Categories} props={childProps} />
 
     {/* <UnauthenticatedRoute
       path="/login"
@@ -28,8 +28,8 @@ export default ({ childProps }) => (
       component={Signup}
       props={childProps}
     /> */}
-    <UnauthenticatedRoute path="/contact" exact component={ContactUs} props={childProps} />
-    <UnauthenticatedRoute path="/refer-friend" exact component={ReferFriend} props={childProps} />
+    <Route path="/contact" exact component={ContactUs} props={childProps} />
+    <Route path="/refer-friend" exact component={ReferFriend} props={childProps} />
     {/* Finally, catch all unmatched routes */}
 
     <Route component={NotFound} />

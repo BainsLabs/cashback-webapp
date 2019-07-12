@@ -4,19 +4,8 @@ import Input from 'components/common/inputField';
 import Select from 'components/common/selectField';
 import { ReferOptions } from 'constants/referOptions';
 import { Auth } from 'aws-amplify';
-import config from 'config';
-import Amplify from 'aws-amplify';
 import LoaderButton from 'components/common/LoaderButton';
 
-Amplify.configure({
-  Auth: {
-    mandatorySignIn: true,
-    region: config.cognito.REGION,
-    userPoolId: config.cognito.USER_POOL_ID,
-    identityPoolId: config.cognito.IDENTITY_POOL_ID,
-    userPoolWebClientId: config.cognito.APP_CLIENT_ID,
-  },
-});
 class SignUp extends Component {
   state = {
     isLoading: false,
@@ -32,7 +21,9 @@ class SignUp extends Component {
   };
 
   validateForm() {
-    const { username, email, password, isAccepted } = this.state;
+    const {
+      username, email, password, isAccepted,
+    } = this.state;
     return username.length > 0 && email.length > 0 && password.length > 0 && isAccepted;
   }
 
@@ -41,16 +32,16 @@ class SignUp extends Component {
     if (username.length > 0) {
       Auth.signIn(username, 'a')
         .then(user => console.log(user))
-        .catch(err => {
+        .catch((err) => {
           if (err.code !== 'UserNotFoundException') {
             this.setState({
               usernameError: 'Username already exist',
             });
-            return;
           }
         });
     }
   };
+
   validateFields = () => {
     const { username, password } = this.state;
     const passwordRegularExpression = /^(?=.{8,})(?=.*[a-zA-Z])(?=.*\d)(?=.*[!#$%&? "]) $/;
@@ -62,7 +53,8 @@ class SignUp extends Component {
       passwordError: passwordRegularExpression.test(password) ? null : 'error',
     });
   };
-  handleChange = event => {
+
+  handleChange = (event) => {
     this.setState(
       {
         [event.target.name]: event.target.value,
@@ -71,7 +63,7 @@ class SignUp extends Component {
     );
   };
 
-  handleSubmit = async event => {
+  handleSubmit = async (event) => {
     event.preventDefault();
     this.setState({ isLoading: true });
     try {
@@ -116,15 +108,14 @@ class SignUp extends Component {
       friendUsername,
     } = this.state;
     return (
-      <section className="signup">
-        <div className="container signup__container text-center">
+      <section className="auth-right__signUp">
+        <div>
           <h2>Create Account</h2>
         </div>
         <Row>
           <Col>
             <Input
               placeholder="Choose Username"
-              className="signup__textfield"
               onBlur={this.userCheck}
               value={username}
               onChange={this.handleChange}
@@ -141,7 +132,6 @@ class SignUp extends Component {
               value={email}
               name="email"
               onChange={this.handleChange}
-              className="signup__textfield"
             />
           </Col>
         </Row>
@@ -149,7 +139,6 @@ class SignUp extends Component {
           <Col>
             <Input
               placeholder="Create Password"
-              className="signup__textfield"
               type="password"
               name="password"
               onChange={this.handleChange}
@@ -177,7 +166,6 @@ class SignUp extends Component {
             <Col>
               <Input
                 placeholder="Friends Username"
-                className="signup__textfield"
                 type="text"
                 name="friendUsername"
                 onChange={this.handleChange}
@@ -197,17 +185,16 @@ class SignUp extends Component {
           </Col>
         </Row>
         <Row>
-          <Col className="text-center">
+          <Col>
             <LoaderButton
               block
               disabled={this.validateForm()}
               isLoading={this.state.isLoading}
-              className="signup__button"
+              className="auth-right__signUp-btn"
               text="Join Now"
               loadingText="Signing up…"
               onClick={this.handleSubmit}
             />
-            {/* <button className="signup__button">Join Now</button> */}
           </Col>
         </Row>
       </section>

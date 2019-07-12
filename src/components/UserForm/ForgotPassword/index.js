@@ -1,27 +1,23 @@
-import React, { Component } from "react";
-import { Row, Col } from "react-bootstrap";
-import Input from "components/common/inputField";
-import { Auth } from "aws-amplify";
-import LoaderButton from "components/common/LoaderButton";
+import React, { Component } from 'react';
+import { Row, Col } from 'react-bootstrap';
+import Input from 'components/common/inputField';
+import { Auth } from 'aws-amplify';
+import LoaderButton from 'components/common/LoaderButton';
 
 class ForgotPassword extends Component {
   state = {
     isLoading: false,
-    username: "",
-    password: "",
-    usernameError: "",
+    username: '',
+    password: '',
+    usernameError: '',
     mailSent: false,
-    loginError: "",
-    confirmationCode: ""
+    loginError: '',
+    confirmationCode: '',
   };
 
   validateForm() {
     const {
-      username,
-      email,
-      password,
-      isAccepted,
-      confirmationCode
+      username, email, password, isAccepted, confirmationCode,
     } = this.state;
     return confirmationCode.length > 0;
   }
@@ -29,26 +25,22 @@ class ForgotPassword extends Component {
   userCheck = () => {
     const { username } = this.state;
     if (username.length > 0) {
-      Auth.signIn(username, "a")
+      Auth.signIn(username, 'a')
         .then(user => console.log(user))
-        .catch(err => {
-          if (err.code !== "UserNotFoundException") {
+        .catch((err) => {
+          if (err.code !== 'UserNotFoundException') {
             this.setState({
-              usernameError: "Username already exist"
+              usernameError: 'Username already exist',
             });
-            return;
           }
         });
     }
   };
 
-  handleChange = event => {
-    this.setState(
-      {
-        [event.target.name]: event.target.value
-      },
-      () => this.validateFields()
-    );
+  handleChange = (event) => {
+    this.setState({
+      [event.target.name]: event.target.value,
+    });
   };
 
   forgotPassword = async () => {
@@ -57,26 +49,27 @@ class ForgotPassword extends Component {
       .then(data => console.log(data))
       .catch(e => console.log(e));
   };
-  handleConfirmationSubmit = async e => {
+
+  handleConfirmationSubmit = async (e) => {
     e.preventDefault();
     const { username } = this.state;
     await Auth.forgotPassword(username);
     this.setState({
-      mailSent: true
+      mailSent: true,
     });
   };
+
   render() {
-    const { username, password, usernameError, confirmationCode } = this.state;
+    const {
+      username, password, usernameError, confirmationCode, mailSent, isLoading,
+    } = this.state;
     return (
-      <section className="signup">
-        <div className="container signup__container text-center">
-          <h2>Reset Password</h2>
-        </div>
+      <section className="auth-right__forgot">
+        <h2>Reset Password</h2>
         <Row>
           <Col>
             <Input
               placeholder="Choose Username"
-              className="signup__textfield"
               onBlur={this.userCheck}
               value={username}
               onChange={this.handleChange}
@@ -88,27 +81,23 @@ class ForgotPassword extends Component {
         </Row>
         <Row>{/* <span className="text-danger">{passwordError}</span> */}</Row>
 
-        {this.state.mailSent ? (
+        {mailSent ? (
           <div>
             <Row>
               <Col>
                 <Input
                   placeholder="Confirmation Code"
-                  className="signup__textfield"
                   name="confirmationCode"
                   onChange={this.handleChange}
                   value={confirmationCode}
                 />
               </Col>
-              <small class="text-muted">
-                Please check your email for the code.
-              </small>
+              <small className="text-muted">Please check your email for the code.</small>
             </Row>
             <Row>
               <Col>
                 <Input
                   placeholder="New Password"
-                  className="signup__textfield"
                   type="password"
                   name="password"
                   onChange={this.handleChange}
@@ -118,19 +107,19 @@ class ForgotPassword extends Component {
             </Row>
           </div>
         ) : (
-          ""
+          ''
         )}
         <Row>
           <Col className="text-center">
             <LoaderButton
               block
               disabled={!this.validateForm()}
-              isLoading={this.state.isLoading}
-              className="signup__button"
+              isLoading={isLoading}
+              className="auth-right__forgot-btn"
               text="Reset Password"
-              loadingText="Signing up…"
+              loadingText="Sending Mail..."
+              onClick={this.handleConfirmationSubmit}
             />
-            {/* <button className="signup__button">Join Now</button> */}
           </Col>
         </Row>
       </section>

@@ -16,7 +16,7 @@ class TopNavbar extends Component {
   };
 
   ModalOpen = e => {
-    if (e == 'SignIn') {
+    if (e === 'SignIn') {
       this.props.SignInModal();
     } else {
       this.props.SignUpModal();

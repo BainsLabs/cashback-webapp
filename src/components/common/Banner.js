@@ -5,8 +5,12 @@ const StyledDiv = styled.div`
   background-image: url(${props => props.imgSrc});
   background-size: cover;
   background-position: center;
+  width: inherit;
   text-align: ${props => (props.textPosition ? props.textPosition : 'left')};
   height: ${props => props.height};
 `;
 
-export default props => <StyledDiv {...props}>{props.children}</StyledDiv>;
+export default (props) => {
+  const { children } = props;
+  return <StyledDiv {...props}>{children}</StyledDiv>;
+};
