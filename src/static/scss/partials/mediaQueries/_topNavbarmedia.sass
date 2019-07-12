@@ -1,16 +1,18 @@
 @include media-breakpoint-down(md)
-  .navbar,
+@include media-breakpoint-down(lg)
+  .navbar
+    display: none
   .top-navbar
     display: none
+  .top-navbar__select-country,
+  .top-navbar__select-language
+    +margin('',1rem auto 0)
+  .top-navbar__search
+    width: auto
 
 
 
-@include media-breakpoint-up(md)
-  .cell
+@include media-breakpoint-up(xl)
+  .mobile
     display: none
-  .bm-overlay
-    background: map-get($fontColor,'white')
-    color: #fff
-    padding: 2.5em 1.5em 0;
-    font-size: 1.15em;
 

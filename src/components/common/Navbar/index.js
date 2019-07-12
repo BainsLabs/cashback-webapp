@@ -2,17 +2,24 @@ import React, { Component } from 'react';
 import { Navbar, Nav, Container } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
+import MobileLogo from 'static/icons-images/logo-icon.png';
 import { faBars } from '@fortawesome/fontawesome-free-solid';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import TopNavbar from './TopNavbar';
-import MobileNavBar from './MobileNavbar';
+import MobileNavBar from './Mobile/MobileNavbar';
 
 const style = {
   icon: {
     float: 'right',
     padding: '1rem',
-    color: 'white',
+    color: '#fff',
     fontSize: '1.5rem',
+  },
+  buttonBackground: {
+    background: '#272F3A',
+  },
+  image: {
+    padding: '.5rem',
   },
 };
 
@@ -21,21 +28,25 @@ class NavBar extends Component {
     super(props);
     this.state = {
       open: false,
+      cross: false,
     };
     this.navRef = React.createRef();
   }
   MenuOpen = () => {
+    const { open } = this.state;
     this.setState({
-      open: !this.state.open,
+      open: !open,
     });
-    console.log(this.state);
   };
   render() {
     const { user } = this.props;
     return (
       <>
-        <i class="fas fa-bars" onClick={this.MenuOpen} style={style.icon} />
-
+        <div className="mobile" style={style.buttonBackground}>
+          <img src={MobileLogo} alt="mobile__logo" style={style.image} />
+          <i className="fas fa-bars" onClick={this.MenuOpen} style={style.icon} />
+          <MobileNavBar Open={this.state.open} closeMenu={this.MenuOpen} />
+        </div>
         <TopNavbar />
         <Navbar className="navbar" expand="lg" ref={this.navRef}>
           <Container>
@@ -60,7 +71,6 @@ class NavBar extends Component {
             </Nav>
           </Container>
         </Navbar>
-        <MobileNavBar Open={this.state.open} closeMenu={this.MenuOpen} />
       </>
     );
   }
