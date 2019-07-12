@@ -44,7 +44,7 @@ export default () => (
                 <Col lg={6} className="join-now__text">
                   <p>JOIN 6 DEGREES</p>
                   <p>FOR FREE AND GET A</p>
-                  <p>10$ BONUS</p>
+                  <p>$ 10 BONUS</p>
                 </Col>
               </Row>
             </Col>

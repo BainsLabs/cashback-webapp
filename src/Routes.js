@@ -9,6 +9,7 @@ import UnauthenticatedRoute from 'utils/UnauthenticatedRoute';
 import ReferFriend from 'components/ReferAFriend';
 import Categories from 'components/CategoryPage';
 import NotFound from 'containers/NotFound';
+import HowCashbackWorks from 'components/HowCashBackWork';
 
 export default ({ childProps }) => (
   <Switch>
@@ -30,6 +31,13 @@ export default ({ childProps }) => (
     /> */}
     <Route path="/contact" exact component={ContactUs} props={childProps} />
     <Route path="/refer-friend" exact component={ReferFriend} props={childProps} />
+    <UnauthenticatedRoute
+      path="/how-cashback-works"
+      exact
+      component={HowCashbackWorks}
+      props={childProps}
+    />
+
     {/* Finally, catch all unmatched routes */}
 
     <Route component={NotFound} />

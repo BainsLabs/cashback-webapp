@@ -1,0 +1,18 @@
+@include media-breakpoint-down(md)
+@include media-breakpoint-down(lg)
+  .navbar
+    display: none
+  .top-navbar
+    display: none
+  .top-navbar__select-country,
+  .top-navbar__select-language
+    +margin('',1rem auto 0)
+  .top-navbar__search
+    width: auto
+
+
+
+@include media-breakpoint-up(xl)
+  .mobile
+    display: none
+
