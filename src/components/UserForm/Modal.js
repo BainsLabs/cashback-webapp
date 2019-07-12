@@ -27,7 +27,7 @@ const modalStyles = {
   },
 };
 
-const UserModal = props => {
+const UserModal = (props) => {
   const { userModal, onHide } = props;
   const { name, open } = userModal;
   return (
@@ -45,15 +45,11 @@ const UserModal = props => {
         </Col>
         <Col md={6} className="usermodal__form">
           <img src={LogoIcon} className="mx-auto d-block usermodal__logo" />
-          {name == 'signin' ? <SignIn /> : name == 'signup' ? <SignUp /> : <ForgotPassword />}
+          {name == 'signin' ? <SignIn /> : name === 'signup' ? <SignUp /> : <ForgotPassword />}
         </Col>
       </Row>
     </Modal>
   );
-};
-
-const mapStateToProps = state => {
-  return { userModal: state.UserModal.path };
 };
 
 const mapStateToProps = state => ({ userModal: state.UserModal.path });

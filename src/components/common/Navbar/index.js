@@ -3,8 +3,6 @@ import { Navbar, Nav, Container } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import MobileLogo from 'static/icons-images/logo-icon.png';
-import { faBars } from '@fortawesome/fontawesome-free-solid';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import TopNavbar from './TopNavbar';
 import MobileNavBar from './Mobile/MobileNavbar';
 
@@ -32,12 +30,14 @@ class NavBar extends Component {
     };
     this.navRef = React.createRef();
   }
+
   MenuOpen = () => {
     const { open } = this.state;
     this.setState({
       open: !open,
     });
   };
+
   render() {
     const { user } = this.props;
     return (
