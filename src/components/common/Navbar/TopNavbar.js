@@ -9,6 +9,7 @@ import { faMapMarkerAlt, faSortDown } from '@fortawesome/fontawesome-free-solid'
 import { SignInModal, SignUpModal, CloseModal } from 'redux/actions/modalActions';
 import { isLogout } from 'redux/actions/userActions';
 import UserModal from 'components/UserForm/Modal';
+import {Link} from 'react-router-dom'
 
 class TopNavbar extends Component {
   ModalOpen = e => {
@@ -34,7 +35,7 @@ class TopNavbar extends Component {
         <div className="container top-navbar__container">
           <Row>
             <Col lg={3}>
-              <img src={logo} width="250rem" alt="logo" />
+              <Link to="/"><img src={logo} width="250rem" alt="logo" /></Link>
             </Col>
             <Col lg={5}>
               <Row>

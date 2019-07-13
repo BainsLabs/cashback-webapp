@@ -1,6 +1,7 @@
-import React from "react";
-import Slider from "react-slick";
-import { Waypoint } from "react-waypoint";
+import React from 'react';
+import Slider from 'react-slick';
+import { Waypoint } from 'react-waypoint';
+import Component from '@reactions/component';
 
 const CommonSlider = ({
   children,
@@ -9,7 +10,7 @@ const CommonSlider = ({
   speedSetting,
   slidesToScrollSetting,
   slidesToShowSetting,
-  initialSlideSetting
+  initialSlideSetting,
 }) => {
   const settings = {
     lazyLoad: lazyloading,
@@ -25,31 +26,39 @@ const CommonSlider = ({
           slidesToShow: 3,
           slidesToScroll: 3,
           infinite: true,
-          dots: true
-        }
+          dots: true,
+        },
       },
       {
         breakpoint: 600,
         settings: {
           slidesToShow: 2,
           slidesToScroll: 2,
-          initialSlide: 2
-        }
+          initialSlide: 2,
+        },
       },
       {
         breakpoint: 480,
         settings: {
           slidesToShow: 1,
-          slidesToScroll: 1
-        }
-      }
-    ]
+          slidesToScroll: 1,
+        },
+      },
+    ],
   };
   return (
     <>
-      <Waypoint>
-        <Slider {...settings}>{children}</Slider>
-      </Waypoint>
+      <Component initialState={{ isOpen: false }}>
+        {({ setState }) => (
+          <Waypoint
+            bottomOffset={200}
+            onEnter={() => setState({ isOpen: true })}
+            onLeave={() => setState({ isOpen: true })}
+          >
+            <Slider {...settings}>{children}</Slider>
+          </Waypoint>
+        )}
+      </Component>
     </>
   );
 };

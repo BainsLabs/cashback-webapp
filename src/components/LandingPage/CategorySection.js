@@ -10,8 +10,6 @@ export default () => {
       <Container>
         <ul className="home__category-list">
           <CommonSlider
-            lazyloading={true}
-            infiniteSetting={false}
             speedSetting="500"
             slidesToScrollSetting="1"
             slidesToShowSetting="3"
