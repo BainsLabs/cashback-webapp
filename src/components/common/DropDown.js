@@ -1,8 +1,9 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import { Dropdown, FormControl } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
 class CustomToggle extends Component {
-  handleClick = e => {
+  handleClick = (e) => {
     e.preventDefault();
 
     this.props.onClick(e);
@@ -21,16 +22,13 @@ class CustomToggle extends Component {
 class CustomMenu extends Component {
   state = { value: '' };
 
-  handleChange = e => {
+  handleChange = (e) => {
     this.setState({ value: e.target.value.toLowerCase().trim() });
   };
 
   render() {
     const {
-      children,
-      style,
-      className,
-      'aria-labelledby': labeledBy
+      children, style, className, 'aria-labelledby': labeledBy,
     } = this.props;
 
     const { value } = this.state;
@@ -46,8 +44,7 @@ class CustomMenu extends Component {
         />
         <ul className="list-unstyled">
           {React.Children.toArray(children).filter(
-            child =>
-              !value || child.props.children.toLowerCase().startsWith(value)
+            child => !value || child.props.children.toLowerCase().startsWith(value),
           )}
         </ul>
       </div>
@@ -57,16 +54,21 @@ class CustomMenu extends Component {
 
 class DropdownComponent extends Component {
   state = {
-    label: this.props.label
+    label: this.props.label,
   };
-  onClick = e => {
+
+  onClick = (e) => {
     this.setState({
-      label: e.target.value
+      label: e.target.value,
     });
   };
+
   render() {
     const { label } = this.state;
-    const { className, icon, iconLeft } = this.props;
+    const {
+      className, icon, iconLeft, menu,
+    } = this.props;
+    console.log(menu, 'menuuu');
     return (
       <Dropdown onClick={this.onClick} className={className}>
         <Dropdown.Toggle as={CustomToggle} id="dropdown-custom-components">
@@ -82,9 +84,14 @@ class DropdownComponent extends Component {
         </Dropdown.Toggle>
 
         <Dropdown.Menu as={CustomMenu}>
-          <Dropdown.Item as="option">Canada</Dropdown.Item>
-          <Dropdown.Item as="option">USA</Dropdown.Item>
-          <Dropdown.Item as="option">India</Dropdown.Item>
+          {menu
+            && menu.map((item) => {
+              return (
+                <Fragment>
+                  <Dropdown.Item as="option">{item.item}</Dropdown.Item>
+                </Fragment>
+              );
+            })}
         </Dropdown.Menu>
       </Dropdown>
     );

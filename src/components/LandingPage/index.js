@@ -85,7 +85,7 @@ export default () => (
                       Rewards
                     </p>
                     <p>
-                      CODE
+                      CODE &nbsp;
                       <span>JULY 2019</span>
                     </p>
                     <p>Expire 7/07/2019</p>
