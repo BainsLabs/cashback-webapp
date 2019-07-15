@@ -19,11 +19,7 @@ const modalStyles = {
     borderRadius: '2rem',
   },
   closeButton: {
-    background: '#000',
     borderRadius: '2rem',
-  },
-  closeIcon: {
-    color: '#fff',
   },
 };
 
