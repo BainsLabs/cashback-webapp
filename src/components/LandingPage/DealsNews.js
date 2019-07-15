@@ -18,7 +18,7 @@ export default () => (
           <span className="deals__section-cashback">+4.0 % Cash Back</span>
 
           <span className="float-right ">
-            CODE
+            CODE&nbsp;
             <span className="deals__section-code">JULY 2019</span>
           </span>
           <p>

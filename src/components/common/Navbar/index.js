@@ -61,7 +61,7 @@ class NavBar extends Component {
                 <Link to="/refer-friend">Refer a Friend</Link>
               </Nav.Item>
               <Nav.Item>
-                <Link to="/categories">VIP Beifits</Link>
+                <Link to="/categories">VIP Benifits</Link>
               </Nav.Item>
               {user.authenticated ? (
                 <Nav.Item>
