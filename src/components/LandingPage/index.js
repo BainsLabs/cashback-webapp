@@ -49,7 +49,7 @@ export default () => (
               </Row>
             </Col>
             <Col lg={4}>
-              <button className="banner-btn" type="button">
+              <button className="banner-btn banner-btn-mobile" type="button">
                 JOIN NOW
               </button>
             </Col>
