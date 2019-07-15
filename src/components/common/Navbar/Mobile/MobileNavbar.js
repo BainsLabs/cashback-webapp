@@ -18,12 +18,10 @@ const style = {
   bmMenuWrap: {
     width: '100%',
   },
-  bmItem: {
-    marginRight: '4rem',
-  },
 };
 
 const MobileNavBar = (props) => {
+  console.log(props, 'propsssss');
   return (
     <Menu {...props} styles={style} right>
       <div className="text-center" style={style.outerStyle}>
