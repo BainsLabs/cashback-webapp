@@ -65,6 +65,7 @@ class TopNavbar extends Component {
                     label="Language"
                     menu={language}
                     className="top-navbar__select-language"
+                    languageChange={this.props.content}
                   />
                 </Col>
                 {user.authenticated ? (

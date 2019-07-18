@@ -3,6 +3,7 @@ import { Navbar, Nav, Container } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import MobileLogo from 'static/icons-images/logo-icon.png';
+import { getContent } from 'redux/actions/contentActions';
 import TopNavbar from './TopNavbar';
 import MobileNavBar from './Mobile/MobileNavbar';
 
@@ -31,6 +32,14 @@ class NavBar extends Component {
     this.navRef = React.createRef();
   }
 
+  async componentDidMount() {
+    const { getContent } = this.props;
+    const params = {
+      lang: 'en',
+    };
+    await getContent(params);
+  }
+
   MenuOpen = () => {
     const { open } = this.state;
     this.setState({
@@ -39,7 +48,9 @@ class NavBar extends Component {
   };
 
   render() {
-    const { user } = this.props;
+    const { user, content, getContent } = this.props;
+    console.log(...content, 'content');
+
     return (
       <>
         <div className="mobile" style={style.buttonBackground}>
@@ -47,11 +58,21 @@ class NavBar extends Component {
           <i className="fas fa-bars" onClick={this.MenuOpen} style={style.icon} />
           <MobileNavBar Open={this.state.open} closeMenu={this.MenuOpen} />
         </div>
-        <TopNavbar />
+        <TopNavbar content={getContent} />
         <Navbar className="navbar" expand="lg" ref={this.navRef}>
           <Container>
             <Nav className="navbar__list">
-              <Nav.Item>
+              {content.map((con) => {
+                // console.log(con, 'con');
+                if (con.section === 'menu') {
+                  return (
+                    <Nav.Item>
+                      <Link to={con.path}>{con.content}</Link>
+                    </Nav.Item>
+                  );
+                }
+              })}
+              {/* <Nav.Item>
                 <Link to="/categories">Shop Categories</Link>
               </Nav.Item>
               <Nav.Item>
@@ -62,7 +83,7 @@ class NavBar extends Component {
               </Nav.Item>
               <Nav.Item>
                 <Link to="/categories">VIP Benifits</Link>
-              </Nav.Item>
+              </Nav.Item> */}
               {user.authenticated ? (
                 <Nav.Item>
                   <Link to="/categories">My Account</Link>
@@ -76,11 +97,16 @@ class NavBar extends Component {
   }
 }
 
+const mapDispatchToProps = {
+  getContent,
+};
+
 const mapStateToProps = state => ({
   user: state.User,
+  content: state.Content.contentList || [],
 });
 
 export default connect(
   mapStateToProps,
-  null,
+  mapDispatchToProps,
 )(NavBar);
