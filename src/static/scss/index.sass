@@ -21,8 +21,10 @@
 @import /partials/_refer.sass
 @import /partials/_category.sass
 @import /partials/_cashback.sass
+@import /partials/_common.sass
 @import /partials/mediaQueries/_cashbackmedia.sass
 @import /partials/mediaQueries/_topNavbarmedia.sass
+@import /partials/mediaQueries/_homemedia.sass
 
 .line
   height: 0.1rem
@@ -41,20 +43,4 @@ p
 
   +margin('', 2.5rem 0 1rem 0)
 
-.banner-btn
-  @extend .refer__banner
 
-  +padding('', 1rem)
-  +margin('left', 4rem)
-  +margin('top', 7rem)
-
-  background: map-get($fontColor, 'white')
-  border: 0
-  font-size: 1rem
-  border-radius: 10rem
-  width: 15rem
-  color: map-get($fontColor, 'black')
-  font-weight: normal
-  letter-spacing: 0rem
-
-@import /partials/mediaQueries/_homemedia.sass

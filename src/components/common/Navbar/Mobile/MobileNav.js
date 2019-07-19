@@ -7,9 +7,15 @@ import DropdownComponent from 'components/common/DropDown';
 import { faMapMarkerAlt, faSortDown } from '@fortawesome/fontawesome-free-solid';
 import { modalState } from 'redux/actions/modalActions';
 import { isLogout } from 'redux/actions/userActions';
+import { Link } from 'react-router-dom';
 
 const MobileNav = (props) => {
+<<<<<<< HEAD
   const { user, modalState } = props;
+=======
+  console.log(props, 'props');
+  const { user } = props;
+>>>>>>> add secondar nav in mobile view
   return (
     <Container>
       <Row>
@@ -54,6 +60,26 @@ const MobileNav = (props) => {
               </button>
             </Col>
           )}
+          <ul className="mobilenav__list">
+            <li>
+              <Link to="/categories">Shop Categories</Link>
+            </li>
+            <li>
+              <Link to="/how-cashback-works">How Cashback Works</Link>
+            </li>
+            <li>
+              <Link to="/refer-friend">Refer a Friend</Link>
+            </li>
+            <li>
+              <Link to="/categories">VIP Beifits</Link>
+            </li>
+
+            {user.authenticated ? (
+              <li>
+                <Link to="/categories">My Account</Link>
+              </li>
+            ) : null}
+          </ul>
         </Col>
       </Row>
     </Container>

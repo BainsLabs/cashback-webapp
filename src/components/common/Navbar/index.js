@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
-import { Navbar, Nav, Container } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import MobileLogo from 'static/icons-images/logo-icon.png';
 import { getContent } from 'redux/actions/contentActions';
 import TopNavbar from './TopNavbar';
 import MobileNavBar from './Mobile/MobileNavbar';
+import SecondaryNav from './secondaryNavbar';
 
 const style = {
   icon: {
@@ -41,22 +40,26 @@ class NavBar extends Component {
   }
 
   MenuOpen = () => {
-    const { open } = this.state;
     this.setState({
-      open: !open,
+      open: true,
+    });
+  };
+
+  MenuClose = () => {
+    this.setState({
+      open: false,
     });
   };
 
   render() {
-    const { user, content, getContent } = this.props;
-    console.log(...content, 'content');
-
+    const { user } = this.props;
+    const { open } = this.state;
     return (
       <>
         <div className="mobile" style={style.buttonBackground}>
           <img src={MobileLogo} alt="mobile__logo" style={style.image} />
           <i className="fas fa-bars" onClick={this.MenuOpen} style={style.icon} />
-          <MobileNavBar Open={this.state.open} closeMenu={this.MenuOpen} />
+          <MobileNavBar Open={open} closeMenu={this.MenuClose} />
         </div>
         <TopNavbar content={getContent} />
         <Navbar className="navbar" expand="lg" ref={this.navRef}>
