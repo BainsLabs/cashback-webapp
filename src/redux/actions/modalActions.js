@@ -1,28 +1,28 @@
-import * as ModalTypes from "redux/actionsTypes/modalActionTypes";
+import * as ModalTypes from 'redux/actionsTypes/modalActionTypes';
 
-export const SignInModal = () => dispatch => {
-  return dispatch({
+export const modalState = name => (dispatch) => {
+  dispatch({
     type: ModalTypes.SIGNIN_MODAL,
-    payload: { open: true, name: "signin" }
+    payload: { open: true, name },
   });
 };
 
-export const SignUpModal = () => dispatch => {
-  return dispatch({
+export const SignUpModal = () => (dispatch) => {
+  dispatch({
     type: ModalTypes.SIGNIN_MODAL,
-    payload: { open: true, name: "signup" }
+    payload: { open: true, name: 'signup' },
   });
 };
-export const ForgotModal = () => dispatch => {
-  return dispatch({
+export const ForgotModal = () => (dispatch) => {
+  dispatch({
     type: ModalTypes.FORGOT_MODAL,
-    payload: { open: true, name: "forgot" }
+    payload: { open: true, name: 'forgot' },
   });
 };
 
-export const CloseModal = () => dispatch => {
-  return dispatch({
+export const CloseModal = () => (dispatch) => {
+  dispatch({
     type: ModalTypes.CLOSE_MODAL,
-    payload: {open: false}
+    payload: { open: false },
   });
 };

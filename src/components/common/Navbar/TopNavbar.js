@@ -1,3 +1,4 @@
+/* eslint-disable no-shadow */
 import React, { Component } from 'react';
 import { Row, Col } from 'react-bootstrap';
 import { Auth } from 'aws-amplify';
@@ -6,32 +7,33 @@ import Input from 'components/common/inputField';
 import { connect } from 'react-redux';
 import DropdownComponent from 'components/common/DropDown';
 import { faMapMarkerAlt, faSortDown } from '@fortawesome/fontawesome-free-solid';
-import { SignInModal, SignUpModal, CloseModal } from 'redux/actions/modalActions';
+import { modalState } from 'redux/actions/modalActions';
 import { isLogout } from 'redux/actions/userActions';
 import UserModal from 'components/UserForm/Modal';
 import { Link } from 'react-router-dom';
 import { country, language } from 'constants/dropdown';
 
 class TopNavbar extends Component {
-  ModalOpen = (e) => {
-    if (e === 'SignIn') {
-      this.props.SignInModal();
-    } else {
-      this.props.SignUpModal();
-    }
+  ModalOpen = async (e) => {
+    e.preventDefault();
+    const { modalState } = this.props;
+    const modalType = e === 'SignIn' ? modalState('signin') : modalState('signup');
+    await modalState(modalType);
   };
 
   LogOut = async () => {
+    const { isLogout } = this.props;
     await Auth.signOut();
-    await this.props.isLogout();
+    await isLogout();
   };
 
-  ModalClose = () => {
-    this.props.CloseModal();
+  ModalClose = async () => {
+    const { modalState } = this.props;
+    await modalState(null);
   };
 
   render() {
-    const { user } = this.props;
+    const { user, content } = this.props;
     return (
       <section className="top-navbar">
         <div className="container top-navbar__container">
@@ -65,12 +67,16 @@ class TopNavbar extends Component {
                     label="Language"
                     menu={language}
                     className="top-navbar__select-language"
-                    languageChange={this.props.content}
+                    languageChange={content}
                   />
                 </Col>
                 {user.authenticated ? (
                   <Col>
-                    <button className="top-navbar__join-btn" onClick={e => this.LogOut(e)}>
+                    <button
+                      type="button"
+                      className="top-navbar__join-btn"
+                      onClick={e => this.LogOut(e)}
+                    >
                       Logout
                     </button>
                   </Col>
@@ -78,14 +84,16 @@ class TopNavbar extends Component {
                   <Col>
                     <button
                       className="top-navbar__login-btn"
-                      onClick={e => this.ModalOpen('SignIn')}
+                      type="button"
+                      onClick={() => this.ModalOpen('SignIn')}
                     >
                       Login
                     </button>
                     <span className="text-white">/</span>
                     <button
                       className="top-navbar__join-btn"
-                      onClick={e => this.ModalOpen('SignUp')}
+                      type="button"
+                      onClick={() => this.ModalOpen('SignUp')}
                     >
                       JOIN FREE
                     </button>
@@ -102,9 +110,7 @@ class TopNavbar extends Component {
 }
 
 const mapDispatchToProps = {
-  SignInModal,
-  SignUpModal,
-  CloseModal,
+  modalState,
   isLogout,
 };
 

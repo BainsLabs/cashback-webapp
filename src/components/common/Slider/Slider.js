@@ -1,7 +1,5 @@
 import React from 'react';
 import Slider from 'react-slick';
-import { Waypoint } from 'react-waypoint';
-import Component from '@reactions/component';
 
 const CommonSlider = ({
   children,
@@ -46,21 +44,7 @@ const CommonSlider = ({
       },
     ],
   };
-  return (
-    <>
-      <Component initialState={{ isOpen: false }}>
-        {({ setState }) => (
-          <Waypoint
-            bottomOffset={200}
-            onEnter={() => setState({ isOpen: true })}
-            onLeave={() => setState({ isOpen: true })}
-          >
-            <Slider {...settings}>{children}</Slider>
-          </Waypoint>
-        )}
-      </Component>
-    </>
-  );
+  return <Slider {...settings}>{children}</Slider>;
 };
 
 export default CommonSlider;

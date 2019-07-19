@@ -1,15 +1,15 @@
+/* eslint-disable no-shadow */
 import React from 'react';
 import { Container, Col, Row } from 'react-bootstrap';
 import Input from 'components/common/inputField';
 import { connect } from 'react-redux';
 import DropdownComponent from 'components/common/DropDown';
 import { faMapMarkerAlt, faSortDown } from '@fortawesome/fontawesome-free-solid';
-import { SignInModal, SignUpModal, CloseModal } from 'redux/actions/modalActions';
+import { modalState } from 'redux/actions/modalActions';
 import { isLogout } from 'redux/actions/userActions';
 
 const MobileNav = (props) => {
-  const { user } = props;
-  console.log(props.closeMenu, 'propppp');
+  const { user, modalState } = props;
   return (
     <Container>
       <Row>
@@ -37,7 +37,7 @@ const MobileNav = (props) => {
               <button
                 type="button"
                 className="top-navbar__login-btn"
-                onClick={() => props.SignInModal()}
+                onClick={() => modalState('signin')}
               >
                 Login
               </button>
@@ -60,9 +60,7 @@ const MobileNav = (props) => {
   );
 };
 const mapDispatchToProps = {
-  SignInModal,
-  SignUpModal,
-  CloseModal,
+  modalState,
   isLogout,
 };
 

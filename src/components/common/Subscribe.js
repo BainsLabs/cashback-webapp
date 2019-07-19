@@ -1,5 +1,8 @@
 import React from 'react';
-import { Row, Col, InputGroup, FormControl, Button } from 'react-bootstrap';
+import {
+  Row, Col, InputGroup, FormControl, Button,
+} from 'react-bootstrap';
+
 export default () => (
   <section className="container subscribe">
     <Row>
