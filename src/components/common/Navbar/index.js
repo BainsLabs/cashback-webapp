@@ -63,6 +63,9 @@ class NavBar extends Component {
               <Nav.Item>
                 <Link to="/categories">VIP Benifits</Link>
               </Nav.Item>
+              <Nav.Item>
+                <Link to="/terms-conditions">Terms</Link>
+              </Nav.Item>
               {user.authenticated ? (
                 <Nav.Item>
                   <Link to="/categories">My Account</Link>
