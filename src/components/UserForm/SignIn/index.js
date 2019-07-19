@@ -4,7 +4,7 @@ import { Col, Form } from 'react-bootstrap';
 import Input from 'components/common/inputField';
 import { Auth } from 'aws-amplify';
 import LoaderButton from 'components/common/LoaderButton';
-import { ForgotModal, CloseModal } from 'redux/actions/modalActions';
+import { modalState } from 'redux/actions/modalActions';
 import { isAuthenticated } from 'redux/actions/userActions';
 import { connect } from 'react-redux';
 
@@ -38,13 +38,13 @@ class SignIn extends Component {
   handleSubmit = async (event) => {
     event.preventDefault();
     const { username, password } = this.state;
-    const { isAuthenticated, CloseModal } = this.props;
+    const { isAuthenticated, modalState } = this.props;
     this.setState({ isLoading: true, usernameError: '', loginError: '' });
 
     try {
       const user = await Auth.signIn(username, password);
       isAuthenticated(user);
-      CloseModal();
+      modalState(null);
     } catch (e) {
       this.setState({ isLoading: false, loginError: e.message });
     }
@@ -72,7 +72,7 @@ class SignIn extends Component {
     const {
       username, password, usernameError, isLoading,
     } = this.state;
-    const { ForgotModal } = this.props;
+    const { modalState } = this.props;
 
     return (
       <section className="auth-right__signIn">
@@ -119,7 +119,7 @@ class SignIn extends Component {
         </Form>
 
         <div className="forgot-password__container">
-          <button type="button" className="forgot_password" onClick={ForgotModal}>
+          <button type="button" className="forgot_password" onClick={() => modalState('forget')}>
             Click here to reset your password
           </button>
         </div>
@@ -129,9 +129,8 @@ class SignIn extends Component {
 }
 
 const mapDispatchToProps = {
-  ForgotModal,
+  modalState,
   isAuthenticated,
-  CloseModal,
 };
 
 export default connect(

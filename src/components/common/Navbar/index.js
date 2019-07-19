@@ -1,36 +1,25 @@
+/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+/* eslint-disable no-shadow */
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import MobileLogo from 'static/icons-images/logo-icon.png';
 import { getContent } from 'redux/actions/contentActions';
-import TopNavbar from './TopNavbar';
+import { sidebarState } from 'redux/actions/sidebarActions';
+import { Navbar, Container, Nav } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 import MobileNavBar from './Mobile/MobileNavbar';
-import SecondaryNav from './secondaryNavbar';
+import TopNavbar from './TopNavbar';
 
 const style = {
-  icon: {
-    float: 'right',
-    padding: '1rem',
-    color: '#fff',
-    fontSize: '1.5rem',
-  },
   buttonBackground: {
     background: '#272F3A',
-  },
-  image: {
-    padding: '.5rem',
+    width: '100%',
+    height: '3rem',
+    padding: '0.5rem 0rem',
   },
 };
 
 class NavBar extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      open: false,
-      cross: false,
-    };
-    this.navRef = React.createRef();
-  }
-
   async componentDidMount() {
     const { getContent } = this.props;
     const params = {
@@ -39,34 +28,21 @@ class NavBar extends Component {
     await getContent(params);
   }
 
-  MenuOpen = () => {
-    this.setState({
-      open: true,
-    });
-  };
-
-  MenuClose = () => {
-    this.setState({
-      open: false,
-    });
-  };
-
   render() {
-    const { user } = this.props;
-    const { open } = this.state;
+    // eslint-disable-next-line no-unused-vars
+    const {
+      user, content, sidebarState, sidebar, getContent,
+    } = this.props;
     return (
       <>
         <div className="mobile" style={style.buttonBackground}>
-          <img src={MobileLogo} alt="mobile__logo" style={style.image} />
-          <i className="fas fa-bars" onClick={this.MenuOpen} style={style.icon} />
-          <MobileNavBar Open={open} closeMenu={this.MenuClose} />
+          <MobileNavBar Open={sidebar} closeMenu={sidebarState} />
         </div>
         <TopNavbar content={getContent} />
-        <Navbar className="navbar" expand="lg" ref={this.navRef}>
+        <Navbar className="navbar" expand="lg">
           <Container>
             <Nav className="navbar__list">
               {content.map((con) => {
-                // console.log(con, 'con');
                 if (con.section === 'menu') {
                   return (
                     <Nav.Item>
@@ -74,6 +50,7 @@ class NavBar extends Component {
                     </Nav.Item>
                   );
                 }
+                return null;
               })}
               {/* <Nav.Item>
                 <Link to="/categories">Shop Categories</Link>
@@ -102,11 +79,13 @@ class NavBar extends Component {
 
 const mapDispatchToProps = {
   getContent,
+  sidebarState,
 };
 
 const mapStateToProps = state => ({
   user: state.User,
   content: state.Content.contentList || [],
+  sidebar: state.Sidebar.open,
 });
 
 export default connect(

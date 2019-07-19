@@ -5,17 +5,13 @@ import Input from 'components/common/inputField';
 import { connect } from 'react-redux';
 import DropdownComponent from 'components/common/DropDown';
 import { faMapMarkerAlt, faSortDown } from '@fortawesome/fontawesome-free-solid';
+import { sidebarState } from 'redux/actions/sidebarActions';
 import { modalState } from 'redux/actions/modalActions';
 import { isLogout } from 'redux/actions/userActions';
 import { Link } from 'react-router-dom';
 
 const MobileNav = (props) => {
-<<<<<<< HEAD
-  const { user, modalState } = props;
-=======
-  console.log(props, 'props');
-  const { user } = props;
->>>>>>> add secondar nav in mobile view
+  const { user, modalState, sidebarState } = props;
   return (
     <Container>
       <Row>
@@ -52,8 +48,9 @@ const MobileNav = (props) => {
                 type="button"
                 className="top-navbar__join-btn"
                 onClick={() => {
-                  props.closeMenu();
-                  props.SignUpModal();
+                  sidebarState();
+                  modalState('signup');
+                  modalState('none');
                 }}
               >
                 JOIN FREE
@@ -88,6 +85,7 @@ const MobileNav = (props) => {
 const mapDispatchToProps = {
   modalState,
   isLogout,
+  sidebarState,
 };
 
 const mapStateToProps = state => ({

@@ -15,10 +15,10 @@ import { country, language } from 'constants/dropdown';
 
 class TopNavbar extends Component {
   ModalOpen = async (e) => {
-    e.preventDefault();
+    // e.preventDefault();
     const { modalState } = this.props;
-    const modalType = e === 'SignIn' ? modalState('signin') : modalState('signup');
-    await modalState(modalType);
+    // const modalType = e === 'SignIn' ? modalState('signin') : modalState('signup');
+    await modalState('signin');
   };
 
   LogOut = async () => {
@@ -93,7 +93,7 @@ class TopNavbar extends Component {
                     <button
                       className="top-navbar__join-btn"
                       type="button"
-                      onClick={() => this.ModalOpen('SignUp')}
+                      onClick={e => this.ModalOpen('SignUp')}
                     >
                       JOIN FREE
                     </button>

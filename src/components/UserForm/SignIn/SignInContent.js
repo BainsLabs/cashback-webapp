@@ -1,11 +1,11 @@
 import React from 'react';
 import { Row, Col } from 'react-bootstrap';
-import { SignUpModal } from 'redux/actions/modalActions';
+import { modalState } from 'redux/actions/modalActions';
 import { connect } from 'react-redux';
 
 const SignInContent = (props) => {
   // eslint-disable-next-line no-shadow
-  const { label, SignUpModal } = props;
+  const { label, modalState } = props;
   return (
     <div className="auth-left__signup">
       <Row>
@@ -16,7 +16,7 @@ const SignInContent = (props) => {
       </Row>
       <Row>
         <Col>
-          <button type="button" onClick={e => SignUpModal(e)}>
+          <button type="button" onClick={() => modalState('signup')}>
             {label}
           </button>
         </Col>
@@ -26,7 +26,7 @@ const SignInContent = (props) => {
 };
 
 const mapDispatchToProps = {
-  SignUpModal,
+  modalState,
 };
 
 export default connect(

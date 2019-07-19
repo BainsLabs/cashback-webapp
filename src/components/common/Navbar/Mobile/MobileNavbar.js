@@ -1,9 +1,19 @@
+/* eslint-disable jsx-a11y/click-events-have-key-events */
 import React from 'react';
 import { slide as Menu } from 'react-burger-menu';
 import InnerLogo from 'static/icons-images/logo.png';
+import MobileLogo from 'static/icons-images/logo-icon.png';
+import { withRouter, Link } from 'react-router-dom';
 import MobileNav from './MobileNav';
 
 const style = {
+  bmBurgerButton: {
+    width: '2rem',
+    height: '2rem',
+    marginLeft: '1rem',
+    // float: 'right',
+    position: 'fixed',
+  },
   bmMenu: {
     background: '#272F3A',
     color: 'white',
@@ -15,21 +25,27 @@ const style = {
   outerStyle: {
     outline: 'none',
   },
-  bmMenuWrap: {
-    width: '100%',
+  bmOverlay: {
+    // width: 'none',
   },
 };
 
 const MobileNavBar = (props) => {
-  console.log(props, 'propsssss');
   return (
-    <Menu {...props} styles={style} right>
+    <Menu
+      customBurgerIcon={<img src={MobileLogo} alt="mobile__logo" />}
+      {...props}
+      styles={style}
+      left
+    >
       <div className="text-center" style={style.outerStyle}>
-        <img src={InnerLogo} alt="inner logo" style={style.InnerLogo} />
+        <Link to="/">
+          <img src={InnerLogo} alt="inner logo" style={style.InnerLogo} />
+        </Link>
         <MobileNav {...props} />
       </div>
     </Menu>
   );
 };
 
-export default MobileNavBar;
+export default withRouter(MobileNavBar);
