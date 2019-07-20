@@ -4,74 +4,78 @@ export const links = [
     link: [
       {
         linkLabel: 'SHOP CATEGORIES',
-        url: '#'
+        url: '/categories',
       },
       {
         linkLabel: 'HOW CASH BACK WORKS',
-        url: '#'
+        url: '/how-cashback-works',
       },
       {
         linkLabel: 'REFER A FRIEND',
-        url: '#'
+        url: '/refer-friend',
       },
       {
         linkLabel: 'VIP BENIFITS',
-        url: '#'
+        url: '#',
       },
       {
         linkLabel: 'MY ACCOUNT',
-        url: '#'
-      }
-    ]
+        url: '#',
+      },
+      {
+        linkLabel: 'TERMS AND CONDITIONS',
+        url: '/terms-conditions',
+      },
+    ],
   },
   {
     heading: 'CATEGORIES',
     link: [
       {
         linkLabel: 'TRAVEL',
-        url: '#'
+        url: '#',
       },
       {
         linkLabel: 'ELECTRONICS',
-        url: '#'
+        url: '#',
       },
       {
         linkLabel: 'FASHIONS',
-        url: '#'
+        url: '#',
       },
       {
         linkLabel: 'HEALTH & BEAUTY',
-        url: '#'
+        url: '#',
       },
       {
         linkLabel: 'OTHER',
-        url: '#'
-      }
-    ]
+        url: '#',
+      },
+    ],
   },
   {
     heading: 'BRANDS',
     link: [
       {
         linkLabel: 'AMAZON',
-        url: '#'
+        url: '#',
       },
       {
         linkLabel: 'BEST BUY',
-        url: '#'
+        url: '#',
       },
       {
         linkLabel: 'JCPENNEY',
-        url: '#'
+        url: '#',
       },
       {
         linkLabel: "KOHL'S",
-        url: '#'
+        url: '#',
       },
       {
         linkLabel: "MACY'S",
-        url: '#'
-      }
-    ]
-  }
+        url: '#',
+      },
+    ],
+  },
 ];
