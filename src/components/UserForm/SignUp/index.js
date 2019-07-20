@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 import { Row, Col } from 'react-bootstrap';
+import { connect } from 'react-redux';
 import Input from 'components/common/inputField';
 import Select from 'components/common/selectField';
 import { ReferOptions } from 'constants/referOptions';
 import { Auth } from 'aws-amplify';
 import LoaderButton from 'components/common/LoaderButton';
+import { UserSignUp } from 'redux/actions/userActions';
 
 class SignUp extends Component {
   state = {
@@ -64,10 +66,11 @@ class SignUp extends Component {
   };
 
   handleSubmit = async (event) => {
+    const { UserSignUp } = this.props;
     event.preventDefault();
     this.setState({ isLoading: true });
     try {
-      const newUser = await Auth.signUp({
+      const newUser = await UserSignUp({
         email: this.state.email,
         username: this.state.username,
         password: this.state.password,
@@ -202,4 +205,11 @@ class SignUp extends Component {
   }
 }
 
-export default SignUp;
+const mapDispatchToProps = {
+  UserSignUp,
+};
+
+export default connect(
+  null,
+  mapDispatchToProps,
+)(SignUp);

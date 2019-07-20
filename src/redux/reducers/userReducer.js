@@ -11,6 +11,10 @@ export default (state = { authenticated: false }, action) => {
       return {
         authenticated: action.payload.authenticated,
       };
+    case User.SIGNUP_USER:
+      return {
+        registerUser: action.payload,
+      };
     default:
       return state;
   }

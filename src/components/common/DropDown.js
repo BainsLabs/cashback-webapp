@@ -44,7 +44,7 @@ class CustomMenu extends Component {
         />
         <ul className="list-unstyled">
           {React.Children.toArray(children).filter(
-            child => !value || child.props.children.toLowerCase().startsWith(value),
+            child => !value || child.props.children.startsWith(value),
           )}
         </ul>
       </div>
@@ -91,7 +91,7 @@ class DropdownComponent extends Component {
                   <Dropdown.Item
                     onClick={() => this.props.languageChange({ lang: item.key })}
                     as="option"
-                    value={item.key}
+                    value={item.key || ''}
                   >
                     {item.item}
                   </Dropdown.Item>
