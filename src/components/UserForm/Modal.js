@@ -39,16 +39,16 @@ const UserModal = (props) => {
             )}
           </Banner>
         </Col>
-        <Col md={6} className="usermodal__form">
-          <img src={LogoIcon} className="mx-auto d-block usermodal__logo" />
-          {name == 'signin' ? <SignIn /> : name === 'signup' ? <SignUp /> : <ForgotPassword />}
+        <Col md={6} className="usermodal__form auth-modal__right-side">
+          <img src={LogoIcon} alt="logo" className="mx-auto d-block usermodal__logo" />
+          {name === 'signin' ? <SignIn /> : name === 'signup' ? <SignUp /> : <ForgotPassword />}
         </Col>
       </Row>
     </Modal>
   );
 };
 
-const mapStateToProps = state => ({ userModal: state.UserModal.path });
+const mapStateToProps = state => ({ userModal: state.UserModal });
 
 export default connect(
   mapStateToProps,

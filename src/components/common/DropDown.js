@@ -88,7 +88,13 @@ class DropdownComponent extends Component {
             && menu.map((item) => {
               return (
                 <Fragment>
-                  <Dropdown.Item as="option">{item.item}</Dropdown.Item>
+                  <Dropdown.Item
+                    onClick={() => this.props.languageChange({ lang: item.key })}
+                    as="option"
+                    value={item.key}
+                  >
+                    {item.item}
+                  </Dropdown.Item>
                 </Fragment>
               );
             })}

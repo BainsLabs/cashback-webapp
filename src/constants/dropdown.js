@@ -16,14 +16,14 @@ export const country = [
 export const language = [
   {
     item: 'ENGLISH',
-    key: 'EN',
+    key: 'en',
   },
   {
-    item: 'FRENCH',
-    key: 'FR',
+    item: 'CHINESE',
+    key: 'cn',
   },
-  {
-    item: 'SPANISH',
-    key: 'SP',
-  },
+  // {
+  //   item: 'SPANISH',
+  //   key: 'SP',
+  // },
 ];
