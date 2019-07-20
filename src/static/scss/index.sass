@@ -21,6 +21,7 @@
 @import /partials/_refer.sass
 @import /partials/_category.sass
 @import /partials/_cashback.sass
+@import /partials/_my-earninigs.sass
 @import /partials/mediaQueries/_cashbackmedia.sass
 @import /partials/mediaQueries/_topNavbarmedia.sass
 @import /partials/_terms-conditions.sass
@@ -57,5 +58,14 @@ p
   color: map-get($fontColor, 'black')
   font-weight: normal
   letter-spacing: 0rem
+
+.banner-heading
+  justify-content: center
+  display: flex
+  align-content: flex-end
+  font-weight: bolder
+
+.banner-padding
+  +padding('', 15rem 0 2rem 0)
 
 @import /partials/mediaQueries/_homemedia.sass
