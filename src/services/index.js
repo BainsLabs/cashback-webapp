@@ -6,7 +6,7 @@ import axios from 'axios';
 // });
 
 export const contentAddApi = params => axios.post(
-  'https://3ihrhx1pyd.execute-api.us-east-1.amazonaws.com/dev/content/newcontent',
+  'https://azmxr0ww1m.execute-api.us-east-1.amazonaws.com/dev/content/newcontent',
   params,
 );
 export const contentGetApi = params => axios.post(
