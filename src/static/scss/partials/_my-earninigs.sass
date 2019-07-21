@@ -8,3 +8,86 @@
       display: inline
 
       +margin('', 1rem 2rem)
+.merchant__container
+  +padding('',.5rem)
+  background: map-get($fontColor,'leanGray')
+  border-bottom: .1rem solid #ffec8d
+  p
+    font-weight: bold
+.term__container
+  +padding('',2rem)
+  background: map-get($fontColor,'leanGray')
+  h6
+    font-size: 1.5rem
+    font-weight: bold
+  p
+    font-size: .9rem
+.gift__section
+  background: map-get($fontColor,'lightyellow')
+  text-align: center
+  border-bottom: .1rem solid map-get($fontColor,'leanGray')
+  +padding('',1rem)
+.gift__section__two
+  @extend .gift__section
+  +padding('',2rem)
+  border-bottom: none
+  text-align: left
+  font-weight: bold
+
+
+.gift__section__left
+  @extend .gift__section
+  border-left: .1rem solid map-get($fontColor,'leanGray')
+
+.gift__section__three
+  @extend .gift__section__left
+  border-bottom: none
+  +padding('',2rem)
+  text-align: left
+  font-weight: bold
+
+
+.referral__container
+  background: map-get($fontColor,'leanGray')
+
+.merchant
+  text-align: center
+  thead
+    background: map-get($fontColor,'lightyellow')
+
+.filter
+  +margin('bottom',.5rem)
+
+.tab
+  background: map-get($fontColor,'leanGray')
+  a
+    color: black
+    background: map-get($fontColor,'lightishGray')
+
+
+.merchant__container
+
+
+.checkbox
+  +margin('top',.5rem)
+
+.merchant__list
+    +margin('top',1.5rem)
+    background: map-get($fontColor,'lightyellow')
+    +padding('',1rem)
+
+.profile__tab
+  background: map-get($fontColor,'leanGray')
+  +padding('',2rem)
+.welcomegift__section
+  +margin('top',3rem)
+  h6
+    text-align: center
+    font-weight: bold
+
+
+.refer__col__one
+  h6
+    +padding('top',1rem)
+    font-size: 0.8rem
+    font-weight: bold
