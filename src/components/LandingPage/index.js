@@ -14,6 +14,10 @@ import { merchants } from "constants/merchants";
 
 // eslint-disable-next-line arrow-parens
 const LandingPage = props => {
+
+  let cashBack = props.contents.map((cont) => {
+    return {cont.location === "myearningvip" && cont.section==="header" ? cont.content:""}
+  })
   return (
     <>
       <Banner imgSrc={bannerImg}>
@@ -66,7 +70,6 @@ const LandingPage = props => {
             </Col>
           </Row>
         </div>
-      </Banner>
       <div className="merchant">
         <Row>
           <Col xs={12}>
@@ -107,7 +110,7 @@ const LandingPage = props => {
           ))}
         </Row>
       </div>
-      <Banner imgSrc={ReferAFriendBG} textPosition="center">
+      <Banner imgSrc={ReferAFriendBG} textPosition="center" />
         <>
           <Row>
             {merchants.map(item => (
