@@ -2,20 +2,27 @@ import React from 'react';
 import { Row, Col } from 'react-bootstrap';
 import HP from 'static/icons-images/hp.jpg';
 import newsImage from 'static/icons-images/news-img1.jpg';
+import { FormattedMessage } from 'react-intl';
 
 export default () => (
   <Row className="deals-news">
     <Col className="deals__section no-padding" lg={9}>
-      <span className="deals__section-heading">HOT DEALS</span>
+      <span className="deals__section-heading">
+        <FormattedMessage id="data.HPhotdeals" />
+      </span>
       <button type="button" className="text-white float-right deals__section-see-all">
-        SEE All
+        <FormattedMessage id="data.HPseeall" />
       </button>
       <Row className="deals__section-content">
         <Col md={1}>
           <img src={HP} alt="hp-logo" />
         </Col>
         <Col md={11}>
-          <span className="deals__section-cashback">+4.0 % Cash Back</span>
+          <span className="deals__section-cashback">
+            +4.0 %
+            {' '}
+            <FormattedMessage id="data.headermyearningsvipcashback" />
+          </span>
 
           <span className="float-right ">
             CODE&nbsp;
@@ -28,7 +35,9 @@ export default () => (
             cillum fugiat. Occaecat non Lorem labore pariatur proident cupidatat nisi nulla eiusmod
             nostrud nisi cupidatat. Elit occaecat duis deserunt et ea magna exercitation.
           </p>
-          <button type="button">SHOP NOW</button>
+          <button type="button">
+            <FormattedMessage id="data.HPshopnow" />
+          </button>
         </Col>
       </Row>
       <Row className="deals__section-content">
@@ -36,10 +45,14 @@ export default () => (
           <img src={HP} alt="hp-logo" />
         </Col>
         <Col md={11}>
-          <span className="deals__section-cashback">+4.0 % Cash Back</span>
+          <span className="deals__section-cashback">
+            +4.0 %
+            {' '}
+            <FormattedMessage id="data.headermyearningsvipcashback" />
+          </span>
 
           <span className="float-right ">
-            CODE
+            <FormattedMessage id="data.HPcode" />
             <span className="deals__section-code">JULY 2019</span>
           </span>
           <p>
@@ -49,7 +62,9 @@ export default () => (
             cillum fugiat. Occaecat non Lorem labore pariatur proident cupidatat nisi nulla eiusmod
             nostrud nisi cupidatat. Elit occaecat duis deserunt et ea magna exercitation.
           </p>
-          <button type="button">SHOP NOW</button>
+          <button type="button">
+            <FormattedMessage id="data.HPshopnow" />
+          </button>
         </Col>
       </Row>
     </Col>

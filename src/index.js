@@ -1,3 +1,5 @@
+/* eslint-disable no-undef */
+/* eslint-disable camelcase */
 import React from "react";
 import ReactDOM from "react-dom";
 import { Provider } from "react-redux";
@@ -8,10 +10,18 @@ import App from "App";
 import config from "config";
 import Amplify from "aws-amplify";
 import { IntlProvider, addLocaleData } from "react-intl";
+import locale_en from "react-intl/locale-data/en";
+import Messages from "constants/language";
+import locale_zh from "react-intl/locale-data/zh";
+import { flattenMessages } from "utils/flattenMessages";
 import * as serviceWorker from "./serviceWorker";
-
 import "static/scss/index.sass";
 
+const language =
+  localStorage.getItem("country") === null
+    ? "en-US"
+    : localStorage.getItem("country"); // language without region co
+console.log(language, "languageeeesss");
 Amplify.configure({
   Auth: {
     mandatorySignIn: true,
@@ -22,8 +32,13 @@ Amplify.configure({
   }
 });
 
+addLocaleData([...locale_en, ...locale_zh]);
+
 ReactDOM.render(
-  <IntlProvider locale="zh">
+  <IntlProvider
+    locale={language}
+    messages={flattenMessages(Messages[language])}
+  >
     <Provider store={store}>
       <PersistGate loading="...loading" persistor={persistor}>
         <Router>

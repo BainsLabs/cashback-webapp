@@ -12,6 +12,7 @@ import { isLogout } from 'redux/actions/userActions';
 import UserModal from 'components/UserForm/Modal';
 import { Link } from 'react-router-dom';
 import { country, language } from 'constants/dropdown';
+import { FormattedMessage } from 'react-intl';
 
 class TopNavbar extends Component {
   ModalOpen = async (name) => {
@@ -25,6 +26,13 @@ class TopNavbar extends Component {
     const { isLogout } = this.props;
     await Auth.signOut();
     await isLogout();
+  };
+
+  onCountryChange = (e) => {
+    console.log(e.target.value, 'country');
+    // eslint-disable-next-line no-undef
+    localStorage.setItem('country', e.target.value);
+    window.location.reload();
   };
 
   ModalClose = async () => {
@@ -53,7 +61,7 @@ class TopNavbar extends Component {
                     icon={faMapMarkerAlt}
                     iconLeft
                     menu={country}
-                    label="Select Country"
+                    label={<FormattedMessage id="data.filterboxSCselectcountry" />}
                     className="top-navbar__select-country"
                   />
                 </Col>
@@ -67,7 +75,7 @@ class TopNavbar extends Component {
                     label="Language"
                     menu={language}
                     className="top-navbar__select-language"
-                    languageChange={content}
+                    languageChange={this.onCountryChange}
                   />
                 </Col>
                 {user.authenticated ? (
@@ -87,7 +95,7 @@ class TopNavbar extends Component {
                       type="button"
                       onClick={() => this.ModalOpen('signin')}
                     >
-                      Login
+                      <FormattedMessage id="data.buttonlplogin" />
                     </button>
                     <span className="text-white">/</span>
                     <button
@@ -95,7 +103,7 @@ class TopNavbar extends Component {
                       type="button"
                       onClick={() => this.ModalOpen('signup')}
                     >
-                      JOIN FREE
+                      <FormattedMessage id="data.HPjoinfree" />
                     </button>
                   </Col>
                 )}

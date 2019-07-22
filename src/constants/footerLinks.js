@@ -1,17 +1,21 @@
+/* eslint-disable import/prefer-default-export */
+import React from 'react';
+import { FormattedMessage } from 'react-intl';
+
 export const links = [
   {
-    heading: 'POPULAR LINKS',
+    heading: <FormattedMessage id="data.HPfooterpopularlinks" />,
     link: [
       {
-        linkLabel: 'SHOP CATEGORIES',
+        linkLabel: <FormattedMessage id="data.BannerSC" />,
         url: '/categories',
       },
       {
-        linkLabel: 'HOW CASH BACK WORKS',
+        linkLabel: <FormattedMessage id="data.menuHPcashbackworks" />,
         url: '/how-cashback-works',
       },
       {
-        linkLabel: 'REFER A FRIEND',
+        linkLabel: <FormattedMessage id="data.menuHPcapsrefer" />,
         url: '/refer-friend',
       },
       {
@@ -19,11 +23,11 @@ export const links = [
         url: '#',
       },
       {
-        linkLabel: 'MY ACCOUNT',
+        linkLabel: <FormattedMessage id="data.menuHPmyaccount" />,
         url: '#',
       },
       {
-        linkLabel: 'TERMS AND CONDITIONS',
+        linkLabel: <FormattedMessage id="data.headermyearningsterms" />,
         url: '/terms-conditions',
       },
     ],
@@ -32,19 +36,19 @@ export const links = [
     heading: 'CATEGORIES',
     link: [
       {
-        linkLabel: 'TRAVEL',
+        linkLabel: <FormattedMessage id="data.HPtravel" />,
         url: '#',
       },
       {
-        linkLabel: 'ELECTRONICS',
+        linkLabel: <FormattedMessage id="data.HPelectronics" />,
         url: '#',
       },
       {
-        linkLabel: 'FASHIONS',
+        linkLabel: <FormattedMessage id="data.HPfashion" />,
         url: '#',
       },
       {
-        linkLabel: 'HEALTH & BEAUTY',
+        linkLabel: <FormattedMessage id="data.HPhealth" />,
         url: '#',
       },
       {

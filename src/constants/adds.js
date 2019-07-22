@@ -1,4 +1,5 @@
 /* eslint-disable import/prefer-default-export */
+import React from 'react';
 import KFC from 'static/icons-images/kfc-bg.jpg';
 import kfcLOGO from 'static/icons-images/kfc-logo.png';
 import Armani from 'static/icons-images/armani-bg.jpg';
@@ -11,6 +12,7 @@ import OYO from 'static/icons-images/oyo-bg.jpg';
 import oyoLogo from 'static/icons-images/oyo.png';
 import Refer from 'static/icons-images/refer.jpg';
 import VIP from 'static/icons-images/vip.png';
+import { FormattedMessage } from 'react-intl';
 
 export const adds = [
   {
@@ -60,10 +62,10 @@ export const adds = [
 export const members = [
   {
     image: Refer,
-    btnText: 'REFER A FRIEND',
+    btnText: <FormattedMessage id="data.HPreferafriend" />,
   },
   {
     image: VIP,
-    btnText: 'BECOME A VIP',
+    btnText: <FormattedMessage id="data.HPbecomevip" />,
   },
 ];

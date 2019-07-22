@@ -2,13 +2,17 @@ import React from 'react';
 import { Container, Col, Row } from 'react-bootstrap';
 import CashBackCard from 'components/common/benefitscard';
 import { firstSection } from 'constants/cashbackimg';
+import { FormattedMessage } from 'react-intl';
 
 const WhatIsCashBack = () => (
   <section>
     <Container className="text-center">
       <Row>
         <Col className="cashback__intro">
-          <h1 className="font-weight-bold text-uppercase">What is Cashback? </h1>
+          <h1 className="font-weight-bold text-uppercase">
+            <FormattedMessage id="data.headerhcwhatiscashback" />
+            {' '}
+          </h1>
           <p className="cashback__description">
             When you shop at thousands of the world&apos;s most popular brands through
             6degree.CASH,we simply

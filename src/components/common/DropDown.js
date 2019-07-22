@@ -63,17 +63,16 @@ class DropdownComponent extends Component {
     });
   };
 
-  languageClick = (key) => {
-    const { languageChange } = this.props;
-    languageChange({ lang: key });
-  };
+  // languageClick = (key) => {
+  //   const { languageChange } = this.props;
+  //   languageChange({ lang: key });
+  // };
 
   render() {
     const { label } = this.state;
     const {
       className, icon, iconLeft, menu, languageChange,
     } = this.props;
-    console.log(menu, 'menuuu');
     return (
       <Dropdown className={className}>
         <Dropdown.Toggle as={CustomToggle} id="dropdown-custom-components">
@@ -94,7 +93,7 @@ class DropdownComponent extends Component {
               return (
                 <Fragment>
                   <Dropdown.Item
-                    onClick={languageChange ? () => this.languageClick(item.key) : this.onClick}
+                    onClick={languageChange ? e => languageChange(e) : this.onClick}
                     as="option"
                     value={item.key || ''}
                   >
