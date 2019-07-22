@@ -1,12 +1,13 @@
-import React from 'react';
-import { Tabs, Tab, Container } from 'react-bootstrap';
-import Banner from 'components/common/Banner';
-import bannerImg from 'static/images/my-earning/banner.jpg';
-import Cashback from './cashBack';
-import WelComeGift from './welcomeGift';
-import ReferBonus from './ReferralBonus';
-import VipCashBack from './VipCashback';
-import VipBonus from './vipBonus';
+import React from "react";
+import { Tabs, Tab, Container } from "react-bootstrap";
+import Banner from "components/common/Banner";
+import bannerImg from "static/images/my-earning/banner.jpg";
+import Cashback from "./cashBack";
+import WelComeGift from "./welcomeGift";
+import ReferBonus from "./ReferralBonus";
+import VipCashBack from "./VipCashback";
+import VipBonus from "./vipBonus";
+import FriendShipBonus from "./FriendshipBonus";
 
 export default () => (
   <>
@@ -14,7 +15,11 @@ export default () => (
       <h2 className="banner-heading">My Earnings</h2>
     </Banner>
     <Container className="myearnings-tabs">
-      <Tabs defaultActiveKey="cash-back" id="uncontrolled-tab-example" className="tab">
+      <Tabs
+        defaultActiveKey="cash-back"
+        id="uncontrolled-tab-example"
+        className="tab"
+      >
         <Tab eventKey="cash-back" title="CASH BACK">
           <Cashback />
         </Tab>
@@ -31,9 +36,7 @@ export default () => (
           <VipBonus />
         </Tab>
         <Tab eventKey="friendship" title="FRIENDSHIP BONUS">
-          <button type="button" onClick={() => console.log('hello')}>
-            Calculate Earning
-          </button>
+          <FriendShipBonus />
         </Tab>
       </Tabs>
     </Container>
