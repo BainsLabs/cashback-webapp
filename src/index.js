@@ -1,16 +1,16 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import { Provider } from 'react-redux';
-import store, { persistor } from 'redux/store';
-import { BrowserRouter as Router } from 'react-router-dom';
-import { PersistGate } from 'redux-persist/integration/react';
-import App from 'App';
-import config from 'config';
-import Amplify from 'aws-amplify';
+import React from "react";
+import ReactDOM from "react-dom";
+import { Provider } from "react-redux";
+import store, { persistor } from "redux/store";
+import { BrowserRouter as Router } from "react-router-dom";
+import { PersistGate } from "redux-persist/integration/react";
+import App from "App";
+import config from "config";
+import Amplify from "aws-amplify";
+import { IntlProvider, addLocaleData } from "react-intl";
+import * as serviceWorker from "./serviceWorker";
 
-import * as serviceWorker from './serviceWorker';
-
-import 'static/scss/index.sass';
+import "static/scss/index.sass";
 
 Amplify.configure({
   Auth: {
@@ -18,20 +18,22 @@ Amplify.configure({
     region: config.cognito.REGION,
     userPoolId: config.cognito.USER_POOL_ID,
     identityPoolId: config.cognito.IDENTITY_POOL_ID,
-    userPoolWebClientId: config.cognito.APP_CLIENT_ID,
-  },
+    userPoolWebClientId: config.cognito.APP_CLIENT_ID
+  }
 });
 
 ReactDOM.render(
-  <Provider store={store}>
-    <PersistGate loading="...loading" persistor={persistor}>
-      <Router>
-        <App />
-      </Router>
-    </PersistGate>
-  </Provider>,
+  <IntlProvider locale="zh">
+    <Provider store={store}>
+      <PersistGate loading="...loading" persistor={persistor}>
+        <Router>
+          <App />
+        </Router>
+      </PersistGate>
+    </Provider>
+  </IntlProvider>,
   // eslint-disable-next-line no-undef
-  document.getElementById('root'),
+  document.getElementById("root")
 );
 
 // If you want your app to work offline and load faster, you can change
