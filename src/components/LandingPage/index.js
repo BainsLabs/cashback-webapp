@@ -59,7 +59,7 @@ export default () => (
       <div className="merchant">
         <Row>
           <Col xs={12}>
-            <h3>CASHBACK OFFERS</h3>
+            <h3>FEATURED DEALS</h3>
           </Col>
         </Row>
         <Row>

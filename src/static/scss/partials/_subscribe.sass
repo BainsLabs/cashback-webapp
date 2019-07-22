@@ -1,28 +1,36 @@
 .subscribe
   position: relative
   top: 90px
-  background: map-get($sectionColor, 'yellow')
-  @include margin('top',5rem)
-  @include padding('', 3rem 2rem 4rem 2rem)
+  background: map-get($sectionColor, 'blue')
+
+  +margin('top', 5rem)
+  +padding('', 3rem 2rem 4rem 2rem)
+
   text-align: center
+
   h3
     font-weight: bolder
     font-size: 2rem
     letter-spacing: 0.2rem
+
   p
     font-weight: 400
     font-size: 1rem
+
   button
     background: map-get($fontColor, 'black')
     color: map-get($fontColor, 'white')
     border-left: 1px solid #000
     border-radius: 20rem
+
   .subscribe__input
-    @include margin('top',0.5rem)
+    +margin('top', 0.5rem)
+
     input
       height: 3rem
       outline: 0px
       border-radius: 20rem
-      @include padding('left',2rem)
-      @include placeholder
+
+      +padding('left', 2rem)
+      +placeholder
         font-size: 0.8rem

@@ -36,10 +36,10 @@ class App extends Component {
     return (
       // <LoadingOverlay active={isLoader} spinner={<ScaleLoader />} text="Loading your content...">
       <div className="App">
-        {/* <Navbar /> */}
+        <Navbar />
         <Routes childProps={childProps} />
-        {/* <Subscribe /> */}
-        {/* <Footer /> */}
+        <Subscribe />
+        <Footer />
       </div>
       // </LoadingOverlay>
     );

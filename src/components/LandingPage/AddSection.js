@@ -45,7 +45,7 @@ export default () => (
               <Col lg={12} key={uuidv1()} className="mb-2">
                 <Card
                   classValue="card__content-hover"
-                  backgroundColor="#272F3A"
+                  backgroundColor="#96c1eb"
                   textPosition="center"
                   border
                   width="15rem"
