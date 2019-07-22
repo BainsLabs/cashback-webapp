@@ -7,7 +7,9 @@ import Select from 'components/common/selectField';
 import { ReferOptions } from 'constants/referOptions';
 import { Auth } from 'aws-amplify';
 import LoaderButton from 'components/common/LoaderButton';
+import { withRouter } from 'react-router-dom';
 import { UserSignUp } from 'redux/actions/userActions';
+import { modalState } from 'redux/actions/modalActions';
 import { userRegister } from 'redux/actions/signupActions';
 
 class SignUp extends Component {
@@ -85,7 +87,7 @@ class SignUp extends Component {
         password: this.state.password,
         country: 'IN',
       });
-      console.log(newUser, 'user')
+      console.log(newUser, 'user');
       this.setState({
         newUser,
       });
@@ -97,11 +99,13 @@ class SignUp extends Component {
   };
 
   handleConfirmationSubmit = async () => {
+    const { modalState } = this.props;
     this.setState({ isLoading: true });
     try {
       await Auth.signIn(this.state.email, this.state.password);
       // this.props.userHasAuthenticated(true);
       this.props.history.push('/');
+      modalState(null);
     } catch (e) {
       alert(e.message);
       this.setState({ isLoading: false });
@@ -216,9 +220,12 @@ class SignUp extends Component {
 const mapDispatchToProps = {
   UserSignUp,
   userRegister,
+  modalState,
 };
 
-export default connect(
-  null,
-  mapDispatchToProps,
-)(SignUp);
+export default withRouter(
+  connect(
+    null,
+    mapDispatchToProps,
+  )(SignUp),
+);
