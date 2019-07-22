@@ -1,30 +1,32 @@
-import React from "react";
-import Banner from "components/common/Banner";
-import { connect } from "react-redux";
-import CategorySection from "components/LandingPage/CategorySection";
-import { Container, Row, Col } from "react-bootstrap";
-import bannerImg from "static/icons-images/bannerimage.jpg";
-import Card from "components/common/Card";
-import BlackLine from "static/icons-images/black-line.png";
-import ReferAFriendBG from "static/icons-images/joinnow.jpg";
-import joinNow from "static/icons-images/join-now.png";
-import AddSection from "components/LandingPage/AddSection";
-import DealsNews from "components/LandingPage/DealsNews";
-import { merchants } from "constants/merchants";
+import React from 'react';
+import Banner from 'components/common/Banner';
+import { connect } from 'react-redux';
+import CategorySection from 'components/LandingPage/CategorySection';
+import { Container, Row, Col } from 'react-bootstrap';
+import bannerImg from 'static/icons-images/bannerimage.jpg';
+import Card from 'components/common/Card';
+import BlackLine from 'static/icons-images/black-line.png';
+import ReferAFriendBG from 'static/icons-images/joinnow.jpg';
+import joinNow from 'static/icons-images/join-now.png';
+import AddSection from 'components/LandingPage/AddSection';
+import DealsNews from 'components/LandingPage/DealsNews';
+import { merchants } from 'constants/merchants';
+import { FormattedMessage } from 'react-intl';
 
 // eslint-disable-next-line arrow-parens
 const LandingPage = props => {
-
-  let cashBack = props.contents.map((cont) => {
-    return {cont.location === "myearningvip" && cont.section==="header" ? cont.content:""}
-  })
+  // let cashBack = props.contents.map((cont) => {
+  //   return {cont.location === "myearningvip" && cont.section==="header" ? cont.content:""}
+  // })
   return (
     <>
       <Banner imgSrc={bannerImg}>
         <Container>
           <div className="home__banner">
             <p>$100</p>
-            <p>CASHBACK</p>
+            <p>
+              <FormattedMessage id="data.headermyearningscashback" />
+            </p>
             <div className="line" />
             <p>
               <span>Limited</span>
@@ -32,7 +34,7 @@ const LandingPage = props => {
               <span>Offer</span>
             </p>
             <button className="home__book-btn" type="button">
-              BOOK NOW
+              <FormattedMessage id="data.booknow" />
             </button>
           </div>
         </Container>
@@ -49,9 +51,7 @@ const LandingPage = props => {
                     <img src={joinNow} alt="joinNowLogo" />
                   </Col>
                   <Col lg={6} className="join-now__text">
-                    <p>JOIN 6 DEGREES</p>
-                    <p>FOR FREE AND GET A</p>
-                    <p>$ 10 BONUS</p>
+                    <FormattedMessage id="data.HPBanner" />
                   </Col>
                 </Row>
               </Col>
@@ -66,7 +66,9 @@ const LandingPage = props => {
         <div className="merchant">
           <Row>
             <Col xs={12}>
-              <h3>CASHBACK OFFERS</h3>
+              <h3>
+                <FormattedMessage id="data.filterboxSCfeaturedmarchant" />
+              </h3>
             </Col>
           </Row>
           <Row>
@@ -92,7 +94,8 @@ const LandingPage = props => {
                         Rewards
                       </p>
                       <p>
-                        CODE &nbsp;
+                        <FormattedMessage id="data.HPcode" />
+                        &nbsp;
                         <span>JULY 2019</span>
                       </p>
                       <p>Expire 7/07/2019</p>
@@ -107,11 +110,13 @@ const LandingPage = props => {
           <>
             <Row>
               <Col lg={8}>
-                <p className="refer__banner">REFER A FRIEND</p>
+                <p className="refer__banner">
+                  <FormattedMessage id="data.menuHPcapsrefer" />
+                </p>
               </Col>
               <Col lg={4}>
                 <button className="banner-btn" type="button">
-                  REFER A FRIEND
+                  <FormattedMessage id="data.menuHPcapsrefer" />
                 </button>
               </Col>
             </Row>
@@ -124,7 +129,7 @@ const LandingPage = props => {
 };
 
 const mapStateToProps = state => ({
-  contents: state.Content.contentList || []
+  contents: state.Content.contentList || [],
 });
 
 export default connect(mapStateToProps)(LandingPage);

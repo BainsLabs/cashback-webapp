@@ -3,6 +3,7 @@ import Card from 'components/common/Card';
 import CardContent from 'components/common/CardContent';
 import { adds, members } from 'constants/adds';
 import { Row, Col, Container } from 'react-bootstrap';
+import { FormattedMessage } from 'react-intl';
 import uuidv1 from 'uuid';
 
 export default () => (
@@ -10,7 +11,9 @@ export default () => (
     <Container>
       <Row>
         <Col className="add-section__heading">
-          <h2>TODAY&apos;S TOP COUPONS & OFFERS</h2>
+          <h2>
+            <FormattedMessage id="data.HPtitletopcoupons" />
+          </h2>
           <ul>
             <li>MOST USED</li>
             <li>RECHARGE</li>

@@ -972,11 +972,11 @@ export const country = [
 export const language = [
   {
     item: 'ENGLISH',
-    key: 'en',
+    key: 'en-US',
   },
   {
     item: 'CHINESE',
-    key: 'cn',
+    key: 'zh-CN',
   },
   // {
   //   item: 'SPANISH',
