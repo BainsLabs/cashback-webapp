@@ -14,4 +14,9 @@ export const contentGetApi = params => axios.post(
   params,
 );
 
+export const verifyUsername = params => axios.post(
+  'https://3ihrhx1pyd.execute-api.us-east-1.amazonaws.com/dev/users/verify-username',
+  params,
+);
+
 export const userRegisterApi = params => axios.post('https://3ihrhx1pyd.execute-api.us-east-1.amazonaws.com/dev/users/register', params);
