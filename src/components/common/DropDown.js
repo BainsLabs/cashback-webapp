@@ -43,9 +43,9 @@ class CustomMenu extends Component {
           value={value}
         />
         <ul className="list-unstyled">
-          {React.Children.toArray(children).filter(
-            child => !value || child.props.children.startsWith(value),
-          )}
+          {React.Children.toArray(children).filter((child) => {
+            return !value || child.props.children.startsWith(value);
+          })}
         </ul>
       </div>
     );
@@ -59,18 +59,23 @@ class DropdownComponent extends Component {
 
   onClick = (e) => {
     this.setState({
-      label: e.target.value,
+      label: e.target.innerHTML,
     });
+  };
+
+  languageClick = (key) => {
+    const { languageChange } = this.props;
+    languageChange({ lang: key });
   };
 
   render() {
     const { label } = this.state;
     const {
-      className, icon, iconLeft, menu,
+      className, icon, iconLeft, menu, languageChange,
     } = this.props;
     console.log(menu, 'menuuu');
     return (
-      <Dropdown onClick={this.onClick} className={className}>
+      <Dropdown className={className}>
         <Dropdown.Toggle as={CustomToggle} id="dropdown-custom-components">
           {iconLeft && <FontAwesomeIcon icon={icon} />}
           &nbsp;
@@ -83,13 +88,13 @@ class DropdownComponent extends Component {
           )}
         </Dropdown.Toggle>
 
-        <Dropdown.Menu as={CustomMenu}>
+        <Dropdown.Menu style={{ maxHeight: '20rem', overflowX: 'auto' }}>
           {menu
             && menu.map((item) => {
               return (
                 <Fragment>
                   <Dropdown.Item
-                    onClick={() => this.props.languageChange({ lang: item.key })}
+                    onClick={languageChange ? () => this.languageClick(item.key) : this.onClick}
                     as="option"
                     value={item.key || ''}
                   >

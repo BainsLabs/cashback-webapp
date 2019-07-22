@@ -20,14 +20,6 @@ const style = {
 };
 
 class NavBar extends Component {
-  async componentDidMount() {
-    const { getContent } = this.props;
-    const params = {
-      lang: 'en',
-    };
-    await getContent(params);
-  }
-
   render() {
     // eslint-disable-next-line no-unused-vars
     const {

@@ -14,11 +14,11 @@ import { Link } from 'react-router-dom';
 import { country, language } from 'constants/dropdown';
 
 class TopNavbar extends Component {
-  ModalOpen = async (e) => {
+  ModalOpen = async (name) => {
     // e.preventDefault();
     const { modalState } = this.props;
     // const modalType = e === 'SignIn' ? modalState('signin') : modalState('signup');
-    await modalState('signin');
+    await modalState(name);
   };
 
   LogOut = async () => {
@@ -85,7 +85,7 @@ class TopNavbar extends Component {
                     <button
                       className="top-navbar__login-btn"
                       type="button"
-                      onClick={() => this.ModalOpen('SignIn')}
+                      onClick={() => this.ModalOpen('signin')}
                     >
                       Login
                     </button>
@@ -93,7 +93,7 @@ class TopNavbar extends Component {
                     <button
                       className="top-navbar__join-btn"
                       type="button"
-                      onClick={e => this.ModalOpen('SignUp')}
+                      onClick={() => this.ModalOpen('signup')}
                     >
                       JOIN FREE
                     </button>

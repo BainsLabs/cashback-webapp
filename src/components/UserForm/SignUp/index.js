@@ -1,3 +1,4 @@
+/* eslint-disable no-shadow */
 import React, { Component } from 'react';
 import { Row, Col } from 'react-bootstrap';
 import { connect } from 'react-redux';
@@ -7,6 +8,7 @@ import { ReferOptions } from 'constants/referOptions';
 import { Auth } from 'aws-amplify';
 import LoaderButton from 'components/common/LoaderButton';
 import { UserSignUp } from 'redux/actions/userActions';
+import { userRegister } from 'redux/actions/signupActions';
 
 class SignUp extends Component {
   state = {
@@ -56,28 +58,34 @@ class SignUp extends Component {
     });
   };
 
-  handleChange = (event) => {
+  handleChange = async (event) => {
     this.setState(
       {
         [event.target.name]: event.target.value,
       },
       () => this.validateFields(),
     );
+    if (event.target.name === 'username') {
+      const params = {
+        username: event.target.value,
+      };
+      // const usernameCheck = await checkUsername(params);
+      // console.log(usernameCheck, 'usernameCheck');
+    }
   };
 
   handleSubmit = async (event) => {
-    const { UserSignUp } = this.props;
+    const { userRegister } = this.props;
     event.preventDefault();
     this.setState({ isLoading: true });
     try {
-      const newUser = await UserSignUp({
+      const newUser = await userRegister({
         email: this.state.email,
         username: this.state.username,
         password: this.state.password,
-        attributes: {
-          email: this.state.email,
-        },
+        country: 'IN',
       });
+      console.log(newUser, 'user')
       this.setState({
         newUser,
       });
@@ -207,6 +215,7 @@ class SignUp extends Component {
 
 const mapDispatchToProps = {
   UserSignUp,
+  userRegister,
 };
 
 export default connect(

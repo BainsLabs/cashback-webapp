@@ -12,6 +12,7 @@ import NotFound from 'containers/NotFound';
 import HowCashbackWorks from 'components/HowCashBackWork';
 import TermsndConditions from 'components/TermsndConditions';
 import MyEarnings from 'components/MyEarnings';
+// import MyEarnings from 'components/MyEarnings';
 
 export default ({ childProps }) => (
   <Switch>
