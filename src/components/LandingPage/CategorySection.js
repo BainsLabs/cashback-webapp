@@ -1,8 +1,8 @@
-import React from "react";
-import { categories } from "constants/categories";
-import { Container } from "react-bootstrap";
-import uuidv1 from "uuid";
-import CommonSlider from "components/common/Slider/Slider";
+import React from 'react';
+import { categories } from 'constants/categories';
+import { Container } from 'react-bootstrap';
+import uuidv1 from 'uuid';
+import CommonSlider from 'components/common/Slider/Slider';
 
 export default () => {
   return (

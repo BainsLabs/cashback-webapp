@@ -14,10 +14,6 @@ import { merchants } from "constants/merchants";
 
 // eslint-disable-next-line arrow-parens
 const LandingPage = props => {
-
-  let cashBack = props.contents.map((cont) => {
-    return {cont.location === "myearningvip" && cont.section==="header" ? cont.content:""}
-  })
   return (
     <>
       <Banner imgSrc={bannerImg}>
@@ -69,6 +65,50 @@ const LandingPage = props => {
               <h3>CASHBACK OFFERS</h3>
             </Col>
           </Row>
+        </div>
+      </Banner>
+      <div className="merchant">
+        <Row>
+          <Col xs={12}>
+            <h3>FEATURED DEALS</h3>
+          </Col>
+        </Row>
+        <Row>
+          {merchants.map(item => (
+            <Col xs={12} md={6} lg={3} className="mb-2">
+              <Card>
+                <>
+                  <img src={item.brandImg} className="mx-auto" alt="amazon" />
+                  <div className="card__content">
+                    <p>{item.offer}</p>
+                    <p>{item.offerType}</p>
+                    <img
+                      src={BlackLine}
+                      alt="line"
+                      className="mx-auto"
+                      height="1rem"
+                      widht="inherit"
+                    />
+                    <p>
+                      Plus
+                      {item.tlc}
+                      <br />
+                      Rewards
+                    </p>
+                    <p>
+                      CODE &nbsp;
+                      <span>JULY 2019</span>
+                    </p>
+                    <p>Expire 7/07/2019</p>
+                  </div>
+                </>
+              </Card>
+            </Col>
+          ))}
+        </Row>
+      </div>
+      <Banner imgSrc={ReferAFriendBG} textPosition="center">
+        <>
           <Row>
             {merchants.map(item => (
               <Col xs={12} md={6} lg={3} className="mb-2">

@@ -60,7 +60,7 @@ export default () => (
           SEE All
         </button>
         <Row className="news__section-content">
-          <Col md={5}>
+          <Col md={5} className="no-padding">
             <img src={newsImage} alt="newsimage" />
           </Col>
           <Col md={7}>
@@ -75,7 +75,7 @@ export default () => (
           </Col>
         </Row>
         <Row className="news__section-content">
-          <Col md={5}>
+          <Col md={5} className="no-padding">
             <img src={newsImage} alt="newsimage" />
           </Col>
           <Col md={7}>
@@ -90,7 +90,22 @@ export default () => (
           </Col>
         </Row>
         <Row className="news__section-content">
-          <Col md={5}>
+          <Col md={5} className="no-padding">
+            <img src={newsImage} alt="newsimage" />
+          </Col>
+          <Col md={7}>
+            <p>
+              Ullamco est sit ipsum incididunt.Deserunt laboris consequat non et esse incididunt
+              officia ullamco ipsum.
+            </p>
+            <span>
+              <i className="far fa-clock" />
+            </span>
+            <span>01 July 2019</span>
+          </Col>
+        </Row>
+        <Row className="news__section-content">
+          <Col md={5} className="no-padding">
             <img src={newsImage} alt="newsimage" />
           </Col>
           <Col md={7}>

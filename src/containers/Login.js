@@ -2,6 +2,14 @@ import React, { Component } from 'react';
 import { Auth } from 'aws-amplify';
 import { FormGroup, FormControl, FormLabel } from 'react-bootstrap';
 import LoaderButton from 'components/common/LoaderButton';
+import AWS from 'aws-sdk';
+import {
+  CognitoUserPool,
+  AuthenticationDetails,
+  CognitoUserAttribute,
+  CognitoUser,
+} from 'amazon-cognito-identity-js';
+
 import './Login.css';
 
 export default class Login extends Component {
@@ -13,18 +21,20 @@ export default class Login extends Component {
     mailSent: false,
     loginError: '',
     confirmationCode: '',
-    is_forgotPassword: false
+    is_forgotPassword: false,
   };
 
   showForgotPasswordForm = () => {
     console.log('Testing');
     this.setState({
-      is_forgotPassword: true
+      is_forgotPassword: true,
     });
   };
+
   validateConfirmationForm() {
     return this.state.username.length > 0;
   }
+
   validateForm() {
     return this.state.username.length > 0 && this.state.password.length > 0;
   }
@@ -33,7 +43,7 @@ export default class Login extends Component {
     this.setState({
       [event.target.id]: event.target.value,
       usernameError: '',
-      loginError: ''
+      loginError: '',
     });
   };
 
@@ -41,15 +51,60 @@ export default class Login extends Component {
     event.preventDefault();
 
     this.setState({ isLoading: true, usernameError: '', loginError: '' });
+    export function fetchUser({ login, password }) {
+      // console.log(login);
+      // console.log(password);
+      return function(dispatch, currentState) {
+        dispatch({ type: 'FETCH_USER_PENDING' });
+        let state = currentState();
+        let { UserPool, UserPoolClientId, IdentityPoolId } = state.options;
+        var authenticationData = {
+          Username: login.toLowerCase().trim(),
+          Password: password,
+        };
 
-    try {
-      await Auth.signIn(this.state.username, this.state.password);
-      this.props.userHasAuthenticated(true);
-    } catch (e) {
-      console.log(e, 'error');
-      this.setState({ isLoading: false, loginError: e.message });
+        var authenticationDetails = new AuthenticationDetails(authenticationData);
+        var poolData = {
+          ClientId: UserPoolClientId, // Your client id here
+          UserPoolId: UserPool, // Your user pool id here
+        };
+
+        var userPool = new CognitoUserPool(poolData);
+
+        var userData = {
+          Username: login.toLowerCase().trim(),
+          Pool: userPool,
+        };
+        var cognitoUser = new CognitoUser(userData);
+
+        cognitoUser.authenticateUser(authenticationDetails, {
+          onSuccess: function(result) {
+            let token = result.getAccessToken().getJwtToken();
+            let idToken = result.getIdToken().getJwtToken();
+            // console.log("access token + " + result.getAccessToken().getJwtToken());
+            console.log(result, 'result');
+            AWS.config.credentials = new AWS.CognitoIdentityCredentials({
+              IdentityPoolId, // your identity pool id here
+              Logins: {
+                // Change the key below according to the specific region your user pool is in.
+                [`cognito-idp.us-east-1.amazonaws.com/${UserPool}`]: result
+                  .getIdToken()
+                  .getJwtToken(),
+              },
+            });
+          },
+        });
+      };
     }
+    // try {
+    //   await Auth.signIn(this.state.username, this.state.password);
+    //   this.props.userHasAuthenticated(true);
+    // } catch (e) {
+    //   console.log(e, 'error');
+    //   this.setState({ isLoading: false, loginError: e.message });
+    // }
   };
+
   userCheck = () => {
     const { username } = this.state;
     if (username.length > 0) {
@@ -58,27 +113,29 @@ export default class Login extends Component {
         .catch(err => {
           if (err.code === 'UserNotFoundException') {
             this.setState({
-              usernameError: "Username doesn't exist"
+              usernameError: "Username doesn't exist",
             });
-            return;
           }
         });
     }
   };
+
   forgotPassword = async () => {
     const { username, confirmationCode, password } = this.state;
     Auth.forgotPasswordSubmit(username, confirmationCode, password)
       .then(data => console.log(data))
       .catch(e => console.log(e));
   };
+
   handleConfirmationSubmit = async e => {
     e.preventDefault();
     const { username } = this.state;
     await Auth.forgotPassword(username);
     this.setState({
-      mailSent: true
+      mailSent: true,
     });
   };
+
   renderFogortPasswordForm() {
     return (
       <form>
@@ -103,9 +160,7 @@ export default class Login extends Component {
                 value={this.state.confirmationCode}
                 onChange={this.handleChange}
               />
-              <small class="text-muted">
-                Please check your email for the code.
-              </small>
+              <small className="text-muted">Please check your email for the code.</small>
             </FormGroup>
             <FormGroup controlId="password" bsSize="large">
               <FormLabel>New Password</FormLabel>
@@ -120,11 +175,7 @@ export default class Login extends Component {
         <LoaderButton
           block
           bsSize="large"
-          onClick={
-            this.state.mailSent
-              ? this.forgotPassword
-              : this.handleConfirmationSubmit
-          }
+          onClick={this.state.mailSent ? this.forgotPassword : this.handleConfirmationSubmit}
           disabled={!this.validateConfirmationForm()}
           type="submit"
           isLoading={this.state.isLoading}
@@ -134,6 +185,7 @@ export default class Login extends Component {
       </form>
     );
   }
+
   render() {
     console.log(this.state.is_forgotPassword);
     return (

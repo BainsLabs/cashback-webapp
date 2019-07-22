@@ -3,12 +3,13 @@
   +padding('', 0)
 
 .deals__section
-  background: map-get($fontColor, 'lightGray')
+  background: map-get($fontColor, 'black')
   border: 1px solid map-get($fontColor, 'black')
 
 .deals__section-heading
   font-size: 2rem
   font-weight: bold
+  color: map-get($fontColor, 'white')
 
   +padding('', 0 2rem)
 
@@ -23,23 +24,25 @@
   +padding('', 1rem 0)
 
   border-top: 1px solid map-get($fontColor, 'black')
+  background: map-get($fontColor, 'pink')
 
   p
     font-size: 1rem
     font-weight: 100
 
-    +margin('', 1rem 0)
+    +margin('', 0.6rem 0)
 
   button
-    background: none
-    border: 2px solid map-get($fontColor, 'yellow')
+    background: map-get($fontColor, 'blue')
+    border: 0px
     border-radius: 2rem
+    transition: 0.25s
 
-    +padding('', 0.2rem 1rem)
+    +padding('', 0.3rem 1rem)
 
     &:hover
-      background: map-get($fontColor, 'yellow')
-      color: map-get($fontColor, 'white')
+      box-shadow: 0 0.5em 0.5em -0.4em map-get($fontColor, 'black')
+      transform: translateY(-0.25em)
 
 .deals__section-cashback
   font-size: 1rem
@@ -73,12 +76,13 @@
 .news__section-content
   border-top: 1px solid map-get($fontColor, 'white')
   text-justify: left
-  word-break: break-all
 
-  +padding('', 1rem)
+  // word-break: break-all
+
+  +padding('', 0.7rem)
 
   p
-    font-size: 0.7rem
+    font-size: 0.5rem
     color: transparentize(map-get($fontColor, 'white'), 0.2)
 
   span
