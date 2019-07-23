@@ -2,14 +2,13 @@
 import { verifyUsername, userRegisterApi, userGetEmailApi } from 'services';
 import * as user from '../actionsTypes/signupTypes';
 
-// export const checkUsername = params => async (dispatch) => {
-//   const res = await verifyUsername(params);
-//   dispatch({
-//     type: content.CONTENT_ADD,
-//     payload: res.data,
-//   });
-//   return res.data;
-// };
+export const checkUsername = params => async (dispatch) => {
+  const res = await verifyUsername(params);
+  dispatch({
+    payload: res.data,
+  });
+  return res.data;
+};
 
 export const userRegister = params => async (dispatch) => {
   const res = await userRegisterApi(params);

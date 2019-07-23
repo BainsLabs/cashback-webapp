@@ -10,7 +10,8 @@ import LoaderButton from 'components/common/LoaderButton';
 import { withRouter } from 'react-router-dom';
 import { UserSignUp } from 'redux/actions/userActions';
 import { modalState } from 'redux/actions/modalActions';
-import { userRegister } from 'redux/actions/signupActions';
+import { userRegister, checkUsername } from 'redux/actions/signupActions';
+
 
 class SignUp extends Component {
   state = {
@@ -59,11 +60,11 @@ class SignUp extends Component {
   };
 
   handleChange = async event => {
+    const {checkUsername} = this.props;
     this.setState(
       {
         [event.target.name]: event.target.value,
-      },
-      () => this.validateFields(),
+      }
     );
     if (event.target.name === 'username') {
       const params = {
@@ -75,8 +76,8 @@ class SignUp extends Component {
   };
 
   handleSubmit = async event => {
-    const { userRegister } = this.props;
     event.preventDefault();
+    const { userRegister } = this.props;
     this.setState({ isLoading: true });
     try {
       const newUser = await userRegister({
@@ -85,7 +86,7 @@ class SignUp extends Component {
         password: this.state.password,
         country: 'IN',
       });
-      console.log(newUser, 'user');
+      console.log(newUser, "testinguser")
       this.setState({
         newUser,
       });
@@ -93,7 +94,7 @@ class SignUp extends Component {
     } catch (e) {
       alert(e.message);
     }
-    this.setState({ isLoading: false });
+    // this.setState({ isLoading: false });
   };
 
   handleConfirmationSubmit = async () => {
@@ -219,6 +220,7 @@ const mapDispatchToProps = {
   UserSignUp,
   userRegister,
   modalState,
+  checkUsername,
 };
 
 export default withRouter(

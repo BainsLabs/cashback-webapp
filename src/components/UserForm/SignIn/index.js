@@ -15,7 +15,11 @@ class SignIn extends Component {
     username: "",
     password: "",
     usernameError: "",
-    confirmationCode: ""
+    confirmationCode: "",
+    Show: false,
+    Showing: false,
+    loginError: "",
+    error: false
   };
 
   showForgotPasswordForm = () => {
@@ -44,14 +48,27 @@ class SignIn extends Component {
       username
     };
     const email = await getUserEmail(params);
-    const userEmail = email && email.Items && email.Items[0].email;
-    this.setState({ isLoading: true, usernameError: "", loginError: "" });
+    console.log(email, "emailll");
+    let userEmail;
+    if (email.Count !== 0) {
+      userEmail = email && email.Items && email.Items[0].email;
+    } else {
+      this.setState({
+        error: true,
+        loginError: "Username or password is incorrect"
+      });
+      return;
+    }
+
+    // this.setState({ isLoading: true, usernameError: '', loginError: '' });
 
     try {
       const user = await Auth.signIn(userEmail, password);
+      this.setState({
+        Show: !this.state.Show
+      });
       modalState(null);
       localStorage.setItem("authenticated", true);
-      history.push("/my-earnings");
       window.location.reload();
     } catch (e) {
       this.setState({ isLoading: false, loginError: e.message });
@@ -77,7 +94,14 @@ class SignIn extends Component {
   };
 
   render() {
-    const { username, password, usernameError, isLoading } = this.state;
+    const {
+      username,
+      password,
+      usernameError,
+      isLoading,
+      error,
+      loginError
+    } = this.state;
     const { modalState } = this.props;
 
     return (
@@ -104,15 +128,16 @@ class SignIn extends Component {
                 value={password}
               />
             </Col>
-            <Col xs={12}>
-              <Input
-                id="isAccepted"
-                type="checkbox"
-                className="signup__check"
-              />
+            {error && (
+              <span className="text-danger" align="center">
+                {loginError}
+              </span>
+            )}
+            {/* <Col xs={12}>
+              <Input id="isAccepted" type="checkbox" className="signup__check" />
               &nbsp;
               <span>Stay Logged In</span>
-            </Col>
+            </Col> */}
             <Col>
               <LoaderButton
                 block
@@ -128,15 +153,11 @@ class SignIn extends Component {
           </Form.Row>
         </Form>
 
-        <div className="forgot-password__container">
-          <button
-            type="button"
-            className="forgot_password"
-            onClick={() => modalState("forget")}
-          >
+        {/* <div className="forgot-password__container">
+          <button type="button" className="forgot_password" onClick={() => modalState('forget')}>
             Click here to reset your password
           </button>
-        </div>
+        </div> */}
       </section>
     );
   }
