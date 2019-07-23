@@ -103,10 +103,6 @@ class SignUp extends Component {
       await Auth.signIn(this.state.email, this.state.password);
       localStorage.setItem('authenticated',true)
       this.props.history.push('/');
-<<<<<<< HEAD
-
-=======
->>>>>>> a3f21cdd29268a6c505809260221bfe6442982d3
       modalState(null);
     } catch (e) {
       alert(e.message);

@@ -7,10 +7,7 @@ import { sidebarState } from 'redux/actions/sidebarActions';
 import { Navbar, Container, Nav } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { FormattedMessage } from 'react-intl';
-<<<<<<< HEAD
 import { modalState } from 'redux/actions/modalActions';
-=======
->>>>>>> a3f21cdd29268a6c505809260221bfe6442982d3
 import MobileNavBar from './Mobile/MobileNavbar';
 import TopNavbar from './TopNavbar';
 
@@ -25,14 +22,10 @@ const style = {
 
 const NavBar = (props) => {
   // eslint-disable-next-line no-unused-vars
-<<<<<<< HEAD
   const {
     user, sidebarState, sidebar, modalState,
   } = props;
   const authenticated = localStorage.getItem('authenticated');
-=======
-  const { user, sidebarState, sidebar } = props;
->>>>>>> a3f21cdd29268a6c505809260221bfe6442982d3
   return (
     <>
       <div className="mobile" style={style.buttonBackground}>
@@ -58,25 +51,17 @@ const NavBar = (props) => {
             <Nav.Item>
               <Link to="/categories">VIP Benifits</Link>
             </Nav.Item>
-<<<<<<< HEAD
             {authenticated ? (
               <Nav.Item>
                 <Link to="/categories">My Account</Link>
               </Nav.Item>
             ) : (
               <Nav.Item>
-                <button onClick={() => modalState('signin')} className="myaccount">
+                <button type="button" onClick={() => modalState('signin')} className="myaccount">
                   My Account
                 </button>
               </Nav.Item>
             )}
-=======
-            {user.authenticated ? (
-              <Nav.Item>
-                <Link to="/categories">My Account</Link>
-              </Nav.Item>
-            ) : null}
->>>>>>> a3f21cdd29268a6c505809260221bfe6442982d3
           </Nav>
         </Container>
       </Navbar>
