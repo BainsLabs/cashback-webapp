@@ -21,7 +21,10 @@ export const verifyUsername = params => axios.post('https://3ihrhx1pyd.execute-a
   headers: '',
 });
 
-export const userRegisterApi = params => axios.post('https://3ihrhx1pyd.execute-api.us-east-1.amazonaws.com/dev/users/register', params);
+export const userRegisterApi = params => axios
+  .post('https://3ihrhx1pyd.execute-api.us-east-1.amazonaws.com/dev/users/register', params)
+  .then(res => res)
+  .catch(e => JSON.stringify(e));
 export const userGetEmailApi = params => axios.post(
   'https://3ihrhx1pyd.execute-api.us-east-1.amazonaws.com/dev/users/get-user-email',
   params,
