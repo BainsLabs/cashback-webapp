@@ -105,6 +105,7 @@ class SignUp extends Component {
       localStorage.setItem('authenticated',true)
       this.props.history.push('/');
       modalState(null);
+      window.location.reload()
     } catch (e) {
       alert(e.message);
       this.setState({ isLoading: false });

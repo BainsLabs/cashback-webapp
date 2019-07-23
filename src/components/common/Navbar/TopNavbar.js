@@ -1,24 +1,21 @@
 /* eslint-disable no-undef */
 /* eslint-disable no-shadow */
-import React, { Component } from "react";
-import { Row, Col } from "react-bootstrap";
-import { Auth } from "aws-amplify";
-import logo from "static/images/home-page/logo.png";
-import Input from "components/common/inputField";
-import { connect } from "react-redux";
-import DropdownComponent from "components/common/DropDown";
-import {
-  faMapMarkerAlt,
-  faSortDown
-} from "@fortawesome/fontawesome-free-solid";
-import { modalState } from "redux/actions/modalActions";
-import UserModal from "components/UserForm/Modal";
-import { Link } from "react-router-dom";
-import { country, language } from "constants/dropdown";
-import { FormattedMessage } from "react-intl";
+import React, { Component } from 'react';
+import { Row, Col } from 'react-bootstrap';
+import { Auth } from 'aws-amplify';
+import logo from 'static/images/home-page/logo.png';
+import Input from 'components/common/inputField';
+import { connect } from 'react-redux';
+import DropdownComponent from 'components/common/DropDown';
+import { faMapMarkerAlt, faSortDown } from '@fortawesome/fontawesome-free-solid';
+import { modalState } from 'redux/actions/modalActions';
+import UserModal from 'components/UserForm/Modal';
+import { Link } from 'react-router-dom';
+import { country, language } from 'constants/dropdown';
+import { FormattedMessage } from 'react-intl';
 
 class TopNavbar extends Component {
-  ModalOpen = async name => {
+  ModalOpen = async (name) => {
     // e.preventDefault();
     const { modalState } = this.props;
     // const modalType = e === 'SignIn' ? modalState('signin') : modalState('signup');
@@ -28,19 +25,20 @@ class TopNavbar extends Component {
   LogOut = async () => {
     await Auth.signOut();
     localStorage.clear();
-  };
-
-  onCountryChange = e => {
-    console.log(e.target.value, "country");
-    // eslint-disable-next-line no-undef
-    localStorage.setItem("country", e.target.value);
     window.location.reload();
   };
 
-  onCountryChange = e => {
-    console.log(e.target.value, "country");
+  onCountryChange = (e) => {
+    console.log(e.target.value, 'country');
     // eslint-disable-next-line no-undef
-    localStorage.setItem("country", e.target.value);
+    localStorage.setItem('country', e.target.value);
+    window.location.reload();
+  };
+
+  onCountryChange = (e) => {
+    console.log(e.target.value, 'country');
+    // eslint-disable-next-line no-undef
+    localStorage.setItem('country', e.target.value);
     window.location.reload();
   };
 
@@ -51,7 +49,7 @@ class TopNavbar extends Component {
 
   render() {
     const { user, content } = this.props;
-    const authenticated = localStorage.getItem("authenticated");
+    const authenticated = localStorage.getItem('authenticated');
     return (
       <section className="top-navbar">
         <div className="container top-navbar__container">
@@ -64,20 +62,14 @@ class TopNavbar extends Component {
             <Col lg={5}>
               <Row>
                 <Col lg={8}>
-                  <Input
-                    placeholder="Search"
-                    autoFocus
-                    className="top-navbar__search"
-                  />
+                  <Input placeholder="Search" autoFocus className="top-navbar__search" />
                 </Col>
                 <Col lg={4}>
                   <DropdownComponent
                     icon={faMapMarkerAlt}
                     iconLeft
                     menu={country}
-                    label={
-                      <FormattedMessage id="data.filterboxSCselectcountry" />
-                    }
+                    label={<FormattedMessage id="data.filterboxSCselectcountry" />}
                     className="top-navbar__select-country"
                   />
                 </Col>
@@ -109,7 +101,7 @@ class TopNavbar extends Component {
                     <button
                       className="top-navbar__login-btn"
                       type="button"
-                      onClick={() => this.ModalOpen("signin")}
+                      onClick={() => this.ModalOpen('signin')}
                     >
                       <FormattedMessage id="data.buttonlplogin" />
                     </button>
@@ -117,7 +109,7 @@ class TopNavbar extends Component {
                     <button
                       className="top-navbar__join-btn"
                       type="button"
-                      onClick={() => this.ModalOpen("signup")}
+                      onClick={() => this.ModalOpen('signup')}
                     >
                       <FormattedMessage id="data.HPjoinfree" />
                     </button>
@@ -134,14 +126,14 @@ class TopNavbar extends Component {
 }
 
 const mapDispatchToProps = {
-  modalState
+  modalState,
 };
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return { user: state.User };
 };
 
 export default connect(
   mapStateToProps,
-  mapDispatchToProps
+  mapDispatchToProps,
 )(TopNavbar);
