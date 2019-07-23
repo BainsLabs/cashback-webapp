@@ -5,7 +5,7 @@ import Input from 'components/common/inputField';
 import { Auth } from 'aws-amplify';
 import LoaderButton from 'components/common/LoaderButton';
 import { modalState } from 'redux/actions/modalActions';
-import { isAuthenticated } from 'redux/actions/userActions';
+import { getUserEmail } from 'redux/actions/signupActions';
 import { connect } from 'react-redux';
 
 class SignIn extends Component {
@@ -38,13 +38,19 @@ class SignIn extends Component {
   handleSubmit = async (event) => {
     event.preventDefault();
     const { username, password } = this.state;
-    const { isAuthenticated, modalState } = this.props;
+    const { modalState, getUserEmail } = this.props;
+    const params = {
+      username,
+    };
+    const email = await getUserEmail(params);
+    const userEmail = email && email.Items && email.Items[0].email;
     this.setState({ isLoading: true, usernameError: '', loginError: '' });
 
     try {
-      const user = await Auth.signIn(username, password);
-      isAuthenticated(user);
+      const user = await Auth.signIn(userEmail, password);
       modalState(null);
+      localStorage.setItem('authenticated', true);
+      window.location.reload()
     } catch (e) {
       this.setState({ isLoading: false, loginError: e.message });
     }
@@ -130,7 +136,7 @@ class SignIn extends Component {
 
 const mapDispatchToProps = {
   modalState,
-  isAuthenticated,
+  getUserEmail,
 };
 
 export default connect(

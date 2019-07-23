@@ -27,9 +27,7 @@ class SignUp extends Component {
   };
 
   validateForm() {
-    const {
-      username, email, password, isAccepted,
-    } = this.state;
+    const { username, email, password, isAccepted } = this.state;
     return username.length > 0 && email.length > 0 && password.length > 0 && isAccepted;
   }
 
@@ -38,7 +36,7 @@ class SignUp extends Component {
     if (username.length > 0) {
       Auth.signIn(username, 'a')
         .then(user => console.log(user))
-        .catch((err) => {
+        .catch(err => {
           if (err.code !== 'UserNotFoundException') {
             this.setState({
               usernameError: 'Username already exist',
@@ -60,7 +58,7 @@ class SignUp extends Component {
     });
   };
 
-  handleChange = async (event) => {
+  handleChange = async event => {
     this.setState(
       {
         [event.target.name]: event.target.value,
@@ -76,7 +74,7 @@ class SignUp extends Component {
     }
   };
 
-  handleSubmit = async (event) => {
+  handleSubmit = async event => {
     const { userRegister } = this.props;
     event.preventDefault();
     this.setState({ isLoading: true });
@@ -103,8 +101,9 @@ class SignUp extends Component {
     this.setState({ isLoading: true });
     try {
       await Auth.signIn(this.state.email, this.state.password);
-      // this.props.userHasAuthenticated(true);
+      localStorage.setItem('authenticated',true)
       this.props.history.push('/');
+
       modalState(null);
     } catch (e) {
       alert(e.message);

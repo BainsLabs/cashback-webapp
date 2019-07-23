@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 /* eslint-disable no-shadow */
 import React, { Component } from 'react';
 import { Row, Col } from 'react-bootstrap';
@@ -8,7 +9,6 @@ import { connect } from 'react-redux';
 import DropdownComponent from 'components/common/DropDown';
 import { faMapMarkerAlt, faSortDown } from '@fortawesome/fontawesome-free-solid';
 import { modalState } from 'redux/actions/modalActions';
-import { isLogout } from 'redux/actions/userActions';
 import UserModal from 'components/UserForm/Modal';
 import { Link } from 'react-router-dom';
 import { country, language } from 'constants/dropdown';
@@ -23,9 +23,8 @@ class TopNavbar extends Component {
   };
 
   LogOut = async () => {
-    const { isLogout } = this.props;
     await Auth.signOut();
-    await isLogout();
+    localStorage.clear();
   };
 
   onCountryChange = (e) => {
@@ -42,6 +41,7 @@ class TopNavbar extends Component {
 
   render() {
     const { user, content } = this.props;
+    const authenticated = localStorage.getItem('authenticated');
     return (
       <section className="top-navbar">
         <div className="container top-navbar__container">
@@ -78,7 +78,7 @@ class TopNavbar extends Component {
                     languageChange={this.onCountryChange}
                   />
                 </Col>
-                {user.authenticated ? (
+                {authenticated ? (
                   <Col>
                     <button
                       type="button"
@@ -119,12 +119,11 @@ class TopNavbar extends Component {
 
 const mapDispatchToProps = {
   modalState,
-  isLogout,
 };
 
-const mapStateToProps = state => ({
-  user: state.User,
-});
+const mapStateToProps = (state) => {
+  return { user: state.User };
+};
 
 export default connect(
   mapStateToProps,
