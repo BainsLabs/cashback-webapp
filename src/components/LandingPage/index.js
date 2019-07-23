@@ -1,21 +1,3 @@
-<<<<<<< HEAD
-import React from "react";
-import Banner from "components/common/Banner";
-import { connect } from "react-redux";
-import CategorySection from "components/LandingPage/CategorySection";
-import { Container, Row, Col } from "react-bootstrap";
-import bannerImg from "static/icons-images/bannerimage.jpg";
-import Card from "components/common/Card";
-import BlackLine from "static/icons-images/black-line.png";
-import ReferAFriendBG from "static/icons-images/joinnow.jpg";
-import joinNow from "static/icons-images/join-now.png";
-import AddSection from "components/LandingPage/AddSection";
-import DealsNews from "components/LandingPage/DealsNews";
-import { merchants } from "constants/merchants";
-
-// eslint-disable-next-line arrow-parens
-const LandingPage = props => {
-=======
 import React from 'react';
 import Banner from 'components/common/Banner';
 import { connect } from 'react-redux';
@@ -36,20 +18,15 @@ const LandingPage = props => {
   // let cashBack = props.contents.map((cont) => {
   //   return {cont.location === "myearningvip" && cont.section==="header" ? cont.content:""}
   // })
->>>>>>> e5fdb9ae611793886f70756d175bc083907f3537
   return (
     <>
       <Banner imgSrc={bannerImg}>
         <Container>
           <div className="home__banner">
             <p>$100</p>
-<<<<<<< HEAD
-            <p>CASHBACK</p>
-=======
             <p>
               <FormattedMessage id="data.headermyearningscashback" />
             </p>
->>>>>>> e5fdb9ae611793886f70756d175bc083907f3537
             <div className="line" />
             <p>
               <span>Limited</span>
@@ -57,11 +34,7 @@ const LandingPage = props => {
               <span>Offer</span>
             </p>
             <button className="home__book-btn" type="button">
-<<<<<<< HEAD
-              BOOK NOW
-=======
               <FormattedMessage id="data.booknow" />
->>>>>>> e5fdb9ae611793886f70756d175bc083907f3537
             </button>
           </div>
         </Container>
