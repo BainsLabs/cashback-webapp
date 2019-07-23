@@ -25,7 +25,8 @@ export default () => (
           </span>
 
           <span className="float-right ">
-            CODE&nbsp;
+            <FormattedMessage id="data.HPcode" />
+            &nbsp;
             <span className="deals__section-code">JULY 2019</span>
           </span>
           <p>

@@ -1,13 +1,13 @@
-import React, { Component } from "react";
-import { Container, Col, Row } from "react-bootstrap";
-import Input from "components/common/inputField";
+import React, { Component } from 'react';
+import { Container, Col, Row } from 'react-bootstrap';
+import Input from 'components/common/inputField';
 
 class CalculatorForm extends Component {
   state = {
-    value1: "",
-    value2: "",
-    value3: "",
-    value4: ""
+    value1: '',
+    value2: '',
+    value3: '',
+    value4: '',
   };
 
   render() {

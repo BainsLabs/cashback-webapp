@@ -130,7 +130,7 @@ class SignUp extends Component {
           <Col>
             <Input
               placeholder="Choose Username"
-              onBlur={this.userCheck}
+              // onBlur={this.userCheck}
               value={username}
               onChange={this.handleChange}
               autoFocus
