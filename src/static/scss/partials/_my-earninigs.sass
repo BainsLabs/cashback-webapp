@@ -22,6 +22,7 @@
     font-weight: bold
   p
     font-size: .9rem
+
 .gift__section
   background: map-get($fontColor,'lightyellow')
   text-align: center
@@ -64,10 +65,6 @@
     color: black
     background: map-get($fontColor,'lightishGray')
 
-
-.merchant__container
-
-
 .checkbox
   +margin('top',.5rem)
 
@@ -91,3 +88,88 @@
     +padding('top',1rem)
     font-size: 0.8rem
     font-weight: bold
+
+
+
+.friendShip__container
+  background: map-get($fontColor,'leanGray')
+
+.friendship__amount
+  background: map-get($fontColor,'white')
+  +padding('',1rem 5rem 5rem 5rem)
+  +margin('top',1rem)
+  +margin('bottom',auto)
+
+
+.amount__container
+    background: map-get($fontColor,'lightyellow')
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    text-align: center
+    +margin('left',4rem)
+    +padding('top',0rem)
+    +margin('bottom',2rem)
+
+.amount
+  +padding('top',4rem)
+  font-weight: bold
+  font-size: 2rem
+
+.amount__text
+  @extend .amount
+  font-size: 1.5rem
+
+
+.friendship__button
+  background: map-get($fontColor,'lightyellow')
+  color: map-get($fontColor,'black')
+  border: none
+  width: 100%
+  +padding('',.7rem)
+  border-radius: 2rem
+  +margin('',1rem 0rem 1rem 1rem)
+
+
+.friendShip__detailtext
+  background: map-get($fontColor,'whiteGray')
+  +padding('',1rem)
+  +margin('bottom', 1rem)
+  +margin('right', .5rem)
+.friendship__table
+  @extend .merchant
+  text-align: center
+  thead
+    +margin('right',5rem)
+    tr
+      font-size: bold
+.vip__container
+  +margin('top',1rem)
+.bluetext
+  color: map-get($fontColor,'logoblue')
+  font-weight: bold
+.vip__desc
+  color: map-get($fontColor,'darkGray')
+
+.vip__benfits
+  border-radius: .8rem
+  +padding('',1rem)
+.vip__text
+  font-size: .9rem;
+  font-weight: bold;
+.vip__benefitdesc
+  font-size: .8rem;
+  font-weight: 500;
+
+
+.calculator__result
+  +padding('',3rem)
+.calculator__rfield
+  +padding('',2rem)
+  border-radius: 1rem
+  outline: none
+.calculator__field
+  border-radius: 1rem
+  outline: none
+  +margin('bottom',1rem)
+  text-align: center
