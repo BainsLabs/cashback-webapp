@@ -1,17 +1,18 @@
-import React from 'react';
-import { Row, Col, Container } from 'react-bootstrap';
-import ReferFriendSection from 'components/ReferAFriend/ReferFriendSection/index';
-import Banner from 'components/common/Banner';
-import referbanner from 'static/icons-images/banner.jpg';
-import BenefitsSection from 'components/ReferAFriend/benefitsSection';
+import React from "react";
+import { Row, Col, Container } from "react-bootstrap";
+import ReferFriendSection from "components/ReferAFriend/ReferFriendSection/index";
+import Banner from "components/common/Banner";
+import referbanner from "static/images/referAfriend/banner.jpg";
+import BenefitsSection from "components/ReferAFriend/benefitsSection";
+import { FormattedMessage } from "react-intl";
+
 
 export default () => (
   <section className="referfriend__container">
     <Banner imgSrc={referbanner} textPosition="center">
       <Container>
         <div className="refer-a-friend__banner">
-          <h3>Help your friends save and</h3>
-          <h3>you will get $5 referal bonus</h3>
+          <h3><FormattedMessage id="data.bannerrf"/></h3>
         </div>
       </Container>
     </Banner>

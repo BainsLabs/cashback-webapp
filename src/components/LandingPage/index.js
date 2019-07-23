@@ -3,7 +3,7 @@ import Banner from 'components/common/Banner';
 import { connect } from 'react-redux';
 import CategorySection from 'components/LandingPage/CategorySection';
 import { Container, Row, Col } from 'react-bootstrap';
-import bannerImg from 'static/icons-images/bannerimage.jpg';
+import bannerImg from 'static/images/home-page/banner-bg.jpg';
 import Card from 'components/common/Card';
 import BlackLine from 'static/icons-images/black-line.png';
 import ReferAFriendBG from 'static/icons-images/joinnow.jpg';

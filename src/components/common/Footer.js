@@ -1,6 +1,6 @@
 import React from 'react';
 import uuidv1 from 'uuid/v1';
-import logo from 'static/icons-images/logo.png';
+import logo from 'static/images/vip-banefits/footer-logo.png';
 import { links } from 'constants/footerLinks';
 import { Row, Col, Container } from 'react-bootstrap';
 

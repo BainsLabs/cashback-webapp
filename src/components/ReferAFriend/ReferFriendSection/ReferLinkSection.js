@@ -1,13 +1,14 @@
-import React from 'react';
-import { Row, Col } from 'react-bootstrap';
-import Input from 'components/common/inputField';
+import React from "react";
+import { Row, Col } from "react-bootstrap";
+import Input from "components/common/inputField";
+import { FormattedMessage } from "react-intl";
 
 export default () => (
   <div className="refer__link">
     <Row>
       <Col className="text-center">
         <h3 className="text-uppercase font-weight-bold ">
-          Four ways for you to help your friends save money
+          <FormattedMessage id="data.headerrf" />
         </h3>
       </Col>
     </Row>
@@ -18,7 +19,9 @@ export default () => (
     </Row>
     <Row>
       <Col className="text-center">
-        <h5 className="font-weight-bold">Share your referral link below</h5>
+        <h5 className="font-weight-bold">
+          <FormattedMessage id="data.copyrfsharereferral" />
+        </h5>
       </Col>
     </Row>
     <Row>
@@ -29,10 +32,9 @@ export default () => (
     <Row>
       <Col className="text-center">
         <h6 className="muted mt-3 text-center refer__text">
-          To receive your Referral Bonus, the person you hace referred must earn $25
-          <br />
-          {' '}
-payable cashback or more
+          To receive your Referral Bonus, the person you hace referred must earn
+          $25
+          <br /> payable cashback or more
         </h6>
       </Col>
     </Row>

@@ -1,31 +1,29 @@
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable no-shadow */
-import React from 'react';
-import { connect } from 'react-redux';
-import { sidebarState } from 'redux/actions/sidebarActions';
-import { Navbar, Container, Nav } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
-import { FormattedMessage } from 'react-intl';
-import { modalState } from 'redux/actions/modalActions';
-import MobileNavBar from './Mobile/MobileNavbar';
-import TopNavbar from './TopNavbar';
+import React from "react";
+import { connect } from "react-redux";
+import { sidebarState } from "redux/actions/sidebarActions";
+import { Navbar, Container, Nav } from "react-bootstrap";
+import { Link } from "react-router-dom";
+import { FormattedMessage } from "react-intl";
+import { modalState } from "redux/actions/modalActions";
+import MobileNavBar from "./Mobile/MobileNavbar";
+import TopNavbar from "./TopNavbar";
 
 const style = {
   buttonBackground: {
-    background: '#272F3A',
-    width: '100%',
-    height: '3rem',
-    padding: '0.5rem 0rem',
-  },
+    background: "#272F3A",
+    width: "100%",
+    height: "3rem",
+    padding: "0.5rem 0rem"
+  }
 };
 
-const NavBar = (props) => {
+const NavBar = props => {
   // eslint-disable-next-line no-unused-vars
-  const {
-    user, sidebarState, sidebar, modalState,
-  } = props;
-  const authenticated = localStorage.getItem('authenticated');
+  const { user, sidebarState, sidebar, modalState } = props;
+  const authenticated = localStorage.getItem("authenticated");
   return (
     <>
       <div className="mobile" style={style.buttonBackground}>
@@ -41,7 +39,9 @@ const NavBar = (props) => {
               </Link>
             </Nav.Item>
             <Nav.Item>
-              <Link to="/how-cashback-works">How Cashback Works</Link>
+              <Link to="/how-cashback-works" className="text-capitalize">
+              <FormattedMessage id="data.menuHPcashbackworks" />
+              </Link>
             </Nav.Item>
             <Nav.Item>
               <Link to="/refer-friend">
@@ -49,15 +49,19 @@ const NavBar = (props) => {
               </Link>
             </Nav.Item>
             <Nav.Item>
-              <Link to="/categories">VIP Benifits</Link>
+              <Link to="/vip-benefits">VIP Benifits</Link>
             </Nav.Item>
             {authenticated ? (
               <Nav.Item>
-                <Link to="/categories">My Account</Link>
+                <Link to="/my-earnings">My Account</Link>
               </Nav.Item>
             ) : (
               <Nav.Item>
-                <button type="button" onClick={() => modalState('signin')} className="myaccount">
+                <button
+                  type="button"
+                  onClick={() => modalState("signin")}
+                  className="myaccount"
+                >
                   My Account
                 </button>
               </Nav.Item>
@@ -71,15 +75,15 @@ const NavBar = (props) => {
 
 const mapDispatchToProps = {
   sidebarState,
-  modalState,
+  modalState
 };
 
 const mapStateToProps = state => ({
   user: state.User,
-  sidebar: state.Sidebar.open,
+  sidebar: state.Sidebar.open
 });
 
 export default connect(
   mapStateToProps,
-  mapDispatchToProps,
+  mapDispatchToProps
 )(NavBar);

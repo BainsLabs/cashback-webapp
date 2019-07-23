@@ -1,6 +1,7 @@
 import React from "react";
 import { Container, Col, Row } from "react-bootstrap";
 import Banner from "components/common/Banner";
+import vipImage from "static/images/vip-banefits/vip.jpg";
 import VipBanner from "static/images/vip-banefits/banner.jpg";
 import BenefitsCard from "components/common/benefitscard";
 
@@ -11,7 +12,9 @@ const VipPage = () => (
     </Banner>
     <Container className="text-center vip__container">
       <Row>
-        <Col md={6}> image</Col>
+        <Col md={6}>
+          <img src={vipImage} alt="vipImage" className="vip__image"/>
+        </Col>
         <Col md={6} className="vip__desc text-left">
           <h3>Enjoy Extra Benefits as a VIP!</h3>
           <p>

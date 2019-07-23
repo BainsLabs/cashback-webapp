@@ -168,7 +168,7 @@ export default {
         'You are a VIP Member and qualify to receive 5% VIP…receive bonuses of your Cash Back and TLC Reward.',
       copyabovefriendshipbonusfriendshipbonus10:
         'Help ten friends to become VIP Members and you qualify for 10% Friendship Bonus.',
-      bannerrf: 'Help Your Friends Save And You Get A Referral Bonus',
+      bannerrf: 'Help Your Friends Save And You Get A $5 Referral Bonus',
       HPnews: 'NEWS',
       headermyearningsvip: 'DATE',
       HPsubscribe: 'SUBSCRIBE NOW',

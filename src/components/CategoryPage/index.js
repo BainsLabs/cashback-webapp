@@ -1,11 +1,11 @@
-import React from 'react';
-import { Row, Col, Container } from 'react-bootstrap';
-import Banner from 'components/common/Banner';
-import bannerImg from 'static/icons-images/banner-category.jpg';
-import Card from 'components/common/Card';
-import CardContent from 'components/common/CardContent';
-import { adds } from 'constants/adds';
-import uuidv1 from 'uuid';
+import React from "react";
+import { Row, Col, Container } from "react-bootstrap";
+import Banner from "components/common/Banner";
+import bannerImg from "static/images/shop-categories/banner.jpg";
+import Card from "components/common/Card";
+import CardContent from "components/common/CardContent";
+import { adds } from "constants/adds";
+import uuidv1 from "uuid";
 
 export default () => (
   <>

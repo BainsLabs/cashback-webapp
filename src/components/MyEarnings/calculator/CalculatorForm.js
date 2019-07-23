@@ -22,17 +22,19 @@ class CalculatorForm extends Component {
             <Input type="text" className="calculator__rfield" />
           </Col>
         </Row>
-        <Row>
-          <Col md={3}>
+        <Row className="text-center">
+          <Col md={6}>
             <Input type="text" className="calculator__field" />
           </Col>
-          <Col md={3}>
+          <Col md={6}>
             <Input type="text" className="calculator__field" />
           </Col>
-          <Col md={3}>
+        </Row>
+        <Row className="text-center">
+          <Col md={6}>
             <Input type="text" className="calculator__field" />
           </Col>
-          <Col md={3}>
+          <Col md={6}>
             <Input type="text" className="calculator__field" />
           </Col>
         </Row>

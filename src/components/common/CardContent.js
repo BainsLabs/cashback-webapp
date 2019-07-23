@@ -1,7 +1,7 @@
-import React from 'react';
-import { Row, Col } from 'react-bootstrap';
+import React from "react";
+import { Row, Col } from "react-bootstrap";
 // import classNames from 'classnames';
-import styled from 'styled-components';
+import styled from "styled-components";
 
 const StyledDiv = styled.div`
   transition: 0.5s ease;
@@ -18,7 +18,7 @@ const StyledDiv = styled.div`
   }
 `;
 
-export default (props) => {
+export default props => {
   const { brandLogo, data } = props;
   return (
     <>
@@ -32,15 +32,19 @@ export default (props) => {
             <p>{data.tlc}</p>
           </Col>
           <Col lg={4}>
-            <img src={brandLogo} alt="KFC-LOGO" className="card__content-image" />
+            <img
+              src={brandLogo}
+              alt="KFC-LOGO"
+              className="card__content-image"
+            />
           </Col>
         </Row>
       </div>
       <StyledDiv>
         <Row>
-          <Col>
+          {/* <Col>
             <img src={brandLogo} alt="brandLogo" />
-          </Col>
+          </Col> */}
         </Row>
       </StyledDiv>
     </>

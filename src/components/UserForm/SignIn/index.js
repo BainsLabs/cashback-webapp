@@ -1,25 +1,26 @@
 /* eslint-disable no-shadow */
-import React, { Component } from 'react';
-import { Col, Form } from 'react-bootstrap';
-import Input from 'components/common/inputField';
-import { Auth } from 'aws-amplify';
-import LoaderButton from 'components/common/LoaderButton';
-import { modalState } from 'redux/actions/modalActions';
-import { getUserEmail } from 'redux/actions/signupActions';
-import { connect } from 'react-redux';
+import React, { Component } from "react";
+import { Col, Form } from "react-bootstrap";
+import Input from "components/common/inputField";
+import { Auth } from "aws-amplify";
+import { withRouter } from "react-router-dom";
+import LoaderButton from "components/common/LoaderButton";
+import { modalState } from "redux/actions/modalActions";
+import { getUserEmail } from "redux/actions/signupActions";
+import { connect } from "react-redux";
 
 class SignIn extends Component {
   state = {
     isLoading: false,
-    username: '',
-    password: '',
-    usernameError: '',
-    confirmationCode: '',
+    username: "",
+    password: "",
+    usernameError: "",
+    confirmationCode: ""
   };
 
   showForgotPasswordForm = () => {
     this.setState({
-      is_forgotPassword: true,
+      is_forgotPassword: true
     });
   };
 
@@ -28,29 +29,30 @@ class SignIn extends Component {
     return username.length > 0 && password.length > 0;
   }
 
-  handleChange = (event) => {
+  handleChange = event => {
     this.setState({
       [event.target.name]: event.target.value,
-      usernameError: '',
+      usernameError: ""
     });
   };
 
-  handleSubmit = async (event) => {
+  handleSubmit = async event => {
     event.preventDefault();
     const { username, password } = this.state;
-    const { modalState, getUserEmail } = this.props;
+    const { modalState, getUserEmail, history } = this.props;
     const params = {
-      username,
+      username
     };
     const email = await getUserEmail(params);
     const userEmail = email && email.Items && email.Items[0].email;
-    this.setState({ isLoading: true, usernameError: '', loginError: '' });
+    this.setState({ isLoading: true, usernameError: "", loginError: "" });
 
     try {
       const user = await Auth.signIn(userEmail, password);
       modalState(null);
-      localStorage.setItem('authenticated', true);
-      window.location.reload()
+      localStorage.setItem("authenticated", true);
+      history.push("/my-earnings");
+      window.location.reload();
     } catch (e) {
       this.setState({ isLoading: false, loginError: e.message });
     }
@@ -68,16 +70,14 @@ class SignIn extends Component {
       .catch(e => console.log(e));
   };
 
-  handleConfirmationSubmit = async (e) => {
+  handleConfirmationSubmit = async e => {
     e.preventDefault();
     const { username } = this.state;
     await Auth.forgotPassword(username);
   };
 
   render() {
-    const {
-      username, password, usernameError, isLoading,
-    } = this.state;
+    const { username, password, usernameError, isLoading } = this.state;
     const { modalState } = this.props;
 
     return (
@@ -105,7 +105,11 @@ class SignIn extends Component {
               />
             </Col>
             <Col xs={12}>
-              <Input id="isAccepted" type="checkbox" className="signup__check" />
+              <Input
+                id="isAccepted"
+                type="checkbox"
+                className="signup__check"
+              />
               &nbsp;
               <span>Stay Logged In</span>
             </Col>
@@ -125,7 +129,11 @@ class SignIn extends Component {
         </Form>
 
         <div className="forgot-password__container">
-          <button type="button" className="forgot_password" onClick={() => modalState('forget')}>
+          <button
+            type="button"
+            className="forgot_password"
+            onClick={() => modalState("forget")}
+          >
             Click here to reset your password
           </button>
         </div>
@@ -136,10 +144,12 @@ class SignIn extends Component {
 
 const mapDispatchToProps = {
   modalState,
-  getUserEmail,
+  getUserEmail
 };
 
-export default connect(
-  null,
-  mapDispatchToProps,
-)(SignIn);
+export default withRouter(
+  connect(
+    null,
+    mapDispatchToProps
+  )(SignIn)
+);
