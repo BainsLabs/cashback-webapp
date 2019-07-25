@@ -1,30 +1,30 @@
 /* eslint-disable no-shadow */
-import React, { Component } from "react";
-import { Col, Form } from "react-bootstrap";
-import Input from "components/common/inputField";
-import { Auth } from "aws-amplify";
-import { withRouter } from "react-router-dom";
-import LoaderButton from "components/common/LoaderButton";
-import { modalState } from "redux/actions/modalActions";
-import { getUserEmail } from "redux/actions/signupActions";
-import { connect } from "react-redux";
+import React, { Component } from 'react';
+import { Col, Form } from 'react-bootstrap';
+import Input from 'components/common/inputField';
+import { Auth } from 'aws-amplify';
+import { withRouter } from 'react-router-dom';
+import LoaderButton from 'components/common/LoaderButton';
+import { modalState } from 'redux/actions/modalActions';
+import { getUserEmail } from 'redux/actions/signupActions';
+import { connect } from 'react-redux';
 
 class SignIn extends Component {
   state = {
     isLoading: false,
-    username: "",
-    password: "",
-    usernameError: "",
-    confirmationCode: "",
+    username: '',
+    password: '',
+    usernameError: '',
+    confirmationCode: '',
     Show: false,
     Showing: false,
-    loginError: "",
-    error: false
+    loginError: '',
+    error: false,
   };
 
   showForgotPasswordForm = () => {
     this.setState({
-      is_forgotPassword: true
+      is_forgotPassword: true,
     });
   };
 
@@ -33,42 +33,42 @@ class SignIn extends Component {
     return username.length > 0 && password.length > 0;
   }
 
-  handleChange = event => {
+  handleChange = (event) => {
     this.setState({
       [event.target.name]: event.target.value,
-      usernameError: ""
+      usernameError: '',
     });
   };
 
-  handleSubmit = async event => {
+  handleSubmit = async (event) => {
     event.preventDefault();
     const { username, password } = this.state;
     const { modalState, getUserEmail, history } = this.props;
     const params = {
-      username
+      username,
+      checkType: 'getUserEmail',
     };
+    this.setState({ isLoading: true, usernameError: '', loginError: '' });
     const email = await getUserEmail(params);
-    console.log(email, "emailll");
     let userEmail;
     if (email.Count !== 0) {
       userEmail = email && email.Items && email.Items[0].email;
     } else {
       this.setState({
         error: true,
-        loginError: "Username or password is incorrect"
+        loginError: 'Username or password is incorrect',
       });
       return;
     }
 
-    // this.setState({ isLoading: true, usernameError: '', loginError: '' });
-
     try {
+      // this.setState({
+      //   isLoading: true,
+      // });
       const user = await Auth.signIn(userEmail, password);
-      this.setState({
-        Show: !this.state.Show
-      });
       modalState(null);
-      localStorage.setItem("authenticated", true);
+      localStorage.setItem('authenticated', true);
+      history.push('/my-earnings');
       window.location.reload();
     } catch (e) {
       this.setState({ isLoading: false, loginError: e.message });
@@ -87,7 +87,7 @@ class SignIn extends Component {
       .catch(e => console.log(e));
   };
 
-  handleConfirmationSubmit = async e => {
+  handleConfirmationSubmit = async (e) => {
     e.preventDefault();
     const { username } = this.state;
     await Auth.forgotPassword(username);
@@ -95,12 +95,7 @@ class SignIn extends Component {
 
   render() {
     const {
-      username,
-      password,
-      usernameError,
-      isLoading,
-      error,
-      loginError
+      username, password, usernameError, isLoading, error, loginError,
     } = this.state;
     const { modalState } = this.props;
 
@@ -165,12 +160,12 @@ class SignIn extends Component {
 
 const mapDispatchToProps = {
   modalState,
-  getUserEmail
+  getUserEmail,
 };
 
 export default withRouter(
   connect(
     null,
-    mapDispatchToProps
-  )(SignIn)
+    mapDispatchToProps,
+  )(SignIn),
 );

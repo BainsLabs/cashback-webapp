@@ -1,14 +1,21 @@
 import React from 'react';
 import { Route, Redirect } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { modalState } from 'redux/actions/modalActions';
 
-export default ({ component: C, props: cProps, ...rest }) => (
+const AuthenticatedRoute = ({ component: C, props: cProps, ...rest }) => (
   <Route
     {...rest}
-    render={props => (cProps.authenticated ? (
-      <C {...props} {...cProps} />console.log(cProps)
-    ) : (
-      <Redirect to={`/login?redirect=${props.location.pathname}${props.location.search}`} />
-    ))
+    render={props => (localStorage.getItem('authenticated') ? <C {...props} {...cProps} /> : <Redirect to="/" />)
     }
   />
 );
+
+const mapDispatchToProps = {
+  modalState,
+};
+
+export default connect(
+  null,
+  mapDispatchToProps,
+)(AuthenticatedRoute);

@@ -5,13 +5,16 @@ import { connect } from 'react-redux';
 import Input from 'components/common/inputField';
 import Select from 'components/common/selectField';
 import { ReferOptions } from 'constants/referOptions';
+import DropdownComponent from 'components/common/DropDown';
+import { faMapMarkerAlt } from '@fortawesome/fontawesome-free-solid';
+import { country } from 'constants/dropdown';
+import { FormattedMessage } from 'react-intl';
 import { Auth } from 'aws-amplify';
 import LoaderButton from 'components/common/LoaderButton';
 import { withRouter } from 'react-router-dom';
 import { UserSignUp } from 'redux/actions/userActions';
 import { modalState } from 'redux/actions/modalActions';
-import { userRegister, checkUsername } from 'redux/actions/signupActions';
-
+import { userRegister, getUserEmail } from 'redux/actions/signupActions';
 
 class SignUp extends Component {
   state = {
@@ -23,6 +26,10 @@ class SignUp extends Component {
     passwordError: '',
     refer: '',
     friendUsername: '',
+    name:'',
+    domain:'',
+    country: '',
+    sponsorId:'',
     isAccepted: false,
     newUser: null,
   };
@@ -32,18 +39,35 @@ class SignUp extends Component {
     return username.length > 0 && email.length > 0 && password.length > 0 && isAccepted;
   }
 
-  userCheck = () => {
+  userCheck = async () => {
     const { username } = this.state;
-    if (username.length > 0) {
-      Auth.signIn(username, 'a')
-        .then(user => console.log(user))
-        .catch(err => {
-          if (err.code !== 'UserNotFoundException') {
-            this.setState({
-              usernameError: 'Username already exist',
-            });
-          }
-        });
+    const { getUserEmail } = this.props;
+    const params = {
+      username,
+      checkType: 'usernameCheck',
+    };
+    const usercheckResult = await getUserEmail(params);
+    if (usercheckResult.result) {
+      this.setState({
+        usernameError: 'Username already exist',
+      });
+    }
+  };
+
+  referUser = async () => {
+    const { friendUsername } = this.state;
+    const { getUserEmail } = this.props;
+    const params = {
+      username: friendUsername,
+      checkType: 'getUserEmail',
+    };
+
+    const user = await getUserEmail(params);
+    if(user.Items[0].first_name !== ''){
+      this.setState({
+        name: `${user.Items[0].first_name} ${user.Items[0].last_name}`,
+        sponsorId: user.Items[0].uuid
+      })
     }
   };
 
@@ -60,12 +84,10 @@ class SignUp extends Component {
   };
 
   handleChange = async event => {
-    const {checkUsername} = this.props;
-    this.setState(
-      {
-        [event.target.name]: event.target.value,
-      }
-    );
+    const { checkUsername } = this.props;
+    this.setState({
+      [event.target.name]: event.target.value,
+    });
     if (event.target.name === 'username') {
       const params = {
         username: event.target.value,
@@ -85,8 +107,9 @@ class SignUp extends Component {
         username: this.state.username,
         password: this.state.password,
         country: 'IN',
+        sponsorId: this.state.sponsorId
       });
-      console.log(newUser, "testinguser")
+      console.log(newUser, 'testinguser');
       this.setState({
         newUser,
       });
@@ -102,10 +125,10 @@ class SignUp extends Component {
     this.setState({ isLoading: true });
     try {
       await Auth.signIn(this.state.email, this.state.password);
-      localStorage.setItem('authenticated',true)
+      localStorage.setItem('authenticated', true);
       this.props.history.push('/');
       modalState(null);
-      window.location.reload()
+      window.location.reload();
     } catch (e) {
       alert(e.message);
       this.setState({ isLoading: false });
@@ -121,6 +144,7 @@ class SignUp extends Component {
       passwordError,
       refer,
       friendUsername,
+      name
     } = this.state;
     return (
       <section className="auth-right__signUp">
@@ -131,7 +155,7 @@ class SignUp extends Component {
           <Col>
             <Input
               placeholder="Choose Username"
-              // onBlur={this.userCheck}
+              onBlur={this.userCheck}
               value={username}
               onChange={this.handleChange}
               autoFocus
@@ -164,6 +188,19 @@ class SignUp extends Component {
         </Row>
         <Row>
           <Col>
+            <DropdownComponent
+              icon={faMapMarkerAlt}
+              iconLeft
+              menu={country}
+              onChange={this.handleChange}
+              label={<FormattedMessage id="data.filterboxSCselectcountry" />}
+              className="signup_country"
+              name="country"
+            />
+          </Col>
+        </Row>
+        <Row>
+          <Col>
             <Select
               label="How did you hear about us?"
               options={ReferOptions}
@@ -181,12 +218,28 @@ class SignUp extends Component {
             <Col>
               <Input
                 placeholder="Friends Username"
+                onBlur={this.referUser}
                 type="text"
                 name="friendUsername"
                 onChange={this.handleChange}
                 value={friendUsername}
               />
             </Col>
+            {
+              name !== '' ?
+                <Col>
+                  <Input
+                    placeholder="Friends Name"
+                    onBlur={this.referUser}
+                    type="text"
+                    name="name"
+                    onChange={this.handleChange}
+                    value={name}
+                  />
+                </Col>:
+                ""
+                }
+
             {/* <span className="text-danger">{passwordError}</span> */}
           </Row>
         ) : (
@@ -221,7 +274,7 @@ const mapDispatchToProps = {
   UserSignUp,
   userRegister,
   modalState,
-  checkUsername,
+  getUserEmail,
 };
 
 export default withRouter(

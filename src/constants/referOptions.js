@@ -1,16 +1,16 @@
 export const ReferOptions = [
   {
-    label: "Select",
-    value: "Select",
+    key: 'Select',
+    item: 'Select',
     default: true,
-    disable: "disabled"
+    disable: 'disabled',
   },
   {
-    label: "Social Media",
-    value: "socialMedia"
+    key: 'Social Media',
+    item: 'socialMedia',
   },
   {
-    label: "Friend",
-    value: "friend"
-  }
+    key: 'Friend',
+    item: 'friend',
+  },
 ];
