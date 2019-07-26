@@ -28,7 +28,7 @@ class SignIn extends Component {
     });
   };
 
-  validateForm() {
+  validateForm = () => {
     const { username, password } = this.state;
     return username.length > 0 && password.length > 0;
   }
@@ -38,7 +38,7 @@ class SignIn extends Component {
       [event.target.name]: event.target.value,
       usernameError: '',
       loginError: '',
-    });
+    }, () => this.validateForm());
   };
 
   handleSubmit = async (event) => {
@@ -145,7 +145,9 @@ class SignIn extends Component {
                 type="submit"
                 isLoading={isLoading}
                 text="Login"
-                className="auth-right__signIn-btn"
+                className={`auth-right__signIn-btn ${!this.validateForm()
+                  ? 'disablled'
+                  : ''}`}
                 loadingText="Logging in…"
                 onClick={this.handleSubmit}
               />

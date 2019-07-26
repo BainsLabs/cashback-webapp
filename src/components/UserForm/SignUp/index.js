@@ -24,7 +24,7 @@ class SignUp extends Component {
     email: '',
     password: '',
     referUsernameError: '',
-    passwordError: '',
+    passwordError: 'Password must contain at least 8 characters. One upper case, lower case, number and special characters [!,@,%,*].',
     refer: '',
     friendUsername: '',
     signUperror: '',
@@ -33,19 +33,17 @@ class SignUp extends Component {
     country: '',
     sponsorId: '',
     isAccepted: false,
-    newUser: null,
+    newUser: null
   };
 
   validateForm = () => {
-    const {
- username, email, password, refer, friendUsername 
-} = this.state;
+    const { username, email, password, refer, friendUsername } = this.state;
     if (refer === 'friend') {
       return (
-        friendUsername.length > 0
-        && username.length > 0
-        && email.length > 0
-        && password.length > 0
+        friendUsername.length > 0 &&
+        username.length > 0 &&
+        email.length > 0 &&
+        password.length > 0
       );
     }
     return username.length > 0 && email.length > 0 && password.length > 0;
@@ -56,16 +54,16 @@ class SignUp extends Component {
     const { getUserEmail } = this.props;
     const params = {
       username,
-      checkType: 'usernameCheck',
+      checkType: 'usernameCheck'
     };
     const usercheckResult = await getUserEmail(params);
     if (usercheckResult.result) {
       this.setState({
-        usernameError: 'Username already exist',
+        usernameError: 'Username already exist'
       });
     } else {
       this.setState({
-        usernameError: '',
+        usernameError: ''
       });
     }
   };
@@ -75,53 +73,48 @@ class SignUp extends Component {
     const { getUserEmail } = this.props;
     const params = {
       username: friendUsername,
-      checkType: 'getUserEmail',
+      checkType: 'getUserEmail'
     };
 
     const user = await getUserEmail(params);
     if (user.Count !== 0) {
       this.setState({
         name: `${user.Items[0].first_name} ${user.Items[0].last_name}`,
-        sponsorId: user.Items[0].uuid,
+        sponsorId: user.Items[0].uuid
       });
     } else {
       this.setState({
-        referUsernameError: 'Username does not exist',
+        referUsernameError: 'Username does not exist'
       });
     }
   };
 
   validateFields = () => {
     const { username, password } = this.state;
-    const passwordRegularExpression = /^(?=.{8,})(?=.*[a-zA-Z])(?=.*\d)(?=.*[!#$%&? "]) $/;
-    this.setState({
-      usernameError:
-        username.length > 3 || username.length === 0
-          ? null
-          : 'username length should be greater then 3 characters',
-      passwordError: passwordRegularExpression.test(password) ? null : 'error',
-    });
+    const passwordRegularExpression = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&]{8,}/;
+    return passwordRegularExpression.test(password);
+
   };
 
-  handleChange = async (event) => {
+  handleChange = async event => {
     this.setState(
       {
         [event.target.name]: event.target.value,
         usernameError: '',
         referUsernameError: '',
-        passwordError: '',
-        signUperror: '',
+        signUperror: ''
       },
-      () => this.validateForm(),
+      () => {
+        this.validateFields();
+        this.validateForm();
+      }
     );
   };
 
-  handleSubmit = async (event) => {
+  handleSubmit = async event => {
     event.preventDefault();
     const { userRegister } = this.props;
-    const {
- email, username, password, sponsorId 
-} = this.state;
+    const { email, username, password, sponsorId } = this.state;
     this.setState({ isLoading: true });
     try {
       const newUser = await userRegister({
@@ -129,10 +122,10 @@ class SignUp extends Component {
         username,
         password,
         country: 'IN',
-        sponsorId,
+        sponsorId
       });
       this.setState({
-        newUser,
+        newUser
       });
       await this.handleConfirmationSubmit();
     } catch (e) {
@@ -165,7 +158,7 @@ class SignUp extends Component {
       referUsernameError,
       friendUsername,
       name,
-      isLoading,
+      isLoading
     } = this.state;
     return (
       <section className="auth-right__signUp">
@@ -206,8 +199,10 @@ class SignUp extends Component {
               onChange={this.handleChange}
               value={password}
             />
+            {!this.validateFields() && <span className="text-danger">
+              {passwordError}
+            </span>}
           </Col>
-          {/* <span className="text-danger">{passwordError}</span> */}
         </Row>
         <Row>
           <Col>
@@ -237,8 +232,7 @@ class SignUp extends Component {
           </Col>
         </Row>
         {refer === 'friend'
-          ? (
-<Row>
+          ? <Row>
               <Col>
                 <Input
                   placeholder="Friends Username"
@@ -265,7 +259,6 @@ class SignUp extends Component {
                   </Col>
                 : ''}
             </Row>
-)
           : ''}
         <Row>
           <Col>
@@ -298,7 +291,7 @@ const mapDispatchToProps = {
   UserSignUp,
   userRegister,
   modalState,
-  getUserEmail,
+  getUserEmail
 };
 
 export default withRouter(connect(null, mapDispatchToProps)(SignUp));
