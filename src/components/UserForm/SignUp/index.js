@@ -23,22 +23,33 @@ class SignUp extends Component {
     usernameError: '',
     email: '',
     password: '',
+    referUsernameError: '',
     passwordError: '',
     refer: '',
     friendUsername: '',
-    signUperror:'',
-    name:'',
-    domain:'',
+    signUperror: '',
+    name: '',
+    domain: '',
     country: '',
-    sponsorId:'',
+    sponsorId: '',
     isAccepted: false,
     newUser: null,
   };
 
   validateForm = () => {
-    const { username, email, password } = this.state;
-    return username.length === 0 && email.length === 0 && password.length === 0;
-  }
+    const {
+ username, email, password, refer, friendUsername 
+} = this.state;
+    if (refer === 'friend') {
+      return (
+        friendUsername.length > 0
+        && username.length > 0
+        && email.length > 0
+        && password.length > 0
+      );
+    }
+    return username.length > 0 && email.length > 0 && password.length > 0;
+  };
 
   userCheck = async () => {
     const { username } = this.state;
@@ -55,7 +66,7 @@ class SignUp extends Component {
     } else {
       this.setState({
         usernameError: '',
-      })
+      });
     }
   };
 
@@ -68,10 +79,14 @@ class SignUp extends Component {
     };
 
     const user = await getUserEmail(params);
-    if (user.Items[0].first_name !== '') {
+    if (user.Count !== 0) {
       this.setState({
         name: `${user.Items[0].first_name} ${user.Items[0].last_name}`,
         sponsorId: user.Items[0].uuid,
+      });
+    } else {
+      this.setState({
+        referUsernameError: 'Username does not exist',
       });
     }
   };
@@ -89,30 +104,39 @@ class SignUp extends Component {
   };
 
   handleChange = async (event) => {
-    this.setState({
-      [event.target.name]: event.target.value,
-    }, () => this.validateForm());
+    this.setState(
+      {
+        [event.target.name]: event.target.value,
+        usernameError: '',
+        referUsernameError: '',
+        passwordError: '',
+        signUperror: '',
+      },
+      () => this.validateForm(),
+    );
   };
 
   handleSubmit = async (event) => {
     event.preventDefault();
     const { userRegister } = this.props;
+    const {
+ email, username, password, sponsorId 
+} = this.state;
     this.setState({ isLoading: true });
     try {
       const newUser = await userRegister({
-        email: this.state.email,
-        username: this.state.username,
-        password: this.state.password,
+        email,
+        username,
+        password,
         country: 'IN',
-        sponsorId: this.state.sponsorId
+        sponsorId,
       });
-      console.log(newUser, 'testinguser');
       this.setState({
         newUser,
       });
       await this.handleConfirmationSubmit();
     } catch (e) {
-      this.setState({ isLoading: false , signUperror: e.message});
+      this.setState({ isLoading: false, signUperror: e.message });
     }
   };
 
@@ -126,8 +150,7 @@ class SignUp extends Component {
       modalState(null);
       window.location.reload();
     } catch (e) {
-      alert(e.message);
-      this.setState({ isLoading: false });
+      this.setState({ isLoading: false, signUperror: e.message });
     }
   };
 
@@ -139,6 +162,7 @@ class SignUp extends Component {
       usernameError,
       passwordError,
       refer,
+      referUsernameError,
       friendUsername,
       name,
       isLoading,
@@ -158,7 +182,9 @@ class SignUp extends Component {
               autoFocus
               name="username"
             />
-            <span className="text-danger no-padding">{usernameError}</span>
+            <span className="text-danger no-padding">
+              {usernameError}
+            </span>
           </Col>
         </Row>
         <Row>
@@ -210,38 +236,37 @@ class SignUp extends Component {
             />
           </Col>
         </Row>
-        {refer === 'friend' ? (
-          <Row>
-            <Col>
-              <Input
-                placeholder="Friends Username"
-                onBlur={this.referUser}
-                type="text"
-                name="friendUsername"
-                onChange={this.handleChange}
-                value={friendUsername}
-              />
-            </Col>
-            {
-              name !== '' ?
-                <Col>
-                  <Input
-                    placeholder="Friends Name"
-                    onBlur={this.referUser}
-                    type="text"
-                    name="name"
-                    onChange={this.handleChange}
-                    value={name}
-                  />
-                </Col>:
-                ""
-                }
-
-            {/* <span className="text-danger">{passwordError}</span> */}
-          </Row>
-        ) : (
-          ''
-        )}
+        {refer === 'friend'
+          ? (
+<Row>
+              <Col>
+                <Input
+                  placeholder="Friends Username"
+                  onBlur={this.referUser}
+                  type="text"
+                  name="friendUsername"
+                  onChange={this.handleChange}
+                  value={friendUsername}
+                />
+                <span className="text-danger">
+                  {referUsernameError}
+                </span>
+              </Col>
+              {name !== ''
+                ? <Col>
+                    <Input
+                      placeholder="Friends Name"
+                      onBlur={this.referUser}
+                      type="text"
+                      name="name"
+                      onChange={this.handleChange}
+                      value={name}
+                    />
+                  </Col>
+                : ''}
+            </Row>
+)
+          : ''}
         <Row>
           <Col>
             <Input id="isAccepted" type="checkbox" className="signup__check" />
@@ -253,9 +278,11 @@ class SignUp extends Component {
           <Col>
             <LoaderButton
               block
-              disabled={this.validateForm()}
+              disabled={!this.validateForm()}
               isLoading={isLoading}
-              className={`auth-right__signUp-btn ${this.validateForm() ? 'disablled' : ''}`}
+              className={`auth-right__signUp-btn ${!this.validateForm()
+                ? 'disablled'
+                : ''}`}
               text="Join Now"
               loadingText="Signing up…"
               onClick={this.handleSubmit}
@@ -274,9 +301,4 @@ const mapDispatchToProps = {
   getUserEmail,
 };
 
-export default withRouter(
-  connect(
-    null,
-    mapDispatchToProps,
-  )(SignUp),
-);
+export default withRouter(connect(null, mapDispatchToProps)(SignUp));
