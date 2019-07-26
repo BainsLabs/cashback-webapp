@@ -37,6 +37,7 @@ class SignIn extends Component {
     this.setState({
       [event.target.name]: event.target.value,
       usernameError: '',
+      loginError: '',
     });
   };
 
@@ -53,27 +54,29 @@ class SignIn extends Component {
     let userEmail;
     if (email.Count !== 0) {
       userEmail = email && email.Items && email.Items[0].email;
+      Auth.signIn(userEmail, password).then(() => {
+        modalState(null)
+        localStorage.setItem('authenticated', true)
+        history.push('/my-earnings')
+        window.location.reload()
+        })
+      .catch((e) => this.setState({ isLoading: false, loginError: e.message }))
     } else {
       this.setState({
         error: true,
-        loginError: 'Username or password is incorrect',
+        loginError: 'Username does not exist',
         isLoading: false,
       });
-      return;
     }
 
-    try {
+    // try {
       // this.setState({
       //   isLoading: true,
       // });
-      const user = await Auth.signIn(userEmail, password);
-      modalState(null);
-      localStorage.setItem('authenticated', true);
-      history.push('/my-earnings');
-      window.location.reload();
-    } catch (e) {
-      this.setState({ isLoading: false, loginError: e.message });
-    }
+
+    // } catch (e) {
+
+    // }
   };
 
   validateConfirmationForm() {
@@ -123,12 +126,13 @@ class SignIn extends Component {
                 onChange={this.handleChange}
                 value={password}
               />
-            </Col>
-            {error && (
+              {error && (
               <span className="text-danger" align="center">
                 {loginError}
               </span>
             )}
+            </Col>
+
             {/* <Col xs={12}>
               <Input id="isAccepted" type="checkbox" className="signup__check" />
               &nbsp;

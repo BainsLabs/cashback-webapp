@@ -26,6 +26,7 @@ class SignUp extends Component {
     passwordError: '',
     refer: '',
     friendUsername: '',
+    signUperror:'',
     name:'',
     domain:'',
     country: '',
@@ -34,9 +35,9 @@ class SignUp extends Component {
     newUser: null,
   };
 
-  validateForm() {
-    const { username, email, password, isAccepted } = this.state;
-    return username.length > 0 && email.length > 0 && password.length > 0 && isAccepted;
+  validateForm = () => {
+    const { username, email, password } = this.state;
+    return username.length === 0 && email.length === 0 && password.length === 0;
   }
 
   userCheck = async () => {
@@ -67,11 +68,11 @@ class SignUp extends Component {
     };
 
     const user = await getUserEmail(params);
-    if(user.Items[0].first_name !== ''){
+    if (user.Items[0].first_name !== '') {
       this.setState({
         name: `${user.Items[0].first_name} ${user.Items[0].last_name}`,
-        sponsorId: user.Items[0].uuid
-      })
+        sponsorId: user.Items[0].uuid,
+      });
     }
   };
 
@@ -87,21 +88,13 @@ class SignUp extends Component {
     });
   };
 
-  handleChange = async event => {
-    const { checkUsername } = this.props;
+  handleChange = async (event) => {
     this.setState({
       [event.target.name]: event.target.value,
-    });
-    if (event.target.name === 'username') {
-      const params = {
-        username: event.target.value,
-      };
-      // const usernameCheck = await checkUsername(params);
-      // console.log(usernameCheck, 'usernameCheck');
-    }
+    }, () => this.validateForm());
   };
 
-  handleSubmit = async event => {
+  handleSubmit = async (event) => {
     event.preventDefault();
     const { userRegister } = this.props;
     this.setState({ isLoading: true });
@@ -119,9 +112,8 @@ class SignUp extends Component {
       });
       await this.handleConfirmationSubmit();
     } catch (e) {
-      alert(e.message);
+      this.setState({ isLoading: false , signUperror: e.message});
     }
-    // this.setState({ isLoading: false });
   };
 
   handleConfirmationSubmit = async () => {
@@ -148,7 +140,8 @@ class SignUp extends Component {
       passwordError,
       refer,
       friendUsername,
-      name
+      name,
+      isLoading,
     } = this.state;
     return (
       <section className="auth-right__signUp">
@@ -261,8 +254,8 @@ class SignUp extends Component {
             <LoaderButton
               block
               disabled={this.validateForm()}
-              isLoading={this.state.isLoading}
-              className="auth-right__signUp-btn"
+              isLoading={isLoading}
+              className={`auth-right__signUp-btn ${this.validateForm() ? 'disablled' : ''}`}
               text="Join Now"
               loadingText="Signing up…"
               onClick={this.handleSubmit}
