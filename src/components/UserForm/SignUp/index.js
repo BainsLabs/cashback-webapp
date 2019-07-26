@@ -252,6 +252,7 @@ class SignUp extends Component {
                       placeholder="Friends Name"
                       onBlur={this.referUser}
                       type="text"
+                      disabled
                       name="name"
                       onChange={this.handleChange}
                       value={name}
