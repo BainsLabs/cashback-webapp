@@ -57,6 +57,7 @@ class SignIn extends Component {
       this.setState({
         error: true,
         loginError: 'Username or password is incorrect',
+        isLoading: false,
       });
       return;
     }

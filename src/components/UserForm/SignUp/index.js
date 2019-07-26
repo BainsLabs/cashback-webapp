@@ -51,6 +51,10 @@ class SignUp extends Component {
       this.setState({
         usernameError: 'Username already exist',
       });
+    } else {
+      this.setState({
+        usernameError: '',
+      })
     }
   };
 
