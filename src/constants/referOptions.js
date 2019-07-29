@@ -1,3 +1,4 @@
+/* eslint-disable import/prefer-default-export */
 export const ReferOptions = [
   {
     key: 'Select',
@@ -6,11 +7,11 @@ export const ReferOptions = [
     disable: 'disabled',
   },
   {
-    key: 'Social Media',
+    key: 'SOCIAL MEDIA',
     item: 'socialMedia',
   },
   {
-    key: 'Friend',
+    key: 'FRIEND',
     item: 'friend',
   },
 ];
