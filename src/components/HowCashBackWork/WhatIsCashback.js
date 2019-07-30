@@ -14,10 +14,7 @@ const WhatIsCashBack = () => (
             {' '}
           </h1>
           <p className="cashback__description">
-            When you shop at thousands of the world&apos;s most popular brands through
-            6degree.CASH,we simply
-            <br />
-            give you back a percentage of your spend once purchase is confirmed
+            <FormattedMessage id="data.cashbacktext" />
           </p>
         </Col>
       </Row>

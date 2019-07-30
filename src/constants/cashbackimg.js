@@ -8,30 +8,31 @@ import Shop from 'static/icons-images/shop(blue).png';
 import Earn from 'static/icons-images/earncashback(blue).png';
 import { FormattedMessage } from 'react-intl';
 // eslint-disable-next-line import/prefer-default-export
+
 export const CashbackImg = [
   {
     path: AffiliateSale,
     alt: 'Sale',
-    step: 'Step 1',
-    description: 'Affiliate get a commision you get a SALE!',
+    step: <FormattedMessage id="data.step1" />,
+    description: <FormattedMessage id="data.affiliatesale" />,
   },
   {
     path: AffiliateAd,
     alt: 'Affiliate Ad',
-    step: 'Step 2',
-    description: 'Affiliate puts your add on their website',
+    step: <FormattedMessage id="data.step2" />,
+    description: <FormattedMessage id="data.affiliatewebsite" />,
   },
   {
     path: AffiliateClicks,
     alt: 'Affiliate Click',
-    step: 'Step 3',
-    description: 'Customer clicks & converts',
+    step: <FormattedMessage id="data.step3" />,
+    description: <FormattedMessage id="data.affiliatecustome" />,
   },
   {
     path: AffiliateConvsersion,
     alt: 'Affiliate Conversion',
-    step: 'Step 4',
-    description: 'Conversions Are Tracked',
+    step: <FormattedMessage id="data.step4" />,
+    description: <FormattedMessage id="data.affiliatetrack" />,
   },
 ];
 
@@ -39,16 +40,16 @@ export const firstSection = [
   {
     path: Browse,
     alt: <FormattedMessage id="data.boxhcbrowse" />,
-    description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
+    description: <FormattedMessage id="data.dummytext" />,
   },
   {
     path: Shop,
     alt: <FormattedMessage id="data.boxhcshop" />,
-    description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
+    description: <FormattedMessage id="data.dummytext" />,
   },
   {
     path: Earn,
     alt: <FormattedMessage id="data.boxhc" />,
-    description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
+    description: <FormattedMessage id="data.dummytext" />,
   },
 ];

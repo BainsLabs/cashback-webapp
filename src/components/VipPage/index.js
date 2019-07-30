@@ -33,26 +33,40 @@ const VipPage = () => (
       <Row>
         <Col md={3} className="vip__benefits">
           <BenefitsCard backgroundColor="#ffec8d" className="vip__benfits text-left">
-            <p className="vip__text">Featured Brands</p>
-            <p className="vip__benefitdesc">Earn Even More Cash Back on Brands You Love</p>
+            <p className="vip__text">
+              <FormattedMessage id="data.featuredbrands" />
+            </p>
+            <p className="vip__benefitdesc">
+              <FormattedMessage id="data.featuretext" />
+            </p>
           </BenefitsCard>
         </Col>
         <Col md={3} className="vip__benefits">
           <BenefitsCard backgroundColor="#96c1eb" className="vip__benfits text-left">
-            <p className="vip__text">Extra 2% Vip</p>
-            <p className="vip__benefitdesc">Cash Back on 30+ categories</p>
+            <p className="vip__text">
+              <FormattedMessage id="data.extravip" />
+            </p>
+            <p className="vip__benefitdesc">
+              <FormattedMessage id="data.extraviptext" />
+            </p>
           </BenefitsCard>
         </Col>
 
         <Col md={3} className="vip__benefits">
           <BenefitsCard backgroundColor="#f7e4e4" className="vip__benfits text-left">
-            <p className="vip__text">Flexible Payment Options</p>
+            <p className="vip__text">
+              <FormattedMessage id="data.flexible" />
+            </p>
           </BenefitsCard>
         </Col>
         <Col md={3} className="vip__benefits">
           <BenefitsCard backgroundColor="#b7bfcd" className="vip__benfits text-left">
-            <p className="vip__text">Travel</p>
-            <p className="vip__benefitdesc">Up to 60% off your hotel stay plus 6% Cash Back</p>
+            <p className="vip__text">
+              <FormattedMessage id="data.HPtravel" />
+            </p>
+            <p className="vip__benefitdesc">
+              <FormattedMessage id="data.traveltext" />
+            </p>
           </BenefitsCard>
         </Col>
       </Row>

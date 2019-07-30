@@ -11,7 +11,7 @@ import { country } from 'constants/dropdown';
 import { FormattedMessage } from 'react-intl';
 import { Auth } from 'aws-amplify';
 import LoaderButton from 'components/common/LoaderButton';
-import { withRouter } from 'react-router-dom';
+import { Link,withRouter } from 'react-router-dom';
 import { UserSignUp } from 'redux/actions/userActions';
 import { modalState } from 'redux/actions/modalActions';
 import { userRegister, getUserEmail } from 'redux/actions/signupActions';
@@ -24,7 +24,7 @@ class SignUp extends Component {
     email: '',
     password: '',
     referUsernameError: '',
-    passwordError: 'Password must contain at least 8 characters. One upper case, lower case, number and special characters [!,@,%,*].',
+    passwordError: <FormattedMessage id="data.passwordText" />,
     refer: '',
     friendUsername: '',
     signUperror: '',
@@ -33,17 +33,16 @@ class SignUp extends Component {
     country: '',
     sponsorId: '',
     isAccepted: false,
-    newUser: null
+    newUser: null,
   };
 
   validateForm = () => {
-    const { username, email, password, refer, friendUsername } = this.state;
+    const {
+      username, email, password, refer, friendUsername,
+    } = this.state;
     if (refer === 'friend') {
       return (
-        friendUsername.length > 0 &&
-        username.length > 0 &&
-        email.length > 0 &&
-        password.length > 0
+        friendUsername.length > 0 && username.length > 0 && email.length > 0 && password.length > 0
       );
     }
     return username.length > 0 && email.length > 0 && password.length > 0;
@@ -54,16 +53,16 @@ class SignUp extends Component {
     const { getUserEmail } = this.props;
     const params = {
       username,
-      checkType: 'usernameCheck'
+      checkType: 'usernameCheck',
     };
     const usercheckResult = await getUserEmail(params);
     if (usercheckResult.result) {
       this.setState({
-        usernameError: 'Username already exist'
+        usernameError: 'Username already exist',
       });
     } else {
       this.setState({
-        usernameError: ''
+        usernameError: '',
       });
     }
   };
@@ -73,18 +72,18 @@ class SignUp extends Component {
     const { getUserEmail } = this.props;
     const params = {
       username: friendUsername,
-      checkType: 'getUserEmail'
+      checkType: 'getUserEmail',
     };
 
     const user = await getUserEmail(params);
     if (user.Count !== 0) {
       this.setState({
         name: `${user.Items[0].first_name} ${user.Items[0].last_name}`,
-        sponsorId: user.Items[0].uuid
+        sponsorId: user.Items[0].uuid,
       });
     } else {
       this.setState({
-        referUsernameError: 'Username does not exist'
+        referUsernameError: 'Username does not exist',
       });
     }
   };
@@ -93,28 +92,29 @@ class SignUp extends Component {
     const { username, password } = this.state;
     const passwordRegularExpression = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&]{8,}/;
     return passwordRegularExpression.test(password);
-
   };
 
-  handleChange = async event => {
+  handleChange = async (event) => {
     this.setState(
       {
         [event.target.name]: event.target.value,
         usernameError: '',
         referUsernameError: '',
-        signUperror: ''
+        signUperror: '',
       },
       () => {
         this.validateFields();
         this.validateForm();
-      }
+      },
     );
   };
 
-  handleSubmit = async event => {
+  handleSubmit = async (event) => {
     event.preventDefault();
     const { userRegister } = this.props;
-    const { email, username, password, sponsorId } = this.state;
+    const {
+      email, username, password, sponsorId,
+    } = this.state;
     this.setState({ isLoading: true });
     try {
       const newUser = await userRegister({
@@ -122,10 +122,10 @@ class SignUp extends Component {
         username,
         password,
         country: 'IN',
-        sponsorId
+        sponsorId,
       });
       this.setState({
-        newUser
+        newUser,
       });
       await this.handleConfirmationSubmit();
     } catch (e) {
@@ -158,7 +158,7 @@ class SignUp extends Component {
       referUsernameError,
       friendUsername,
       name,
-      isLoading
+      isLoading,
     } = this.state;
     return (
       <section className="auth-right__signUp">
@@ -175,9 +175,7 @@ class SignUp extends Component {
               autoFocus
               name="username"
             />
-            <span className="text-danger no-padding">
-              {usernameError}
-            </span>
+            <span className="text-danger no-padding">{usernameError}</span>
           </Col>
         </Row>
         <Row>
@@ -199,9 +197,7 @@ class SignUp extends Component {
               onChange={this.handleChange}
               value={password}
             />
-            {!this.validateFields() && <span className="text-danger">
-              {passwordError}
-            </span>}
+            {!this.validateFields() && <span className="text-danger">{passwordError}</span>}
           </Col>
         </Row>
         <Row>
@@ -220,7 +216,7 @@ class SignUp extends Component {
         <Row>
           <Col>
             <Select
-              label="How did you hear about us?"
+              label={<FormattedMessage id="data.copysu"/>}
               options={ReferOptions}
               className="signup__select"
               labelClass="signup__selectlabel"
@@ -231,41 +227,43 @@ class SignUp extends Component {
             />
           </Col>
         </Row>
-        {refer === 'friend'
-          ? <Row>
+        {refer === 'friend' ? (
+          <Row>
+            <Col>
+              <Input
+                placeholder="Friends Username"
+                onBlur={this.referUser}
+                type="text"
+                name="friendUsername"
+                onChange={this.handleChange}
+                value={friendUsername}
+              />
+              <span className="text-danger">{referUsernameError}</span>
+            </Col>
+            {name !== '' ? (
               <Col>
                 <Input
-                  placeholder="Friends Username"
+                  placeholder="Friends Name"
                   onBlur={this.referUser}
                   type="text"
-                  name="friendUsername"
+                  disabled
+                  name="name"
                   onChange={this.handleChange}
-                  value={friendUsername}
+                  value={name}
                 />
-                <span className="text-danger">
-                  {referUsernameError}
-                </span>
               </Col>
-              {name !== ''
-                ? <Col>
-                    <Input
-                      placeholder="Friends Name"
-                      onBlur={this.referUser}
-                      type="text"
-                      disabled
-                      name="name"
-                      onChange={this.handleChange}
-                      value={name}
-                    />
-                  </Col>
-                : ''}
-            </Row>
-          : ''}
+            ) : (
+              ''
+            )}
+          </Row>
+        ) : (
+          ''
+        )}
         <Row>
           <Col>
             <Input id="isAccepted" type="checkbox" className="signup__check" />
             &nbsp;
-            <span>I agree to terms & conditions and privacy policy.</span>
+            <span><FormattedMessage id="data.agressterm"/></span>
           </Col>
         </Row>
         <Row>
@@ -274,10 +272,8 @@ class SignUp extends Component {
               block
               disabled={!this.validateForm()}
               isLoading={isLoading}
-              className={`auth-right__signUp-btn ${!this.validateForm()
-                ? 'disablled'
-                : ''}`}
-              text="Join Now"
+              className={`auth-right__signUp-btn ${!this.validateForm() ? 'disablled' : ''}`}
+              text=<FormattedMessage id="data.signUp"/>
               loadingText="Signing up…"
               onClick={this.handleSubmit}
             />
@@ -292,7 +288,12 @@ const mapDispatchToProps = {
   UserSignUp,
   userRegister,
   modalState,
-  getUserEmail
+  getUserEmail,
 };
 
-export default withRouter(connect(null, mapDispatchToProps)(SignUp));
+export default withRouter(
+  connect(
+    null,
+    mapDispatchToProps,
+  )(SignUp),
+);

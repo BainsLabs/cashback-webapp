@@ -29,9 +29,15 @@ const LandingPage = props => {
             </p>
             <div className="line" />
             <p>
-              <span>Limited</span>
-              <span>Period</span>
-              <span>Offer</span>
+              <span>
+                <FormattedMessage id="data.limited" />
+              </span>
+              <span>
+                <FormattedMessage id="data.period" />
+              </span>
+              <span>
+                <FormattedMessage id="data.offer" />
+              </span>
             </p>
             <button className="home__book-btn" type="button">
               <FormattedMessage id="data.booknow" />

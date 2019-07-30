@@ -33,7 +33,7 @@ export const links = [
     ],
   },
   {
-    heading: 'CATEGORIES',
+    heading: <FormattedMessage id="data.HPcategories" />,
     link: [
       {
         linkLabel: <FormattedMessage id="data.HPtravel" />,
@@ -58,7 +58,7 @@ export const links = [
     ],
   },
   {
-    heading: 'BRANDS',
+    heading: <FormattedMessage id="data.HPbrands" />,
     link: [
       {
         linkLabel: 'AMAZON',

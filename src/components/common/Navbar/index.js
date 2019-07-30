@@ -51,7 +51,9 @@ const NavBar = (props) => {
               </Link>
             </Nav.Item>
             <Nav.Item>
-              <Link to="/vip-benefits">VIP Benifits</Link>
+              <Link to="/vip-benefits">
+                <FormattedMessage id="data.vipbenefits" />
+              </Link>
             </Nav.Item>
             {authenticated ? (
               <Nav.Item>
@@ -62,7 +64,7 @@ const NavBar = (props) => {
             ) : (
               <Nav.Item>
                 <button type="button" onClick={() => modalState('signin')} className="myaccount">
-                  My Account
+                  <FormattedMessage id="data.menuHPmyaccount" />
                 </button>
               </Nav.Item>
             )}

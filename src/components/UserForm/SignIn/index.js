@@ -8,7 +8,7 @@ import LoaderButton from 'components/common/LoaderButton';
 import { modalState } from 'redux/actions/modalActions';
 import { getUserEmail } from 'redux/actions/signupActions';
 import { connect } from 'react-redux';
-import {FormattedMessage} from 'react-intl'
+import { FormattedMessage } from 'react-intl';
 
 class SignIn extends Component {
   state = {
@@ -32,14 +32,17 @@ class SignIn extends Component {
   validateForm = () => {
     const { username, password } = this.state;
     return username.length > 0 && password.length > 0;
-  }
+  };
 
   handleChange = (event) => {
-    this.setState({
-      [event.target.name]: event.target.value,
-      usernameError: '',
-      loginError: '',
-    }, () => this.validateForm());
+    this.setState(
+      {
+        [event.target.name]: event.target.value,
+        usernameError: '',
+        loginError: '',
+      },
+      () => this.validateForm(),
+    );
   };
 
   handleSubmit = async (event) => {
@@ -55,13 +58,14 @@ class SignIn extends Component {
     let userEmail;
     if (email.Count !== 0) {
       userEmail = email && email.Items && email.Items[0].email;
-      Auth.signIn(userEmail, password).then(() => {
-        modalState(null)
-        localStorage.setItem('authenticated', true)
-        history.push('/my-earnings')
-        window.location.reload()
+      Auth.signIn(userEmail, password)
+        .then(() => {
+          modalState(null);
+          localStorage.setItem('authenticated', true);
+          history.push('/my-earnings');
+          window.location.reload();
         })
-      .catch((e) => this.setState({ isLoading: false, loginError: e.message }))
+        .catch(e => this.setState({ isLoading: false, loginError: e.message }));
     } else {
       this.setState({
         error: true,
@@ -71,9 +75,9 @@ class SignIn extends Component {
     }
 
     // try {
-      // this.setState({
-      //   isLoading: true,
-      // });
+    // this.setState({
+    //   isLoading: true,
+    // });
 
     // } catch (e) {
 
@@ -106,7 +110,13 @@ class SignIn extends Component {
 
     return (
       <section className="auth-right__signIn">
-        <h3><FormattedMessage id="data.signIn"/> <FormattedMessage id="data.to"/> 6Degrees.CASH</h3>
+        <h3>
+          <FormattedMessage id="data.signIn" />
+          {' '}
+          <FormattedMessage id="data.to" />
+          {' '}
+6Degrees.CASH
+        </h3>
         <Form>
           <Form.Row>
             <Col>
@@ -121,17 +131,17 @@ class SignIn extends Component {
             </Col>
             <Col>
               <Input
-                placeholder={<FormattedMessage id="data.fieldlpenterpassword"/>}
+                placeholder="Enter Password"
                 type="password"
                 name="password"
                 onChange={this.handleChange}
                 value={password}
               />
               {error && (
-              <span className="text-danger" align="center">
-                {loginError}
-              </span>
-            )}
+                <span className="text-danger" align="center">
+                  {loginError}
+                </span>
+              )}
             </Col>
 
             {/* <Col xs={12}>
@@ -145,10 +155,8 @@ class SignIn extends Component {
                 disabled={!this.validateForm()}
                 type="submit"
                 isLoading={isLoading}
-                text={<FormattedMessage id="data.login"/>}
-                className={`auth-right__signIn-btn ${!this.validateForm()
-                  ? 'disablled'
-                  : ''}`}
+                text={<FormattedMessage id="data.login" />}
+                className={`auth-right__signIn-btn ${!this.validateForm() ? 'disablled' : ''}`}
                 loadingText="Logging in…"
                 onClick={this.handleSubmit}
               />

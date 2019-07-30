@@ -15,12 +15,24 @@ export default () => (
             <FormattedMessage id="data.HPtitletopcoupons" />
           </h2>
           <ul>
-            <li>MOST USED</li>
-            <li>RECHARGE</li>
-            <li>FOOD</li>
-            <li>TRAVEL</li>
-            <li>FASHION</li>
-            <li>ELECTRONICS</li>
+            <li>
+              <FormattedMessage id="data.mostused" />
+            </li>
+            <li>
+              <FormattedMessage id="data.recharge" />
+            </li>
+            <li>
+              <FormattedMessage id="data.food" />
+            </li>
+            <li>
+              <FormattedMessage id="data.travel" />
+            </li>
+            <li>
+              <FormattedMessage id="data.fashion" />
+            </li>
+            <li>
+              <FormattedMessage id="data.electronic" />
+            </li>
           </ul>
         </Col>
       </Row>
