@@ -1,3 +1,4 @@
+import React from 'react';
 import AffiliateSale from 'static/icons-images/step-1.png';
 import AffiliateAd from 'static/icons-images/step2.png';
 import AffiliateClicks from 'static/icons-images/step-3.png';
@@ -5,6 +6,7 @@ import AffiliateConvsersion from 'static/icons-images/step4.png';
 import Browse from 'static/icons-images/Browse(blue).png';
 import Shop from 'static/icons-images/shop(blue).png';
 import Earn from 'static/icons-images/earncashback(blue).png';
+import { FormattedMessage } from 'react-intl';
 // eslint-disable-next-line import/prefer-default-export
 export const CashbackImg = [
   {
@@ -36,17 +38,17 @@ export const CashbackImg = [
 export const firstSection = [
   {
     path: Browse,
-    alt: 'Browse',
+    alt: <FormattedMessage id="data.boxhcbrowse" />,
     description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
   },
   {
     path: Shop,
-    alt: 'Shop',
+    alt: <FormattedMessage id="data.boxhcshop" />,
     description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
   },
   {
     path: Earn,
-    alt: 'Earn',
+    alt: <FormattedMessage id="data.boxhc" />,
     description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
   },
 ];

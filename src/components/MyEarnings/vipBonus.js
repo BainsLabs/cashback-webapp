@@ -2,6 +2,7 @@ import React from 'react';
 import {
   Table, Container, Row, Col,
 } from 'react-bootstrap';
+import { FormattedMessage } from 'react-intl';
 
 const VipBonus = () => (
   <>
@@ -9,17 +10,24 @@ const VipBonus = () => (
       <Container className="referral__container">
         <Row>
           <Col className="refer__col__one">
+            <h5>
+              <FormattedMessage id="data.copymyearningsvipbcontent" />
+            </h5>
             <h6>
-              You will receive $5 and 5TLC when your referred friends upgrade to VIP Membership.
-              There is no limit to the amount of VIP bonuses you can earn
+              <FormattedMessage id="data.headermyearningsvipoverview" />
             </h6>
-            <h6>OVERVIEW</h6>
             <Table striped className="merchant">
               <thead>
                 <tr>
-                  <th>SignUps</th>
-                  <th>Potential VIP Bonus</th>
-                  <th>Potential TLC Reward</th>
+                  <th>
+                    <FormattedMessage id="data.headermyearningsrfsignups" />
+                  </th>
+                  <th>
+                    <FormattedMessage id="data.headermyearningsrfpotentialreferalbonus" />
+                  </th>
+                  <th>
+                    <FormattedMessage id="data.headermyearningsvipbpotemtialtlc" />
+                  </th>
                 </tr>
               </thead>
               <tbody>
@@ -35,19 +43,32 @@ const VipBonus = () => (
         <Row>
           <Col className="refer__col__one">
             <h6>
-              Track the VIP Upgrade status of your friends. Contact you friends who have not yet
-              upgraded to help them unblock VIP benefits whilte earning VIP Bonus
+              <FormattedMessage id="data.trackrftext" />
             </h6>
-            <h6>YOUR FRIENDS NETWORK</h6>
+            <h6>
+              <FormattedMessage id="data.headermyearningsrffriendsnetwork" />
+            </h6>
             <Table striped className="merchant">
               <thead>
                 <tr>
-                  <th>Username</th>
-                  <th>Friends</th>
-                  <th>VIP upgrade Date</th>
-                  <th>VIP</th>
-                  <th>VIP Bonus</th>
-                  <th>TLC Reward</th>
+                  <th>
+                    <FormattedMessage id="data.headermyearningsvipbusername" />
+                  </th>
+                  <th>
+                    <FormattedMessage id="data.headermyearningsrffrineds" />
+                  </th>
+                  <th>
+                    <FormattedMessage id="data.headermyearningsvipbupgradedate" />
+                  </th>
+                  <th>
+                    <FormattedMessage id="data.headermyearningsvipbvip" />
+                  </th>
+                  <th>
+                    <FormattedMessage id="data.headermyearningsvipbvipbonus" />
+                  </th>
+                  <th>
+                    <FormattedMessage id="data.headermyearningsviptlcreward" />
+                  </th>
                 </tr>
               </thead>
               <tbody>

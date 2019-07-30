@@ -1,11 +1,11 @@
-import React from "react";
-import { Row, Col } from "react-bootstrap";
-import TrackCard from "static/icons-images/track-card-icon.png";
-import InviteCard from "static/icons-images/invite-card-icon.png";
-import bonusCard from "static/icons-images/bonus-card-icon.png";
+import React from 'react';
+import { Row, Col } from 'react-bootstrap';
+import TrackCard from 'static/icons-images/track-card-icon.png';
+import InviteCard from 'static/icons-images/invite-card-icon.png';
+import bonusCard from 'static/icons-images/bonus-card-icon.png';
 
-import BenefitsCard from "components/common/benefitscard";
-import { FormattedMessage } from "react-intl";
+import BenefitsCard from 'components/common/benefitscard';
+import { FormattedMessage } from 'react-intl';
 
 export default () => (
   <section>
@@ -24,8 +24,7 @@ export default () => (
         <Row>
           <Col>
             <p className="benefits__text">
-              Dolor ullamco proident nulla magna sit culpa exercitation labore
-              ad occaecat quis.
+              <FormattedMessage id="data.invitefriend" />
             </p>
           </Col>
         </Row>
@@ -51,8 +50,7 @@ export default () => (
         <Row>
           <Col>
             <p className="benefits__text">
-              Dolor ullamco proident nulla magna sit culpa exercitation labore
-              ad occaecat quis.
+              <FormattedMessage id="data.trackperfomance" />
             </p>
           </Col>
         </Row>
@@ -73,8 +71,7 @@ export default () => (
         <Row>
           <Col>
             <p className="benefits__text">
-              Dolor ullamco proident nulla magna sit culpa exercitation labore
-              ad occaecat quis.
+              <FormattedMessage id="data.earnrb" />
             </p>
           </Col>
         </Row>

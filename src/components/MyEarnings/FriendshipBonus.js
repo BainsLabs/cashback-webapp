@@ -1,16 +1,19 @@
-import React, { Component } from "react";
-import { Container, Row, Col, Table } from "react-bootstrap";
-import CalculatorModal from "./calculator/calculatorModal";
+import React, { Component } from 'react';
+import {
+  Container, Row, Col, Table,
+} from 'react-bootstrap';
+import { FormattedMessage } from 'react-intl';
+import CalculatorModal from './calculator/calculatorModal';
 
 class FriendShipBonus extends Component {
   state = {
-    open: false
+    open: false,
   };
 
   ModalOpen = () => {
     const { open } = this.state;
     this.setState({
-      open: !open
+      open: !open,
     });
   };
 
@@ -23,64 +26,69 @@ class FriendShipBonus extends Component {
             <Col md={6} className="friendship__amount">
               <div className="amount__container">
                 <p className="amount">$2360</p>
-                <p className="amount__text">Total FriendShip Bonus Paid</p>
+                <p className="amount__text">
+                  <FormattedMessage id="data.copyabovefriendshipbonusfriendshipbonuspaid" />
+                </p>
               </div>
             </Col>
             <Col md={6} className="friendship__amount">
               <div className="amount__container">
                 <p className="amount">$2360</p>
-                <p className="amount__text">Total FriendShip Team</p>
+                <p className="amount__text">
+                  <FormattedMessage id="data.copyabovefriendshipbonusfriendshipbonustotalfriends" />
+                </p>
               </div>
             </Col>
           </Row>
           <Row>
             <Col>
               <button type="button" className="friendship__button">
-                FriendShip Bonus Tier 5%
+                <FormattedMessage id="data.copyabovefriendshipbonusfriendshipbonus52" />
               </button>
             </Col>
             <Col>
-              <button
-                type="button"
-                className="friendship__button"
-                onClick={this.ModalOpen}
-              >
-                Earning Calculator
+              <button type="button" className="friendship__button" onClick={this.ModalOpen}>
+                <FormattedMessage id="data.copyabovefriendshipbonusfriendshipbonusearningcalculator" />
               </button>
             </Col>
             <Col>
               <button type="button" className="friendship__button">
-                Team Details
+                <FormattedMessage id="data.copyabovefriendshipbonusfriendshipbonusteamdetails" />
               </button>
             </Col>
           </Row>
           <Row>
             <Col className="friendShip__detailtext">
-              <h6>You qualify for 5% Friendship Bonus - </h6>
+              <h6>
+                <FormattedMessage id="data.copyabovefriendshipbonusfriendshipbonus5" />
+                {' '}
+              </h6>
               <p>
-                You are a VIP Member and qualify to receive 5% Friendship Bonus
-                up to 6 Degrees of your friends network.
+                <FormattedMessage id="data.rfb5" />
               </p>
             </Col>
-            <Col className="friendShip__detailtext">
+            {/* <Col className="friendShip__detailtext">
               <h6>Your referred VIPs 8</h6>
               <p>
-                You are a VIP Member and qualify to receive 5% Friendship Bonus
-                up to 6 Degrees of your friends network.
+                You are a VIP Member and qualify to receive 5% Friendship Bonus up to 6 Degrees of
+                your friends network.
+              </p>
+            </Col> */}
+            <Col className="friendShip__detailtext">
+              <h6>
+                {' '}
+                <FormattedMessage id="data.copyabovefriendshipbonusfriendshipbonus" />
+              </h6>
+              <p>
+                <FormattedMessage id="data.copyabovefriendshipbonusfriendshipbonus10" />
               </p>
             </Col>
             <Col className="friendShip__detailtext">
-              <h6> Do you want to qualify for 10% Friendship Bonus?</h6>
+              <h6>
+                <FormattedMessage id="data.copyabovefriendshipbonusfriendshipbonusqualify20" />
+              </h6>
               <p>
-                Help ten friends to become VIP Members and you qualify for 10%
-                Friendship Bonus.
-              </p>
-            </Col>
-            <Col className="friendShip__detailtext">
-              <h6>Do you want to qualify for 20% Friendship Bonus?</h6>
-              <p>
-                Help twenty friends to become VIP Members and you qualify for
-                20% Friendship Bonus.
+                <FormattedMessage id="data.copyabovefriendshipbonusfriendshipbonus20" />
               </p>
             </Col>
           </Row>
@@ -88,10 +96,19 @@ class FriendShipBonus extends Component {
             <Table striped className="friendship__table">
               <thead>
                 <tr>
-                  <th>Friends</th>
-                  <th>Cash back pending</th>
-                  <th>Friendship Bonus Pending</th>
-                  <th>Friendship Bonus Paid</th>
+                  <th>
+                    <FormattedMessage id="data.headermyearningsrffrineds" />
+                  </th>
+
+                  <th>
+                    <FormattedMessage id="data.headermyearningsrfcashbackpending" />
+                  </th>
+                  <th>
+                    <FormattedMessage id="data.fbpending" />
+                  </th>
+                  <th>
+                    <FormattedMessage id="data.fbpaid" />
+                  </th>
                 </tr>
               </thead>
               <tbody>

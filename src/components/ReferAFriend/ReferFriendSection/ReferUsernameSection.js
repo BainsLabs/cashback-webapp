@@ -1,6 +1,7 @@
 import React from 'react';
 import { Row, Col } from 'react-bootstrap';
 import Input from 'components/common/inputField';
+import { FormattedMessage } from 'react-intl';
 
 export default () => (
   <div className="refer__username">
@@ -11,7 +12,9 @@ export default () => (
     </Row>
     <Row>
       <Col className="text-center">
-        <h5 className="font-weight-bold">Send your Username</h5>
+        <h5 className="font-weight-bold">
+          <FormattedMessage id="data.copyrfsendusername" />
+        </h5>
       </Col>
     </Row>
     <Row>

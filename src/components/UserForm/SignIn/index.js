@@ -8,6 +8,7 @@ import LoaderButton from 'components/common/LoaderButton';
 import { modalState } from 'redux/actions/modalActions';
 import { getUserEmail } from 'redux/actions/signupActions';
 import { connect } from 'react-redux';
+import {FormattedMessage} from 'react-intl'
 
 class SignIn extends Component {
   state = {
@@ -105,7 +106,7 @@ class SignIn extends Component {
 
     return (
       <section className="auth-right__signIn">
-        <h3>Sign in to 6Degrees.CASH</h3>
+        <h3><FormattedMessage id="data.signIn"/> <FormattedMessage id="data.to"/> 6Degrees.CASH</h3>
         <Form>
           <Form.Row>
             <Col>
@@ -120,7 +121,7 @@ class SignIn extends Component {
             </Col>
             <Col>
               <Input
-                placeholder="Enter Password"
+                placeholder={<FormattedMessage id="data.fieldlpenterpassword"/>}
                 type="password"
                 name="password"
                 onChange={this.handleChange}
@@ -144,7 +145,7 @@ class SignIn extends Component {
                 disabled={!this.validateForm()}
                 type="submit"
                 isLoading={isLoading}
-                text="Login"
+                text={<FormattedMessage id="data.login"/>}
                 className={`auth-right__signIn-btn ${!this.validateForm()
                   ? 'disablled'
                   : ''}`}

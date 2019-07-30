@@ -19,7 +19,7 @@ export const links = [
         url: '/refer-friend',
       },
       {
-        linkLabel: 'VIP BENIFITS',
+        linkLabel: 'VIP BENEFITS',
         url: '#',
       },
       {

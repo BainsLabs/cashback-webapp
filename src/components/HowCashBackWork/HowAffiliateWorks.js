@@ -1,6 +1,7 @@
 import React from 'react';
 import { Container, Col, Row } from 'react-bootstrap';
 import { CashbackImg } from 'constants/cashbackimg';
+import { FormattedMessage } from 'react-intl';
 
 const HowAffiliateWorks = () => (
   <>
@@ -8,7 +9,9 @@ const HowAffiliateWorks = () => (
       <Container className="text-center">
         <Row>
           <Col className="affiliate__intro">
-            <h1 className="font-weight-bold text-uppercase">How does Affiliate Marketing Work?</h1>
+            <h1 className="font-weight-bold text-uppercase">
+              <FormattedMessage id="data.headerhc" />
+            </h1>
           </Col>
         </Row>
         <Row>

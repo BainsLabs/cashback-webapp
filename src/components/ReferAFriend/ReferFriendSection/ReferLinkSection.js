@@ -1,7 +1,7 @@
-import React from "react";
-import { Row, Col } from "react-bootstrap";
-import Input from "components/common/inputField";
-import { FormattedMessage } from "react-intl";
+import React from 'react';
+import { Row, Col } from 'react-bootstrap';
+import Input from 'components/common/inputField';
+import { FormattedMessage } from 'react-intl';
 
 export default () => (
   <div className="refer__link">
@@ -32,9 +32,7 @@ export default () => (
     <Row>
       <Col className="text-center">
         <h6 className="muted mt-3 text-center refer__text">
-          To receive your Referral Bonus, the person you hace referred must earn
-          $25
-          <br /> payable cashback or more
+          <FormattedMessage id="data.toreceivebonus" />
         </h6>
       </Col>
     </Row>

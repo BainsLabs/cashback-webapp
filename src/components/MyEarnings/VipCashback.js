@@ -2,22 +2,28 @@ import React from 'react';
 import {
   Container, Table, Col, Row,
 } from 'react-bootstrap';
+import { FormattedMessage } from 'react-intl';
 
 const VipCashBack = () => (
   <>
     <Container className="filter">
       <ul>
-        <li>FILTER</li>
         <li>
-          Pending &nbsp;
+          <FormattedMessage id="data.headermyearningsvipfilter" />
+        </li>
+        <li>
+          <FormattedMessage id="data.headermyearningspending" />
+          &nbsp;
           <input type="checkbox" className="checkbox" />
         </li>
         <li>
-          Declined &nbsp;
+          <FormattedMessage id="data.headermyearningsvipdeclined" />
+          &nbsp;
           <input type="checkbox" className="checkbox" />
         </li>
         <li>
-          Paid &nbsp;
+          <FormattedMessage id="data.headermyearningsvippaid" />
+          &nbsp;
           <input type="checkbox" className="checkbox" />
         </li>
       </ul>
@@ -26,11 +32,21 @@ const VipCashBack = () => (
       <Table striped className="merchant">
         <thead>
           <tr>
-            <th>MERCHANT</th>
-            <th>DATE</th>
-            <th>PURCHASE</th>
-            <th>CASHBACK</th>
-            <th>TLC REWARD</th>
+            <th>
+              <FormattedMessage id="data.headermyearningsvipmerchant" />
+            </th>
+            <th>
+              <FormattedMessage id="data.headermyearningsdate" />
+            </th>
+            <th>
+              <FormattedMessage id="data.headermyearningspurchase" />
+            </th>
+            <th>
+              <FormattedMessage id="data.sortmenuSCCashBack" />
+            </th>
+            <th>
+              <FormattedMessage id="data.headermyearningstlcreward" />
+            </th>
           </tr>
         </thead>
         <tbody>
@@ -45,19 +61,30 @@ const VipCashBack = () => (
       </Table>
       <Row>
         <Col md={3}>
-          <p>Name</p>
-          <p>MerchantId: 4444</p>
+          <p>
+            <FormattedMessage id="data.headermyearningsvipqualifiedwelcomegift" />
+          </p>
+          <p>
+            <FormattedMessage id="data.headermyearningsvipmerchant" />
+: 4444
+          </p>
         </Col>
         <Col md={3}>
-          <p>Office Number</p>
+          <p>
+            <FormattedMessage id="data.headermyearningsvipoffernumber" />
+          </p>
           <p>GA345Gw</p>
         </Col>
         <Col md={3}>
-          <p>OrderID</p>
+          <p>
+            <FormattedMessage id="data.headermyearningsorderid" />
+          </p>
           <p>xxxxxxxxx4444</p>
         </Col>
         <Col md={3}>
-          <p>VIP Tier</p>
+          <p>
+            <FormattedMessage id="data.headermyearningsvipviptier" />
+          </p>
           <p>5%</p>
         </Col>
       </Row>
@@ -65,19 +92,28 @@ const VipCashBack = () => (
     <Container className="term__container">
       <Row>
         <Col md={4}>
-          <h6>You Qualify for 5% VIP Cash Back</h6>
+          <h6>
+            <FormattedMessage id="data.copymyearningsvip5" />
+          </h6>
           <p>
-            You are a VIP Member and qualify to receive 5% VIP Cash Back. Carry on saving and you
-            will continue to receive bonuses of your Cash Back and TLC Reward.
+            <FormattedMessage id="data.copyabovefriendshipbonusfriendshipbonusyouareavip" />
           </p>
         </Col>
         <Col md={4}>
-          <h6>Do you want to qualify for 10% VIP Cash Back?</h6>
-          <p>Help ten friends to become VIP Members and you qualify for 10% VIP Cash Back.</p>
+          <h6>
+            <FormattedMessage id="data.copymyearningsvip10" />
+          </h6>
+          <p>
+            <FormattedMessage id="data.copyabovefriendshipbonusfriendshipbonus10" />
+          </p>
         </Col>
         <Col md={4}>
-          <h6>Do You want to qualify for 20% VIP Cash Back?</h6>
-          <p>Help 20 friends to become VIP Members and you qualify for 20% VIP Cash Cack</p>
+          <h6>
+            <FormattedMessage id="data.copymyearningsvip20" />
+          </h6>
+          <p>
+            <FormattedMessage id="data.copymyearningsviphelp" />
+          </p>
         </Col>
       </Row>
     </Container>

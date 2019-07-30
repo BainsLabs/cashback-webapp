@@ -12,6 +12,7 @@ import SignUpContent from 'components/UserForm/SignUp/SignUpContent';
 import SignInContent from 'components/UserForm/SignIn/SignInContent';
 import ForgotPassword from 'components/UserForm/ForgotPassword';
 import brandLogo from 'static/icons-images/signup-page-logo.png';
+import { FormattedMessage } from 'react-intl';
 
 const modalStyles = {
   modal: {
@@ -33,9 +34,9 @@ const UserModal = (props) => {
           <Banner imgSrc={leftImage} className="auth-modal__left-side" textPosition="center">
             <img src={brandLogo} alt="imageLogo" className="mx-auto d-block" />
             {name === 'signin' || name === 'forgot' ? (
-              <SignInContent label="SIGN UP" />
+              <SignInContent label={<FormattedMessage id="data.signUp" />} />
             ) : (
-              <SignUpContent label="SIGN IN" />
+              <SignUpContent label={<FormattedMessage id="data.signIn" />} />
             )}
           </Banner>
         </Col>

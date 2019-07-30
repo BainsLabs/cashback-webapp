@@ -3,6 +3,7 @@ import uuidv1 from 'uuid/v1';
 import logo from 'static/images/vip-banefits/footer-logo.png';
 import { links } from 'constants/footerLinks';
 import { Row, Col, Container } from 'react-bootstrap';
+import { FormattedMessage } from 'react-intl';
 
 export default () => (
   <section className="footer ">
@@ -12,8 +13,7 @@ export default () => (
           <div className="footer__logo">
             <img src={logo} width="inherit" alt="logo" />
             <p className="footer__description">
-              Deserunt tempor ad irure dolor.Duis sit officia consequat magna nostrud.Est id Lorem
-              voluptate proident nulla proident dolore incididunt et est occaecat irure non.
+              <FormattedMessage id="data.footerDesc" />
             </p>
             <div className="footer__social-icons">
               <a href="#">

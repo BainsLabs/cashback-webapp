@@ -1,13 +1,13 @@
-import React from "react";
-import { Row, Col } from "react-bootstrap";
-import Wechat from "static/icons-images/weixin-brands.svg";
-import fb from "static/icons-images/facebook-brands.svg";
-import instagram from "static/icons-images/instagram-brands.svg";
-import linkedIn from "static/icons-images/linkedin-brands.svg";
-import pinterest from "static/icons-images/pinterest-brands.svg";
-import twitter from "static/icons-images/twitter-brands.svg";
-import whatsapp from "static/icons-images/whatsapp-brands.svg";
-import { FormattedMessage } from "react-intl";
+import React from 'react';
+import { Row, Col } from 'react-bootstrap';
+import Wechat from 'static/icons-images/weixin-brands.svg';
+import fb from 'static/icons-images/facebook-brands.svg';
+import instagram from 'static/icons-images/instagram-brands.svg';
+import linkedIn from 'static/icons-images/linkedin-brands.svg';
+import pinterest from 'static/icons-images/pinterest-brands.svg';
+import twitter from 'static/icons-images/twitter-brands.svg';
+import whatsapp from 'static/icons-images/whatsapp-brands.svg';
+import { FormattedMessage } from 'react-intl';
 
 export default () => (
   <div className="refer__link">
@@ -53,12 +53,7 @@ export default () => (
     <Row>
       <Col className="text-center">
         <h6 className="muted mt-3 text-center refer__text">
-          *Refer a Friend is to be used for recommeding 6Degrees.CASH to people
-          you
-          <br />
-          know. You should only contact people via email or other electronic
-          <br />
-          communications if you have their consent
+          <FormattedMessage id="data.socialText" />
         </h6>
       </Col>
     </Row>

@@ -1,21 +1,27 @@
 import React from 'react';
 import { Container, Table } from 'react-bootstrap';
+import { FormattedMessage } from 'react-intl';
 
 export default () => (
   <>
     <Container className="filter">
       <ul>
-        <li>FILTER</li>
         <li>
-          Pending &nbsp;
+          <FormattedMessage id="data.headermyearningsvipfilter" />
+        </li>
+        <li>
+          <FormattedMessage id="data.headermyearningspending" />
+          &nbsp;
           <input type="checkbox" className="checkbox" />
         </li>
         <li>
-          Declined &nbsp;
+          <FormattedMessage id="data.headermyearningsvipdeclined" />
+          &nbsp;
           <input type="checkbox" className="checkbox" />
         </li>
         <li>
-          Paid &nbsp;
+          <FormattedMessage id="data.headermyearningsvippaid" />
+          &nbsp;
           <input type="checkbox" className="checkbox" />
         </li>
       </ul>
@@ -24,11 +30,21 @@ export default () => (
       <Table striped className="merchant">
         <thead>
           <tr>
-            <th>MERCHANT</th>
-            <th>DATE</th>
-            <th>PURCHASE</th>
-            <th>CASHBACK</th>
-            <th>TLC REWARD</th>
+            <th>
+              <FormattedMessage id="data.headermyearningsvipmerchant" />
+            </th>
+            <th>
+              <FormattedMessage id="data.headermyearningsdate" />
+            </th>
+            <th>
+              <FormattedMessage id="data.headermyearningspurchase" />
+            </th>
+            <th>
+              <FormattedMessage id="data.sortmenuSCCashBack" />
+            </th>
+            <th>
+              <FormattedMessage id="data.headermyearningstlcreward" />
+            </th>
           </tr>
         </thead>
         <tbody>
