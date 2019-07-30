@@ -1,6 +1,3 @@
-import React from 'react';
-import { FormattedMessage } from 'react-intl';
-
 /* eslint-disable import/prefer-default-export */
 export const ReferOptions = [
   {

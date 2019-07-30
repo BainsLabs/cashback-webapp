@@ -12,13 +12,13 @@ export default () => {
           <CommonSlider
             speedSetting="500"
             slidesToScrollSetting="1"
-            slidesToShowSetting="3"
+            slidesToShowSetting="5"
             initialSlideSetting="2"
           >
             {categories.map(item => (
               <li key={uuidv1()} style={{ width: 0 }}>
                 <img src={item.icon} alt={item.label} />
-                <p>{item.label}</p>
+                <p className="category-label">{item.label}</p>
               </li>
             ))}
           </CommonSlider>
