@@ -1,9 +1,9 @@
 import React from 'react';
-import travel from 'static/icons-images/Travel-icon.png';
-import electronics from 'static/icons-images/Electronics.png';
-import finance from 'static/icons-images/Finance.png';
-import hb from 'static/icons-images/Health-beauty.png';
-import fashion from 'static/icons-images/Fashion.png';
+import travel from 'static/images/home-page/Travel.png';
+import electronics from 'static/images/home-page/Electronics.png';
+import finance from 'static/images/home-page/Finance.png';
+import hb from 'static/images/home-page/Health-Beauty.png';
+import fashion from 'static/images/home-page/Fashion.png';
 import { FormattedMessage } from 'react-intl';
 // eslint-disable-next-line import/prefer-default-export
 export const categories = [

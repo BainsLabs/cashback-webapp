@@ -62,7 +62,7 @@ const NavBar = (props) => {
             ) : (
               <Nav.Item>
                 <button type="button" onClick={() => modalState('signin')} className="myaccount">
-                  My Account
+                  <FormattedMessage id="data.menuHPmyaccount" />
                 </button>
               </Nav.Item>
             )}

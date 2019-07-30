@@ -24,11 +24,11 @@ const LandingPage = props => {
         <Container>
           <div className="home__banner">
             <p>$100</p>
-            <p>
+            <p className="banner-text">
               <FormattedMessage id="data.headermyearningscashback" />
             </p>
-            <div className="line" />
-            <p>
+
+            <p className="banner-limited">
               <span>Limited</span>
               <span>Period</span>
               <span>Offer</span>

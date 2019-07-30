@@ -59,7 +59,7 @@ class TopNavbar extends Component {
                 <img src={logo} width="250rem" alt="logo" />
               </Link>
             </Col>
-            <Col lg={5}>
+            <Col lg={6}>
               <Row>
                 <Col lg={8}>
                   <Input placeholder="Search" autoFocus className="top-navbar__search" />
@@ -75,9 +75,9 @@ class TopNavbar extends Component {
                 </Col>
               </Row>
             </Col>
-            <Col lg={4}>
+            <Col lg={3}>
               <Row>
-                <Col lg={4}>
+                <Col lg={4} className="no-padding">
                   <DropdownComponent
                     icon={faSortDown}
                     label="Language"
@@ -97,7 +97,7 @@ class TopNavbar extends Component {
                     </button>
                   </Col>
                 ) : (
-                  <Col>
+                  <Col className="no-padding">
                     <button
                       className="top-navbar__login-btn"
                       type="button"
