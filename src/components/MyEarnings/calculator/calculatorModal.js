@@ -1,20 +1,23 @@
-import React from "react";
+import React from 'react';
 
-import Modal from "react-responsive-modal";
-import CalculatorForm from "./CalculatorForm";
+import Modal from 'react-responsive-modal';
+import CalculatorForm from './CalculatorForm';
 
 const style = {
   modal: {
-    backgroundColor: "#d7d7d7"
-  }
+    backgroundColor: '#96c1eb',
+  },
 };
 
-const CalculatorModal = props => (
-  <>
-    <Modal open={props.open} styles={style} onClose={props.close}>
-      <CalculatorForm />
-    </Modal>
-  </>
-);
+const CalculatorModal = (props) => {
+  const { open, close } = props;
+  return (
+    <>
+      <Modal open={open} styles={style} onClose={close}>
+        <CalculatorForm />
+      </Modal>
+    </>
+  );
+};
 
 export default CalculatorModal;
