@@ -3,7 +3,6 @@ import {
   Container, Row, Col, Table,
 } from 'react-bootstrap';
 import { FormattedMessage } from 'react-intl';
-import CalculatorModal from './calculator/calculatorModal';
 
 class FriendShipBonus extends Component {
   state = {
@@ -164,7 +163,6 @@ class FriendShipBonus extends Component {
             </Table>
           </Row>
         </Container>
-        <CalculatorModal open={open} close={this.ModalOpen} />
       </>
     );
   }

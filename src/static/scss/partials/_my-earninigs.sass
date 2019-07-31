@@ -13,13 +13,13 @@
   background: map-get($fontColor,'leanGray')
   border-bottom: .1rem solid #ffec8d
   p
-    font-weight: bold
+    font-family: 'Avenir LT Std 95 Black'
 .term__container
   +padding('',2rem)
   background: map-get($fontColor,'leanGray')
   h6
     font-size: 1.5rem
-    font-weight: bold
+    font-family: 'Avenir LT Std 95 Black'
   p
     font-size: .9rem
 
@@ -118,7 +118,7 @@
 
 .amount
   +padding('top',4rem)
-  font-weight: bold
+  font-family: 'Avenir LT Std 95 Black'
   font-size: 2rem
 
 .amount__text
@@ -152,34 +152,85 @@
   +margin('top',1rem)
 .bluetext
   color: map-get($fontColor,'logoblue')
-  font-weight: bold
+  font-family: 'Avenir LT Std 95 Black'
 .vip__desc
   color: map-get($fontColor,'darkGray')
+
+.vipbanner-text
+  font-family: 'Avenir LT Std 95 Black'
 
 .vip__benfits
   border-radius: .8rem
   +padding('',1rem)
   border: 1px dotted #FFFFFF
 .vip__text
-  font-size: .9rem;
-  font-weight: bold;
+  font-size: .9rem
+  font-family: 'Avenir LT Std 95 Black'
 .vip__benefitdesc
-  font-size: .8rem;
-  font-weight: 500;
+  font-size: .8rem
+
 
 
 .calculator__result
   +padding('',3rem)
+  p
+    text-align: center
+    +padding('top',1rem)
+    text-transform: uppercase
+    font-family: 'Avenir LT Std 95 Black'
+    color: map-get($fontColor,'white')
+
 .calculator__rfield
   +padding('',2rem)
+  width: inherit
   border-radius: 1rem
   outline: none
+  border: none
+  box-shadow: inset 0 0 20px #e1e1e1
+
 .calculator__field
   border-radius: 1rem
+  +padding('',0rem 0rem 2rem 0rem)
+  height: 5rem
+  border: none
   outline: none
   +margin('bottom',1rem)
+  +margin('right',1rem)
   text-align: center
+  font-size: 1rem
+.fieldText
+  +padding('top',.5rem)
+  text-transform: uppercase
+  font-family: 'Avenir LT Std 95 Black'
+  color: map-get($fontColor,'white')
+
+.calculator-heading
+  font-family: 'Avenir LT Std 95 Black'
+  color: map-get($fontColor,'white')
+.calculator__logo
+  width: 2.5rem
+  height: 3rem
 
 
 .vip__image
   width: 80%
+
+
+.vip__button
+  background: map-get($fontColor,'yellow')
+  border: none
+  +margin('top',2rem)
+  font-size: .9rem
+  +padding('', .5rem 2rem)
+  border-radius: 2rem
+  outline: none
+  font-family: 'Avenir LT Std 95 Black'
+  i
+    font-size: 1rem
+
+
+.calbutton
+  @extend .vip__button
+  +padding('', .9rem 4rem)
+  font-family: 'Avenir LT Std 95 Black'
+  text-transform: uppercase
