@@ -6,7 +6,7 @@ import { Container, Row, Col } from 'react-bootstrap';
 import bannerImg from 'static/images/home-page/banner-bg.jpg';
 import Card from 'components/common/Card';
 import BlackLine from 'static/icons-images/black-line.png';
-import ReferAFriendBG from 'static/icons-images/joinnow.jpg';
+import ReferAFriendBG from 'static/images/home-page/joinfree-bg.jpg';
 import joinNow from 'static/icons-images/join-now.png';
 import AddSection from 'components/LandingPage/AddSection';
 import DealsNews from 'components/LandingPage/DealsNews';
@@ -52,10 +52,10 @@ const LandingPage = props => {
             <Row>
               <Col lg={8}>
                 <Row>
-                  <Col lg={6} className="join-now__logo">
+                  <Col lg={4} className="join-now__logo">
                     <img src={joinNow} alt="joinNowLogo" />
                   </Col>
-                  <Col lg={6} className="join-now__text">
+                  <Col lg={8} className="join-now__text">
                     <FormattedMessage id="data.HPBanner" />
                   </Col>
                 </Row>

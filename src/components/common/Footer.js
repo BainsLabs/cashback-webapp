@@ -53,5 +53,6 @@ export default () => (
       </Row>
     </Container>
     <div className="footer__line" />
+    <p className="footer-text">Copyright 2019 6Degrees.CASH. All Rights Reserved</p>
   </section>
 );

@@ -5,7 +5,7 @@
   +margin('left', 4rem)
   +margin('top', 7rem)
 
-  background: map-get($fontColor, 'white')
+  background: map-get($fontColor, 'blue')
   border: 0
   font-size: 1rem
   border-radius: 10rem
@@ -13,3 +13,7 @@
   color: map-get($fontColor, 'black')
   font-weight: normal
   letter-spacing: 0rem
+  transition: 0.25s
+  &:hover
+    box-shadow: 0 0.5em 0.5em -0.4em map-get($fontColor, 'black')
+    transform: translateY(-0.25em)
