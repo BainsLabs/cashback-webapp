@@ -4,7 +4,6 @@ import { Container, Col, Row } from 'react-bootstrap';
 import Input from 'components/common/inputField';
 import Logo from 'static/images/login-signup/logo-icon(left).png';
 import { totalTeam } from 'utils/uitility';
-import _ from 'lodash';
 
 class CalculatorForm extends Component {
   state = {
@@ -16,26 +15,32 @@ class CalculatorForm extends Component {
     totalteam: 0,
   };
 
-  onHandleChange = async (e) => {
+  onMaths = () => {
     const {
       monthlyspend, avgcashback, friendshibonus, totalteam,
     } = this.state;
-    this.setState({
-      [e.target.name]: e.target.value,
-    });
+    if (monthlyspend && avgcashback && friendshibonus !== '') {
+      const avgCash = avgcashback / 100;
+      const bonus = friendshibonus / 100;
+      const cashspent = monthlyspend;
+      this.setState({
+        monthlyfriendshipbonus: totalteam * cashspent * avgCash * bonus,
+      });
+    }
+  };
+
+  onHandleChange = async (e) => {
+    this.setState(
+      {
+        [e.target.name]: e.target.value,
+      },
+      () => this.onMaths(),
+    );
     if (e.target.name === 'friendsreferred') {
       const teams = await totalTeam(e.target.value);
 
       this.setState({
         totalteam: teams,
-      });
-    }
-    if (monthlyspend && avgcashback && friendshibonus !== '') {
-      const avgCash = avgcashback / 100;
-      const bonus = friendshibonus / 100;
-      const cashspent = parseInt(monthlyspend);
-      this.setState({
-        monthlyfriendshipbonus: totalteam * cashspent * avgCash * bonus,
       });
     }
   };
@@ -63,7 +68,7 @@ class CalculatorForm extends Component {
           <Col md={6} className="calculator__result">
             <Input
               disabled
-              type="text"
+              type="number"
               className="calculator__rfield"
               value={monthlyfriendshipbonus}
             />
@@ -77,7 +82,7 @@ class CalculatorForm extends Component {
         <Row className="text-center">
           <Col md={3}>
             <Input
-              type="text"
+              type="number"
               className="calculator__field"
               name="monthlyspend"
               onChange={this.onHandleChange}
@@ -97,7 +102,7 @@ class CalculatorForm extends Component {
           </Col>
           <Col md={3}>
             <Input
-              type="text"
+              type="number"
               className="calculator__field"
               name="avgcashback"
               onChange={this.onHandleChange}
@@ -107,20 +112,13 @@ class CalculatorForm extends Component {
           </Col>
           <Col md={3}>
             <Input
-              type="text"
+              type="number"
               className="calculator__field"
               name="friendshibonus"
               onChange={this.onHandleChange}
               value={friendshibonus}
             />
             <p className="fieldText">Friendship Bonus Tier</p>
-          </Col>
-        </Row>
-        <Row>
-          <Col className="text-center">
-            <button type="button" className="calbutton">
-              Calculate
-            </button>
           </Col>
         </Row>
       </Container>
