@@ -111,7 +111,7 @@ class SignIn extends Component {
     return (
       <section className="auth-right__signIn">
         <h3>
-          <FormattedMessage id="data.signIn" />
+          <FormattedMessage id="data.buttonlplogin" />
           {' '}
           <FormattedMessage id="data.to" />
           {' '}
@@ -155,7 +155,7 @@ class SignIn extends Component {
                 disabled={!this.validateForm()}
                 type="submit"
                 isLoading={isLoading}
-                text={<FormattedMessage id="data.login" />}
+                text={<FormattedMessage id="data.buttonlplogin" />}
                 className={`auth-right__signIn-btn ${!this.validateForm() ? 'disablled' : ''}`}
                 loadingText="Logging in…"
                 onClick={this.handleSubmit}

@@ -163,7 +163,7 @@ class SignUp extends Component {
     return (
       <section className="auth-right__signUp">
         <div>
-          <h2>Create Account</h2>
+          <h2 className="signUp-heading">Create Account</h2>
         </div>
         <Row>
           <Col>
@@ -197,7 +197,7 @@ class SignUp extends Component {
               onChange={this.handleChange}
               value={password}
             />
-            {!this.validateFields() && <span className="text-danger">{passwordError}</span>}
+            {/* {!this.validateFields() && <span className="text-danger">{passwordError}</span>} */}
           </Col>
         </Row>
         <Row>
@@ -263,7 +263,7 @@ class SignUp extends Component {
           <Col>
             <Input id="isAccepted" type="checkbox" className="signup__check" />
             &nbsp;
-            <span><FormattedMessage id="data.agressterm"/></span>
+            <span className="terms" ><FormattedMessage id="data.agressterm"/></span>
           </Col>
         </Row>
         <Row>
@@ -273,7 +273,7 @@ class SignUp extends Component {
               disabled={!this.validateForm()}
               isLoading={isLoading}
               className={`auth-right__signUp-btn ${!this.validateForm() ? 'disablled' : ''}`}
-              text=<FormattedMessage id="data.signUp"/>
+              text={<FormattedMessage id="data.signUp" />}
               loadingText="Signing up…"
               onClick={this.handleSubmit}
             />
