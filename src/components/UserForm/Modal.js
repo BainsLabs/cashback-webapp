@@ -7,22 +7,29 @@ import SignIn from 'components/UserForm/SignIn';
 import leftImage from 'static/icons-images/bg.png';
 import Banner from 'components/common/Banner';
 import SignUp from 'components/UserForm/SignUp';
-import LogoIcon from 'static/icons-images/logo-icon.png';
+import LogoIcon from 'static/images/login-signup/logo-icon(right).png';
 import SignUpContent from 'components/UserForm/SignUp/SignUpContent';
 import SignInContent from 'components/UserForm/SignIn/SignInContent';
 import ForgotPassword from 'components/UserForm/ForgotPassword';
-import brandLogo from 'static/icons-images/signup-page-logo.png';
+import brandLogo from 'static/images/login-signup/left-logo.png';
 import { FormattedMessage } from 'react-intl';
+import styled from 'styled-components';
 
 const modalStyles = {
   modal: {
     padding: 0,
     borderRadius: '2rem',
+    position: 'relative',
   },
   closeButton: {
     borderRadius: '2rem',
+    position: 'absolute',
   },
 };
+
+const StyledDiv = styled(Col)`
+  text-align: center;
+`;
 
 const UserModal = (props) => {
   const { userModal, onHide } = props;
@@ -30,16 +37,18 @@ const UserModal = (props) => {
   return (
     <Modal open={open} onClose={onHide} center blockScroll styles={modalStyles}>
       <Row>
-        <Col md={5} className="no-padding">
-          <Banner imgSrc={leftImage} className="auth-modal__left-side" textPosition="center">
+        <StyledDiv md={5} className="no-padding left-bg auth-modal__left-side">
+          <div className="bg-img">
+            {/* <Banner imgSrc={leftImage} className="auth-modal__left-side" textPosition="center"> */}
             <img src={brandLogo} alt="imageLogo" className="mx-auto d-block" />
             {name === 'signin' || name === 'forgot' ? (
               <SignInContent label={<FormattedMessage id="data.signUp" />} />
             ) : (
               <SignUpContent label={<FormattedMessage id="data.signIn" />} />
             )}
-          </Banner>
-        </Col>
+            {/* </Banner> */}
+          </div>
+        </StyledDiv>
         <Col md={6} className="usermodal__form auth-modal__right-side">
           <img src={LogoIcon} alt="logo" className="mx-auto d-block usermodal__logo" />
           {name === 'signin' ? <SignIn /> : name === 'signup' ? <SignUp /> : <ForgotPassword />}

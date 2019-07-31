@@ -10,7 +10,7 @@ export default () => (
   <div className="add-section">
     <Container>
       <Row>
-        <Col className="add-section__heading">
+        <Col lg={9} className="add-section__heading">
           <h2>
             <FormattedMessage id="data.HPtitletopcoupons" />
           </h2>
@@ -34,19 +34,14 @@ export default () => (
               <FormattedMessage id="data.electronic" />
             </li>
           </ul>
-        </Col>
-      </Row>
-      <Row>
-        <Col lg={8}>
           <Row>
             {adds.map(item => (
-              <Col xs={12} md={6} lg={4} className="mb-2" key={uuidv1()}>
+              <Col xs={12} md={6} lg={4} className="mb-3 pl-0" key={uuidv1()}>
                 <Card
                   classValue="card__content-hover"
                   backgroundImage={item.bgImg}
                   textPosition="center"
                   border
-                  width="15rem"
                 >
                   <CardContent brandLogo={item.icon} data={item} />
                 </Card>
@@ -54,19 +49,19 @@ export default () => (
             ))}
           </Row>
         </Col>
-        <Col lg={4}>
+        <Col lg={3} className="no-padding">
           <Row>
             {members.map(item => (
-              <Col lg={12} key={uuidv1()} className="mb-2">
+              <Col lg={12} key={uuidv1()} className="mb-3 no-padding">
                 <Card
                   classValue="card__content-hover"
                   backgroundColor="#96c1eb"
                   textPosition="center"
                   border
-                  width="15rem"
+                  // width="15rem"
                 >
                   <div className="card__add-section">
-                    <img src={item.image} alt="brand" />
+                    <img src={item.image} alt="brand" className={item.class} />
                     <br />
                     <button type="button">{item.btnText}</button>
                   </div>

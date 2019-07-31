@@ -1,92 +1,76 @@
 /* eslint-disable import/prefer-default-export */
-import React from "react";
-import KFC from "static/icons-images/kfc-bg.jpg";
-import kfcLOGO from "static/icons-images/kfc-logo.png";
-import Armani from "static/icons-images/armani-bg.jpg";
-import armaniLogo from "static/icons-images/armani.png";
-import Amazon from "static/icons-images/amazon-bg.jpg";
-import amazonLogo from "static/icons-images/amazon.png";
-import Pharma from "static/icons-images/pharma-bg.jpg";
-import pharmaLogo from "static/icons-images/pharma-logo.png";
-import OYO from "static/icons-images/oyo-bg.jpg";
-import oyoLogo from "static/icons-images/oyo.png";
-import Refer from "static/icons-images/refer.jpg";
-import VIP from "static/icons-images/vip.png";
-import { FormattedMessage } from "react-intl";
+import React from 'react';
+import Alibaba from 'static/images/card/alibaba.jpg';
+import AlibabaLOGO from 'static/images/card/alibaba-logo.png';
+import emirates from 'static/images/card/emirates.jpg';
+import emiratesLogo from 'static/images/card/emirate-logo.png';
+import expedia from 'static/images/card/expedia.jpg';
+import expediaLogo from 'static/images/card/epedia-logo.png';
+
+import Goto from 'static/images/card/goto.jpg';
+import GotoLogo from 'static/images/card/goto-logo.png';
+import hotel from 'static/images/card/hotel.jpg';
+import hotelLogo from 'static/images/card/hotel-logo.png';
+import Parkpalaza from 'static/images/card/parkplaza.jpg';
+import ParkpalazaLogo from 'static/images/card/park-plaza-logo.png';
+import Refer from 'static/icons-images/refer.jpg';
+import VIP from 'static/icons-images/vip.png';
+import { FormattedMessage } from 'react-intl';
 
 export const adds = [
   {
-    cahsback: "48%",
-    tlc: "1 TLC",
-    bgImg: KFC,
-    icon: kfcLOGO,
-    offerType: "OFF"
+    cahsback: '2.4%',
+    tlc: '1.23 TLC',
+    bgImg: Alibaba,
+    icon: AlibabaLOGO,
+    offerType: 'Cash Back',
   },
   {
-    cahsback: "48%",
-    tlc: "1 TLC",
-    bgImg: KFC,
-    icon: kfcLOGO,
-    offerType: "OFF"
+    cahsback: '0.4%',
+    tlc: '2 TLC',
+    bgImg: emirates,
+    icon: emiratesLogo,
+    offerType: 'Cash Back',
   },
   {
-    cahsback: "3.5%",
-    tlc: "2 TLC",
-    bgImg: Armani,
-    icon: armaniLogo,
-    offerType: "OFF"
+    cahsback: '4%',
+    tlc: '2 TLC',
+    bgImg: expedia,
+    icon: expediaLogo,
+    offerType: 'Cash Back',
   },
   {
-    cahsback: "50%",
-    tlc: "2 TLC",
-    bgImg: Amazon,
-    icon: amazonLogo,
-    offerType: "OFF"
+    cahsback: '1.4%',
+    tlc: '0.7 TLC',
+    bgImg: Goto,
+    icon: GotoLogo,
+    offerType: 'Cash Back',
   },
   {
-    cahsback: "$ 60",
-    tlc: "2 TLC",
-    bgImg: Pharma,
-    icon: pharmaLogo,
-    offerType: "CB"
+    cahsback: '2.4%',
+    tlc: '1.2 TLC',
+    bgImg: hotel,
+    icon: hotelLogo,
+    offerType: 'Cash Back',
   },
   {
-    cahsback: "50%",
-    tlc: "1 TLC",
-    bgImg: OYO,
-    icon: oyoLogo,
-    offerType: "OFF"
+    cahsback: '2.4%',
+    tlc: '1.2 TLC',
+    bgImg: Parkpalaza,
+    icon: ParkpalazaLogo,
+    offerType: 'Cash Back',
   },
-  {
-    cahsback: "50%",
-    tlc: "2 TLC",
-    bgImg: Amazon,
-    icon: amazonLogo,
-    offerType: "OFF"
-  },
-  {
-    cahsback: "$ 60",
-    tlc: "2 TLC",
-    bgImg: Pharma,
-    icon: pharmaLogo,
-    offerType: "CB"
-  },
-  {
-    cahsback: "50%",
-    tlc: "1 TLC",
-    bgImg: OYO,
-    icon: oyoLogo,
-    offerType: "OFF"
-  }
 ];
 
 export const members = [
   {
     image: Refer,
-    btnText: <FormattedMessage id="data.HPreferafriend" />
+    btnText: <FormattedMessage id="data.HPreferafriend" />,
+    class: 'big-img',
   },
   {
     image: VIP,
-    btnText: <FormattedMessage id="data.HPbecomevip" />
-  }
+    btnText: <FormattedMessage id="data.HPbecomevip" />,
+    class: 'small-img',
+  },
 ];
