@@ -56,8 +56,7 @@ class SignUp extends Component {
           email.length > 0 &&
           password.length > 0 &&
           usernameError == '' &&
-          emailError == false,
-        isAccepted
+          emailError == false
       );
     }
     return (
@@ -65,8 +64,7 @@ class SignUp extends Component {
       email.length > 0 &&
       password.length > 0 &&
       usernameError == '' &&
-      emailError == false &&
-      isAccepted
+      emailError == false
     );
   };
 
@@ -234,6 +232,7 @@ class SignUp extends Component {
               placeholder={intl.formatMessage({ id: 'data.HPenteryouremail' })}
               value={email}
               name="email"
+              type="email"
               onBlur={this.onVerifyEmail}
               onChange={this.handleChange}
             />
