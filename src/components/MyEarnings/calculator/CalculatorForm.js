@@ -4,7 +4,8 @@ import { Container, Col, Row } from 'react-bootstrap';
 import Input from 'components/common/inputField';
 import Logo from 'static/images/login-signup/logo-icon(left).png';
 import { totalTeam, teamByDegree } from 'utils/uitility';
-import { FormattedMessage } from 'react-intl';
+import { FormattedMessage,injectIntl, intlShape } from 'react-intl';
+import ReactTooltip from 'react-tooltip';
 import FriendShipTable from '../FriendShip/FriendShipTable';
 
 class CalculatorForm extends Component {
@@ -68,6 +69,7 @@ class CalculatorForm extends Component {
       monthlyfriendshipbonus,
       totalteam,
     } = this.state;
+    const { intl } = this.props;
     return (
       <Container>
         <Row>
@@ -87,15 +89,17 @@ class CalculatorForm extends Component {
                   className="calculator__rfield"
                   value={monthlyfriendshipbonus}
                 />
-                <p>
+                <p data-tip={intl.formatMessage({ id: 'data.monthlybonus' })}>
                   <FormattedMessage id="data.calMonthly" />
                 </p>
+                <ReactTooltip />
               </Col>
               <Col md={6} className="calculator__result">
                 <Input disabled type="text" className="calculator__rfield" value={totalteam} />
-                <p>
+                <p data-tip={intl.formatMessage({ id: 'data.friendsTeam' })}>
                   <FormattedMessage id="data.calTotalFriendShip" />
                 </p>
+                <ReactTooltip />
               </Col>
             </Row>
             <Row className="text-center">
@@ -107,9 +111,10 @@ class CalculatorForm extends Component {
                   onChange={this.onHandleChange}
                   value={monthlyspend}
                 />
-                <p className="fieldText">
+                <p className="fieldText" data-tip={intl.formatMessage({ id: 'data.monthlySpend' })}>
                   <FormattedMessage id="data.calMonthlySpend" />
                 </p>
+                <ReactTooltip />
               </Col>
               <Col md={6}>
                 <Input
@@ -119,9 +124,10 @@ class CalculatorForm extends Component {
                   onChange={this.onHandleChange}
                   value={friendsreferred}
                 />
-                <p className="fieldText">
+                <p className="fieldText" data-tip={intl.formatMessage({ id: 'data.friendsReffered' })}>
                   <FormattedMessage id="data.calfriendsRefered" />
                 </p>
+                <ReactTooltip />
               </Col>
             </Row>
 
@@ -134,9 +140,10 @@ class CalculatorForm extends Component {
                   onChange={this.onHandleChange}
                   value={avgcashback}
                 />
-                <p className="fieldText">
+                <p className="fieldText" data-tip={intl.formatMessage({ id: 'data.avgCashback' })}>
                   <FormattedMessage id="data.calAvgCB" />
                 </p>
+                <ReactTooltip />
               </Col>
               <Col md={6}>
                 <Input
@@ -146,19 +153,22 @@ class CalculatorForm extends Component {
                   onChange={this.onHandleChange}
                   value={friendshibonus}
                 />
-                <p className="fieldText">
+                <p className="fieldText" data-tip={intl.formatMessage({ id: 'data.friendshipbonus' })}>
                   <FormattedMessage id="data.calFriendShipBonus" />
                 </p>
+                <ReactTooltip />
               </Col>
             </Row>
           </Col>
           <Col md={6}>
-            <FriendShipTable className="calculator__table"/>
+            <FriendShipTable className="calculator__table" />
           </Col>
         </Row>
       </Container>
     );
   }
 }
-
-export default CalculatorForm;
+CalculatorForm.propTypes = {
+  intl: intlShape.isRequired,
+};
+export default injectIntl(CalculatorForm);

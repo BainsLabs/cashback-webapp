@@ -12,7 +12,7 @@ export default (props) => {
       disabled={option.disable ? option.disable : ''}
       className={optionClass}
     >
-      {option.key}
+      {option.item}
     </option>
   ));
   return (

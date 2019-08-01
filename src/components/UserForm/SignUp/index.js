@@ -15,6 +15,7 @@ import { Link,withRouter } from 'react-router-dom';
 import { UserSignUp } from 'redux/actions/userActions';
 import { modalState } from 'redux/actions/modalActions';
 import { userRegister, getUserEmail } from 'redux/actions/signupActions';
+import ReactTooltip  from 'react-tooltip'
 
 class SignUp extends Component {
   state = {
@@ -202,6 +203,7 @@ class SignUp extends Component {
         </Row>
         <Row>
           <Col>
+            {/* <p data-tip={intl.formatMessage({id: 'data.passwordText'})}> */}
             <Input
               placeholder={intl.formatMessage({ id: 'data.fieldsu' })}
               type="password"
@@ -209,7 +211,9 @@ class SignUp extends Component {
               onChange={this.handleChange}
               value={password}
             />
-            {/* {!this.validateFields() && <span className="text-danger">{passwordError}</span>} */}
+            {/* </p> */}
+            {/* <ReactTooltip/> */}
+            {!this.validateFields() && <span className="text-danger">{passwordError}</span>}
           </Col>
         </Row>
         <Row>

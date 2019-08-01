@@ -7,11 +7,11 @@ export const ReferOptions = [
     disable: 'disabled',
   },
   {
-    key: 'SOCIAL MEDIA',
-    item: 'socialMedia',
+    key: 'socialMedia',
+    item: 'SOCIAL MEDIA',
   },
   {
-    key: 'FRIEND',
-    item: 'friend',
+    key: 'friend',
+    item: 'FRIEND',
   },
 ];
