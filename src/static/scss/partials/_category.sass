@@ -1,11 +1,13 @@
 .category__banner
-  +padding('', 10rem 0)
+  +padding('', 20rem 0 1rem 0)
 
-  color: map-get($fontColor, 'white')
+  color: map-get($fontColor, 'black')
 
   h3
     font-size: 2rem
     font-weight: bolder
+    font-family: 'Avenir LT Std 95 Black'
+    text-transform: uppercase
 
   p
     font-size: 0.8rem
@@ -16,8 +18,9 @@
   height: 0.1rem
 
 .category__filter
-  background: map-get($fontColor, 'darkGray')
+  // background: map-get($fontColor, 'darkGray')
   color: map-get($fontColor, 'white')
+  padding: 0
 
   input
     color: map-get($fontColor, 'darkGray')
@@ -27,9 +30,8 @@
   +padding('top', 1rem)
 
   .filters:not(:first-child)
-    border-top: 1px solid map-get($fontColor, 'white')
 
-    +margin('top', 2rem)
+    
     +padding('top', 1rem)
     +padding('bottom', 1rem)
 
@@ -46,3 +48,11 @@
   @extend .add-section__heading
 
   +margin('top', 0)
+
+.filters
+  background: map-get($fontColor, 'darkGray')
+  +margin('bottom',2px)
+  padding: 2rem 20px 10px 15px
+  
+.filter-div
+  padding: 10px 0

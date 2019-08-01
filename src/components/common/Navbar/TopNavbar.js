@@ -12,7 +12,7 @@ import { modalState } from 'redux/actions/modalActions';
 import UserModal from 'components/UserForm/Modal';
 import { Link } from 'react-router-dom';
 import { country, language } from 'constants/dropdown';
-import { FormattedMessage } from 'react-intl';
+import { FormattedMessage, injectIntl, intlShape } from 'react-intl';
 
 class TopNavbar extends Component {
   ModalOpen = async (name) => {
@@ -48,7 +48,7 @@ class TopNavbar extends Component {
   };
 
   render() {
-    const { user, content } = this.props;
+    const { user, content, intl } = this.props;
     const authenticated = localStorage.getItem('authenticated');
     return (
       <section className="top-navbar">
@@ -62,7 +62,7 @@ class TopNavbar extends Component {
             <Col lg={6}>
               <Row>
                 <Col lg={8}>
-                  <Input placeholder="Search" autoFocus className="top-navbar__search" />
+                  <Input placeholder={intl.formatMessage({ id: 'data.search' })} autoFocus className="top-navbar__search" />
                 </Col>
                 <Col lg={4}>
                   <DropdownComponent
@@ -125,6 +125,11 @@ class TopNavbar extends Component {
   }
 }
 
+
+TopNavbar.propTypes = {
+  intl: intlShape.isRequired,
+};
+
 const mapDispatchToProps = {
   modalState,
 };
@@ -133,7 +138,7 @@ const mapStateToProps = (state) => {
   return { user: state.User };
 };
 
-export default connect(
+export default injectIntl(connect(
   mapStateToProps,
   mapDispatchToProps,
-)(TopNavbar);
+)(TopNavbar));

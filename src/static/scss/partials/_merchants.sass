@@ -8,3 +8,20 @@
     +margin('bottom', 1rem)
     font-family: 'Avenir LT Std 95 Black'
     text-transform: uppercase
+
+.hover-featured
+  padding-top: 2rem
+  color: #FFFFFF
+  background: none
+  border: 0px
+  background: map-get($fontColor,'blue' )
+  transition: 0.25s
+  &:hover
+    background: map-get($fontColor,'black' )
+    box-shadow: 0 0.5em 0.8em -0.4em map-get($fontColor, 'black')
+    transform: translateY(-0.25em)
+    color: map-get($fontColor, 'white' )
+    border-radius: 1rem
+
+.card-padding
+  +padding("", 6px)

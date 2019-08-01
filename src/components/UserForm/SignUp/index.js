@@ -8,7 +8,7 @@ import { ReferOptions } from 'constants/referOptions';
 import DropdownComponent from 'components/common/DropDown';
 import { faMapMarkerAlt } from '@fortawesome/fontawesome-free-solid';
 import { country } from 'constants/dropdown';
-import { FormattedMessage } from 'react-intl';
+import { FormattedMessage, injectIntl, intlShape } from 'react-intl';
 import { Auth } from 'aws-amplify';
 import LoaderButton from 'components/common/LoaderButton';
 import { Link,withRouter } from 'react-router-dom';
@@ -30,7 +30,7 @@ class SignUp extends Component {
     signUperror: '',
     name: '',
     domain: '',
-    country: '',
+    countryValue: '',
     sponsorId: '',
     isAccepted: false,
     newUser: null,
@@ -66,6 +66,13 @@ class SignUp extends Component {
       });
     }
   };
+
+  onCountryChange = (e) => {
+    console.log(e.target.value)
+    this.setState({
+      countryValue: e.target.name
+    })
+  }
 
   referUser = async () => {
     const { friendUsername } = this.state;
@@ -105,6 +112,7 @@ class SignUp extends Component {
       () => {
         this.validateFields();
         this.validateForm();
+        console.log(this.state)
       },
     );
   };
@@ -112,16 +120,18 @@ class SignUp extends Component {
   handleSubmit = async (event) => {
     event.preventDefault();
     const { userRegister } = this.props;
-    const {
-      email, username, password, sponsorId,
+    let {
+      email, username, password, sponsorId, countryValue,
     } = this.state;
     this.setState({ isLoading: true });
     try {
+       email.toLowerCase();
+       username.toLowerCase();
       const newUser = await userRegister({
         email,
         username,
         password,
-        country: 'IN',
+        countryValue,
         sponsorId,
       });
       this.setState({
@@ -154,12 +164,14 @@ class SignUp extends Component {
       password,
       usernameError,
       passwordError,
+      countryValue,
       refer,
       referUsernameError,
       friendUsername,
       name,
       isLoading,
     } = this.state;
+    const { intl, modalState } = this.props
     return (
       <section className="auth-right__signUp">
         <div>
@@ -168,7 +180,7 @@ class SignUp extends Component {
         <Row>
           <Col>
             <Input
-              placeholder="Choose Username"
+              placeholder={intl.formatMessage({ id: 'data.fieldsuchooseusername' })}
               onBlur={this.userCheck}
               value={username}
               onChange={this.handleChange}
@@ -181,7 +193,7 @@ class SignUp extends Component {
         <Row>
           <Col>
             <Input
-              placeholder="Enter Email"
+              placeholder={intl.formatMessage({ id: 'data.HPenteryouremail' })}
               value={email}
               name="email"
               onChange={this.handleChange}
@@ -191,7 +203,7 @@ class SignUp extends Component {
         <Row>
           <Col>
             <Input
-              placeholder="Create Password"
+              placeholder={intl.formatMessage({ id: 'data.fieldsu' })}
               type="password"
               name="password"
               onChange={this.handleChange}
@@ -202,14 +214,25 @@ class SignUp extends Component {
         </Row>
         <Row>
           <Col>
-            <DropdownComponent
+            {/* <DropdownComponent
               icon={faMapMarkerAlt}
+              languageChange={this.onCountryChange}
               iconLeft
               menu={country}
-              onChange={this.handleChange}
               label={<FormattedMessage id="data.filterboxSCselectcountry" />}
               className="signup_country"
               name="country"
+              value={countryValue}
+            /> */}
+            <Select
+              label={<FormattedMessage id="data.filterboxSCselectcountry"/>}
+              options={country}
+              className="signup__select"
+              labelClass="signup__selectlabel"
+              optionClass="signup__option"
+              onChange={this.handleChange}
+              name="country"
+              value={refer}
             />
           </Col>
         </Row>
@@ -231,7 +254,7 @@ class SignUp extends Component {
           <Row>
             <Col>
               <Input
-                placeholder="Friends Username"
+                placeholder={intl.formatMessage({ id: 'data.friendsUsername' })}
                 onBlur={this.referUser}
                 type="text"
                 name="friendUsername"
@@ -243,7 +266,7 @@ class SignUp extends Component {
             {name !== '' ? (
               <Col>
                 <Input
-                  placeholder="Friends Name"
+                  placeholder={intl.formatMessage({ id: 'data.friendsName' })}
                   onBlur={this.referUser}
                   type="text"
                   disabled
@@ -263,7 +286,7 @@ class SignUp extends Component {
           <Col>
             <Input id="isAccepted" type="checkbox" className="signup__check" />
             &nbsp;
-            <span className="terms" ><FormattedMessage id="data.agressterm"/></span>
+            <span className="terms" onClick={() => modalState(null)}><Link to="/terms-conditions"><FormattedMessage id="data.agressterm"/></Link></span>
           </Col>
         </Row>
         <Row>
@@ -284,6 +307,11 @@ class SignUp extends Component {
   }
 }
 
+SignUp.propTypes = {
+  intl: intlShape.isRequired,
+};
+
+
 const mapDispatchToProps = {
   UserSignUp,
   userRegister,
@@ -291,9 +319,9 @@ const mapDispatchToProps = {
   getUserEmail,
 };
 
-export default withRouter(
+export default injectIntl(withRouter(
   connect(
     null,
     mapDispatchToProps,
   )(SignUp),
-);
+));

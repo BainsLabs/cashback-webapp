@@ -1,14 +1,19 @@
 .home__category
   background: map-get($fontColor, 'green')
   font-family: 'Avenir LT Std 85 Heavy'
-  +padding('bottom', 2rem)
+  // +padding('bottom', 2rem)
 
   // background-position: center center;
 .home__category-list
   list-style: none
-
-  +padding('', 2rem)
-  +padding('bottom', 0rem)
+  
+  a
+    text-decoration: none
+    img
+      // 
+     
+  // +padding('', 2rem)
+  // +padding('bottom', 0rem)
 
   text-align: center
 
@@ -29,3 +34,15 @@
 
     &:not(:first-child)
       +margin('left', 9rem)
+
+
+.slick-slide
+  transition: 0.25s
+  padding: 2rem
+  +margin('top', 7px)
+  &:hover
+    +margin('top', 7px)
+    box-shadow: 0 0.5em 0.8em -0.4em map-get($fontColor, 'black')
+    transform: translateY(-0.25em)
+    border-radius: 2rem
+    background: map-get($fontColor, 'blue')

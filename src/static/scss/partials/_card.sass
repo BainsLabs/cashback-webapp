@@ -43,11 +43,12 @@
     +margin('', 0rem 5.7rem)
 
 .card__content
-  +margin('top', 1rem)
+  +margin('top', 2rem)
 
   p:nth-child(1)
-    font-size: 2rem
+    font-size: 2.2rem
     font-weight: bolder
+    font-family: 'Avenir LT Std 95 Black'
 
   p
     +margin('', 0rem)
@@ -63,21 +64,24 @@
   p:nth-child(5)
     font-size: 1rem
 
-    +margin('top', 1rem)
+    +margin('top', 2rem)
 
-    span
+    .card-code
       background: map-get($fontColor, 'yellow')
       color: map-get($fontColor, 'black')
+      font-family: 'Avenir LT Std 95 Black'
 
       +padding('', 0.2rem)
+      
 
       letter-spacing: 0.1rem
 
   p:nth-child(6)
-    font-size: 0.5rem
+    font-size: 10px
 
     +margin('top', 0.7rem)
     +margin('bottom', 0.7rem)
+    +padding('', 0.7rem)
 
 .card__container
   @extend .card
@@ -109,6 +113,14 @@
   font-size: 22px
   font-family: 'Avenir LT Std 95 Black'
 
+.cashback-hover-text-border  
+  font-size: 22px
+  font-family: 'Avenir LT Std 95 Black'
+  border-bottom: 1px solid  map-get($fontColor, 'white')
+  margin: 15px 0
+  padding: 9px 0
+  text-transform: uppercase
+
 .cashback-offer
   text-transform: uppercase
   font-size: 14px
@@ -132,7 +144,7 @@
       text-align: center
       width: 100%;
       height: 100%;
-      padding: 2rem;
+      padding: 1.5rem;
       img
         max-width: 70px
         width: 100%
