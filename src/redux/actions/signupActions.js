@@ -1,5 +1,7 @@
 /* eslint-disable import/prefer-default-export */
-import { verifyUsername, userRegisterApi, userGetEmailApi } from 'services';
+import {
+  verifyUsername, userRegisterApi, userGetEmailApi, verifyEmailAPI,
+} from 'services';
 import * as user from '../actionsTypes/signupTypes';
 
 export const checkUsername = params => async (dispatch) => {
@@ -25,5 +27,10 @@ export const getUserEmail = params => async (dispatch) => {
     type: user.GET_EMAIL,
     payload: res.data,
   });
+  return res.data;
+};
+
+export const verifyEmail = params => async (dispatch) => {
+  const res = await verifyEmailAPI(params);
   return res.data;
 };

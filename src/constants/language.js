@@ -339,10 +339,12 @@ export default {
       alreadyExist: 'Username already exist',
       Logout: 'Logout',
       NEWS: 'NEWS',
+      emailexist: 'Email already exist',
     },
   },
   'zh-CN': {
     data: {
+      emailexist: '电子邮件已存在',
       alreadyExist: '用户名已存在',
       incorrectusernamepass: '用户名和密码不正确',
       usernotexists: '用户名不存在',

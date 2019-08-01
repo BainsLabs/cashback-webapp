@@ -24,7 +24,7 @@ class TopNavbar extends Component {
 
   LogOut = async () => {
     await Auth.signOut();
-    localStorage.clear();
+    localStorage.removeItem('authenticated');
     window.location.reload();
   };
 

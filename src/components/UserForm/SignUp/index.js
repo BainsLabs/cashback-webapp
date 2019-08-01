@@ -14,7 +14,7 @@ import LoaderButton from 'components/common/LoaderButton';
 import { Link,withRouter } from 'react-router-dom';
 import { UserSignUp } from 'redux/actions/userActions';
 import { modalState } from 'redux/actions/modalActions';
-import { userRegister, getUserEmail } from 'redux/actions/signupActions';
+import { userRegister, getUserEmail, verifyEmail } from 'redux/actions/signupActions';
 import ReactTooltip  from 'react-tooltip'
 
 class SignUp extends Component {
@@ -35,6 +35,7 @@ class SignUp extends Component {
     sponsorId: '',
     isAccepted: false,
     newUser: null,
+    emailError: false,
   };
 
   validateForm = () => {
@@ -67,7 +68,16 @@ class SignUp extends Component {
       });
     }
   };
-
+  onVerifyEmail = async () => {
+    const {verifyEmail} = this.props;
+    const {email} = this.state;
+    const rest = await verifyEmail({email})
+    if(rest.result){
+      this.setState({
+        emailError: true
+      })
+    }
+  }
   onCountryChange = (e) => {
     console.log(e.target.value)
     this.setState({
@@ -169,6 +179,7 @@ class SignUp extends Component {
       friendUsername,
       name,
       isLoading,
+      emailError
     } = this.state;
     const { intl, modalState } = this.props
     return (
@@ -195,8 +206,10 @@ class SignUp extends Component {
               placeholder={intl.formatMessage({ id: 'data.HPenteryouremail' })}
               value={email}
               name="email"
+              onBlur={this.onVerifyEmail}
               onChange={this.handleChange}
             />
+            {emailError && <p className="errormessage no-padding"><FormattedMessage id="data.emailexist" /></p>}
           </Col>
         </Row>
         <Row>
@@ -309,6 +322,7 @@ const mapDispatchToProps = {
   userRegister,
   modalState,
   getUserEmail,
+  verifyEmail
 };
 
 export default injectIntl(withRouter(

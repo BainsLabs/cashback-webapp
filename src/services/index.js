@@ -20,12 +20,13 @@ export const verifyUsername = params => axios.post('https://3ihrhx1pyd.execute-a
   timeout: 40000,
   headers: '',
 });
+export const verifyEmailAPI = params => axios.post(
+  'https://3ihrhx1pyd.execute-api.us-east-1.amazonaws.com/dev/users/verify-email',
+  params,
+);
 
 export const userRegisterApi = params => axios
   .post('https://3ihrhx1pyd.execute-api.us-east-1.amazonaws.com/dev/users/register', params)
   .then(res => res)
   .catch(e => JSON.stringify(e));
-export const userGetEmailApi = params => axios.post(
-  'https://3ihrhx1pyd.execute-api.us-east-1.amazonaws.com/dev/users/user-check',
-  params,
-);
+export const userGetEmailApi = params => axios.post('https://3ihrhx1pyd.execute-api.us-east-1.amazonaws.com/dev/users/user-check', params);
