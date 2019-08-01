@@ -97,7 +97,7 @@ class TopNavbar extends Component {
                       className="top-navbar__join-btn"
                       onClick={e => this.LogOut(e)}
                     >
-                      Logout
+                      <FormattedMessage id="data.Logout" />
                     </button>
                   </Col>
                 ) : (

@@ -43,7 +43,9 @@ export default () => (
     </Col>
     <Col lg={3}>
       <div className="news__section no-padding">
-        <span className="news__section-heading">NEWS</span>
+        <span className="news__section-heading">
+          <FormattedMessage id="data.NEWS" />
+        </span>
         <button type="button" className="text-white float-right news__section-see-all">
           <FormattedMessage id="data.HPseeall" />
         </button>

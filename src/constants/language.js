@@ -334,10 +334,14 @@ export default {
         'The number of friends referred by you and is also duplicated by everyone in your Friends Team.',
       avgCashback: ' This is the average Cash Back offered by Merchants for this example.',
       friendshipbonus: 'Select based upon your current Friendship Bonus Tier.',
+      Logout: 'Logout',
+      NEWS: 'NEWS',
     },
   },
   'zh-CN': {
     data: {
+      NEWS: '新闻',
+      Logout: '登出',
       FeaturedMerchant: '特色商家',
       FlatDeal: '扁平交易',
       ShareDeal: 'Rev Share交易',
