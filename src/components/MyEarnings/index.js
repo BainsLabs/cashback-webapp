@@ -8,7 +8,7 @@ import WelComeGift from './welcomeGift';
 import ReferBonus from './ReferralBonus';
 import VipCashBack from './VipCashback';
 import VipBonus from './vipBonus';
-import FriendShipBonus from './FriendshipBonus';
+import FriendShipBonus from './FriendShip/FriendshipBonus';
 
 export default () => (
   <>

@@ -1,14 +1,15 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { Container, Col, Row } from 'react-bootstrap';
 import Banner from 'components/common/Banner';
-import vipImage from 'static/images/vip-banefits/vip.jpg';
+// import vipImage from 'static/images/vip-banefits/vip.jpg';
 import VipBanner from 'static/images/vip-banefits/banner.jpg';
-import BenefitsCard from 'components/common/benefitscard';
+// import BenefitsCard from 'components/common/benefitscard';
 import { FormattedMessage } from 'react-intl';
-import CalculatorModal from 'components/MyEarnings/calculator/calculatorModal';
+// import CalculatorModal from 'components/MyEarnings/calculator/calculatorModal';
+import CalculatorForm from 'components/MyEarnings/calculator/CalculatorForm';
+import FriendShipTable from 'components/MyEarnings/FriendShip/FriendShipTable';
 
 const VipPage = () => {
-  const [open, openModal] = useState(false);
   return (
     <>
       <Banner imgSrc={VipBanner} className="banner-padding" textPosition="center">
@@ -18,6 +19,11 @@ const VipPage = () => {
       </Banner>
       <Container className="text-center vip__container">
         <Row>
+          <Col>
+            <CalculatorForm />
+          </Col>
+        </Row>
+        {/* <Row>
           <Col md={6}>
             <img src={vipImage} alt="vipImage" className="vip__image" />
           </Col>
@@ -79,7 +85,7 @@ const VipPage = () => {
             </BenefitsCard>
           </Col>
         </Row>
-        <CalculatorModal open={open} close={() => openModal(!open)} />
+        <CalculatorModal open={open} close={() => openModal(!open)} /> */}
       </Container>
     </>
   );
