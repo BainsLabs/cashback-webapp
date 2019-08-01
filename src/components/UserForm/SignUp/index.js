@@ -126,8 +126,6 @@ class SignUp extends Component {
     } = this.state;
     this.setState({ isLoading: true });
     try {
-       email.toLowerCase();
-       username.toLowerCase();
       const newUser = await userRegister({
         email,
         username,
