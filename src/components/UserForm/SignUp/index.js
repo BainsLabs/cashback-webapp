@@ -72,7 +72,7 @@ class SignUp extends Component {
     const {verifyEmail} = this.props;
     const {email} = this.state;
     const rest = await verifyEmail({email})
-    if(rest.result){
+    if(!rest.result){
       this.setState({
         emailError: true
       })
