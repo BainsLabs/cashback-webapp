@@ -71,7 +71,7 @@ class SignUp extends Component {
   onCountryChange = (e) => {
     console.log(e.target.value)
     this.setState({
-      countryValue: e.target.name
+      countryValue: e.target.value
     })
   }
 
@@ -216,25 +216,15 @@ class SignUp extends Component {
         </Row>
         <Row>
           <Col>
-            {/* <DropdownComponent
-              icon={faMapMarkerAlt}
-              languageChange={this.onCountryChange}
-              iconLeft
-              menu={country}
-              label={<FormattedMessage id="data.filterboxSCselectcountry" />}
-              className="signup_country"
-              name="country"
-              value={countryValue}
-            /> */}
             <Select
               label={<FormattedMessage id="data.filterboxSCselectcountry"/>}
               options={country}
               className="signup__select"
               labelClass="signup__selectlabel"
               optionClass="signup__option"
-              onChange={this.handleChange}
+              onChange={this.onCountryChange}
               name="country"
-              value={refer}
+              value={countryValue}
             />
           </Col>
         </Row>
