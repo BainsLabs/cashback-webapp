@@ -175,7 +175,7 @@ class SignUp extends Component {
     return (
       <section className="auth-right__signUp">
         <div>
-          <h2 className="signUp-heading">Create Account</h2>
+          <h2 className="signUp-heading"><FormattedMessage id="data.userCreateAccount" /></h2>
         </div>
         <Row>
           <Col>

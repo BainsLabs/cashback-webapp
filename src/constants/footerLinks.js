@@ -19,7 +19,7 @@ export const links = [
         url: '/refer-friend',
       },
       {
-        linkLabel: 'VIP BENEFITS',
+        linkLabel: <FormattedMessage id="data.footerVIPBENEFITS" />,
         url: '#',
       },
       {
@@ -36,8 +36,8 @@ export const links = [
     heading: <FormattedMessage id="data.HPcategories" />,
     link: [
       {
-        linkLabel: "ALL",
-        url: '#'
+        linkLabel: <FormattedMessage id="data.footerAll" />,
+        url: '#',
       },
       {
         linkLabel: <FormattedMessage id="data.HPtravel" />,
@@ -58,26 +58,30 @@ export const links = [
     ],
   },
   {
-    heading: <p className="hidden-heading"><FormattedMessage id="data.HPbrands" /></p>,
+    heading: (
+      <p className="hidden-heading">
+        <FormattedMessage id="data.HPbrands" />
+      </p>
+    ),
     link: [
       {
-        linkLabel: 'LIFESTYLE',
+        linkLabel: <FormattedMessage id="data.footerLIFESTYLE" />,
         url: '#',
       },
       {
-        linkLabel: 'MARKETPLACE',
+        linkLabel: <FormattedMessage id="data.footerMARKETPLACE" />,
         url: '#',
       },
       {
-        linkLabel: 'SERVICES',
+        linkLabel: <FormattedMessage id="data.footerSERVICES" />,
         url: '#',
       },
       {
-        linkLabel: "TLC DEALS",
+        linkLabel: <FormattedMessage id="data.footerTLC" />,
         url: '#',
       },
       {
-        linkLabel: "OTHERS",
+        linkLabel: <FormattedMessage id="data.footerOther" />,
         url: '#',
       },
     ],

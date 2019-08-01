@@ -62,7 +62,11 @@ class TopNavbar extends Component {
             <Col lg={6}>
               <Row>
                 <Col lg={8}>
-                  <Input placeholder={intl.formatMessage({ id: 'data.search' })} autoFocus className="top-navbar__search" />
+                  <Input
+                    placeholder={intl.formatMessage({ id: 'data.search' })}
+                    autoFocus
+                    className="top-navbar__search"
+                  />
                 </Col>
                 <Col lg={4}>
                   <DropdownComponent
@@ -80,7 +84,7 @@ class TopNavbar extends Component {
                 <Col lg={4} className="no-padding">
                   <DropdownComponent
                     icon={faSortDown}
-                    label="Language"
+                    label={<FormattedMessage id="data.topLanguage" />}
                     menu={language}
                     className="top-navbar__select-language"
                     languageChange={this.onCountryChange}
@@ -125,7 +129,6 @@ class TopNavbar extends Component {
   }
 }
 
-
 TopNavbar.propTypes = {
   intl: intlShape.isRequired,
 };
@@ -138,7 +141,9 @@ const mapStateToProps = (state) => {
   return { user: state.User };
 };
 
-export default injectIntl(connect(
-  mapStateToProps,
-  mapDispatchToProps,
-)(TopNavbar));
+export default injectIntl(
+  connect(
+    mapStateToProps,
+    mapDispatchToProps,
+  )(TopNavbar),
+);

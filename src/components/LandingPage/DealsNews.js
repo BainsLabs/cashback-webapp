@@ -1,7 +1,8 @@
 import React from 'react';
 import { Row, Col } from 'react-bootstrap';
-import HP from 'static/icons-images/hp.jpg';
+import HP from 'static/images/home-page/tlc-logo1.png';
 import newsImage from 'static/icons-images/news-img1.jpg';
+import HP2 from 'static/images/home-page/tlc-logo2.png';
 import { FormattedMessage } from 'react-intl';
 
 export default () => (
@@ -14,27 +15,12 @@ export default () => (
         <FormattedMessage id="data.HPseeall" />
       </button>
       <Row className="deals__section-content">
-        <Col md={1}>
+        <Col md={4}>
           <img src={HP} alt="hp-logo" />
         </Col>
-        <Col md={11}>
-          <span className="deals__section-cashback">
-            +4.0 %
-            {' '}
-            <FormattedMessage id="data.headermyearningsvipcashback" />
-          </span>
-
-          <span className="float-right ">
-            <FormattedMessage id="data.HPcode" />
-            &nbsp;
-            <span className="deals__section-code">JULY 2019</span>
-          </span>
+        <Col md={8}>
           <p>
-            Dolore minim labore cupidatat veniam laborum cillum id dolor. Tempor velit voluptate qui
-            qui ad anim reprehenderit aute amet ex nulla dolore dolor dolore. Labore nostrud
-            proident aliqua reprehenderit Lorem. Dolore tempor qui consequat esse ullamco nulla qui
-            cillum fugiat. Occaecat non Lorem labore pariatur proident cupidatat nisi nulla eiusmod
-            nostrud nisi cupidatat. Elit occaecat duis deserunt et ea magna exercitation.
+            <FormattedMessage id="data.LPDEals" />
           </p>
           <button type="button">
             <FormattedMessage id="data.HPshopnow" />
@@ -42,26 +28,12 @@ export default () => (
         </Col>
       </Row>
       <Row className="deals__section-content">
-        <Col md={1}>
-          <img src={HP} alt="hp-logo" />
+        <Col md={4}>
+          <img src={HP2} alt="hp-logo" />
         </Col>
-        <Col md={11}>
-          <span className="deals__section-cashback">
-            +4.0 %
-            {' '}
-            <FormattedMessage id="data.headermyearningsvipcashback" />
-          </span>
-
-          <span className="float-right ">
-            <FormattedMessage id="data.HPcode" />
-            <span className="deals__section-code">JULY 2019</span>
-          </span>
+        <Col md={8}>
           <p>
-            Dolore minim labore cupidatat veniam laborum cillum id dolor. Tempor velit voluptate qui
-            qui ad anim reprehenderit aute amet ex nulla dolore dolor dolore. Labore nostrud
-            proident aliqua reprehenderit Lorem. Dolore tempor qui consequat esse ullamco nulla qui
-            cillum fugiat. Occaecat non Lorem labore pariatur proident cupidatat nisi nulla eiusmod
-            nostrud nisi cupidatat. Elit occaecat duis deserunt et ea magna exercitation.
+            <FormattedMessage id="data.delasNewsLP1" />
           </p>
           <button type="button">
             <FormattedMessage id="data.HPshopnow" />
@@ -73,17 +45,14 @@ export default () => (
       <div className="news__section no-padding">
         <span className="news__section-heading">NEWS</span>
         <button type="button" className="text-white float-right news__section-see-all">
-          SEE All
+          <FormattedMessage id="data.HPseeall" />
         </button>
         <Row className="news__section-content">
           <Col md={5} className="no-padding">
             <img src={newsImage} alt="newsimage" />
           </Col>
           <Col md={7}>
-            <p>
-              Ullamco est sit ipsum incididunt.Deserunt laboris consequat non et esse incididunt
-              officia ullamco ipsum.
-            </p>
+            <p>Ullamco est sit ipsum incididunt.Deserunt laboris consequat</p>
             <span>
               <i className="far fa-clock" />
             </span>
@@ -95,10 +64,7 @@ export default () => (
             <img src={newsImage} alt="newsimage" />
           </Col>
           <Col md={7}>
-            <p>
-              Ullamco est sit ipsum incididunt.Deserunt laboris consequat non et esse incididunt
-              officia ullamco ipsum.
-            </p>
+            <p>Ullamco est sit ipsum incididunt.Deserunt laboris consequat</p>
             <span>
               <i className="far fa-clock" />
             </span>
@@ -110,10 +76,7 @@ export default () => (
             <img src={newsImage} alt="newsimage" />
           </Col>
           <Col md={7}>
-            <p>
-              Ullamco est sit ipsum incididunt.Deserunt laboris consequat non et esse incididunt
-              officia ullamco ipsum.
-            </p>
+            <p>Ullamco est sit ipsum incididunt.Deserunt laboris consequat</p>
             <span>
               <i className="far fa-clock" />
             </span>
@@ -125,10 +88,7 @@ export default () => (
             <img src={newsImage} alt="newsimage" />
           </Col>
           <Col md={7}>
-            <p>
-              Ullamco est sit ipsum incididunt.Deserunt laboris consequat non et esse incididunt
-              officia ullamco ipsum.
-            </p>
+            <p>Ullamco est sit ipsum incididunt.Deserunt laboris consequat</p>
             <span>
               <i className="far fa-clock" />
             </span>
