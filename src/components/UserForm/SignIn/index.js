@@ -65,23 +65,14 @@ class SignIn extends Component {
           history.push('/my-earnings');
           window.location.reload();
         })
-        .catch(e => this.setState({ isLoading: false, loginError: e.message }));
+        .catch(e => this.setState({ isLoading: false, loginError: <p><FormattedMessage id="data.incorrectusernamepass" /></p> }));
     } else {
       this.setState({
         error: true,
-        loginError: 'Username does not exist',
+        loginError: <p><FormattedMessage id="data.usernotexists" /></p>,
         isLoading: false,
       });
     }
-
-    // try {
-    // this.setState({
-    //   isLoading: true,
-    // });
-
-    // } catch (e) {
-
-    // }
   };
 
   validateConfirmationForm() {
@@ -127,7 +118,7 @@ class SignIn extends Component {
                 onChange={this.handleChange}
               />
 
-              <span className="text-danger">{usernameError}</span>
+              <span className="errormessage">{usernameError}</span>
             </Col>
             <Col>
               <Input
@@ -138,7 +129,7 @@ class SignIn extends Component {
                 value={password}
               />
               {error && (
-                <span className="text-danger" align="center">
+                <span className="errormessage" align="center">
                   {loginError}
                 </span>
               )}

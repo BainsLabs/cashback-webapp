@@ -302,10 +302,16 @@ export default {
         'The number of friends referred by you and is also duplicated by everyone in your Friends Team.',
       avgCashback: ' This is the average Cash Back offered by Merchants for this example.',
       friendshipbonus: 'Select based upon your current Friendship Bonus Tier.',
+      usernotexists: 'Username does not exist',
+      incorrectusernamepass: 'Incorrecet Username and Password',
+      alreadyExist: 'Username already exist',
     },
   },
   'zh-CN': {
     data: {
+      alreadyExist: '用户名已存在',
+      incorrectusernamepass: '用户名和密码不正确',
+      usernotexists: '用户名不存在',
       login: '登录',
       calfriendsRefered: '朋友推荐',
       to: '至',

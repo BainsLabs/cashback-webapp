@@ -39,14 +39,14 @@ class SignUp extends Component {
 
   validateForm = () => {
     const {
-      username, email, password, refer, friendUsername,
+      username, email, password, refer, friendUsername, isAccepted,
     } = this.state;
     if (refer === 'friend') {
       return (
         friendUsername.length > 0 && username.length > 0 && email.length > 0 && password.length > 0
       );
     }
-    return username.length > 0 && email.length > 0 && password.length > 0;
+    return username.length > 0 && email.length > 0 && password.length > 0 ;
   };
 
   userCheck = async () => {
@@ -59,7 +59,7 @@ class SignUp extends Component {
     const usercheckResult = await getUserEmail(params);
     if (usercheckResult.result) {
       this.setState({
-        usernameError: 'Username already exist',
+        usernameError: <p><FormattedMessage id="data.alreadyExist" /></p>,
       });
     } else {
       this.setState({
@@ -188,7 +188,7 @@ class SignUp extends Component {
               autoFocus
               name="username"
             />
-            <span className="text-danger no-padding">{usernameError}</span>
+            <p className="errormessage no-padding">{usernameError}</p>
           </Col>
         </Row>
         <Row>
@@ -213,7 +213,7 @@ class SignUp extends Component {
             />
             {/* </p> */}
             {/* <ReactTooltip/> */}
-            {!this.validateFields() && <span className="text-danger">{passwordError}</span>}
+            {!this.validateFields() && <span className="errormessage ">{passwordError}</span>}
           </Col>
         </Row>
         <Row>
