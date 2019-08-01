@@ -325,6 +325,15 @@ export default {
       ShareDeal: 'Rev Share Deal',
       FlatDeal: 'Flat Deal',
       FeaturedMerchant: 'Featured Merchant',
+      monthlybonus: 'This bonus is based on the choices made as you adjust the four fields.',
+      friendsTeam:
+        'This is based on the choices you made as you adjust the Friends Referred field.',
+      monthlySpend:
+        'This is your monthly spend and is also duplicated by everyone in your Friends Team.',
+      friendsReffered:
+        'The number of friends referred by you and is also duplicated by everyone in your Friends Team.',
+      avgCashback: ' This is the average Cash Back offered by Merchants for this example.',
+      friendshipbonus: 'Select based upon your current Friendship Bonus Tier.',
     },
   },
   'zh-CN': {
@@ -645,6 +654,12 @@ export default {
       friendsName: '朋友的名字',
       LPDEals:
         'Voguish Gemstone位于加拿大不列颠哥伦比亚省，为客户提供精美的宝石和半宝石首饰。他们为TravelCoin持有者提供10％的折扣，并接受TravelCoin 30％的付款。',
+      monthlybonus: '以您的本地货币查看您的收入示例。',
+      friendsTeam: '这取决于您在调整Friends Referred字段时所做的选择。',
+      monthlySpend: '这是您的每月支出，也是您朋友小组中每个人的重复',
+      friendsReffered: '您推荐的朋友数量，也是朋友团队中的每个人都重复的。',
+      avgCashback: '这是商家为此示例提供的平均现金返还。',
+      friendshipbonus: '根据您当前的友谊奖励等级进行选择。',
     },
   },
 };
