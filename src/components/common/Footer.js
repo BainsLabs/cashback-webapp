@@ -6,7 +6,7 @@ import { Row, Col, Container } from 'react-bootstrap';
 import { FormattedMessage } from 'react-intl';
 
 export default () => (
-  <section className="footer ">
+  <section className="footer">
     <Container>
       <Row>
         <Col lg={3}>
@@ -36,7 +36,7 @@ export default () => (
           <Col key={uuidv1()} lg={3} className="footer__links">
             <ul>
               <li key={uuidv1()}>
-                <h4 key={uuidv1()} >{item.heading}</h4>
+                <h4 key={uuidv1()}>{item.heading}</h4>
               </li>
               <ul key={uuidv1()}>
                 {item.link.map(link => (
@@ -53,6 +53,8 @@ export default () => (
       </Row>
     </Container>
     <div className="footer__line" />
-    <p className="footer-text">Copyright 2019 6Degrees.CASH. All Rights Reserved</p>
+    <p className="footer-text">
+      <FormattedMessage id="data.footerAllRights" />
+    </p>
   </section>
 );

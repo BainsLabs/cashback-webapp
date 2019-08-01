@@ -126,8 +126,6 @@ class SignUp extends Component {
     } = this.state;
     this.setState({ isLoading: true });
     try {
-       email.toLowerCase();
-       username.toLowerCase();
       const newUser = await userRegister({
         email,
         username,
@@ -176,7 +174,7 @@ class SignUp extends Component {
     return (
       <section className="auth-right__signUp">
         <div>
-          <h2 className="signUp-heading">Create Account</h2>
+          <h2 className="signUp-heading"><FormattedMessage id="data.userCreateAccount" /></h2>
         </div>
         <Row>
           <Col>

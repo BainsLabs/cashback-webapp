@@ -6,13 +6,16 @@ import Card from 'components/common/Card';
 import CardContent from 'components/common/CardContent';
 import { addsDemo } from 'constants/adds';
 import uuidv1 from 'uuid';
+import { FormattedMessage } from 'react-intl';
 
 export default () => (
   <>
     <Banner imgSrc={bannerImg} textPosition="center">
       <Container>
         <div className="category__banner">
-          <h3>Shop Categories</h3>
+          <h3>
+            <FormattedMessage id="data.SHOPCATEGORIES" />
+          </h3>
         </div>
       </Container>
     </Banner>
@@ -20,63 +23,90 @@ export default () => (
       <Row>
         <Col lg={3} className="category__filter">
           <div className="filters">
-            <h5>SERVICE AREA</h5>
+            <h5>
+              <FormattedMessage id="data.SERVICEAREA" />
+            </h5>
             <div className="filter-div">
               <input type="checkbox" />
-              <span>Global</span>
+              <span>
+                <FormattedMessage id="data.Global" />
+              </span>
             </div>
             <div className="filter-line" />
             <div className="filter-div">
               <input type="checkbox" />
-              <span>Select Country</span>
-            </div>
-          </div >
-          <div className="filters">
-            <h5>MERCHANT TYPE</h5>
-            <div className="filter-div">
-              <input type="checkbox" />
-              <span>Online</span>
-            </div>
-            <div className="filter-line" />
-            <div className="filter-div">
-              <input type="checkbox" />
-              <span>In-Store</span>
-            </div>
-          </div >
-          <div className="filters">
-            <h5>DEAL TYPE</h5>
-            <div className="filter-div">
-              <input type="checkbox" />
-              <span>Rev Share Deal</span>
-            </div>
-            <div className="filter-line" />
-            <div className="filter-div">
-              <input type="checkbox" />
-              <span>Flat Deal</span>
-            </div>
-            <div className="filter-line" />
-            <div className="filter-div">
-              <input type="checkbox" />
-              <span>TLC Deal</span>
+              <span>
+                <FormattedMessage id="data.SelectCountry" />
+              </span>
             </div>
           </div>
-          
-          
           <div className="filters">
-            <h5>SPECIAL</h5>
+            <h5>
+              <FormattedMessage id="data.MERCHANTTYPE" />
+            </h5>
             <div className="filter-div">
               <input type="checkbox" />
-              <span>Featured Merchant</span>
+              <span>
+                <FormattedMessage id="data.Online" />
+              </span>
             </div>
             <div className="filter-line" />
             <div className="filter-div">
               <input type="checkbox" />
-              <span>Exclusive Offers</span>
+              <span>
+                <FormattedMessage id="data.InStore" />
+              </span>
+            </div>
+          </div>
+          <div className="filters">
+            <h5>
+              <FormattedMessage id="data.filterboxSCdealtype" />
+            </h5>
+            <div className="filter-div">
+              <input type="checkbox" />
+              <span>
+                <FormattedMessage id="data.ShareDeal" />
+              </span>
             </div>
             <div className="filter-line" />
             <div className="filter-div">
               <input type="checkbox" />
-              <span>Sales Offers</span>
+              <span>
+                <FormattedMessage id="data.FlatDeal" />
+              </span>
+            </div>
+            <div className="filter-line" />
+            <div className="filter-div">
+              <input type="checkbox" />
+              <span>
+                <FormattedMessage id="data.filterboxSCtlcdeal" />
+              </span>
+            </div>
+          </div>
+
+          <div className="filters">
+            <h5>
+              <FormattedMessage id="data.filterboxSC" />
+            </h5>
+            <div className="filter-div">
+              <input type="checkbox" />
+              <span>
+                <FormattedMessage id="data.FeaturedMerchant" />
+              </span>
+            </div>
+            <div className="filter-line" />
+            <div className="filter-div">
+              <input type="checkbox" />
+              <span>
+                <FormattedMessage id="data.filterboxSCexlusiveoffers" />
+              </span>
+            </div>
+            <div className="filter-line" />
+            <div className="filter-div">
+              <input type="checkbox" />
+              <span>
+                <FormattedMessage id="data.filterboxSCsalesoffer" />
+              </span>
             </div>
           </div>
         </Col>
@@ -85,30 +115,44 @@ export default () => (
             <Container>
               <Row>
                 <Col className="category-section__heading">
-                  <h2>ALL</h2>
+                  <h2>
+                    <FormattedMessage id="data.ALL" />
+                  </h2>
                   <ul>
-                    <li>MOST USED</li>
-                    <li>RECHARGE</li>
-                    <li>FOOD</li>
-                    <li>TRAVEL</li>
-                    <li>FASHION</li>
-                    <li>ELECTRONICS</li>
+                    <li>
+                      <FormattedMessage id="data.MOSTUSED" />
+                    </li>
+                    <li>
+                      <FormattedMessage id="data.RECHARGE" />
+                    </li>
+                    <li>
+                      <FormattedMessage id="data.FOOD" />
+                    </li>
+                    <li>
+                      <FormattedMessage id="data.TRAVEL" />
+                    </li>
+                    <li>
+                      <FormattedMessage id="data.FASHION" />
+                    </li>
+                    <li>
+                      <FormattedMessage id="data.ELECTRONICS" />
+                    </li>
                   </ul>
                 </Col>
               </Row>
               <Row>
-              {addsDemo.map(item => (
-              <Col xs={12} md={6} lg={4} className="mb-3 pl-0" key={uuidv1()}>
-                <Card
-                  classValue="card__content-hover"
-                  backgroundImage={item.bgImg}
-                  textPosition="center"
-                  border
-                >
-                  <CardContent brandLogo={item.icon} data={item} />
-                </Card>
-              </Col>
-            ))}
+                {addsDemo.map(item => (
+                  <Col xs={12} md={6} lg={4} className="mb-3 pl-0" key={uuidv1()}>
+                    <Card
+                      classValue="card__content-hover"
+                      backgroundImage={item.bgImg}
+                      textPosition="center"
+                      border
+                    >
+                      <CardContent brandLogo={item.icon} data={item} />
+                    </Card>
+                  </Col>
+                ))}
               </Row>
             </Container>
           </div>

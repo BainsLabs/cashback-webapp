@@ -63,7 +63,7 @@ const LandingPage = props => {
               </Col>
               <Col lg={4}>
                 <button className="banner-btn banner-btn-mobile" type="button">
-                  JOIN NOW
+                  <FormattedMessage id="data.referJoinNow" />
                 </button>
               </Col>
             </Row>
