@@ -50,7 +50,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "clear:cloudfront:test": "aws configure set preview.cloudfront true && aws cloudfront create-invalidation --distribution-id E1D5HFI9UYX97N --paths '/*'",
-    "deploy:test:env": "better-npm-run deploy:test",
+    "deploy:test:env": "better-npm-run deploy:test1",
     "deploy:test": "yarn run deploy:test:env && aws s3 rm s3://siz-degrees-dev --recursive && aws s3 sync build/ s3://siz-degrees-dev --profile 6degrees-dev && yarn run clear:cloudfront:test",
     "clear:cloudfront:test1": "aws configure set preview.cloudfront true && aws cloudfront create-invalidation --distribution-id E1D5HFI9UYX97N --paths '/*'",
     "deploy:test:env1": "better-npm-run deploy:test1",

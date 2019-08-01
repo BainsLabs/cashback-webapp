@@ -36,6 +36,10 @@ export const links = [
     heading: <FormattedMessage id="data.HPcategories" />,
     link: [
       {
+        linkLabel: "ALL",
+        url: '#'
+      },
+      {
         linkLabel: <FormattedMessage id="data.HPtravel" />,
         url: '#',
       },
@@ -51,33 +55,29 @@ export const links = [
         linkLabel: <FormattedMessage id="data.HPhealth" />,
         url: '#',
       },
-      {
-        linkLabel: 'OTHER',
-        url: '#',
-      },
     ],
   },
   {
-    heading: <FormattedMessage id="data.HPbrands" />,
+    heading: <p className="hidden-heading"><FormattedMessage id="data.HPbrands" /></p>,
     link: [
       {
-        linkLabel: 'AMAZON',
+        linkLabel: 'LIFESTYLE',
         url: '#',
       },
       {
-        linkLabel: 'BEST BUY',
+        linkLabel: 'MARKETPLACE',
         url: '#',
       },
       {
-        linkLabel: 'JCPENNEY',
+        linkLabel: 'SERVICES',
         url: '#',
       },
       {
-        linkLabel: "KOHL'S",
+        linkLabel: "TLC DEALS",
         url: '#',
       },
       {
-        linkLabel: "MACY'S",
+        linkLabel: "OTHERS",
         url: '#',
       },
     ],

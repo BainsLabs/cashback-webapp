@@ -12,7 +12,7 @@ import { modalState } from 'redux/actions/modalActions';
 import UserModal from 'components/UserForm/Modal';
 import { Link } from 'react-router-dom';
 import { country, language } from 'constants/dropdown';
-import { FormattedMessage, intlShape, injectIntl } from 'react-intl';
+import { FormattedMessage } from 'react-intl';
 
 class TopNavbar extends Component {
   ModalOpen = async (name) => {
@@ -29,10 +29,17 @@ class TopNavbar extends Component {
   };
 
   onCountryChange = (e) => {
-    // console.log(e.target.value, 'country');
+    console.log(e.target.value, 'country');
     // eslint-disable-next-line no-undef
     localStorage.setItem('country', e.target.value);
-    // window.location.reload();
+    window.location.reload();
+  };
+
+  onCountryChange = (e) => {
+    console.log(e.target.value, 'country');
+    // eslint-disable-next-line no-undef
+    localStorage.setItem('country', e.target.value);
+    window.location.reload();
   };
 
   ModalClose = async () => {
@@ -41,7 +48,7 @@ class TopNavbar extends Component {
   };
 
   render() {
-    const { intl } = this.props;
+    const { user, content } = this.props;
     const authenticated = localStorage.getItem('authenticated');
     return (
       <section className="top-navbar">
@@ -55,11 +62,7 @@ class TopNavbar extends Component {
             <Col lg={6}>
               <Row>
                 <Col lg={8}>
-                  <Input
-                    placeholder={intl.formatMessage({ id: 'data.search' })}
-                    autoFocus
-                    className="top-navbar__search"
-                  />
+                  <Input placeholder="Search" autoFocus className="top-navbar__search" />
                 </Col>
                 <Col lg={4}>
                   <DropdownComponent
@@ -77,7 +80,7 @@ class TopNavbar extends Component {
                 <Col lg={4} className="no-padding">
                   <DropdownComponent
                     icon={faSortDown}
-                    label={<FormattedMessage id="data.language" />}
+                    label="Language"
                     menu={language}
                     className="top-navbar__select-language"
                     languageChange={this.onCountryChange}
@@ -126,17 +129,11 @@ const mapDispatchToProps = {
   modalState,
 };
 
-TopNavbar.propTypes = {
-  intl: intlShape.isRequired,
-};
-
 const mapStateToProps = (state) => {
   return { user: state.User };
 };
 
-export default injectIntl(
-  connect(
-    mapStateToProps,
-    mapDispatchToProps,
-  )(TopNavbar),
-);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(TopNavbar);

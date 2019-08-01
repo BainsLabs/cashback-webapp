@@ -36,7 +36,7 @@ export default () => (
           <Col key={uuidv1()} lg={3} className="footer__links">
             <ul>
               <li key={uuidv1()}>
-                <h4 key={uuidv1()}>{item.heading}</h4>
+                <h4 key={uuidv1()} >{item.heading}</h4>
               </li>
               <ul key={uuidv1()}>
                 {item.link.map(link => (

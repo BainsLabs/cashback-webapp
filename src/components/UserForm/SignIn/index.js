@@ -8,7 +8,7 @@ import LoaderButton from 'components/common/LoaderButton';
 import { modalState } from 'redux/actions/modalActions';
 import { getUserEmail } from 'redux/actions/signupActions';
 import { connect } from 'react-redux';
-import { FormattedMessage, injectIntl, intlShape } from 'react-intl';
+import { FormattedMessage } from 'react-intl';
 
 class SignIn extends Component {
   state = {
@@ -106,7 +106,7 @@ class SignIn extends Component {
     const {
       username, password, usernameError, isLoading, error, loginError,
     } = this.state;
-    const { intl } = this.props;
+    const { modalState } = this.props;
 
     return (
       <section className="auth-right__signIn">
@@ -121,7 +121,7 @@ class SignIn extends Component {
           <Form.Row>
             <Col>
               <Input
-                placeholder={intl.formatMessage({ id: 'data.fieldlpenterusername' })}
+                placeholder="Enter Username"
                 name="username"
                 value={username}
                 onChange={this.handleChange}
@@ -131,7 +131,7 @@ class SignIn extends Component {
             </Col>
             <Col>
               <Input
-                placeholder={intl.formatMessage({ id: 'data.fieldlpenterpassword' })}
+                placeholder="Enter Password"
                 type="password"
                 name="password"
                 onChange={this.handleChange}
@@ -174,18 +174,14 @@ class SignIn extends Component {
   }
 }
 
-SignIn.propTypes = {
-  intl: intlShape.isRequired,
-};
-
 const mapDispatchToProps = {
   modalState,
   getUserEmail,
 };
 
-export default injectIntl(withRouter(
+export default withRouter(
   connect(
     null,
     mapDispatchToProps,
   )(SignIn),
-));
+);

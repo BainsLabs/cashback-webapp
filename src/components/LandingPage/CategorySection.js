@@ -2,6 +2,7 @@ import React from 'react';
 import { categories } from 'constants/categories';
 import { Container } from 'react-bootstrap';
 import uuidv1 from 'uuid';
+import {Link} from 'react-router-dom';
 import CommonSlider from 'components/common/Slider/Slider';
 
 export default () => {
@@ -17,8 +18,8 @@ export default () => {
           >
             {categories.map(item => (
               <li key={uuidv1()} style={{ width: 0 }}>
-                <img src={item.icon} alt={item.label} />
-                <p className="category-label">{item.label}</p>
+               <Link to="/categories"> <img src={item.icon} alt={item.label} />
+                <p className="category-label">{item.label}</p></Link>
               </li>
             ))}
           </CommonSlider>

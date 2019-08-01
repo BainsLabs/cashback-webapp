@@ -6,7 +6,8 @@ import { Container, Row, Col } from 'react-bootstrap';
 import bannerImg from 'static/images/home-page/banner-bg.jpg';
 import Card from 'components/common/Card';
 import BlackLine from 'static/icons-images/black-line.png';
-import ReferAFriendBG from 'static/images/home-page/joinfree-bg.jpg';
+import JoinFree from 'static/images/home-page/joinfree-bg.jpg';
+import ReferAFriendBG from 'static/images/home-page/referAfriend-bg.png';
 import joinNow from 'static/icons-images/join-now.png';
 import AddSection from 'components/LandingPage/AddSection';
 import DealsNews from 'components/LandingPage/DealsNews';
@@ -47,7 +48,7 @@ const LandingPage = props => {
       <CategorySection />
       <AddSection />
       <Container>
-        <Banner imgSrc={ReferAFriendBG} textPosition="center">
+        <Banner imgSrc={JoinFree} textPosition="center">
           <div className="join-now">
             <Row>
               <Col lg={8}>
@@ -78,8 +79,8 @@ const LandingPage = props => {
           </Row>
           <Row>
             {merchants.map(item => (
-              <Col xs={12} md={6} lg={3} className="mb-2">
-                <Card>
+              <Col xs={12} md={6} lg={3} className="mb-2 card-padding">
+                <Card classValue="hover-featured">
                   <>
                     <img src={item.brandImg} className="mx-auto" alt="amazon" />
                     <div className="card__content">
@@ -101,7 +102,7 @@ const LandingPage = props => {
                       <p>
                         <FormattedMessage id="data.HPcode" />
                         &nbsp;
-                        <span>JULY 2019</span>
+                        <span className="card-code">JULY 2019</span>
                       </p>
                       <p>Expire 7/07/2019</p>
                     </div>

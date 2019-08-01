@@ -5,7 +5,7 @@ import AffiliateClicks from 'static/icons-images/step-3.png';
 import AffiliateConvsersion from 'static/icons-images/step4.png';
 import Browse from 'static/icons-images/Browse(blue).png';
 import Shop from 'static/icons-images/shop(blue).png';
-import Earn from 'static/icons-images/earncashback(blue).png';
+// import Earn from 'static/icons-images/earncashback(blue).png';
 import { FormattedMessage } from 'react-intl';
 // eslint-disable-next-line import/prefer-default-export
 

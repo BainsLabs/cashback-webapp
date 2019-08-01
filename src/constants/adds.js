@@ -62,6 +62,95 @@ export const adds = [
   },
 ];
 
+export const addsDemo = [
+  {
+    cahsback: '2.4%',
+    tlc: '1.23 TLC',
+    bgImg: Alibaba,
+    icon: AlibabaLOGO,
+    offerType: 'Cash Back',
+  },
+  {
+    cahsback: '0.4%',
+    tlc: '2 TLC',
+    bgImg: emirates,
+    icon: emiratesLogo,
+    offerType: 'Cash Back',
+  },
+  {
+    cahsback: '4%',
+    tlc: '2 TLC',
+    bgImg: expedia,
+    icon: expediaLogo,
+    offerType: 'Cash Back',
+  },
+  {
+    cahsback: '1.4%',
+    tlc: '0.7 TLC',
+    bgImg: Goto,
+    icon: GotoLogo,
+    offerType: 'Cash Back',
+  },
+  {
+    cahsback: '2.4%',
+    tlc: '1.2 TLC',
+    bgImg: hotel,
+    icon: hotelLogo,
+    offerType: 'Cash Back',
+  },
+  {
+    cahsback: '2.4%',
+    tlc: '1.2 TLC',
+    bgImg: Parkpalaza,
+    icon: ParkpalazaLogo,
+    offerType: 'Cash Back',
+  },
+  
+  {
+    cahsback: '2.4%',
+    tlc: '1.23 TLC',
+    bgImg: Alibaba,
+    icon: AlibabaLOGO,
+    offerType: 'Cash Back',
+  },
+  {
+    cahsback: '0.4%',
+    tlc: '2 TLC',
+    bgImg: emirates,
+    icon: emiratesLogo,
+    offerType: 'Cash Back',
+  },
+  {
+    cahsback: '4%',
+    tlc: '2 TLC',
+    bgImg: expedia,
+    icon: expediaLogo,
+    offerType: 'Cash Back',
+  },
+  {
+    cahsback: '1.4%',
+    tlc: '0.7 TLC',
+    bgImg: Goto,
+    icon: GotoLogo,
+    offerType: 'Cash Back',
+  },
+  {
+    cahsback: '2.4%',
+    tlc: '1.2 TLC',
+    bgImg: hotel,
+    icon: hotelLogo,
+    offerType: 'Cash Back',
+  },
+  {
+    cahsback: '2.4%',
+    tlc: '1.2 TLC',
+    bgImg: Parkpalaza,
+    icon: ParkpalazaLogo,
+    offerType: 'Cash Back',
+  },
+
+];
+
 export const members = [
   {
     image: Refer,
