@@ -11,11 +11,11 @@ import { country } from 'constants/dropdown';
 import { FormattedMessage, injectIntl, intlShape } from 'react-intl';
 import { Auth } from 'aws-amplify';
 import LoaderButton from 'components/common/LoaderButton';
-import { Link,withRouter } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import { UserSignUp } from 'redux/actions/userActions';
 import { modalState } from 'redux/actions/modalActions';
 import { userRegister, getUserEmail, verifyEmail } from 'redux/actions/signupActions';
-import ReactTooltip  from 'react-tooltip'
+import ReactTooltip from 'react-tooltip';
 
 class SignUp extends Component {
   state = {
@@ -40,14 +40,34 @@ class SignUp extends Component {
 
   validateForm = () => {
     const {
-      username, email, password, refer, friendUsername, isAccepted,
+      username,
+      email,
+      password,
+      refer,
+      friendUsername,
+      isAccepted,
+      emailError,
+      usernameError,
     } = this.state;
-    if (refer === 'friend') {
+    if (refer === 'FRIEND') {
       return (
-        friendUsername.length > 0 && username.length > 0 && email.length > 0 && password.length > 0
+        friendUsername.length > 0 &&
+          username.length > 0 &&
+          email.length > 0 &&
+          password.length > 0 &&
+          usernameError == '' &&
+          emailError == false,
+        isAccepted
       );
     }
-    return username.length > 0 && email.length > 0 && password.length > 0 ;
+    return (
+      username.length > 0 &&
+      email.length > 0 &&
+      password.length > 0 &&
+      usernameError == '' &&
+      emailError == false &&
+      isAccepted
+    );
   };
 
   userCheck = async () => {
@@ -60,7 +80,11 @@ class SignUp extends Component {
     const usercheckResult = await getUserEmail(params);
     if (usercheckResult.result) {
       this.setState({
-        usernameError: <p><FormattedMessage id="data.alreadyExist" /></p>,
+        usernameError: (
+          <p>
+            <FormattedMessage id="data.alreadyExist" />
+          </p>
+        ),
       });
     } else {
       this.setState({
@@ -69,21 +93,25 @@ class SignUp extends Component {
     }
   };
   onVerifyEmail = async () => {
-    const {verifyEmail} = this.props;
-    const {email} = this.state;
-    const rest = await verifyEmail({email})
-    if(rest.result){
+    const { verifyEmail } = this.props;
+    const { email } = this.state;
+    const rest = await verifyEmail({ email });
+    if (rest.result) {
       this.setState({
-        emailError: true
-      })
+        emailError: true,
+      });
+      return;
     }
-  }
-  onCountryChange = (e) => {
-    console.log(e.target.value)
     this.setState({
-      countryValue: e.target.value
-    })
-  }
+      emailError: false,
+    });
+  };
+  onCountryChange = e => {
+    console.log(e.target.value);
+    this.setState({
+      countryValue: e.target.value,
+    });
+  };
 
   referUser = async () => {
     const { friendUsername } = this.state;
@@ -112,28 +140,25 @@ class SignUp extends Component {
     return passwordRegularExpression.test(password);
   };
 
-  handleChange = async (event) => {
+  handleChange = async event => {
     this.setState(
       {
         [event.target.name]: event.target.value,
-        usernameError: '',
         referUsernameError: '',
         signUperror: '',
       },
       () => {
         this.validateFields();
         this.validateForm();
-        console.log(this.state)
+        console.log(this.state);
       },
     );
   };
 
-  handleSubmit = async (event) => {
+  handleSubmit = async event => {
     event.preventDefault();
     const { userRegister } = this.props;
-    let {
-      email, username, password, sponsorId, countryValue,
-    } = this.state;
+    let { email, username, password, sponsorId, countryValue } = this.state;
     this.setState({ isLoading: true });
     try {
       const newUser = await userRegister({
@@ -146,6 +171,7 @@ class SignUp extends Component {
       this.setState({
         newUser,
       });
+
       await this.handleConfirmationSubmit();
     } catch (e) {
       this.setState({ isLoading: false, signUperror: e.message });
@@ -179,13 +205,15 @@ class SignUp extends Component {
       friendUsername,
       name,
       isLoading,
-      emailError
+      emailError,
     } = this.state;
-    const { intl, modalState } = this.props
+    const { intl, modalState } = this.props;
     return (
       <section className="auth-right__signUp">
         <div>
-          <h2 className="signUp-heading"><FormattedMessage id="data.userCreateAccount" /></h2>
+          <h2 className="signUp-heading">
+            <FormattedMessage id="data.userCreateAccount" />
+          </h2>
         </div>
         <Row>
           <Col>
@@ -209,7 +237,11 @@ class SignUp extends Component {
               onBlur={this.onVerifyEmail}
               onChange={this.handleChange}
             />
-            {emailError && <p className="errormessage no-padding"><FormattedMessage id="data.emailexist" /></p>}
+            {emailError && (
+              <p className="errormessage no-padding">
+                <FormattedMessage id="data.emailexist" />
+              </p>
+            )}
           </Col>
         </Row>
         <Row>
@@ -230,7 +262,7 @@ class SignUp extends Component {
         <Row>
           <Col>
             <Select
-              label={<FormattedMessage id="data.filterboxSCselectcountry"/>}
+              label={<FormattedMessage id="data.filterboxSCselectcountry" />}
               options={country}
               className="signup__select"
               labelClass="signup__selectlabel"
@@ -244,7 +276,7 @@ class SignUp extends Component {
         <Row>
           <Col>
             <Select
-              label={<FormattedMessage id="data.copysu"/>}
+              label={<FormattedMessage id="data.copysu" />}
               options={ReferOptions}
               className="signup__select"
               labelClass="signup__selectlabel"
@@ -255,7 +287,7 @@ class SignUp extends Component {
             />
           </Col>
         </Row>
-        {refer === 'friend' ? (
+        {refer === 'FRIEND' ? (
           <Row>
             <Col>
               <Input
@@ -291,7 +323,11 @@ class SignUp extends Component {
           <Col>
             <Input id="isAccepted" type="checkbox" className="signup__check" />
             &nbsp;
-            <span className="terms" onClick={() => modalState(null)}><Link to="/terms-conditions"><FormattedMessage id="data.agressterm"/></Link></span>
+            <span className="terms" onClick={() => modalState(null)}>
+              <Link to="/terms-conditions">
+                <FormattedMessage id="data.agressterm" />
+              </Link>
+            </span>
           </Col>
         </Row>
         <Row>
@@ -316,18 +352,19 @@ SignUp.propTypes = {
   intl: intlShape.isRequired,
 };
 
-
 const mapDispatchToProps = {
   UserSignUp,
   userRegister,
   modalState,
   getUserEmail,
-  verifyEmail
+  verifyEmail,
 };
 
-export default injectIntl(withRouter(
-  connect(
-    null,
-    mapDispatchToProps,
-  )(SignUp),
-));
+export default injectIntl(
+  withRouter(
+    connect(
+      null,
+      mapDispatchToProps,
+    )(SignUp),
+  ),
+);
