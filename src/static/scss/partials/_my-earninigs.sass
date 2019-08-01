@@ -169,7 +169,10 @@
 .vip__benefitdesc
   font-size: .8rem
 
-
+.calculator__container
+  background: map-get($fontColor,'blue')
+  +padding('',1rem)
+  border-radius: 2rem
 
 .calculator__result
   +padding('',3rem)
@@ -190,11 +193,11 @@
 
 .calculator__field
   border-radius: 1rem
-  +padding('',0rem 0rem 2rem 0rem)
-  height: 5rem
+  // +padding('',0rem 0rem 2rem 0rem)
+  // height: 5rem
   border: none
   outline: none
-  +margin('bottom',1rem)
+  // +margin('bottom',1rem)
   +margin('right',1rem)
   text-align: center
   font-size: 1rem
@@ -203,6 +206,7 @@
   text-transform: uppercase
   font-family: 'Avenir LT Std 95 Black'
   color: map-get($fontColor,'white')
+  +margin('bottom',1rem)
 
 .calculator-heading
   font-family: 'Avenir LT Std 95 Black'
@@ -210,6 +214,11 @@
 .calculator__logo
   width: 2.5rem
   height: 3rem
+
+.calculator__table
+  @extend .merchant
+  thead
+    background: map-get($fontColor,'blue')
 
 
 .vip__image
