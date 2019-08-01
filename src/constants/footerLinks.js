@@ -44,7 +44,7 @@ export const links = [
         url: '#',
       },
       {
-        linkLabel: <FormattedMessage id="data.HPelectronics" />,
+        linkLabel: <FormattedMessage id="data.ELECTRONICS" />,
         url: '#',
       },
       {
