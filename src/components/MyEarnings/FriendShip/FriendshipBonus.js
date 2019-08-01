@@ -79,7 +79,6 @@ const FriendShipBonus = () => {
             </p>
           </Col>
         </Row>
-        <FriendShipTable />
       </Container>
     </>
   );

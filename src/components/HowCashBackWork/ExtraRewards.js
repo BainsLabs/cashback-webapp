@@ -1,7 +1,7 @@
 import React from 'react';
 import { Container, Col, Row } from 'react-bootstrap';
-import GetTenReward from 'static/icons-images/getyour10.jpg';
-import ReferFriendBonus from 'static/icons-images/refer-a-friend.jpg';
+import GetTenReward from 'static/icons-images/chineseImg2.jpg';
+import ReferFriendBonus from 'static/icons-images/chineseImg1.jpg';
 import { FormattedMessage } from 'react-intl';
 
 const EarnExtraReward = () => (

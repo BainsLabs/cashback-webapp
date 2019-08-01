@@ -4,7 +4,7 @@ import { Container, Col, Row } from 'react-bootstrap';
 import Input from 'components/common/inputField';
 import Logo from 'static/images/login-signup/logo-icon(left).png';
 import { totalTeam, teamByDegree } from 'utils/uitility';
-import { FormattedMessage,injectIntl, intlShape } from 'react-intl';
+import { FormattedMessage, injectIntl, intlShape } from 'react-intl';
 import ReactTooltip from 'react-tooltip';
 import FriendShipTable from '../FriendShip/FriendShipTable';
 
@@ -16,7 +16,7 @@ class CalculatorForm extends Component {
     friendshibonus: 10,
     monthlyfriendshipbonus: '',
     totalteam: '',
-    degreeTeam: '',
+    degreeTeam: [],
   };
 
   async componentDidMount() {
@@ -68,7 +68,7 @@ class CalculatorForm extends Component {
       friendshibonus,
       monthlyfriendshipbonus,
       totalteam,
-      degreeTeam
+      degreeTeam,
     } = this.state;
     const { intl } = this.props;
     return (
@@ -125,7 +125,10 @@ class CalculatorForm extends Component {
                   onChange={this.onHandleChange}
                   value={friendsreferred}
                 />
-                <p className="fieldText" data-tip={intl.formatMessage({ id: 'data.friendsReffered' })}>
+                <p
+                  className="fieldText"
+                  data-tip={intl.formatMessage({ id: 'data.friendsReffered' })}
+                >
                   <FormattedMessage id="data.calfriendsRefered" />
                 </p>
                 <ReactTooltip />
@@ -154,7 +157,10 @@ class CalculatorForm extends Component {
                   onChange={this.onHandleChange}
                   value={friendshibonus}
                 />
-                <p className="fieldText" data-tip={intl.formatMessage({ id: 'data.friendshipbonus' })}>
+                <p
+                  className="fieldText"
+                  data-tip={intl.formatMessage({ id: 'data.friendshipbonus' })}
+                >
                   <FormattedMessage id="data.calFriendShipBonus" />
                 </p>
                 <ReactTooltip />

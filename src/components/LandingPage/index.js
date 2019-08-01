@@ -94,17 +94,17 @@ const LandingPage = props => {
                         widht="inherit"
                       />
                       <p>
-                        Plus
+                        <FormattedMessage id="data.plus" />
                         {item.tlc}
                         <br />
-                        Rewards
+                        <FormattedMessage id="data.rewards" />
                       </p>
                       <p>
                         <FormattedMessage id="data.HPcode" />
                         &nbsp;
                         <span className="card-code">JULY 2019</span>
                       </p>
-                      <p>Expire 7/07/2019</p>
+                      <p><FormattedMessage id="data.expire" /> 7/07/2019</p>
                     </div>
                   </>
                 </Card>

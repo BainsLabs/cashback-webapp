@@ -101,6 +101,8 @@ export default {
       copyabovefriendshipbonusfriendshipbonus5: 'You qualify for 5% Friendship Bonus',
       headermyearningsoffernumber: 'Offer #',
       menuHPshopcategories: 'SHOP CATEGORIES',
+      plus: 'plus',
+      expire: 'Expire',
       boxrf$5:
         'You will receive $5 and 10 TLC for helping your fr…his Referral Bonus, keep spreading the good word.',
       menuHPcapsrefer: 'REFER A FRIEND',
@@ -215,6 +217,7 @@ export default {
       headerhcearnextra: 'EARN EXTRA REWARDS',
       headermyearningsrfcashbackpaid: 'Cash Back Paid',
       fieldsusocialmedia: 'Social Media',
+      rewards: 'Rewards',
       copyrfrefreal:
         'To receive your Referral Bonus, the person you have referred must earn $25 payable cash back or more',
       copyabovefriendshipbonusfriendshipbonus: 'Do you want to qualify for 10% Friendship Bonus?',
@@ -376,8 +379,11 @@ export default {
       footerMARKETPLACE: '市场',
       login: '登录',
       topLanguage: '语言',
+      expire: '到期',
       calfriendsRefered: '朋友推荐',
       to: '至',
+      rewards: '奖励',
+      plus: '加',
       headermyearningsexchange: '当前的汇率',
       menuHPcashbackworks: '返现如何使用',
       HPcategories: '类别',
@@ -638,7 +644,7 @@ export default {
       electronic: '电子',
       cashbacktext:
         '当您通过6degree.CASH购买数千个世界上最受欢迎的品牌时，我们就是这么简单确认购买后，您可以支付一定比例的支出',
-      dummytext: 'Lorem Ipsum只是印刷和排版行业的虚拟文本',
+      dummytext: '只是印刷和排版行业的虚拟文本',
       step1: '步 1',
       step2: '步 2',
       step3: '步 3',

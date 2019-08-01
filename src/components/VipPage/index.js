@@ -7,7 +7,6 @@ import VipBanner from 'static/images/vip-banefits/banner.jpg';
 import { FormattedMessage } from 'react-intl';
 // import CalculatorModal from 'components/MyEarnings/calculator/calculatorModal';
 import CalculatorForm from 'components/MyEarnings/calculator/CalculatorForm';
-import FriendShipTable from 'components/MyEarnings/FriendShip/FriendShipTable';
 
 const VipPage = () => {
   return (
