@@ -68,6 +68,7 @@ class CalculatorForm extends Component {
       friendshibonus,
       monthlyfriendshipbonus,
       totalteam,
+      degreeTeam
     } = this.state;
     const { intl } = this.props;
     return (
@@ -161,7 +162,7 @@ class CalculatorForm extends Component {
             </Row>
           </Col>
           <Col md={6}>
-            <FriendShipTable className="calculator__table" />
+            <FriendShipTable className="calculator__table" degreeTeam={degreeTeam} />
           </Col>
         </Row>
       </Container>

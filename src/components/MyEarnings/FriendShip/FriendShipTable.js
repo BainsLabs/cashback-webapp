@@ -3,7 +3,7 @@ import { Container, Row, Table } from 'react-bootstrap';
 import { FormattedMessage } from 'react-intl';
 
 const FriendShipTable = (props) => {
-  const { className } = props;
+  const { className, degreeTeam } = props;
   return (
     <Container>
       <Row>
@@ -31,7 +31,7 @@ const FriendShipTable = (props) => {
                 <FormattedMessage id="data.degree" />
 1
               </td>
-              <td>25</td>
+              <td>{degreeTeam[0]}</td>
               <td>$250</td>
               <td>$12.5</td>
               <td>$5</td>
@@ -43,7 +43,7 @@ const FriendShipTable = (props) => {
                 {' '}
 2
               </td>
-              <td>100</td>
+              <td>{degreeTeam[1]}</td>
               <td>$100</td>
               <td>$50</td>
               <td>$10</td>
@@ -55,7 +55,7 @@ const FriendShipTable = (props) => {
                 {' '}
 3
               </td>
-              <td>500</td>
+              <td>{degreeTeam[2]}</td>
               <td>$5000</td>
               <td>$250</td>
               <td>$50</td>
@@ -67,7 +67,7 @@ const FriendShipTable = (props) => {
                 {' '}
 4
               </td>
-              <td>2000</td>
+              <td>{degreeTeam[3]}</td>
               <td>$20000</td>
               <td>$1000</td>
               <td>$200</td>
@@ -79,7 +79,7 @@ const FriendShipTable = (props) => {
                 {' '}
 5
               </td>
-              <td>10000</td>
+              <td>{degreeTeam[4]}</td>
               <td>$100000</td>
               <td>$5000</td>
               <td>$1000</td>
@@ -91,7 +91,7 @@ const FriendShipTable = (props) => {
                 {' '}
 6
               </td>
-              <td>40000</td>
+              <td>{degreeTeam[5]}</td>
               <td>$40000</td>
               <td>$20000</td>
               <td>$3000</td>

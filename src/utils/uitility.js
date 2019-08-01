@@ -16,10 +16,7 @@ export const teamByDegree = (referred) => {
   return new Promise((res) => {
     const powerValue = [];
     for (let i = 1; i <= 6; i++) {
-      powerValue.push({
-        DegreeRate: i,
-        Degreevalue: basenumber ** i,
-      });
+      powerValue.push(basenumber ** i);
     }
     res(powerValue);
   });
