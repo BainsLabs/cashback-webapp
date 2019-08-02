@@ -1,16 +1,24 @@
 import React from 'react';
 import { Row, Col } from 'react-bootstrap';
-import TrackCard from 'static/icons-images/track-card-icon.png';
-import InviteCard from 'static/icons-images/invite-card-icon.png';
-import bonusCard from 'static/icons-images/bonus-card-icon.png';
+// import TrackCard from 'static/icons-images/track-card-icon.png';
+// import InviteCard from 'static/icons-images/invite-card-icon.png';
+// import bonusCard from 'static/icons-images/bonus-card-icon.png';
+import SideContentImage from 'static/images/referAfriend/side-img(eng).png';
+import SideContentImagechi from 'static/images/referAfriend/side-img(chi).png';
+// import BenefitsCard from 'components/common/benefitscard';
+// import { FormattedMessage } from 'react-intl';
 
-import BenefitsCard from 'components/common/benefitscard';
-import { FormattedMessage } from 'react-intl';
-
-export default () => (
-  <section>
-    <Row>
-      <BenefitsCard className="benefits" backgroundColor="#ffec8d">
+export default () => {
+  const language = localStorage.getItem('country');
+  return (
+    <section>
+      <Row>
+        <img
+          src={language === 'en-US' ? SideContentImage : SideContentImagechi}
+          alt="refer friend content"
+          className="side__content"
+        />
+        {/* <BenefitsCard className="benefits" backgroundColor="#ffec8d">
         <Row>
           <Col xs={12} className="no-padding ">
             <span className="benefits__headingtext">
@@ -75,7 +83,8 @@ export default () => (
             </p>
           </Col>
         </Row>
-      </BenefitsCard>
-    </Row>
-  </section>
-);
+      </BenefitsCard> */}
+      </Row>
+    </section>
+  );
+};

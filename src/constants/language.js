@@ -3,6 +3,7 @@ export default {
     data: {
       headermyearningsexchange: 'Current Exchange Rate',
       menuHPcashbackworks: 'HOW CASH BACK WORKS',
+      getpaid: 'Get Paid To Shop!',
       HPcategories: 'CATEGORIES',
       calfriendsRefered: 'FRIENDS REFERRED',
       calAvgCB: 'AVERAGE CASH BACK(%)',
@@ -25,7 +26,7 @@ export default {
       copymyearningsvipcontent:
         'You are a VIP10 Member and qualify to receive 10% …receive bonuses of your Cash Back and TLC Reward.',
       fieldsufriend: 'Friend',
-      HPfashion: 'FASHION',
+      HPfashion: 'Fashion',
       headerhcearnextra: 'EARN EXTRA REWARDS',
       headermyearningspaid: 'Paid',
       copysuprivacypolicy: 'I agree to the Terms & Conditions and Privacy Policy.',
@@ -38,7 +39,7 @@ export default {
       HPdealscashback: 'Discover Even More Deals With Cash Back',
       headermyearningsfriendshipbonus: 'FRIENDSHIP BONUS',
       HPfooterpopularlinks: 'POPULAR LINKS',
-      headermyearningsvipbvipbonus: 'VIP Bonus',
+      headermyearningsvipbvipbonus: 'VIP BONUS',
       HPshopnow: 'SHOP NOW',
       calFriendShipBonus: 'FRIENDSHIP BONUS TIER(%)',
       headermyearningsviptlcreward: 'TLC REWARD',
@@ -101,8 +102,6 @@ export default {
       copyabovefriendshipbonusfriendshipbonus5: 'You qualify for 5% Friendship Bonus',
       headermyearningsoffernumber: 'Offer #',
       menuHPshopcategories: 'SHOP CATEGORIES',
-      plus: 'plus',
-      expire: 'Expire',
       boxrf$5:
         'You will receive $5 and 10 TLC for helping your fr…his Referral Bonus, keep spreading the good word.',
       menuHPcapsrefer: 'REFER A FRIEND',
@@ -115,7 +114,7 @@ export default {
       boxhcshop: 'Shop',
       search: ' Search',
       headermyearningsvipmerchant: 'MERCHANT',
-      HPtravel: 'TRAVEL',
+      HPtravel: 'Travel',
       copyrfshareonsocialmedia: 'Share on Social Media',
       HPelectronics: 'Electronics',
       copyabovefriendshipbonusfriendshipbonuspaid: 'Total Friendship Bonus Paid',
@@ -179,7 +178,7 @@ export default {
         'You are a VIP Member and qualify to receive 5% VIP…receive bonuses of your Cash Back and TLC Reward.',
       copyabovefriendshipbonusfriendshipbonus10:
         'Help ten friends to become VIP Members and you qualify for 10% Friendship Bonus.',
-      bannerrf: 'Help Your Friends Save And You Get A $5 Referral Bonus',
+      bannerrf: 'Help Your Friends Save And You Get A Referral Bonus',
       HPnews: 'NEWS',
       headermyearningsvip: 'DATE',
       HPsubscribe: 'SUBSCRIBE NOW',
@@ -200,7 +199,7 @@ export default {
       headermyearningscashback: 'CASH BACK',
       headermyearningsvipb: 'Friends',
       sortmenuSC: 'Coupons',
-      HPhealth: 'HEALTH & BEAUTY',
+      HPhealth: 'Health & Beauty',
       boxrfbonus: 'EARN REFERRAL BONUS',
       formcuemail: 'EMAIL',
       copylpstayloggedin: 'Stay Logged In',
@@ -217,7 +216,6 @@ export default {
       headerhcearnextra: 'EARN EXTRA REWARDS',
       headermyearningsrfcashbackpaid: 'Cash Back Paid',
       fieldsusocialmedia: 'Social Media',
-      rewards: 'Rewards',
       copyrfrefreal:
         'To receive your Referral Bonus, the person you have referred must earn $25 payable cash back or more',
       copyabovefriendshipbonusfriendshipbonus: 'Do you want to qualify for 10% Friendship Bonus?',
@@ -271,7 +269,7 @@ export default {
       calTotalFriendShip: 'Total Friendship Team',
       electronic: 'ELECTRONIC',
       cashbacktext:
-        'When you shop at thousands of the worlds most popular brands through 6degree.CASH we simply give you back a percentage of your spend once purchase is confirmed',
+        '6Degrees promotes global and local brands that you know and trust. When you buy your favourite products though your 6Degrees account, you save money in Cash Back. On average an active shopper may save hundreds of dollars a year.To start saving Join FREE today!',
       dummytext: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
       step1: 'Step 1',
       step2: 'Step 2',
@@ -342,12 +340,28 @@ export default {
       alreadyExist: 'Username already exist',
       Logout: 'Logout',
       NEWS: 'NEWS',
-      emailexist: 'Email already exist',
+      savemoney:
+        'Before you shop, you will be able to see how much savings and how many TLC Rewards you could earn.  Cash Back is offered as either a fixed percentage or a flat rate. Every time you shop through your 6Degrees account your Cash Back and TLC Rewards will show as pending and after the payment period has elapsed you may withdraw your Cash Back savings in Bitcoins and you may use your TLC Rewards for TLC Deals.',
+      savemoneyTitle: 'SAVE MONEY WITH CASH BACK',
+      getWelcomeGift: 'GET A WELCOME GIFT',
+      welcomegiftText:
+        'We want to welcome you to the 6Degrees Friends Shopping Network with a Welcome Gift.  Once you register as a 6Degrees FREE Member you qualify to receive $5 and 5 TLC.  Once you have saved $25 in paid Cash Back you receive your Welcome Gift.',
+      receivereferral: 'RECEIVE REFERRAL BONUSES',
+      receivetext:
+        'We are confident that once you start saving with 6Degrees, you will share this with your friends to help them save too.  To thank you for spreading the good news about 6Degrees, we offer a Referral Bonus for every friend. As soon as your friend saves $25 in paid Cash Back you will receive $5 and 5 TLC in Referral Bonus.  There is no limit to the amount of Referral Bonuses you can earn.',
     },
   },
   'zh-CN': {
     data: {
-      emailexist: '电子邮件已存在',
+      receivetext:
+        '我们相信，一旦您开始使用6Degrees保存，您将与您的朋友分享这一点，以帮助他们保存。为了感谢您传播有关6Degrees的好消息，我们为每位朋友提供推荐奖金。一旦您的朋友在支付的现金返还中节省了25美元，您将在推荐奖金中获得5美元和5美元的TLC。您可以获得的推荐奖金数量没有限制。',
+      receivereferral: '收到转介奖金',
+      welcomegiftText:
+        '我们希望欢迎您来到6Degrees Friends购物网络，欢迎礼物。一旦您注册成为6Degrees免费会员，您就有资格获得5美元和5美元的TLC。一旦您节省了25美元的付款现金返还，您将收到您的欢迎礼物。',
+      getWelcomeGift: '获得欢迎礼物',
+      savemoneyTitle: '用钱回来节省金钱',
+      savemoney:
+        '在您购物之前，您将能够看到您可以节省多少积蓄和多少TLC奖励。现金返还以固定百分比或统一费率提供。每次您通过6Degrees帐户购物时，您的现金返还和TLC奖励将显示为待定，并且在付款期限过后，您可以撤回您在比特币中的现金返还储蓄，并且您可以使用您的TLC奖励进行TLC交易。',
       alreadyExist: '用户名已存在',
       incorrectusernamepass: '用户名和密码不正确',
       usernotexists: '用户名不存在',
@@ -379,11 +393,9 @@ export default {
       footerMARKETPLACE: '市场',
       login: '登录',
       topLanguage: '语言',
-      expire: '到期',
       calfriendsRefered: '朋友推荐',
       to: '至',
-      rewards: '奖励',
-      plus: '加',
+      getpaid: '获得付款购物！',
       headermyearningsexchange: '当前的汇率',
       menuHPcashbackworks: '返现如何使用',
       HPcategories: '类别',
@@ -643,8 +655,8 @@ export default {
       fashion: '时尚',
       electronic: '电子',
       cashbacktext:
-        '当您通过6degree.CASH购买数千个世界上最受欢迎的品牌时，我们就是这么简单确认购买后，您可以支付一定比例的支出',
-      dummytext: '只是印刷和排版行业的虚拟文本',
+        '6Degrees推广您知道并信任的全球和本地品牌。当您通过6Degrees帐户购买自己喜欢的产品时，可以节省现金返还的费用。平均而言，活跃的购物者每年可以节省数百美元。今天开始保存免费加入',
+      dummytext: 'Lorem Ipsum只是印刷和排版行业的虚拟文本',
       step1: '步 1',
       step2: '步 2',
       step3: '步 3',

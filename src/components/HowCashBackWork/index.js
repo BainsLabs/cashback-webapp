@@ -1,7 +1,7 @@
 import React from 'react';
 import Banner from 'components/common/Banner';
 import { Container } from 'react-bootstrap';
-import CashBackBanner from 'static/icons-images/hcwbanner.jpg';
+import CashBackBanner from 'static/images/cashback/banner.jpg';
 import WhatIsCashback from 'components/HowCashBackWork/WhatIsCashback';
 import EarnExtraReward from 'components/HowCashBackWork/ExtraRewards';
 import HowAffiliateWorks from 'components/HowCashBackWork/HowAffiliateWorks';
@@ -13,7 +13,7 @@ const HowCashbackWorks = () => (
       <Container>
         <div className="cashback__banner">
           <h3>
-            <FormattedMessage id="data.menuHPcashbackworks" />
+            <FormattedMessage id="data.getpaid" />
           </h3>
         </div>
       </Container>
