@@ -14,12 +14,10 @@ export const contentGetApi = params => axios.post(
   params,
 );
 
-export const verifyUsername = params => axios.post('https://3ihrhx1pyd.execute-api.us-east-1.amazonaws.com/dev/users/verify-username', {
-  data: JSON.stringify(params),
-  method: 'post',
-  timeout: 40000,
-  headers: '',
-});
+export const verifyUsername = params => axios.post(
+  'https://3ihrhx1pyd.execute-api.us-east-1.amazonaws.com/dev/users/verify-username',
+  params,
+);
 export const verifyEmailAPI = params => axios.post(
   'https://3ihrhx1pyd.execute-api.us-east-1.amazonaws.com/dev/users/verify-email',
   params,

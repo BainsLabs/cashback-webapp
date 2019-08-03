@@ -3,12 +3,19 @@ import { Container, Col, Row } from 'react-bootstrap';
 import Banner from 'components/common/Banner';
 import vipImage from 'static/images/vip-banefits/vip.jpg';
 import VipBanner from 'static/images/vip-banefits/banner.jpg';
+import friendshipbonus2 from 'static/images/vip-banefits/friendshipbonus.jpg';
+import friendshipbonus from 'static/images/vip-banefits/friendshipbonus.png';
+import chifriendshipbonus from 'static/images/vip-banefits/chinesefriendshipbonus.png';
+import VipBonus from 'static/images/vip-banefits/vipbonus.png';
+import Vipcashback from 'static/images/vip-banefits/vipcashback.png';
+import chinesevipcashback from 'static/images/vip-banefits/chinesevipcashback.png';
 import BenefitsCard from 'components/common/benefitscard';
 import { FormattedMessage } from 'react-intl';
 // import CalculatorModal from 'components/MyEarnings/calculator/calculatorModal';
 import CalculatorForm from 'components/MyEarnings/calculator/CalculatorForm';
 
 const VipPage = () => {
+  const language = localStorage.getItem('country');
   return (
     <>
       <Banner imgSrc={VipBanner} className="banner-padding" textPosition="center">
@@ -66,7 +73,52 @@ const VipPage = () => {
             </BenefitsCard>
           </Col>
         </Row>
-        <Row className="calculator__form">
+        <Row>
+          {console.log(language, 'lan')}
+          <Col md={6}>
+            <img
+              src={language === 'en-US' ? Vipcashback : chinesevipcashback}
+              alt="vip casback"
+              className="cashback__img"
+            />
+          </Col>
+          <Col md={6}>
+            <p className="cashtext">
+              <FormattedMessage id="data.vipcashbackText" />
+            </p>
+          </Col>
+        </Row>
+        <Row>
+          <Col md={6}>
+            <p className="cashtext">
+              <FormattedMessage id="data.vipbonustext" />
+            </p>
+          </Col>
+          <Col md={6}>
+            <img src={VipBonus} alt="vip casback" className="cashback__img" />
+          </Col>
+        </Row>
+        <Row>
+          <Col md={6}>
+            <Col>
+              <img
+                src={language === 'en-US' ? friendshipbonus : chifriendshipbonus}
+                alt="vip casback"
+                className="cashback__img"
+              />
+            </Col>
+            <Col>
+              <img src={friendshipbonus2} alt="vip casback" className="cashback__img" />
+            </Col>
+          </Col>
+          <Col md={6}>
+            <p className="cashtext">
+              <FormattedMessage id="data.friendshipbonus1" />
+              <FormattedMessage id="data.friendshipbonus2" />
+            </p>
+          </Col>
+        </Row>
+        <Row className="calculator__form text-center">
           <Col>
             <CalculatorForm />
           </Col>

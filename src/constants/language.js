@@ -41,6 +41,8 @@ export default {
       HPfooterpopularlinks: 'POPULAR LINKS',
       headermyearningsvipbvipbonus: 'VIP BONUS',
       HPshopnow: 'SHOP NOW',
+      vipcashbackText:
+        'Earn from 5% to 20% bonus of your Cash Back and TLC Rewards. By upgrading your Membership to VIP you automatically qualify for 5% VIP Cash Back. When 10 of your directly referred friends upgrade to VIP you will qualify for 10% VIP Cash Back. When 20 of your directly referred friends upgrade to VIP you will qualify for 20% VIP Cash Back.',
       calFriendShipBonus: 'FRIENDSHIP BONUS TIER(%)',
       headermyearningsviptlcreward: 'TLC REWARD',
       buttonlplogin: 'LOGIN',
@@ -349,10 +351,24 @@ export default {
       receivereferral: 'RECEIVE REFERRAL BONUSES',
       receivetext:
         'We are confident that once you start saving with 6Degrees, you will share this with your friends to help them save too.  To thank you for spreading the good news about 6Degrees, we offer a Referral Bonus for every friend. As soon as your friend saves $25 in paid Cash Back you will receive $5 and 5 TLC in Referral Bonus.  There is no limit to the amount of Referral Bonuses you can earn.',
+      vipbonustext:
+        'Get $5 and 5 TLC as your VIP Bonus when your friend upgrades to VIP Membership. There is no limit to the amount of VIP Bonuses you can earn.',
+      friendshipbonus1:
+        'Earn from 5% to 20% bonus of your friends’ Cash Back. By upgrading your Membership to VIP you automatically qualify for 5% Friendship Bonus. When 10 of your directly referred friends upgrade to VIP you will qualify for 10% Friendship Bonus. When 20 of your directly referred friends upgrade to VIP you will qualify for 20% Friendship Bonus.',
+      friendshipbonus2:
+        'Friendship Bonus is paid for up to 6 Degrees. 6 Degrees refers to “a friend of a friend” social connections. Theoretically you are connected with every other person on this planet by way 6 Degrees of separation.',
     },
   },
   'zh-CN': {
     data: {
+      friendshipbonus1:
+        '赢取朋友现金返还的5％到20％奖金。通过将您的会员资格升级为VIP，您将自动获得5％的友谊奖励。当您的10位直接推荐的朋友升级为VIP时，您将有资格获得10％的友谊奖励。当您的20位直接推荐的朋友升级为VIP时，您将有资格获得20％的友谊奖励。',
+      friendshipbonus2:
+        '友谊奖金最高可达6度。 6度是指“朋友的朋友”社交关系。从理论上讲，你通过6度的分离与这个星球上的每一个人联系在一起',
+      vipbonustext:
+        '当您的朋友升级为VIP会员时，获得$ 5和5 TLC作为您的VIP奖励。您可以获得的VIP奖金数量没有限制。',
+      vipcashbackText:
+        '您的现金返还和TLC奖励可获得5％至20％的奖励。通过将您的会员资格升级为VIP，您将自动获得5％VIP现金返还资格。当您的10位直接推荐的朋友升级为VIP时，您将有资格获得10％的VIP现金返还。当您的20位直接推荐的朋友升级为VIP时，您将有资格获得20％的VIP现金返还',
       receivetext:
         '我们相信，一旦您开始使用6Degrees保存，您将与您的朋友分享这一点，以帮助他们保存。为了感谢您传播有关6Degrees的好消息，我们为每位朋友提供推荐奖金。一旦您的朋友在支付的现金返还中节省了25美元，您将在推荐奖金中获得5美元和5美元的TLC。您可以获得的推荐奖金数量没有限制。',
       receivereferral: '收到转介奖金',

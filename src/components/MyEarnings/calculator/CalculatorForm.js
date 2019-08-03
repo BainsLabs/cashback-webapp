@@ -28,7 +28,6 @@ class CalculatorForm extends Component {
       monthlyspend, avgcashback, friendshibonus, totalteam, friendsreferred,
     } = this.state;
     const DegreeTeams = await teamByDegree(friendsreferred);
-    console.log(DegreeTeams, 'degreeess');
     if (monthlyspend && avgcashback && friendshibonus !== '') {
       const avgCash = avgcashback / 100;
       const bonus = friendshibonus / 100;
@@ -68,13 +67,12 @@ class CalculatorForm extends Component {
       friendshibonus,
       monthlyfriendshipbonus,
       totalteam,
-      degreeTeam,
     } = this.state;
     const { intl } = this.props;
     return (
       <Container>
         <Row>
-          <Col md={6} className="calculator__container">
+          <Col className="calculator__container">
             <Row>
               <Col>
                 <h2 className="text-center calculator-heading">
@@ -167,9 +165,9 @@ class CalculatorForm extends Component {
               </Col>
             </Row>
           </Col>
-          <Col md={6}>
+          {/* <Col md={6}>
             <FriendShipTable className="calculator__table" degreeTeam={degreeTeam} />
-          </Col>
+          </Col> */}
         </Row>
       </Container>
     );
