@@ -9,6 +9,8 @@ import BlackLine from 'static/icons-images/black-line.png';
 import JoinFree from 'static/images/home-page/joinfree-bg.jpg';
 import ReferAFriendBG from 'static/images/home-page/referAfriend-bg.png';
 import joinNow from 'static/icons-images/join-now.png';
+import {withRouter} from 'react-router-dom'
+import { modalState } from 'redux/actions/modalActions';
 import AddSection from 'components/LandingPage/AddSection';
 import DealsNews from 'components/LandingPage/DealsNews';
 import { merchants } from 'constants/merchants';
@@ -62,7 +64,7 @@ const LandingPage = props => {
                 </Row>
               </Col>
               <Col lg={4}>
-                <button className="banner-btn banner-btn-mobile" type="button">
+                <button onClick={() => props.modalState('signup')} className="banner-btn banner-btn-mobile" type="button">
                   <FormattedMessage id="data.referJoinNow" />
                 </button>
               </Col>
@@ -121,7 +123,7 @@ const LandingPage = props => {
                 </p>
               </Col>
               <Col lg={4}>
-                <button className="banner-btn" type="button">
+                <button onClick={() => props.history.push('/refer-friend')} className="banner-btn" type="button">
                   <FormattedMessage id="data.menuHPcapsrefer" />
                 </button>
               </Col>
@@ -138,4 +140,8 @@ const mapStateToProps = state => ({
   contents: state.Content.contentList || [],
 });
 
-export default connect(mapStateToProps)(LandingPage);
+const mapDispatchToProps = {
+  modalState,
+}
+
+export default withRouter(connect(mapStateToProps,mapDispatchToProps)(LandingPage));

@@ -18,8 +18,8 @@ const HowCashbackWorks = () => (
         </div>
       </Container>
     </Banner>
-    <WhatIsCashback />
-    <EarnExtraReward />
+    {/* <WhatIsCashback />
+    <EarnExtraReward /> */}
     <HowAffiliateWorks />
   </>
 );

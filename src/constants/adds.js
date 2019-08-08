@@ -20,45 +20,51 @@ import { FormattedMessage } from 'react-intl';
 export const adds = [
   {
     cahsback: '2.4%',
-    tlc: '1.23 TLC',
+    tlc: '1.23',
     bgImg: Alibaba,
     icon: AlibabaLOGO,
     offerType: <FormattedMessage id="data.headermyearningsvipcashback" />,
+    tlcText: 'TLC',
   },
   {
     cahsback: '0.4%',
-    tlc: '2 TLC',
+    tlc: '2 ',
     bgImg: emirates,
     icon: emiratesLogo,
     offerType: <FormattedMessage id="data.headermyearningsvipcashback" />,
+    tlcText: 'TLC',
   },
   {
     cahsback: '4%',
-    tlc: '2 TLC',
+    tlc: '2 ',
     bgImg: expedia,
     icon: expediaLogo,
     offerType: <FormattedMessage id="data.headermyearningsvipcashback" />,
+    tlcText: 'TLC',
   },
   {
     cahsback: '1.4%',
-    tlc: '0.7 TLC',
+    tlc: '0.7 ',
     bgImg: Goto,
     icon: GotoLogo,
     offerType: <FormattedMessage id="data.headermyearningsvipcashback" />,
+    tlcText: 'TLC',
   },
   {
     cahsback: '2.4%',
-    tlc: '1.2 TLC',
+    tlc: '1.2 ',
     bgImg: hotel,
     icon: hotelLogo,
     offerType: <FormattedMessage id="data.headermyearningsvipcashback" />,
+    tlcText: 'TLC',
   },
   {
     cahsback: '2.4%',
-    tlc: '1.2 TLC',
+    tlc: '1.2 ',
     bgImg: Parkpalaza,
     icon: ParkpalazaLogo,
     offerType: <FormattedMessage id="data.headermyearningsvipcashback" />,
+    tlcText: 'TLC',
   },
 ];
 
@@ -156,10 +162,12 @@ export const members = [
     image: Refer,
     btnText: <FormattedMessage id="data.HPreferafriend" />,
     class: 'big-img',
+    url: '/refer-friend'
   },
   {
     image: VIP,
     btnText: <FormattedMessage id="data.HPbecomevip" />,
     class: 'small-img',
+    url: '/vip-benefits'
   },
 ];

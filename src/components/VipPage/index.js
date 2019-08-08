@@ -84,6 +84,7 @@ const VipPage = () => {
           </Col>
           <Col md={6}>
             <p className="cashtext">
+              <h3>1. VIP Cash Back</h3>
               <FormattedMessage id="data.vipcashbackText" />
             </p>
           </Col>
@@ -91,6 +92,7 @@ const VipPage = () => {
         <Row>
           <Col md={6}>
             <p className="cashtext">
+              <h3>2. VIP Bonus</h3>
               <FormattedMessage id="data.vipbonustext" />
             </p>
           </Col>
@@ -104,15 +106,16 @@ const VipPage = () => {
               <img
                 src={language === 'en-US' ? friendshipbonus : chifriendshipbonus}
                 alt="vip casback"
-                className="cashback__img"
+                className="vipcashback__img"
               />
             </Col>
             <Col>
-              <img src={friendshipbonus2} alt="vip casback" className="cashback__img" />
+              <img src={friendshipbonus2} alt="vip casback" className="vipcashback__img" />
             </Col>
           </Col>
           <Col md={6}>
             <p className="cashtext">
+              <h3>3. Friendship Bonus</h3>
               <FormattedMessage id="data.friendshipbonus1" />
               <FormattedMessage id="data.friendshipbonus2" />
             </p>

@@ -7,7 +7,7 @@ import { FormattedMessage } from 'react-intl';
 
 export default () => (
   <Row className="deals-news">
-    <Col className="deals__section no-padding" lg={9}>
+    <Col className="deals__section no-padding" lg={12}>
       <span className="deals__section-heading">
         <FormattedMessage id="data.HPhotdeals" />
       </span>
@@ -41,7 +41,7 @@ export default () => (
         </Col>
       </Row>
     </Col>
-    <Col lg={3}>
+    {/* <Col lg={3}>
       <div className="news__section no-padding">
         <span className="news__section-heading">
           <FormattedMessage id="data.NEWS" />
@@ -98,6 +98,6 @@ export default () => (
           </Col>
         </Row>
       </div>
-    </Col>
+    </Col> */}
   </Row>
 );

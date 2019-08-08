@@ -5,8 +5,9 @@ import { adds, members } from 'constants/adds';
 import { Row, Col, Container } from 'react-bootstrap';
 import { FormattedMessage } from 'react-intl';
 import uuidv1 from 'uuid';
+import { withRouter } from 'react-router-dom';
 
-export default () => (
+export default withRouter(props => (
   <div className="add-section">
     <Container>
       <Row>
@@ -16,15 +17,15 @@ export default () => (
           </h2>
           <ul>
             <li>
-              <FormattedMessage id="data.mostused" />
+              Rev Share Deals
+              {/* <FormattedMessage id="data.mostused" /> */}
             </li>
             <li>
-              <FormattedMessage id="data.recharge" />
+              Flat Rate Deals
+              {/* <FormattedMessage id="data.recharge" /> */}
             </li>
-            <li>
-              <FormattedMessage id="data.food" />
-            </li>
-            <li>
+            <li>TLC Deals</li>
+            {/* <li>
               <FormattedMessage id="data.travel" />
             </li>
             <li>
@@ -32,7 +33,7 @@ export default () => (
             </li>
             <li>
               <FormattedMessage id="data.electronic" />
-            </li>
+            </li> */}
           </ul>
           <Row>
             {adds.map(item => (
@@ -63,7 +64,9 @@ export default () => (
                   <div className="card__add-section">
                     <img src={item.image} alt="brand" className={item.class} />
                     <br />
-                    <button type="button">{item.btnText}</button>
+                    <button onClick={() => props.history.push(item.url)} type="button">
+                      {item.btnText}
+                    </button>
                   </div>
                 </Card>
               </Col>
@@ -73,4 +76,4 @@ export default () => (
       </Row>
     </Container>
   </div>
-);
+));

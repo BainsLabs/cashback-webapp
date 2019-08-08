@@ -3,13 +3,20 @@ import {
   Row, Col, InputGroup, FormControl, Button,
 } from 'react-bootstrap';
 import { FormattedMessage, injectIntl, intlShape } from 'react-intl';
+import JoinFree from 'static/images/home-page/joinfree-bg.jpg';
+import Banner from 'components/common/Banner';
+import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
+import { modalState } from 'redux/actions/modalActions';
+
+import joinNow from 'static/icons-images/join-now.png';
 
 const Subscribe = (props) => {
   const { intl } = props;
   // const enterYourEmail =
   return (
-    <section className="container subscribe">
-      <Row>
+    <div className="container subscribe">
+      {/* <Row>
         <Col>
           <p>
             <FormattedMessage id="data.HPdealscashback" />
@@ -32,8 +39,33 @@ const Subscribe = (props) => {
             </InputGroup.Append>
           </InputGroup>
         </Col>
-      </Row>
-    </section>
+      </Row> */}
+      {/* <Banner imgSrc={JoinFree} textPosition="center"> */}
+      <div className="join-now">
+        <Row>
+          <Col lg={8}>
+            <Row>
+              <Col lg={4} className="join-now__logo">
+                <img src={joinNow} alt="joinNowLogo" />
+              </Col>
+              <Col lg={8} className="join-now__text">
+                <FormattedMessage id="data.HPBanner" />
+              </Col>
+            </Row>
+          </Col>
+          <Col lg={4}>
+            <button
+              onClick={() => props.modalState('signup')}
+              className="banner-btn banner-btn-mobile"
+              type="button"
+            >
+              <FormattedMessage id="data.referJoinNow" />
+            </button>
+          </Col>
+        </Row>
+      </div>
+      {/* </Banner> */}
+    </div>
   );
 };
 
@@ -41,4 +73,13 @@ Subscribe.propTypes = {
   intl: intlShape.isRequired,
 };
 
-export default injectIntl(Subscribe);
+const mapDispatchToProps = {
+  modalState,
+};
+
+export default withRouter(
+  connect(
+    null,
+    mapDispatchToProps,
+  )(injectIntl(Subscribe)),
+);

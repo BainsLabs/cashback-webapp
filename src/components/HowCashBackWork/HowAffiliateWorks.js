@@ -10,6 +10,7 @@ import welcomegift from 'static/images/cashback/welcomegift.png';
 import welcomegiftchi from 'static/images/cashback/chinesewelcomegift.png';
 import referal from 'static/images/cashback/referal-bonus.png';
 import referalchi from 'static/images/cashback/chinesereferbonus.png';
+
 const HowAffiliateWorks = () => {
   const language = localStorage.getItem('country');
   return (
@@ -24,14 +25,14 @@ const HowAffiliateWorks = () => {
             </Col>
           </Row>
           <Row>
-            <Col md={6}>
+            <Col md={7}>
               <img
                 src={language === 'en-US' ? howcashback : howcashbackchin}
                 alt="refer bonus"
                 className="howcashback__img"
               />
             </Col>
-            <Col md={6} className="howcashback__text">
+            <Col md={5} className="howcashback__text">
               <FormattedMessage id="data.cashbacktext" />
             </Col>
           </Row>
@@ -43,10 +44,10 @@ const HowAffiliateWorks = () => {
             </Col>
           </Row>
           <Row>
-            <Col md={6} className="howcashback__text">
+            <Col md={5} className="howcashback__text">
               <FormattedMessage id="data.savemoney" />
             </Col>
-            <Col md={6}>
+            <Col md={7}>
               <img
                 src={language === 'en-US' ? savemoney : savemoneychi}
                 alt="refer bonus"
@@ -62,14 +63,14 @@ const HowAffiliateWorks = () => {
             </Col>
           </Row>
           <Row>
-            <Col md={6}>
+            <Col md={8}>
               <img
                 src={language === 'en-US' ? welcomegift : welcomegiftchi}
                 alt="refer bonus"
                 className="howcashback__img"
               />
             </Col>
-            <Col md={6} className="howcashback__text">
+            <Col md={4} className="howcashback__text">
               <FormattedMessage id="data.welcomegiftText" />
             </Col>
           </Row>
@@ -81,10 +82,10 @@ const HowAffiliateWorks = () => {
             </Col>
           </Row>
           <Row>
-            <Col md={6} className="howcashback__text">
+            <Col md={4} className="howcashback__text">
               <FormattedMessage id="data.receivetext" />
             </Col>
-            <Col md={6}>
+            <Col md={8}>
               <img
                 src={language === 'en-US' ? referal : referalchi}
                 alt="refer bonus"

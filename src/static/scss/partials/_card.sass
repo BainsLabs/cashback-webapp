@@ -72,7 +72,6 @@
       font-family: 'Avenir LT Std 95 Black'
 
       +padding('', 0.2rem)
-      
 
       letter-spacing: 0.1rem
 
@@ -108,15 +107,16 @@
   border: 1px solid map-get($fontColor, 'yellow')
   border-radius: 0px
 
-
 .cashback-percentage
   font-size: 22px
   font-family: 'Avenir LT Std 95 Black'
+  text-align: center
+  margin-right: 0.8rem
 
-.cashback-hover-text-border  
+.cashback-hover-text-border
   font-size: 22px
   font-family: 'Avenir LT Std 95 Black'
-  border-bottom: 1px solid  map-get($fontColor, 'white')
+  border-bottom: 1px solid map-get($fontColor, 'white')
   margin: 15px 0
   padding: 9px 0
   text-transform: uppercase
@@ -124,27 +124,41 @@
 .cashback-offer
   text-transform: uppercase
   font-size: 14px
+  text-align: center
   font-family: 'Avenir LT Std 95 Black'
+  margin-right: 0.7rem
 
 .cashback-TLC
+  font-size: 18px !important
   font-family: 'Avenir LT Std 95 Black'
 
 .hover-content
   display: none
 
-
 .card__content-hover
   &:hover
     background: transparentize(map-get($fontColor, 'blue'), 0.1)
+
     .hidden-content
       display: none
+
     .hover-content
+      // font-size: .9rem
       display: block
-      display: block;
+      display: block
       text-align: center
-      width: 100%;
-      height: 100%;
-      padding: 1.5rem;
+      width: 100%
+      height: 100%
+      padding: 1.5rem
+
       img
         max-width: 70px
         width: 100%
+
+.hover-offerType
+  font-size: 1rem
+
+.card__content-image-hover
+  // @extend .card__content-image
+
+  max-width: 100px !important

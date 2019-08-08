@@ -137,6 +137,15 @@ export default () => (
                     <li>
                       <FormattedMessage id="data.ELECTRONICS" />
                     </li>
+                    <li>
+                      <FormattedMessage id="data.ELECTRONICS" />
+                    </li>
+                    <li>
+                      <FormattedMessage id="data.ELECTRONICS" />
+                    </li>
+                    <li>
+                      <FormattedMessage id="data.ELECTRONICS" />
+                    </li>
                   </ul>
                 </Col>
               </Row>

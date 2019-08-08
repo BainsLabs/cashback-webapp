@@ -12,23 +12,29 @@ export default (props) => {
             <p className="cashback-offer">{data.offerType}</p>
           </Col>
           <Col lg={3} className="no-padding">
-            <p className="cashback-TLC">{data.tlc}</p>
+            <p className="cashback-percentage">{data.tlc}</p>
+            <p className="cashback-offer">{data.tlcText}</p>
           </Col>
           <Col lg={4} className="no-padding">
             <img src={brandLogo} alt="KFC-LOGO" className="card__content-image" />
           </Col>
         </Row>
         <Row className="hover-content">
-        <Col lg={12}>
-            <img src={brandLogo} alt="KFC-LOGO" className="card__content-image" />
+          <Col lg={12}>
+            <img src={brandLogo} alt="KFC-LOGO" className="card__content-image-hover" />
           </Col>
           <Col lg={12} className="no-padding">
-            <p className="cashback-hover-text-border">{data.cahsback} {data.offerType}</p>
+            <p className="cashback-hover-text-border">
+              <span>{data.cahsback}</span>
+              &nbsp;
+              <span className="hover-offerType">{data.offerType}</span>
+            </p>
           </Col>
           <Col lg={12}>
-            <p className="cashback-TLC">{data.tlc}</p>
+            <span className="cashback-percentage">{data.tlc}</span>
+            {/* &nbsp; */}
+            <span>{data.tlcText}</span>
           </Col>
-         
         </Row>
       </div>
     </>

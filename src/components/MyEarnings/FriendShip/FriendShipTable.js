@@ -14,8 +14,7 @@ const FriendShipTable = (props) => {
               <th>
                 <FormattedMessage id="data.degree" />
               </th>
-
-              <th>
+             <th>
                 <FormattedMessage id="data.fbpaid" />
               </th>
             </tr>

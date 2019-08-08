@@ -20,12 +20,12 @@ export const links = [
       },
       {
         linkLabel: <FormattedMessage id="data.footerVIPBENEFITS" />,
-        url: '#',
+        url: '/vip-benefits',
       },
-      {
-        linkLabel: <FormattedMessage id="data.menuHPmyaccount" />,
-        url: '#',
-      },
+      // {
+      //   linkLabel: <FormattedMessage id="data.menuHPmyaccount" />,
+      //   url: '#',
+      // },
       {
         linkLabel: <FormattedMessage id="data.headermyearningsterms" />,
         url: '/terms-conditions',
@@ -66,23 +66,23 @@ export const links = [
     link: [
       {
         linkLabel: <FormattedMessage id="data.footerLIFESTYLE" />,
-        url: '#',
+        url: '/categories',
       },
       {
         linkLabel: <FormattedMessage id="data.footerMARKETPLACE" />,
-        url: '#',
+        url: '/categories',
       },
       {
         linkLabel: <FormattedMessage id="data.footerSERVICES" />,
-        url: '#',
+        url: '/categories',
       },
       {
         linkLabel: <FormattedMessage id="data.footerTLC" />,
-        url: '#',
+        url: '/categories',
       },
       {
         linkLabel: <FormattedMessage id="data.footerOther" />,
-        url: '#',
+        url: '/categories',
       },
     ],
   },

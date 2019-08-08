@@ -27,4 +27,20 @@ export const categories = [
     icon: fashion,
     label: <FormattedMessage id="data.HPfashion" />,
   },
+  {
+    icon: fashion,
+    label: <FormattedMessage id="data.footerLIFESTYLE" />,
+  },
+  {
+    icon: fashion,
+    label: <FormattedMessage id="data.footerMARKETPLACE" />,
+  },
+  {
+    icon: fashion,
+    label: <FormattedMessage id="data.footerSERVICES" />,
+  },
+  {
+    icon: fashion,
+    label: <FormattedMessage id="data.footerTLC" />,
+  },
 ];
