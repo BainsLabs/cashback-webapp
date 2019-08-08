@@ -148,11 +148,14 @@ export const addsDemo = [
     offerType: <FormattedMessage id="data.headermyearningsvipcashback" />,
   },
   {
-    cahsback: '2.4%',
-    tlc: '1.2 TLC',
+    cashbackText:'Up to',
+    tlcText2:'Up to',
+    cahsback: '$7',
+    tlc: '7',
     bgImg: Parkpalaza,
     icon: ParkpalazaLogo,
     offerType: <FormattedMessage id="data.headermyearningsvipcashback" />,
+    tlcText:'TLC'
   },
 
 ];

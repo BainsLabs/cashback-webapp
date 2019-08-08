@@ -8,7 +8,10 @@ export default (props) => {
       <div className="card__container pb-2">
         <Row className="hidden-content">
           <Col lg={5} className="no-padding">
-            <p className="cashback-percentage">{data.cahsback}</p>
+            <p className="cashback-percentage">
+              <span className="cashback-offer">{data.cashbackText}</span>
+              <span>{data.cahsback}</span>
+            </p>
             <p className="cashback-offer">{data.offerType}</p>
           </Col>
           <Col lg={3} className="no-padding">

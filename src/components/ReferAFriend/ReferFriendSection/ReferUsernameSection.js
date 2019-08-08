@@ -3,7 +3,7 @@ import { Row, Col } from 'react-bootstrap';
 import Input from 'components/common/inputField';
 import { FormattedMessage } from 'react-intl';
 
-export default () => (
+export default props => (
   <div className="refer__username">
     <Row>
       <Col className="text-center">
@@ -19,7 +19,7 @@ export default () => (
     </Row>
     <Row>
       <Col className="text-center">
-        <Input value="xyz.123.cash" className="refer__field" readonly />
+        <Input value={props.username} className="refer__field" readonly />
       </Col>
     </Row>
   </div>

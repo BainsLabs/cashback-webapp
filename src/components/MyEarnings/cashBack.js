@@ -49,25 +49,39 @@ export default () => (
         </thead>
         <tbody>
           <tr>
-            <td>1</td>
-            <td>04 july 2019</td>
-            <td>$100</td>
-            <td>$15</td>
-            <td>4</td>
+            <td>-</td>
+            <td>-</td>
+            <td>$</td>
+            <td>$</td>
+            <td>-</td>
           </tr>
           <tr>
-            <td>1</td>
-            <td>04 july 2019</td>
-            <td>$100</td>
-            <td>$15</td>
-            <td>4</td>
+            <td>-</td>
+            <td>-</td>
+            <td>$</td>
+            <td>$</td>
+            <td>-</td>
           </tr>
           <tr>
-            <td>1</td>
-            <td>04 july 2019</td>
-            <td>$100</td>
-            <td>$15</td>
-            <td>4</td>
+            <td>-</td>
+            <td>-</td>
+            <td>$</td>
+            <td>$</td>
+            <td>-</td>
+          </tr>
+          <tr>
+            <td>-</td>
+            <td>-</td>
+            <td>$</td>
+            <td>$</td>
+            <td>-</td>
+          </tr>
+          <tr>
+            <td>-</td>
+            <td>-</td>
+            <td>$</td>
+            <td>$</td>
+            <td>-</td>
           </tr>
         </tbody>
       </Table>

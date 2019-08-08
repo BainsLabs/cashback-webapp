@@ -45,7 +45,7 @@ const HowAffiliateWorks = () => {
           </Row>
           <Row>
             <Col md={5} className="howcashback__text">
-              <FormattedMessage id="data.savemoney" />
+              <p><FormattedMessage id="data.savemoney" /></p>
             </Col>
             <Col md={7}>
               <img

@@ -9,13 +9,13 @@ const welcomeGift = () => (
     </h6>
     <Row>
       <Col md={6} className="gift__section">
-        <p>$5</p>
+        <p>$</p>
         <p>
           <FormattedMessage id="data.headermyearningspending" />
         </p>
       </Col>
       <Col md={6} className="gift__section__left">
-        <p>5 TLC</p>
+        <p>-</p>
         <p>
           <FormattedMessage id="data.headermyearningspending" />
         </p>
@@ -28,7 +28,7 @@ const welcomeGift = () => (
           &nbsp;
           <FormattedMessage id="data.sortmenuSCCashBack" />
         </p>
-        <p>$35</p>
+        <p>$</p>
       </Col>
       <Col md={3} className="gift__section__three">
         <p>
@@ -36,7 +36,7 @@ const welcomeGift = () => (
           &nbsp;
           <FormattedMessage id="data.sortmenuSCCashBack" />
         </p>
-        <p>$25</p>
+        <p>$</p>
       </Col>
       <Col md={3} className="gift__section__three">
         <p>
@@ -44,7 +44,7 @@ const welcomeGift = () => (
           &nbsp;
           <FormattedMessage id="data.sortmenuSCCashBack" />
         </p>
-        <p>$55</p>
+        <p>$</p>
       </Col>
       <Col md={3} className="gift__section__three">
         <i className="fas fa-info icon_color" />

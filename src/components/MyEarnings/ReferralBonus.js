@@ -31,9 +31,9 @@ const ReferBonus = () => (
             </thead>
             <tbody>
               <tr>
-                <td>25</td>
-                <td>$100</td>
-                <td>$115</td>
+                <td>-</td>
+                <td>$</td>
+                <td>$</td>
               </tr>
             </tbody>
           </Table>
@@ -75,13 +75,13 @@ const ReferBonus = () => (
             </thead>
             <tbody>
               <tr>
-                <td>User Name</td>
-                <td>Amrit</td>
-                <td>20 June 2015</td>
-                <td>$10</td>
-                <td>$15</td>
-                <td>$5 Pending</td>
-                <td>5 Pending</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+                <td>$</td>
+                <td>$</td>
+                <td>$</td>
+                <td>-</td>
               </tr>
             </tbody>
           </Table>
