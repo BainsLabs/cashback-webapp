@@ -29,7 +29,7 @@ export const categories = [
   },
   {
     icon: fashion,
-    label: <FormattedMessage id="data.footerLIFESTYLE" />,
+    label: <span className="slider-category"><FormattedMessage id="data.footerLIFESTYLE" /></span>,
   },
   {
     icon: fashion,

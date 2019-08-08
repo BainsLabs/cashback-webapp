@@ -1,20 +1,22 @@
-import React from 'react';
-import Banner from 'components/common/Banner';
-import { connect } from 'react-redux';
-import CategorySection from 'components/LandingPage/CategorySection';
-import { Container, Row, Col } from 'react-bootstrap';
-import bannerImg from 'static/images/home-page/banner-bg.jpg';
-import Card from 'components/common/Card';
-import BlackLine from 'static/icons-images/black-line.png';
-import JoinFree from 'static/images/home-page/joinfree-bg.jpg';
-import ReferAFriendBG from 'static/images/home-page/referAfriend-bg.png';
-import joinNow from 'static/icons-images/join-now.png';
-import {withRouter} from 'react-router-dom'
-import { modalState } from 'redux/actions/modalActions';
-import AddSection from 'components/LandingPage/AddSection';
-import DealsNews from 'components/LandingPage/DealsNews';
-import { merchants } from 'constants/merchants';
-import { FormattedMessage } from 'react-intl';
+import React from "react";
+import Banner from "components/common/Banner";
+import { connect } from "react-redux";
+import CategorySection from "components/LandingPage/CategorySection";
+import { Container, Row, Col } from "react-bootstrap";
+import bannerImg from "static/images/home-page/banner-bg.jpg";
+import Card from "components/common/Card";
+import BlackLine from "static/icons-images/black-line.png";
+import JoinFree from "static/images/home-page/joinfree-bg.jpg";
+import ReferAFriendBG from "static/images/home-page/referAfriend-bg.png";
+import joinNow from "static/icons-images/join-now.png";
+import { withRouter } from "react-router-dom";
+import { modalState } from "redux/actions/modalActions";
+import AddSection from "components/LandingPage/AddSection";
+import DealsNews from "components/LandingPage/DealsNews";
+import { featureAdds } from "constants/adds";
+import { FormattedMessage } from "react-intl";
+import CardContent from 'components/common/CardContent';
+import uuidv1 from 'uuid'
 
 // eslint-disable-next-line arrow-parens
 const LandingPage = props => {
@@ -64,7 +66,11 @@ const LandingPage = props => {
                 </Row>
               </Col>
               <Col lg={4}>
-                <button onClick={() => props.modalState('signup')} className="banner-btn banner-btn-mobile" type="button">
+                <button
+                  onClick={() => props.modalState("signup")}
+                  className="banner-btn banner-btn-mobile"
+                  type="button"
+                >
                   <FormattedMessage id="data.referJoinNow" />
                 </button>
               </Col>
@@ -80,37 +86,49 @@ const LandingPage = props => {
             </Col>
           </Row>
           <Row>
-            {merchants.map(item => (
-              <Col xs={12} md={6} lg={3} className="mb-2 card-padding">
-                <Card classValue="hover-featured">
-                  <>
-                    <img src={item.brandImg} className="mx-auto" alt="amazon" />
-                    <div className="card__content">
-                      <p>{item.offer}</p>
-                      <p>{item.offerType}</p>
-                      <img
-                        src={BlackLine}
-                        alt="line"
-                        className="mx-auto"
-                        height="1rem"
-                        widht="inherit"
-                      />
-                      <p>
-                        <FormattedMessage id="data.plus" />
-                        {item.tlc}
-                        <br />
-                        <FormattedMessage id="data.rewards" />
-                      </p>
-                      <p>
-                        <FormattedMessage id="data.HPcode" />
-                        &nbsp;
-                        <span className="card-code">JULY 2019</span>
-                      </p>
-                      <p><FormattedMessage id="data.expire" /> 7/07/2019</p>
-                    </div>
-                  </>
+            {featureAdds.map(item => (
+              // <Col xs={12} md={6} lg={3} className="mb-2 card-padding">
+              //   <Card classValue="hover-featured">
+              //     <>
+              //       <img src={item.brandImg} className="mx-auto" alt="amazon" />
+              //       <div className="card__content">
+              //         <p>{item.offer}</p>
+              //         <p>{item.offerType}</p>
+              //         <img
+              //           src={BlackLine}
+              //           alt="line"
+              //           className="mx-auto"
+              //           height="1rem"
+              //           widht="inherit"
+              //         />
+              //         <p>
+              //           <FormattedMessage id="data.plus" />
+              //           {item.tlc}
+              //           <br />
+              //           <FormattedMessage id="data.rewards" />
+              //         </p>
+              //         <p>
+              //           <FormattedMessage id="data.HPcode" />
+              //           &nbsp;
+              //           <span className="card-code">JULY 2019</span>
+              //         </p>
+              //         <p>
+              //           <FormattedMessage id="data.expire" /> 7/07/2019
+              //         </p>
+              //       </div>
+              //     </>
+              //   </Card>
+              <Col xs={12} md={6} lg={3} className="mb-3 pl-0" key={uuidv1()}>
+                <Card
+                  classValue="card__content-hover"
+                  backgroundImage={item.bgImg}
+                  textPosition="center"
+                  border
+                >
+                  <CardContent brandLogo={item.icon} data={item} />
                 </Card>
               </Col>
+              // </Col>
             ))}
           </Row>
         </div>
@@ -123,7 +141,11 @@ const LandingPage = props => {
                 </p>
               </Col>
               <Col lg={4}>
-                <button onClick={() => props.history.push('/refer-friend')} className="banner-btn" type="button">
+                <button
+                  onClick={() => props.history.push("/refer-friend")}
+                  className="banner-btn"
+                  type="button"
+                >
                   <FormattedMessage id="data.menuHPcapsrefer" />
                 </button>
               </Col>
@@ -137,11 +159,16 @@ const LandingPage = props => {
 };
 
 const mapStateToProps = state => ({
-  contents: state.Content.contentList || [],
+  contents: state.Content.contentList || []
 });
 
 const mapDispatchToProps = {
-  modalState,
-}
+  modalState
+};
 
-export default withRouter(connect(mapStateToProps,mapDispatchToProps)(LandingPage));
+export default withRouter(
+  connect(
+    mapStateToProps,
+    mapDispatchToProps
+  )(LandingPage)
+);

@@ -1,7 +1,7 @@
-import React from 'react';
-import { Row, Col } from 'react-bootstrap';
+import React from "react";
+import { Row, Col } from "react-bootstrap";
 
-export default (props) => {
+export default props => {
   const { brandLogo, data } = props;
   return (
     <>
@@ -19,12 +19,20 @@ export default (props) => {
             <p className="cashback-offer">{data.tlcText}</p>
           </Col>
           <Col lg={4} className="no-padding">
-            <img src={brandLogo} alt="KFC-LOGO" className="card__content-image" />
+            <img
+              src={brandLogo}
+              alt="KFC-LOGO"
+              className="card__content-image"
+            />
           </Col>
         </Row>
         <Row className="hover-content">
           <Col lg={12}>
-            <img src={brandLogo} alt="KFC-LOGO" className="card__content-image-hover" />
+            <img
+              src={brandLogo}
+              alt="KFC-LOGO"
+              className="card__content-image-hover"
+            />
           </Col>
           <Col lg={12} className="no-padding">
             <p className="cashback-hover-text-border">
