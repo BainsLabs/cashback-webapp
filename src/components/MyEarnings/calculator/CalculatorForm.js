@@ -88,15 +88,15 @@ class CalculatorForm extends Component {
                   className="calculator__rfield"
                   value={monthlyfriendshipbonus}
                 />
-                <p data-tip={intl.formatMessage({ id: 'data.monthlybonus' })}>
-                  <FormattedMessage id="data.calMonthly" />
+                <p>
+                  <FormattedMessage id="data.calMonthly" />&nbsp;<i data-tip={intl.formatMessage({ id: 'data.monthlybonus' })} className="fas fa-info"/>
                 </p>
                 <ReactTooltip />
               </Col>
               <Col md={6} className="calculator__result">
                 <Input disabled type="text" className="calculator__rfield" value={totalteam} />
-                <p data-tip={intl.formatMessage({ id: 'data.friendsTeam' })}>
-                  <FormattedMessage id="data.calTotalFriendShip" />
+                <p >
+                  <FormattedMessage id="data.calTotalFriendShip" />&nbsp;<i data-tip={intl.formatMessage({ id: 'data.friendsTeam' })} className="fas fa-info"/>
                 </p>
                 <ReactTooltip />
               </Col>
@@ -110,8 +110,8 @@ class CalculatorForm extends Component {
                   onChange={this.onHandleChange}
                   value={monthlyspend}
                 />
-                <p className="fieldText" data-tip={intl.formatMessage({ id: 'data.monthlySpend' })}>
-                  <FormattedMessage id="data.calMonthlySpend" />
+                <p className="fieldText" >
+                  <FormattedMessage id="data.calMonthlySpend" />&nbsp;<i data-tip={intl.formatMessage({ id: 'data.monthlySpend' })} className="fas fa-info"/>
                 </p>
                 <ReactTooltip />
               </Col>
@@ -125,9 +125,9 @@ class CalculatorForm extends Component {
                 />
                 <p
                   className="fieldText"
-                  data-tip={intl.formatMessage({ id: 'data.friendsReffered' })}
+
                 >
-                  <FormattedMessage id="data.calfriendsRefered" />
+                  <FormattedMessage id="data.calfriendsRefered" />&nbsp;<i data-tip={intl.formatMessage({ id: 'data.friendsReffered' })} className="fas fa-info"/>
                 </p>
                 <ReactTooltip />
               </Col>
@@ -142,8 +142,8 @@ class CalculatorForm extends Component {
                   onChange={this.onHandleChange}
                   value={avgcashback}
                 />
-                <p className="fieldText" data-tip={intl.formatMessage({ id: 'data.avgCashback' })}>
-                  <FormattedMessage id="data.calAvgCB" />
+                <p className="fieldText" >
+                  <FormattedMessage id="data.calAvgCB" />&nbsp;<i data-tip={intl.formatMessage({ id: 'data.avgCashback' })} className="fas fa-info"/>
                 </p>
                 <ReactTooltip />
               </Col>
@@ -157,9 +157,8 @@ class CalculatorForm extends Component {
                 />
                 <p
                   className="fieldText"
-                  data-tip={intl.formatMessage({ id: 'data.friendshipbonus' })}
                 >
-                  <FormattedMessage id="data.calFriendShipBonus" />
+                  <FormattedMessage id="data.calFriendShipBonus" />&nbsp;<i data-tip={intl.formatMessage({ id: 'data.friendshipbonus' })} className="fas fa-info"/>
                 </p>
                 <ReactTooltip />
               </Col>

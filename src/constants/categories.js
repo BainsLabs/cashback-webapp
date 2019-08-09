@@ -4,6 +4,12 @@ import electronics from 'static/images/home-page/Electronics.png';
 import finance from 'static/images/home-page/Finance.png';
 import hb from 'static/images/home-page/Health-Beauty.png';
 import fashion from 'static/images/home-page/Fashion.png';
+import lifeStyle from 'static/images/home-page/LIFESTYLE.png';
+import marketplace from 'static/images/home-page/marketplace.png';
+import services from 'static/images/home-page/services.png';
+import tlcDeals from 'static/images/home-page/TLC-Deals.png';
+
+
 import { FormattedMessage } from 'react-intl';
 // eslint-disable-next-line import/prefer-default-export
 export const categories = [
@@ -28,19 +34,20 @@ export const categories = [
     label: <FormattedMessage id="data.HPfashion" />,
   },
   {
-    icon: fashion,
-    label: <span className="slider-category"><FormattedMessage id="data.footerLIFESTYLE" /></span>,
+    icon: lifeStyle,
+    label: <FormattedMessage id="data.footerLIFESTYLE" />
+
   },
   {
-    icon: fashion,
+    icon: marketplace,
     label: <FormattedMessage id="data.footerMARKETPLACE" />,
   },
   {
-    icon: fashion,
+    icon: services,
     label: <FormattedMessage id="data.footerSERVICES" />,
   },
   {
-    icon: fashion,
+    icon: tlcDeals,
     label: <FormattedMessage id="data.footerTLC" />,
   },
 ];

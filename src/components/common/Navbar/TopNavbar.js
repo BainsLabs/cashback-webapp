@@ -13,6 +13,7 @@ import UserModal from 'components/UserForm/Modal';
 import { Link } from 'react-router-dom';
 import { country, language } from 'constants/dropdown';
 import { FormattedMessage, injectIntl, intlShape } from 'react-intl';
+import ReactTooltip from 'react-tooltip'
 
 class TopNavbar extends Component {
   ModalOpen = async (name) => {
@@ -20,6 +21,7 @@ class TopNavbar extends Component {
     const { modalState } = this.props;
     // const modalType = e === 'SignIn' ? modalState('signin') : modalState('signup');
     await modalState(name);
+    await ReactTooltip.rebuild()
   };
 
   LogOut = async () => {

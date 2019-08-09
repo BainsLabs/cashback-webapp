@@ -6,12 +6,17 @@
     +margin('', 0 0 0 0.2rem)
 
     li
-      display: inline
+      display: inline-block
       font-size: 0.8rem
       font-weight: lighter
+      text-transform: uppercase
 
-      &:not(:first-child)
-        +padding('', 0 1rem)
+.padding
+  +padding('', 0 1rem)
+
+
+.right-padding
+  +padding('', 0rem)
 
 .add-section
   transition: all 0.2s ease-in-out

@@ -119,31 +119,31 @@ export default () => (
                     <FormattedMessage id="data.ALL" />
                   </h2>
                   <ul>
-                    <li>
+                    <li className="right-padding">
                       <FormattedMessage id="data.MOSTUSED" />
                     </li>
-                    <li>
+                    <li className="padding">
                       <FormattedMessage id="data.RECHARGE" />
                     </li>
-                    <li>
+                    <li className="padding">
                       <FormattedMessage id="data.FOOD" />
                     </li>
-                    <li>
+                    <li className="padding">
                       <FormattedMessage id="data.TRAVEL" />
                     </li>
-                    <li>
+                    <li className="padding">
                       <FormattedMessage id="data.FASHION" />
                     </li>
-                    <li>
+                    <li className="padding">
                       <FormattedMessage id="data.ELECTRONICS" />
                     </li>
-                    <li>
-                      <FormattedMessage id="data.ELECTRONICS" />
+                    <li className="padding">
+                      <FormattedMessage id="data.footerLIFESTYLE"/>
                     </li>
-                    <li>
-                      <FormattedMessage id="data.ELECTRONICS" />
+                    <li className="right-padding">
+                      <FormattedMessage id="data.footerMARKETPLACE" />
                     </li>
-                    <li>
+                    <li className="padding">
                       <FormattedMessage id="data.ELECTRONICS" />
                     </li>
                   </ul>

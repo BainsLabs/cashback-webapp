@@ -245,17 +245,17 @@ class SignUp extends Component {
         </Row>
         <Row>
           <Col>
-            {/* <p data-tip={intl.formatMessage({id: 'data.passwordText'})}> */}
+
             <Input
               placeholder={intl.formatMessage({ id: 'data.fieldsu' })}
               type="password"
               name="password"
               onChange={this.handleChange}
               value={password}
-            />
-            {/* </p> */}
-            {/* <ReactTooltip/> */}
-            {!this.validateFields() && <span className="errormessage ">{passwordError}</span>}
+            />&nbsp;
+            <i data-tip={intl.formatMessage({id: 'data.passwordText'})} class="fas fa-info" />
+            <ReactTooltip/>
+            {/* {!this.validateFields() && <span className="errormessage ">{passwordError}</span>} */}
           </Col>
         </Row>
         <Row>
