@@ -1,4 +1,4 @@
-import React from "react";
+import React ,{useEffect}from "react";
 import Banner from "components/common/Banner";
 import { connect } from "react-redux";
 import CategorySection from "components/LandingPage/CategorySection";
@@ -22,6 +22,7 @@ import uuidv1 from 'uuid'
 const LandingPage = props => {
   // let cashBack = props.contents.map((cont) => {
   //   return {cont.location === "myearningvip" && cont.section==="header" ? cont.content:""}
+  useEffect(() => localStorage.setItem('country','en-US'))
   // })
   return (
     <>
