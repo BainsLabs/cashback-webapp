@@ -8,6 +8,7 @@ import { Navbar, Container, Nav } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { FormattedMessage } from 'react-intl';
 import { modalState } from 'redux/actions/modalActions';
+import DropdownComponent from 'components/common/DropDown';
 import MobileNavBar from './Mobile/MobileNavbar';
 import TopNavbar from './TopNavbar';
 
@@ -25,6 +26,7 @@ const NavBar = (props) => {
   const {
     user, sidebarState, sidebar, modalState,
   } = props;
+  const language = localStorage.getItem('country')
   const authenticated = localStorage.getItem('authenticated');
   return (
     <>
@@ -33,7 +35,7 @@ const NavBar = (props) => {
       </div>
       <TopNavbar />
       <Navbar className="navbar" expand="lg">
-        <Container>
+        <div className={language === 'en-US'? "secondary__nav":"chinese__nav"}>
           <Nav className="navbar__list">
             <Nav.Item>
               <Link to="/categories">
@@ -55,8 +57,14 @@ const NavBar = (props) => {
                 <FormattedMessage id="data.vipbenefits" />
               </Link>
             </Nav.Item>
+            <Nav.Item>
+              <Link to="/contact">
+                <FormattedMessage id="data.contactus" />
+              </Link>
+            </Nav.Item>
             {authenticated ? (
               <Nav.Item>
+                {/* <DropdownComponent /> */}
                 <Link to="/my-earnings">
                   <FormattedMessage id="data.menuHPmyaccount" />
                 </Link>
@@ -69,7 +77,7 @@ const NavBar = (props) => {
               </Nav.Item>
             )}
           </Nav>
-        </Container>
+        </div>
       </Navbar>
     </>
   );

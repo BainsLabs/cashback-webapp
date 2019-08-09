@@ -302,6 +302,7 @@ export default {
       subscribe: 'Subscribe',
       footerAll: 'ALL',
       language: 'Language',
+      contactus: 'Contact us',
       footerMARKETPLACE: 'Marketplace',
       footerLIFESTYLE: 'Lifestyle',
       userCreateAccount: 'Create Account',
@@ -362,6 +363,7 @@ export default {
   },
   'zh-CN': {
     data: {
+      contactus: '联系我们',
       friendshipbonus1:
         '赢取朋友现金返还的5％到20％奖金。通过将您的会员资格升级为VIP，您将自动获得5％的友谊奖励。当您的10位直接推荐的朋友升级为VIP时，您将有资格获得10％的友谊奖励。当您的20位直接推荐的朋友升级为VIP时，您将有资格获得20％的友谊奖励。',
       friendshipbonus2:

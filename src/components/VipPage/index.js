@@ -2,7 +2,7 @@ import React from 'react';
 import { Container, Col, Row } from 'react-bootstrap';
 import Banner from 'components/common/Banner';
 import vipImage from 'static/images/vip-banefits/vip.jpg';
-import VipBanner from 'static/images/vip-banefits/banner.jpg';
+import VipBanner from 'static/images/vip-banefits/vip-banner.jpg';
 import friendshipbonus2 from 'static/images/vip-banefits/friendshipbonus.jpg';
 import friendshipbonus from 'static/images/vip-banefits/friendshipbonus.png';
 import chifriendshipbonus from 'static/images/vip-banefits/chinesefriendshipbonus.png';
