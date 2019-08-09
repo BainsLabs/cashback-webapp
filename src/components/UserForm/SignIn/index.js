@@ -49,8 +49,9 @@ class SignIn extends Component {
     event.preventDefault();
     const { username, password } = this.state;
     const { modalState, getUserEmail, history } = this.props;
+    let usernameLower = username.toLowerCase()
     const params = {
-      username,
+      username:usernameLower,
       checkType: 'getUserEmail',
     };
     this.setState({ isLoading: true, usernameError: '', loginError: '' });
@@ -82,7 +83,8 @@ class SignIn extends Component {
 
   forgotPassword = async () => {
     const { username, confirmationCode, password } = this.state;
-    Auth.forgotPasswordSubmit(username, confirmationCode, password)
+    // let usernamelowercase =  username.toLowerCase()
+    Auth.forgotPasswordSubmit(username.toLowerCase(), confirmationCode, password)
       .then(data => console.log(data))
       .catch(e => console.log(e));
   };

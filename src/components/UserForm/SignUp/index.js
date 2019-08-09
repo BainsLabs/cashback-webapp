@@ -178,9 +178,11 @@ class SignUp extends Component {
 
   handleConfirmationSubmit = async () => {
     const { modalState } = this.props;
+    const {email} = this.state
+    let emailLowerCase = email.toLowerCase()
     this.setState({ isLoading: true });
     try {
-      await Auth.signIn(this.state.email, this.state.password);
+      await Auth.signIn(emailLowerCase, this.state.password);
       localStorage.setItem('authenticated', true);
       this.props.history.push('/');
       modalState(null);

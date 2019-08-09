@@ -15,6 +15,7 @@ import MyEarnings from 'components/MyEarnings';
 import CommingSoon from 'components/commingSoon';
 import VipPage from 'components/VipPage';
 import AuthenticatedRoute from 'utils/AuthenticatedRoute';
+import ProfileContainer from 'components/profile';
 
 export default ({ childProps }) => (
   <Switch>
@@ -39,6 +40,7 @@ export default ({ childProps }) => (
     <Route path="/refer-friend" exact component={ReferFriend} props={childProps} />
     <Route path="/how-cashback-works" exact component={HowCashbackWorks} props={childProps} />
     <Route path="/terms-conditions" exact component={TermsndConditions} props={childProps} />
+    <Route path="/profile" exact component={ProfileContainer} props={childProps} />
     <AuthenticatedRoute path="/my-earnings" exact component={MyEarnings} props={childProps} />
 
     {/* Finally, catch all unmatched routes */}

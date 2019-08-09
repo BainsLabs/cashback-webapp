@@ -57,11 +57,6 @@ const NavBar = (props) => {
                 <FormattedMessage id="data.vipbenefits" />
               </Link>
             </Nav.Item>
-            <Nav.Item>
-              <Link to="/contact">
-                <FormattedMessage id="data.contactus" />
-              </Link>
-            </Nav.Item>
             {authenticated ? (
               <Nav.Item>
                 {/* <DropdownComponent /> */}

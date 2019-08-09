@@ -2,7 +2,7 @@ import React from 'react';
 
 export default (props) => {
   const {
-    placeholder, className, label, labelClass, disabled, onChange,
+    placeholder, className, label, labelClass, disabled, onChange, type,
   } = props;
   return (
     <>
@@ -12,6 +12,7 @@ export default (props) => {
         className={className}
         placeholder={placeholder}
         onChange={onChange}
+        type={type}
         disabled={disabled}
         {...props}
       />
