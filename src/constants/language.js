@@ -309,6 +309,7 @@ export default {
       friendsUsername: 'Friends Username',
       friendsName: 'Friends Name',
       footerSERVICES: 'Services',
+      myProfile:'My Profile',
       footerTLC: 'TLC Deals',
       footerOther: 'OTHERS',
       footerVIPBENEFITS: 'VIP BENEFITS',
@@ -636,6 +637,7 @@ export default {
       headermyearningspending: '待定',
       welcomeGiftmessage: '您将收到5美元和5 TLC帮助您的朋友节省25美元现金回来.',
       total: '总',
+      myProfile:'我的简历',
       headermyearningspaid: '支付',
       rfbonustext:
         '您将收到5美元和5 TLC帮助您的朋友节省25美元现金回来。你可以获得的推荐奖金没有限制。保持参考!',

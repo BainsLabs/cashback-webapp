@@ -218,6 +218,7 @@ input[type=date]::-webkit-inner-spin-button
   h6
     text-align: center
     border-bottom: 1px solid map-get($fontColor, 'white')
+    padding-bottom: 1.5rem
 .heading__text
   padding-bottom: .5rem
   border-bottom: 1px solid map-get($fontColor, 'white')
@@ -226,3 +227,10 @@ input[type=date]::-webkit-inner-spin-button
   +margin('top',4rem)
   color: map-get($fontColor,'black')
   text-decoration: none
+
+.freemembership
+  @extend .savechanges
+  +margin('top',4.9rem)
+.upgradeVIP
+  @extend .freemembership
+  +margin('top',3.2rem)

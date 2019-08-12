@@ -1,6 +1,7 @@
 .cashback__banner
   @extend .category__banner
-
+.membership
+  height: 300px
 
 .cashback__description
   font-size: .95rem;
@@ -16,7 +17,43 @@
   color: map-get($fontColor,'darkGray')
   +padding('',1.9rem)
 
+.eclips
+  width: 100px
+  height: 100px
+  background-color: map-get($fontColor,'yellow');
+  border-radius: 50%
+  padding-top: 1rem
+  margin-left: 1rem
 
+  margin-top: 1.5rem
+
+
+
+.eclipscopy
+  width: 57.5px
+  height: 57.5px
+  border: solid 0.5px map-get($fontColor,'black')
+  border-radius: 50%
+
+.mywallet-form
+  input
+    border: 1px solid map-get($fontColor,'white')
+    border-radius: 2rem
+    +margin('top',1rem)
+    +margin('bottom',1rem)
+    +padding('',1rem)
+    background: transparentize(map-get($fontColor,'black'),1)
+    color: map-get($fontColor,'white')
+    &::placeholder
+      color: white
+  button
+    @extend .savechanges
+    +padding('',1rem 3rem)
+    margin: 2rem 1rem
+    text-align: center
+    border-radius: 2rem
+.wallet
+  color: map-get($fontColor,'white')
 
 .cashback__text
   font-size: 1.3rem;

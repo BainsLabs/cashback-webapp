@@ -1,24 +1,30 @@
-import React from 'react';
-import { Container, Col, Row } from 'react-bootstrap';
-import Banner from 'components/common/Banner';
-import vipImage from 'static/images/vip-banefits/vip.jpg';
-import VipBanner from 'static/images/vip-banefits/vip-banner.jpg';
-import friendshipbonus2 from 'static/images/vip-banefits/friendshipbonus.jpg';
-import friendshipbonus from 'static/images/vip-banefits/friendshipbonus.png';
-import chifriendshipbonus from 'static/images/vip-banefits/chinesefriendshipbonus.png';
-import VipBonus from 'static/images/vip-banefits/vipbonus.png';
-import Vipcashback from 'static/images/vip-banefits/vipcashback.png';
-import chinesevipcashback from 'static/images/vip-banefits/chinesevipcashback.png';
-import BenefitsCard from 'components/common/benefitscard';
-import { FormattedMessage } from 'react-intl';
+import React, { useState } from "react";
+import { Container, Col, Row } from "react-bootstrap";
+import Banner from "components/common/Banner";
+import vipImage from "static/images/vip-banefits/vip.jpg";
+import VipBanner from "static/images/vip-banefits/vip-banner.jpg";
+import friendshipbonus2 from "static/images/vip-banefits/friendshipbonus.jpg";
+import friendshipbonus from "static/images/vip-banefits/friendshipbonus.png";
+import chifriendshipbonus from "static/images/vip-banefits/chinesefriendshipbonus.png";
+import VipBonus from "static/images/vip-banefits/vipbonus.png";
+import Vipcashback from "static/images/vip-banefits/vipcashback.png";
+import chinesevipcashback from "static/images/vip-banefits/chinesevipcashback.png";
+import BenefitsCard from "components/common/benefitscard";
+import { FormattedMessage } from "react-intl";
 // import CalculatorModal from 'components/MyEarnings/calculator/calculatorModal';
-import CalculatorForm from 'components/MyEarnings/calculator/CalculatorForm';
+import CalculatorForm from "components/MyEarnings/calculator/CalculatorForm";
+import ComingSoon from "components/commingSoon";
 
 const VipPage = () => {
-  const language = localStorage.getItem('country');
+  const language = localStorage.getItem("country");
+  const [open, modalOpen] = useState(false);
   return (
     <>
-      <Banner imgSrc={VipBanner} className="banner-padding" textPosition="center">
+      <Banner
+        imgSrc={VipBanner}
+        className="banner-padding"
+        textPosition="center"
+      >
         <h3 className="vipbanner-text">
           <FormattedMessage id="data.vipbanner" />
         </h3>
@@ -39,16 +45,24 @@ const VipPage = () => {
               <FormattedMessage id="data.blueText" />
             </p>
             <p>
-              <button type="button" className="vip__button">
+              <button
+                type="button"
+                className="vip__button"
+                onClick={() => modalOpen(true)}
+              >
                 UPGRADE TO VIP TODAY&nbsp;
                 <i className="fas fa-angle-right" />
               </button>
             </p>
           </Col>
+          <ComingSoon open={open} onClose={() => modalOpen(false)} />
         </Row>
         <Row>
           <Col md={4} className="vip__benefits">
-            <BenefitsCard backgroundColor="#ffec8d" className="vip__benfits text-center">
+            <BenefitsCard
+              backgroundColor="#ffec8d"
+              className="vip__benfits text-center"
+            >
               <p className="vip__text">
                 <FormattedMessage id="data.headermyearningsvipcashback" />
               </p>
@@ -56,7 +70,10 @@ const VipPage = () => {
             </BenefitsCard>
           </Col>
           <Col md={4} className="vip__benefits ">
-            <BenefitsCard backgroundColor="#96c1eb" className="vip__benfits text-center">
+            <BenefitsCard
+              backgroundColor="#96c1eb"
+              className="vip__benfits text-center"
+            >
               <p className="vip__text">
                 <FormattedMessage id="data.headermyearningsvipbvipbonus" />
               </p>
@@ -65,7 +82,10 @@ const VipPage = () => {
           </Col>
 
           <Col md={4} className="vip__benefits">
-            <BenefitsCard backgroundColor="#f7e4e4" className="vip__benfits text-center">
+            <BenefitsCard
+              backgroundColor="#f7e4e4"
+              className="vip__benfits text-center"
+            >
               <p className="vip__text">
                 <FormattedMessage id="data.headermyearningsfriendshipbonus" />
               </p>
@@ -74,10 +94,10 @@ const VipPage = () => {
           </Col>
         </Row>
         <Row>
-          {console.log(language, 'lan')}
+          {console.log(language, "lan")}
           <Col md={6}>
             <img
-              src={language === 'en-US' ? Vipcashback : chinesevipcashback}
+              src={language === "en-US" ? Vipcashback : chinesevipcashback}
               alt="vip casback"
               className="cashback__img"
             />
@@ -104,13 +124,19 @@ const VipPage = () => {
           <Col md={6}>
             <Col>
               <img
-                src={language === 'en-US' ? friendshipbonus : chifriendshipbonus}
+                src={
+                  language === "en-US" ? friendshipbonus : chifriendshipbonus
+                }
                 alt="vip casback"
                 className="vipcashback__img"
               />
             </Col>
             <Col>
-              <img src={friendshipbonus2} alt="vip casback" className="vipcashback__img" />
+              <img
+                src={friendshipbonus2}
+                alt="vip casback"
+                className="vipcashback__img"
+              />
             </Col>
           </Col>
           <Col md={6}>
