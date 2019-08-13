@@ -1,44 +1,70 @@
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import Input from "components/common/inputField";
+import { FormattedMessage, injectIntl, intlShape } from "react-intl";
+import Banner from "components/common/Banner";
+import BannerImage from "static/images/cashback/wallet.png";
 
 const MyWallet = props => {
+  const { intl } = props;
   return (
     <>
+      <Banner
+        imgSrc={BannerImage}
+        className="banner-padding"
+        textPosition="center"
+      >
+        <h3 className="vipbanner-text">
+          <FormattedMessage id="data.mywallet" />
+        </h3>
+      </Banner>
       <Container>
         <Row>
           <Col md={6}>
             <Container className="profile__container">
-              <h3>Request TLC Payout</h3>
+              <h3>
+                <FormattedMessage id="data.request" /> TLC{" "}
+                <FormattedMessage id="data.payout" />
+              </h3>
               <Container className="membership__box">
                 <Row>
                   <Col md={8} className="mywallet-form">
                     <Input
-                      label="Select Payment method"
+                      label={intl.formatMessage({
+                        id: "data.selectpaymentmethod"
+                      })}
                       type="text"
-                      placeholder="TLC Wallet"
+                      placeholder={intl.formatMessage({ id: "data.tlcwallet" })}
                       labelClass="wallet"
                     />
                     <Input
-                      label="Enter Amount"
+                      label={intl.formatMessage({ id: "data.enteramount" })}
                       type="text"
-                      placeholder="Amount"
+                      placeholder={intl.formatMessage({ id: "data.amount" })}
                       labelClass="wallet"
                     />
-                    <button align="center">Submit Request</button>
+                    <button align="center">
+                      <FormattedMessage id="data.submitrequest" />
+                    </button>
                   </Col>
                   <Col md={4}>
                     <div className="eclips text-center">
                       <p>0</p>
-                      <p>Withdrawn</p>
+                      <p>
+                        <FormattedMessage id="data.withdrawn" />
+                      </p>
                     </div>
                     <div className="eclips text-center">
                       <p>0</p>
-                      <p>Available</p>
+                      <p>
+                        <FormattedMessage id="data.available" />
+                      </p>
                     </div>
                     <div className="eclips text-center">
                       <p>5</p>
-                      <p>Pending</p>
+                      <p>
+                        <FormattedMessage id="data.headermyearningspending" />
+                      </p>
                     </div>
                   </Col>
                 </Row>
@@ -47,37 +73,52 @@ const MyWallet = props => {
           </Col>
           <Col md={6}>
             <Container className="profile__container">
-              <h3>Request $ Payout</h3>
+              <h3>
+                <FormattedMessage id="data.request" /> ${" "}
+                <FormattedMessage id="data.payout" />
+              </h3>
               <Container className="membership__box">
                 <Row>
                   <Col md={4}>
                     <div className="eclips text-center">
                       <p>$0</p>
-                      <p>Withdrawn</p>
+                      <p>
+                        <FormattedMessage id="data.withdrawn" />
+                      </p>
                     </div>
                     <div className="eclips text-center">
                       <p>$0</p>
-                      <p>Available</p>
+                      <p>
+                        <FormattedMessage id="data.available" />
+                      </p>
                     </div>
                     <div className="eclips text-center">
                       <p>$5</p>
-                      <p>Pending</p>
+                      <p>
+                        <FormattedMessage id="data.headermyearningspending" />
+                      </p>
                     </div>
                   </Col>
                   <Col md={8} className="mywallet-form">
                     <Input
-                      label="Select Payment method"
+                      label={intl.formatMessage({
+                        id: "data.selectpaymentmethod"
+                      })}
                       type="text"
-                      placeholder="TLC Wallet"
+                      placeholder={intl.formatMessage({
+                        id: "data.bitcoinpaypal"
+                      })}
                       labelClass="wallet"
                     />
                     <Input
-                      label="Enter Amount"
+                      label={intl.formatMessage({ id: "data.enteramount" })}
                       type="text"
-                      placeholder="Amount"
+                      placeholder={intl.formatMessage({ id: "data.amount" })}
                       labelClass="wallet"
                     />
-                    <button align="center">Submit Request</button>
+                    <button align="center">
+                      <FormattedMessage id="data.submitrequest" />
+                    </button>
                   </Col>
                 </Row>
               </Container>
@@ -89,4 +130,8 @@ const MyWallet = props => {
   );
 };
 
-export default MyWallet;
+MyWallet.propTypes = {
+  intl: intlShape.isRequired
+};
+
+export default injectIntl(MyWallet);

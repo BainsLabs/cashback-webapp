@@ -1,33 +1,31 @@
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable no-shadow */
-import React from 'react';
-import { connect } from 'react-redux';
-import { sidebarState } from 'redux/actions/sidebarActions';
-import { Navbar, Container, Nav } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
-import { FormattedMessage } from 'react-intl';
-import { modalState } from 'redux/actions/modalActions';
-import DropdownComponent from 'components/common/DropDown';
-import MobileNavBar from './Mobile/MobileNavbar';
-import TopNavbar from './TopNavbar';
+import React from "react";
+import { connect } from "react-redux";
+import { sidebarState } from "redux/actions/sidebarActions";
+import { Navbar, Container, Nav, NavDropdown } from "react-bootstrap";
+import { Link } from "react-router-dom";
+import { FormattedMessage } from "react-intl";
+import { modalState } from "redux/actions/modalActions";
+import DropdownComponent from "components/common/DropDown";
+import MobileNavBar from "./Mobile/MobileNavbar";
+import TopNavbar from "./TopNavbar";
 
 const style = {
   buttonBackground: {
-    background: '#272F3A',
-    width: '100%',
-    height: '3rem',
-    padding: '0.5rem 0rem',
-  },
+    background: "#272F3A",
+    width: "100%",
+    height: "3rem",
+    padding: "0.5rem 0rem"
+  }
 };
 
-const NavBar = (props) => {
+const NavBar = props => {
   // eslint-disable-next-line no-unused-vars
-  const {
-    user, sidebarState, sidebar, modalState,
-  } = props;
-  const language = localStorage.getItem('country')
-  const authenticated = localStorage.getItem('authenticated');
+  const { user, sidebarState, sidebar, modalState } = props;
+  const language = localStorage.getItem("country");
+  const authenticated = localStorage.getItem("authenticated");
   return (
     <>
       <div className="mobile" style={style.buttonBackground}>
@@ -35,7 +33,9 @@ const NavBar = (props) => {
       </div>
       <TopNavbar />
       <Navbar className="navbar" expand="lg">
-        <div className={language === 'en-US'? "secondary__nav":"chinese__nav"}>
+        <div
+          className={language === "en-US" ? "secondary__nav" : "chinese__nav"}
+        >
           <Nav className="navbar__list">
             <Nav.Item>
               <Link to="/categories">
@@ -59,14 +59,28 @@ const NavBar = (props) => {
             </Nav.Item>
             {authenticated ? (
               <Nav.Item>
-                {/* <DropdownComponent /> */}
-                <Link to="/my-earnings">
-                  <FormattedMessage id="data.menuHPmyaccount" />
-                </Link>
+                <NavDropdown className="dropdownnav" title="My Account" id="basic-nav-dropdown">
+                  <NavDropdown.Item>
+                    <Link to="/profile">My Profile</Link>
+                  </NavDropdown.Item>
+                  <NavDropdown.Item>
+                    <Link to="/my-wallet">My Wallet</Link>
+                  </NavDropdown.Item>
+                  <NavDropdown.Item>
+                  <Link to="/contact">Customer Care</Link>
+                  </NavDropdown.Item>
+                  <NavDropdown.Item>
+                  <Link to="/my-earnings">My Earnings</Link>
+                  </NavDropdown.Item>
+                </NavDropdown>
               </Nav.Item>
             ) : (
               <Nav.Item>
-                <button type="button" onClick={() => modalState('signin')} className="myaccount">
+                <button
+                  type="button"
+                  onClick={() => modalState("signin")}
+                  className="myaccount"
+                >
                   <FormattedMessage id="data.menuHPmyaccount" />
                 </button>
               </Nav.Item>
@@ -80,15 +94,15 @@ const NavBar = (props) => {
 
 const mapDispatchToProps = {
   sidebarState,
-  modalState,
+  modalState
 };
 
 const mapStateToProps = state => ({
   user: state.User,
-  sidebar: state.Sidebar.open,
+  sidebar: state.Sidebar.open
 });
 
 export default connect(
   mapStateToProps,
-  mapDispatchToProps,
+  mapDispatchToProps
 )(NavBar);

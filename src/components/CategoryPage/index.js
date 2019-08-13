@@ -1,12 +1,12 @@
-import React from 'react';
-import { Row, Col, Container } from 'react-bootstrap';
-import Banner from 'components/common/Banner';
-import bannerImg from 'static/images/shop-categories/banner.jpg';
-import Card from 'components/common/Card';
-import CardContent from 'components/common/CardContent';
-import { addsDemo } from 'constants/adds';
-import uuidv1 from 'uuid';
-import { FormattedMessage } from 'react-intl';
+import React from "react";
+import { Row, Col, Container } from "react-bootstrap";
+import Banner from "components/common/Banner";
+import bannerImg from "static/images/shop-categories/category-banner.png";
+import Card from "components/common/Card";
+import CardContent from "components/common/CardContent";
+import { addsDemo } from "constants/adds";
+import uuidv1 from "uuid";
+import { FormattedMessage } from "react-intl";
 
 export default () => (
   <>
@@ -138,7 +138,7 @@ export default () => (
                       <FormattedMessage id="data.ELECTRONICS" />
                     </li>
                     <li className="padding">
-                      <FormattedMessage id="data.footerLIFESTYLE"/>
+                      <FormattedMessage id="data.footerLIFESTYLE" />
                     </li>
                     <li className="right-padding">
                       <FormattedMessage id="data.footerMARKETPLACE" />
@@ -151,7 +151,13 @@ export default () => (
               </Row>
               <Row>
                 {addsDemo.map(item => (
-                  <Col xs={12} md={6} lg={4} className="mb-3 pl-0" key={uuidv1()}>
+                  <Col
+                    xs={12}
+                    md={6}
+                    lg={4}
+                    className="mb-3 pl-0"
+                    key={uuidv1()}
+                  >
                     <Card
                       classValue="card__content-hover"
                       backgroundImage={item.bgImg}
