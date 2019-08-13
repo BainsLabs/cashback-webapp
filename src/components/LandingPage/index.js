@@ -1,9 +1,11 @@
-import React ,{useEffect}from "react";
+import React, { useEffect } from "react";
 import Banner from "components/common/Banner";
 import { connect } from "react-redux";
 import CategorySection from "components/LandingPage/CategorySection";
 import { Container, Row, Col } from "react-bootstrap";
-import bannerImg from "static/images/home-page/banner-bg.jpg";
+import bannerImg from "static/images/home-page/banner-1.jpg";
+import bannerImg1 from "static/images/home-page/banner-2.jpg";
+import bannerImg2 from "static/images/home-page/banner-3.jpg";
 import Card from "components/common/Card";
 import BlackLine from "static/icons-images/black-line.png";
 import JoinFree from "static/images/home-page/joinfree-bg.jpg";
@@ -15,19 +17,64 @@ import AddSection from "components/LandingPage/AddSection";
 import DealsNews from "components/LandingPage/DealsNews";
 import { featureAdds } from "constants/adds";
 import { FormattedMessage } from "react-intl";
-import CardContent from 'components/common/CardContent';
-import uuidv1 from 'uuid'
+import CardContent from "components/common/CardContent";
+import uuidv1 from "uuid";
+// import CommonSlider from 'components/common/Slider/Slider'
+import Slider from "react-slick";
 
 // eslint-disable-next-line arrow-parens
 const LandingPage = props => {
   // let cashBack = props.contents.map((cont) => {
   //   return {cont.location === "myearningvip" && cont.section==="header" ? cont.content:""}
-  useEffect(() => localStorage.setItem('country','en-US'))
+  useEffect(() => localStorage.setItem("country", "en-US"));
   // })
+  const setting = {
+    dots: true,
+    lazyLoad: true,
+    infinite: true,
+    autoplay: true,
+    speed: "500",
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    initialSlide: 1,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 5,
+          slidesToScroll: 3,
+          infinite: true,
+          dots: true
+        }
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2,
+          initialSlide: 2
+        }
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1
+        }
+      }
+    ]
+  };
   return (
     <>
-      <Banner imgSrc={bannerImg}>
-        <Container>
+      <Slider
+        {...setting}
+        style={{padding:"0rem"}}
+      >
+        <Banner imgSrc={bannerImg} height="29rem" />
+        <Banner imgSrc={bannerImg1} height="29rem" />
+        <Banner imgSrc={bannerImg2} height="29rem" />
+      </Slider>
+      {/* <Container>
           <div className="home__banner">
             <p>$100</p>
             <p className="banner-text">
@@ -48,8 +95,8 @@ const LandingPage = props => {
               <FormattedMessage id="data.booknow" />
             </button>
           </div>
-        </Container>
-      </Banner>
+        </Container> */}
+
       <CategorySection />
       <AddSection />
       <Container>
