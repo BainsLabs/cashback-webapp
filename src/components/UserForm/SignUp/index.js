@@ -1,41 +1,45 @@
 /* eslint-disable no-shadow */
-import React, { Component } from 'react';
-import { Row, Col } from 'react-bootstrap';
-import { connect } from 'react-redux';
-import Input from 'components/common/inputField';
-import Select from 'components/common/selectField';
-import { ReferOptions } from 'constants/referOptions';
-import DropdownComponent from 'components/common/DropDown';
-import { faMapMarkerAlt } from '@fortawesome/fontawesome-free-solid';
-import { country } from 'constants/dropdown';
-import { FormattedMessage, injectIntl, intlShape } from 'react-intl';
-import { Auth } from 'aws-amplify';
-import LoaderButton from 'components/common/LoaderButton';
-import { Link, withRouter } from 'react-router-dom';
-import { UserSignUp } from 'redux/actions/userActions';
-import { modalState } from 'redux/actions/modalActions';
-import { userRegister, getUserEmail, verifyEmail } from 'redux/actions/signupActions';
-import ReactTooltip from 'react-tooltip';
+import React, { Component } from "react";
+import { Row, Col } from "react-bootstrap";
+import { connect } from "react-redux";
+import Input from "components/common/inputField";
+import Select from "components/common/selectField";
+import { ReferOptions } from "constants/referOptions";
+import DropdownComponent from "components/common/DropDown";
+import { faMapMarkerAlt } from "@fortawesome/fontawesome-free-solid";
+import { country } from "constants/dropdown";
+import { FormattedMessage, injectIntl, intlShape } from "react-intl";
+import { Auth } from "aws-amplify";
+import LoaderButton from "components/common/LoaderButton";
+import { Link, withRouter } from "react-router-dom";
+import { UserSignUp } from "redux/actions/userActions";
+import { modalState } from "redux/actions/modalActions";
+import {
+  userRegister,
+  getUserEmail,
+  verifyEmail
+} from "redux/actions/signupActions";
+import ReactTooltip from "react-tooltip";
 
 class SignUp extends Component {
   state = {
     isLoading: false,
-    username: '',
-    usernameError: '',
-    email: '',
-    password: '',
-    referUsernameError: '',
+    username: "",
+    usernameError: "",
+    email: "",
+    password: "",
+    referUsernameError: "",
     passwordError: <FormattedMessage id="data.passwordText" />,
-    refer: '',
-    friendUsername: '',
-    signUperror: '',
-    name: '',
-    domain: '',
-    countryValue: '',
-    sponsorId: '',
+    refer: "",
+    friendUsername: "",
+    signUperror: "",
+    name: "",
+    domain: "",
+    countryValue: "",
+    sponsorId: "",
     isAccepted: false,
     newUser: null,
-    emailError: false,
+    emailError: false
   };
 
   validateForm = () => {
@@ -47,23 +51,23 @@ class SignUp extends Component {
       friendUsername,
       isAccepted,
       emailError,
-      usernameError,
+      usernameError
     } = this.state;
-    if (refer === 'FRIEND') {
+    if (refer === "FRIEND") {
       return (
         friendUsername.length > 0 &&
-          username.length > 0 &&
-          email.length > 0 &&
-          password.length > 0 &&
-          usernameError == '' &&
-          emailError == false
+        username.length > 0 &&
+        email.length > 0 &&
+        password.length > 0 &&
+        usernameError == "" &&
+        emailError == false
       );
     }
     return (
       username.length > 0 &&
       email.length > 0 &&
       password.length > 0 &&
-      usernameError == '' &&
+      usernameError == "" &&
       emailError == false
     );
   };
@@ -73,7 +77,7 @@ class SignUp extends Component {
     const { getUserEmail } = this.props;
     const params = {
       username,
-      checkType: 'usernameCheck',
+      checkType: "usernameCheck"
     };
     const usercheckResult = await getUserEmail(params);
     if (usercheckResult.result) {
@@ -82,11 +86,11 @@ class SignUp extends Component {
           <p>
             <FormattedMessage id="data.alreadyExist" />
           </p>
-        ),
+        )
       });
     } else {
       this.setState({
-        usernameError: '',
+        usernameError: ""
       });
     }
   };
@@ -96,18 +100,18 @@ class SignUp extends Component {
     const rest = await verifyEmail({ email });
     if (rest.result) {
       this.setState({
-        emailError: true,
+        emailError: true
       });
       return;
     }
     this.setState({
-      emailError: false,
+      emailError: false
     });
   };
   onCountryChange = e => {
     console.log(e.target.value);
     this.setState({
-      countryValue: e.target.value,
+      countryValue: e.target.value
     });
   };
 
@@ -116,18 +120,18 @@ class SignUp extends Component {
     const { getUserEmail } = this.props;
     const params = {
       username: friendUsername,
-      checkType: 'getUserEmail',
+      checkType: "getUserEmail"
     };
 
     const user = await getUserEmail(params);
     if (user.Count !== 0) {
       this.setState({
         name: `${user.Items[0].first_name} ${user.Items[0].last_name}`,
-        sponsorId: user.Items[0].uuid,
+        sponsorId: user.Items[0].uuid
       });
     } else {
       this.setState({
-        referUsernameError: 'Username does not exist',
+        referUsernameError: "Username does not exist"
       });
     }
   };
@@ -142,14 +146,14 @@ class SignUp extends Component {
     this.setState(
       {
         [event.target.name]: event.target.value,
-        referUsernameError: '',
-        signUperror: '',
+        referUsernameError: "",
+        signUperror: ""
       },
       () => {
         this.validateFields();
         this.validateForm();
         console.log(this.state);
-      },
+      }
     );
   };
 
@@ -164,11 +168,12 @@ class SignUp extends Component {
         username,
         password,
         countryValue,
-        sponsorId,
+        sponsorId
       });
       this.setState({
-        newUser,
+        newUser
       });
+
 
       await this.handleConfirmationSubmit();
     } catch (e) {
@@ -177,15 +182,20 @@ class SignUp extends Component {
   };
 
   handleConfirmationSubmit = async () => {
-    const { modalState } = this.props;
-    const {email} = this.state
-    let emailLowerCase = email.toLowerCase()
+    const { modalState,getUserEmail } = this.props;
+    const { email,username } = this.state;
+    let emailLowerCase = email.toLowerCase();
     this.setState({ isLoading: true });
     try {
       await Auth.signIn(emailLowerCase, this.state.password);
-      localStorage.setItem('authenticated', true);
-      this.props.history.push('/');
+      localStorage.setItem("authenticated", true);
+      this.props.history.push("/");
       modalState(null);
+      let params = {
+        username,
+        checkType: "getUserEmail"
+      };
+      await getUserEmail(params);
       window.location.reload();
     } catch (e) {
       this.setState({ isLoading: false, signUperror: e.message });
@@ -205,7 +215,7 @@ class SignUp extends Component {
       friendUsername,
       name,
       isLoading,
-      emailError,
+      emailError
     } = this.state;
     const { intl, modalState } = this.props;
     return (
@@ -218,7 +228,9 @@ class SignUp extends Component {
         <Row>
           <Col>
             <Input
-              placeholder={intl.formatMessage({ id: 'data.fieldsuchooseusername' })}
+              placeholder={intl.formatMessage({
+                id: "data.fieldsuchooseusername"
+              })}
               onBlur={this.userCheck}
               value={username}
               onChange={this.handleChange}
@@ -231,7 +243,7 @@ class SignUp extends Component {
         <Row>
           <Col>
             <Input
-              placeholder={intl.formatMessage({ id: 'data.HPenteryouremail' })}
+              placeholder={intl.formatMessage({ id: "data.HPenteryouremail" })}
               value={email}
               name="email"
               type="email"
@@ -247,16 +259,19 @@ class SignUp extends Component {
         </Row>
         <Row>
           <Col>
-
             <Input
-              placeholder={intl.formatMessage({ id: 'data.fieldsu' })}
+              placeholder={intl.formatMessage({ id: "data.fieldsu" })}
               type="password"
               name="password"
               onChange={this.handleChange}
               value={password}
-            />&nbsp;
-            <i data-tip={intl.formatMessage({id: 'data.passwordText'})} class="fas fa-info" />
-            <ReactTooltip/>
+            />
+            &nbsp;
+            <i
+              data-tip={intl.formatMessage({ id: "data.passwordText" })}
+              class="fas fa-info"
+            />
+            <ReactTooltip />
             {/* {!this.validateFields() && <span className="errormessage ">{passwordError}</span>} */}
           </Col>
         </Row>
@@ -288,11 +303,11 @@ class SignUp extends Component {
             />
           </Col>
         </Row>
-        {refer === 'FRIEND' ? (
+        {refer === "FRIEND" ? (
           <Row>
             <Col>
               <Input
-                placeholder={intl.formatMessage({ id: 'data.friendsUsername' })}
+                placeholder={intl.formatMessage({ id: "data.friendsUsername" })}
                 onBlur={this.referUser}
                 type="text"
                 name="friendUsername"
@@ -301,10 +316,10 @@ class SignUp extends Component {
               />
               <span className="text-danger">{referUsernameError}</span>
             </Col>
-            {name !== '' ? (
+            {name !== "" ? (
               <Col>
                 <Input
-                  placeholder={intl.formatMessage({ id: 'data.friendsName' })}
+                  placeholder={intl.formatMessage({ id: "data.friendsName" })}
                   onBlur={this.referUser}
                   type="text"
                   disabled
@@ -314,11 +329,11 @@ class SignUp extends Component {
                 />
               </Col>
             ) : (
-              ''
+              ""
             )}
           </Row>
         ) : (
-          ''
+          ""
         )}
         <Row>
           <Col>
@@ -337,7 +352,9 @@ class SignUp extends Component {
               block
               disabled={!this.validateForm()}
               isLoading={isLoading}
-              className={`auth-right__signUp-btn ${!this.validateForm() ? 'disablled' : ''}`}
+              className={`auth-right__signUp-btn ${
+                !this.validateForm() ? "disablled" : ""
+              }`}
               text={<FormattedMessage id="data.signUp" />}
               loadingText="Signing up…"
               onClick={this.handleSubmit}
@@ -350,7 +367,7 @@ class SignUp extends Component {
 }
 
 SignUp.propTypes = {
-  intl: intlShape.isRequired,
+  intl: intlShape.isRequired
 };
 
 const mapDispatchToProps = {
@@ -358,14 +375,14 @@ const mapDispatchToProps = {
   userRegister,
   modalState,
   getUserEmail,
-  verifyEmail,
+  verifyEmail
 };
 
 export default injectIntl(
   withRouter(
     connect(
       null,
-      mapDispatchToProps,
-    )(SignUp),
-  ),
+      mapDispatchToProps
+    )(SignUp)
+  )
 );

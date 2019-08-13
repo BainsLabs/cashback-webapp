@@ -56,13 +56,13 @@ export default ({ childProps }) => (
       component={TermsndConditions}
       props={childProps}
     />
-    <Route
+    <AuthenticatedRoute
       path="/profile"
       exact
       component={ProfileContainer}
       props={childProps}
     />
-    <Route path="/my-wallet" exact component={MyWallet} props={childProps} />
+    <AuthenticatedRoute path="/my-wallet" exact component={MyWallet} props={childProps} />
     <AuthenticatedRoute
       path="/my-earnings"
       exact
