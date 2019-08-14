@@ -1,32 +1,36 @@
-import React, { Component } from "react";
-import { Row, Col } from "react-bootstrap";
-import Input from "components/common/inputField";
+import React, { Component } from 'react';
+import { Row, Col } from 'react-bootstrap';
+import Input from 'components/common/inputField';
+import { FormattedMessage, injectIntl, intlShape } from 'react-intl';
 
 class ContactUsForm extends Component {
   state = {};
 
   render() {
+    const { intl } = this.props;
     return (
       <div className="container contact_us">
-        <h2 className="text-center font-weight-bold">Get In Touch</h2>
+        <h2 className="text-center font-weight-bold">
+          <FormattedMessage id="data.getintouch" />
+        </h2>
         <p className="text-center contactus__text">
-          Have a Feedback or need some help ?
+          <FormattedMessage id="data.feedbacktext" />
         </p>
         <div className="contactus__form">
           <Row className="contactus__general">
             <Col md={6}>
               <Input
-                placeholder="Name"
+                placeholder={intl.formatMessage({ id: 'data.headermyearningsname' })}
                 className="contactus__field"
-                label="Name"
+                label={intl.formatMessage({ id: 'data.headermyearningsname' })}
                 labelClass="contactus__label"
               />
             </Col>
             <Col md={6}>
               <Input
-                placeholder="Email"
+                placeholder={intl.formatMessage({ id: 'data.labelemail' })}
                 className="contactus__field"
-                label="Email"
+                label={intl.formatMessage({ id: 'data.labelemail' })}
                 labelClass="contactus__label"
               />
             </Col>
@@ -36,15 +40,17 @@ class ContactUsForm extends Component {
               <Input
                 as="textarea"
                 rows="3"
-                placeholder="Message"
+                placeholder={intl.formatMessage({ id: 'data.formcumessage' })}
                 className="contactus__textarea"
-                label="Message"
+                label={intl.formatMessage({ id: 'data.formcumessage' })}
                 labelClass="contactus__label"
               />
             </Col>
           </Row>
           <div className="text-center">
-            <button className="contactus__button">Submit</button>
+            <button className="contactus__button">
+              <FormattedMessage id="data.submit" />
+            </button>
           </div>
         </div>
       </div>
@@ -52,4 +58,8 @@ class ContactUsForm extends Component {
   }
 }
 
-export default ContactUsForm;
+ContactUsForm.propTypes = {
+  intl: intlShape.isRequired,
+};
+
+export default injectIntl(ContactUsForm);

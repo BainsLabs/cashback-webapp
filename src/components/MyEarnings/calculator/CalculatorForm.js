@@ -93,8 +93,9 @@ class CalculatorForm extends Component {
                 </p>
                 <ReactTooltip />
               </Col>
+
               <Col md={6} className="calculator__result">
-                <Input disabled type="text" className="calculator__rfield" value={totalteam} />
+                <Input disabled type="text" className="calculator__rfield" value={totalteam||0} />
                 <p >
                   <FormattedMessage id="data.calTotalFriendShip" />&nbsp;<i data-tip={intl.formatMessage({ id: 'data.friendsTeam' })} className="fas fa-info"/>
                 </p>
@@ -117,11 +118,12 @@ class CalculatorForm extends Component {
               </Col>
               <Col md={6}>
                 <Input
-                  type="text"
+                  type="number"
                   className="calculator__field"
                   name="friendsreferred"
                   onChange={this.onHandleChange}
                   value={friendsreferred}
+
                 />
                 <p
                   className="fieldText"

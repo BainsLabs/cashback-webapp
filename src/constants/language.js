@@ -86,6 +86,7 @@ export default {
         'Friendship Bonus Earning Calculator',
       fieldsu2username: 'username',
       fieldsuselecvt: 'Select',
+      submit: 'Submit',
       headermyearningsreferealbonus: 'REFERRAL BONUS',
       headermyearningsrfsignups: 'Signups',
       HPseeall: 'SEE ALL',
@@ -405,10 +406,15 @@ export default {
       customercare: 'Customer Care',
       myearnings: 'My Earnings',
       myaccount: 'My Account',
+      getintouch: 'Get In Touch',
+      feedbacktext: 'Have a Feedback or need some help ?',
     },
   },
   'zh-CN': {
     data: {
+      submit: '提交',
+      feedbacktext: '有反馈或需要帮助吗？',
+      getintouch: '保持联系',
       myprofile: '我的简历',
       mywallet: '我的钱包',
       customercare: '客户服务',
