@@ -1,31 +1,35 @@
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable no-shadow */
-import React from "react";
-import { connect } from "react-redux";
-import { sidebarState } from "redux/actions/sidebarActions";
-import { Navbar, Container, Nav, NavDropdown } from "react-bootstrap";
-import { Link } from "react-router-dom";
-import { FormattedMessage } from "react-intl";
-import { modalState } from "redux/actions/modalActions";
-import DropdownComponent from "components/common/DropDown";
-import MobileNavBar from "./Mobile/MobileNavbar";
-import TopNavbar from "./TopNavbar";
+import React from 'react';
+import { connect } from 'react-redux';
+import { sidebarState } from 'redux/actions/sidebarActions';
+import {
+  Navbar, Container, Nav, NavDropdown,
+} from 'react-bootstrap';
+import { Link } from 'react-router-dom';
+import { FormattedMessage, injectIntl, intlShape } from 'react-intl';
+import { modalState } from 'redux/actions/modalActions';
+import DropdownComponent from 'components/common/DropDown';
+import MobileNavBar from './Mobile/MobileNavbar';
+import TopNavbar from './TopNavbar';
 
 const style = {
   buttonBackground: {
-    background: "#272F3A",
-    width: "100%",
-    height: "3rem",
-    padding: "0.5rem 0rem"
-  }
+    background: '#272F3A',
+    width: '100%',
+    height: '3rem',
+    padding: '0.5rem 0rem',
+  },
 };
 
-const NavBar = props => {
+const NavBar = (props) => {
   // eslint-disable-next-line no-unused-vars
-  const { user, sidebarState, sidebar, modalState } = props;
-  const language = localStorage.getItem("country");
-  const authenticated = localStorage.getItem("authenticated");
+  const {
+    user, sidebarState, sidebar, modalState, intl,
+  } = props;
+  const language = localStorage.getItem('country');
+  const authenticated = localStorage.getItem('authenticated');
   return (
     <>
       <div className="mobile" style={style.buttonBackground}>
@@ -34,7 +38,7 @@ const NavBar = props => {
       <TopNavbar />
       <Navbar className="navbar" expand="lg">
         <div
-          className={language === "en-US" ? "container secondary__nav" : "container chinese__nav"}
+          className={language === 'en-US' ? 'container secondary__nav' : 'container chinese__nav'}
         >
           <Nav className="navbar__list">
             <Nav.Item>
@@ -59,28 +63,36 @@ const NavBar = props => {
             </Nav.Item>
             {authenticated ? (
               <Nav.Item>
-                <NavDropdown className="dropdownnav" title="My Account" id="basic-nav-dropdown">
+                <NavDropdown
+                  className="dropdownnav"
+                  title={intl.formatMessage({ id: 'data.menuHPmyaccount' })}
+                  id="basic-nav-dropdown"
+                >
                   <NavDropdown.Item>
-                    <Link to="/profile">My Profile</Link>
+                    <Link to="/profile">
+                      <FormattedMessage id="data.myprofile" />
+                    </Link>
                   </NavDropdown.Item>
                   <NavDropdown.Item>
-                    <Link to="/my-wallet">My Wallet</Link>
+                    <Link to="/my-wallet">
+                      <FormattedMessage id="data.mywallet" />
+                    </Link>
                   </NavDropdown.Item>
                   <NavDropdown.Item>
-                  <Link to="/contact">Customer Care</Link>
+                    <Link to="/contact">
+                      <FormattedMessage id="data.customercare" />
+                    </Link>
                   </NavDropdown.Item>
                   <NavDropdown.Item>
-                  <Link to="/my-earnings">My Earnings</Link>
+                    <Link to="/my-earnings">
+                      <FormattedMessage id="data.myearnings" />
+                    </Link>
                   </NavDropdown.Item>
                 </NavDropdown>
               </Nav.Item>
             ) : (
               <Nav.Item>
-                <button
-                  type="button"
-                  onClick={() => modalState("signin")}
-                  className="myaccount"
-                >
+                <button type="button" onClick={() => modalState('signin')} className="myaccount">
                   <FormattedMessage id="data.menuHPmyaccount" />
                 </button>
               </Nav.Item>
@@ -92,17 +104,23 @@ const NavBar = props => {
   );
 };
 
+NavBar.propTypes = {
+  intl: intlShape.isRequired,
+};
+
 const mapDispatchToProps = {
   sidebarState,
-  modalState
+  modalState,
 };
 
 const mapStateToProps = state => ({
   user: state.User,
-  sidebar: state.Sidebar.open
+  sidebar: state.Sidebar.open,
 });
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(NavBar);
+export default injectIntl(
+  connect(
+    mapStateToProps,
+    mapDispatchToProps,
+  )(NavBar),
+);
