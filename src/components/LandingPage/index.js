@@ -36,6 +36,7 @@ const LandingPage = props => {
     slidesToShow: 1,
     slidesToScroll: 1,
     initialSlide: 1,
+    arrows:false,
     responsive: [
       {
         breakpoint: 1024,
