@@ -29,10 +29,9 @@ const LandingPage = props => {
   useEffect(() => localStorage.setItem("country", "en-US"));
   // })
   const setting = {
-    dots: true,
     lazyLoad: true,
     infinite: true,
-    autoplay: true,
+    autoplay: false,
     speed: "500",
     slidesToShow: 1,
     slidesToScroll: 1,
@@ -41,8 +40,8 @@ const LandingPage = props => {
       {
         breakpoint: 1024,
         settings: {
-          slidesToShow: 5,
-          slidesToScroll: 3,
+          slidesToShow: 1,
+          slidesToScroll: 1,
           infinite: true,
           dots: true
         }
@@ -50,9 +49,9 @@ const LandingPage = props => {
       {
         breakpoint: 600,
         settings: {
-          slidesToShow: 2,
-          slidesToScroll: 2,
-          initialSlide: 2
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          initialSlide: 1
         }
       },
       {
@@ -68,11 +67,10 @@ const LandingPage = props => {
     <>
       <Slider
         {...setting}
-        style={{padding:"0rem"}}
       >
-        <Banner imgSrc={bannerImg} height="29rem" />
-        <Banner imgSrc={bannerImg1} height="29rem" />
-        <Banner imgSrc={bannerImg2} height="29rem" />
+        <Banner imgSrc={bannerImg} height="29rem" position="top"/>
+        <Banner imgSrc={bannerImg1} height="29rem" position="top"/>
+        <Banner imgSrc={bannerImg2} height="29rem" position="top"/>
       </Slider>
       {/* <Container>
           <div className="home__banner">

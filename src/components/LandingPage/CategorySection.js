@@ -17,7 +17,7 @@ export default () => {
             initialSlideSetting="2"
           >
             {categories.map(item => (
-              <li key={uuidv1()} style={{ width: 0 }}>
+              <li key={uuidv1()} style={{ width: 0 }} className="category-slider">
                 <Link to="/categories">
                   {' '}
                   <img src={item.icon} alt={item.label} />

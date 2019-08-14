@@ -34,7 +34,7 @@ const NavBar = props => {
       <TopNavbar />
       <Navbar className="navbar" expand="lg">
         <div
-          className={language === "en-US" ? "secondary__nav" : "chinese__nav"}
+          className={language === "en-US" ? "container secondary__nav" : "container chinese__nav"}
         >
           <Nav className="navbar__list">
             <Nav.Item>

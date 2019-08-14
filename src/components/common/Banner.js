@@ -4,7 +4,7 @@ import styled from 'styled-components';
 const StyledDiv = styled.div`
   background-image: url(${props => props.imgSrc});
   background-size: cover;
-  background-position: center center;
+  background-position: ${props => (props.position ? props.position : 'center center')};
   width: inherit;
   text-align: ${props => (props.textPosition ? props.textPosition : 'left')};
   height: ${props => props.height};
