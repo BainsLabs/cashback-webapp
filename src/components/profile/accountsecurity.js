@@ -2,39 +2,53 @@ import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import InputField from 'components/common/inputField';
 import ChangePassword from 'static/images/profile/change-password.png';
+import { FormattedMessage, injectIntl, intlShape } from 'react-intl';
 
-const AccountSecurity = () => (
-  <>
-    <Container className="profile__container">
-      <h3>Account Security</h3>
-      <Container className="form__container">
-        <Row>
-          <Col className="account__security">
-            <span>
-              <img src={ChangePassword} alt="changepassword" />
-              &nbsp; Change Password
-            </span>
-          </Col>
-        </Row>
-        <Row>
-          <Col>
-            <InputField label="Old Password" />
-          </Col>
-          <Col>
-            <InputField label="New Password" />
-          </Col>
-          <Col>
-            <InputField label="Confirm Password" />
-          </Col>
-        </Row>
-        <Row>
-          <Col className="text-right">
-            <button className="savechanges">Update Password</button>
-          </Col>
-        </Row>
+const AccountSecurity = (props) => {
+  const { intl } = props;
+  return (
+    <>
+      <Container className="profile__container">
+        <h3>
+          <FormattedMessage id="data.accsecurity" />
+        </h3>
+        <Container className="form__container">
+          <Row>
+            <Col className="account__security">
+              <span>
+                <img src={ChangePassword} alt="changepassword" />
+                &nbsp;
+                {' '}
+                <FormattedMessage id="data.changepass" />
+              </span>
+            </Col>
+          </Row>
+          <Row>
+            <Col>
+              <InputField label={intl.formatMessage({ id: 'data.oldpassword' })} />
+            </Col>
+            <Col>
+              <InputField label={intl.formatMessage({ id: 'data.newpass' })} />
+            </Col>
+            <Col>
+              <InputField label={intl.formatMessage({ id: 'data.confirm' })} />
+            </Col>
+          </Row>
+          <Row>
+            <Col className="text-right">
+              <button className="savechanges">
+                <FormattedMessage id="data.changep" />
+              </button>
+            </Col>
+          </Row>
+        </Container>
       </Container>
-    </Container>
-  </>
-);
+    </>
+  );
+};
 
-export default AccountSecurity;
+AccountSecurity.propsType = {
+  intl: intlShape.isRequired,
+};
+
+export default injectIntl(AccountSecurity);
