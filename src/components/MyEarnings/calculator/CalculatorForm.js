@@ -1,12 +1,12 @@
 /* eslint-disable radix */
-import React, { Component } from 'react';
-import { Container, Col, Row } from 'react-bootstrap';
-import Input from 'components/common/inputField';
-import Logo from 'static/images/login-signup/logo-icon(left).png';
-import { totalTeam, teamByDegree } from 'utils/uitility';
-import { FormattedMessage, injectIntl, intlShape } from 'react-intl';
-import ReactTooltip from 'react-tooltip';
-import FriendShipTable from '../FriendShip/FriendShipTable';
+import React, { Component } from "react";
+import { Container, Col, Row } from "react-bootstrap";
+import Input from "components/common/inputField";
+import Logo from "static/images/login-signup/logo-icon(left).png";
+import { totalTeam, teamByDegree } from "utils/uitility";
+import { FormattedMessage, injectIntl, intlShape } from "react-intl";
+import ReactTooltip from "react-tooltip";
+import FriendShipTable from "../FriendShip/FriendShipTable";
 
 class CalculatorForm extends Component {
   state = {
@@ -14,9 +14,9 @@ class CalculatorForm extends Component {
     friendsreferred: 5,
     avgcashback: 2,
     friendshibonus: 10,
-    monthlyfriendshipbonus: '',
-    totalteam: '',
-    degreeTeam: [],
+    monthlyfriendshipbonus: "",
+    totalteam: "",
+    degreeTeam: []
   };
 
   async componentDidMount() {
@@ -25,16 +25,25 @@ class CalculatorForm extends Component {
 
   onCalculate = async () => {
     const {
-      monthlyspend, avgcashback, friendshibonus, totalteam, friendsreferred,
+      monthlyspend,
+      avgcashback,
+      friendshibonus,
+      totalteam,
+      friendsreferred
     } = this.state;
     const DegreeTeams = await teamByDegree(friendsreferred);
-    if (monthlyspend && avgcashback && friendshibonus !== '') {
+    if (monthlyspend && avgcashback && friendshibonus !== "") {
       const avgCash = avgcashback / 100;
       const bonus = friendshibonus / 100;
       const cashspent = monthlyspend;
       this.setState({
-        monthlyfriendshipbonus: (totalteam * cashspent * avgCash * bonus).toFixed(2),
-        degreeTeam: DegreeTeams,
+        monthlyfriendshipbonus: (
+          totalteam *
+          cashspent *
+          avgCash *
+          bonus
+        ).toFixed(2),
+        degreeTeam: DegreeTeams
       });
     }
   };
@@ -44,18 +53,18 @@ class CalculatorForm extends Component {
     const teams = await totalTeam(friendsreferred);
     this.setState(
       {
-        totalteam: teams,
+        totalteam: teams
       },
-      () => this.onCalculate(),
+      () => this.onCalculate()
     );
   };
 
-  onHandleChange = async (e) => {
+  onHandleChange = async e => {
     this.setState(
       {
-        [e.target.name]: e.target.value,
+        [e.target.name]: e.target.value
       },
-      () => this.onMaths(),
+      () => this.onMaths()
     );
   };
 
@@ -66,7 +75,7 @@ class CalculatorForm extends Component {
       avgcashback,
       friendshibonus,
       monthlyfriendshipbonus,
-      totalteam,
+      totalteam
     } = this.state;
     const { intl } = this.props;
     return (
@@ -89,15 +98,32 @@ class CalculatorForm extends Component {
                   value={monthlyfriendshipbonus}
                 />
                 <p>
-                  <FormattedMessage id="data.calMonthly" />&nbsp;<i data-tip={intl.formatMessage({ id: 'data.monthlybonus' })} className="fas fa-info"/>
+                  <FormattedMessage id="data.calMonthly" />
+                  &nbsp;(&nbsp;
+                  <i
+                    data-tip={intl.formatMessage({ id: "data.monthlybonus" })}
+                    className="fas fa-info"
+                  />
+                  &nbsp;)
                 </p>
                 <ReactTooltip />
               </Col>
 
               <Col md={6} className="calculator__result">
-                <Input disabled type="text" className="calculator__rfield" value={totalteam||0} />
-                <p >
-                  <FormattedMessage id="data.calTotalFriendShip" />&nbsp;<i data-tip={intl.formatMessage({ id: 'data.friendsTeam' })} className="fas fa-info"/>
+                <Input
+                  disabled
+                  type="text"
+                  className="calculator__rfield"
+                  value={totalteam || 0}
+                />
+                <p>
+                  <FormattedMessage id="data.calTotalFriendShip" />
+                  &nbsp;(&nbsp;
+                  <i
+                    data-tip={intl.formatMessage({ id: "data.friendsTeam" })}
+                    className="fas fa-info"
+                  />
+                  &nbsp;)
                 </p>
                 <ReactTooltip />
               </Col>
@@ -111,8 +137,14 @@ class CalculatorForm extends Component {
                   onChange={this.onHandleChange}
                   value={monthlyspend}
                 />
-                <p className="fieldText" >
-                  <FormattedMessage id="data.calMonthlySpend" />&nbsp;<i data-tip={intl.formatMessage({ id: 'data.monthlySpend' })} className="fas fa-info"/>
+                <p className="fieldText">
+                  <FormattedMessage id="data.calMonthlySpend" />
+                  &nbsp;(&nbsp;
+                  <i
+                    data-tip={intl.formatMessage({ id: "data.monthlySpend" })}
+                    className="fas fa-info"
+                  />
+                  &nbsp;)
                 </p>
                 <ReactTooltip />
               </Col>
@@ -123,13 +155,17 @@ class CalculatorForm extends Component {
                   name="friendsreferred"
                   onChange={this.onHandleChange}
                   value={friendsreferred}
-
                 />
-                <p
-                  className="fieldText"
-
-                >
-                  <FormattedMessage id="data.calfriendsRefered" />&nbsp;<i data-tip={intl.formatMessage({ id: 'data.friendsReffered' })} className="fas fa-info"/>
+                <p className="fieldText">
+                  <FormattedMessage id="data.calfriendsRefered" />
+                  &nbsp;(&nbsp;
+                  <i
+                    data-tip={intl.formatMessage({
+                      id: "data.friendsReffered"
+                    })}
+                    className="fas fa-info"
+                  />
+                  &nbsp;)
                 </p>
                 <ReactTooltip />
               </Col>
@@ -144,8 +180,14 @@ class CalculatorForm extends Component {
                   onChange={this.onHandleChange}
                   value={avgcashback}
                 />
-                <p className="fieldText" >
-                  <FormattedMessage id="data.calAvgCB" />&nbsp;<i data-tip={intl.formatMessage({ id: 'data.avgCashback' })} className="fas fa-info"/>
+                <p className="fieldText">
+                  <FormattedMessage id="data.calAvgCB" />
+                  &nbsp;(&nbsp;
+                  <i
+                    data-tip={intl.formatMessage({ id: "data.avgCashback" })}
+                    className="fas fa-info"
+                  />
+                  &nbsp;)
                 </p>
                 <ReactTooltip />
               </Col>
@@ -157,10 +199,16 @@ class CalculatorForm extends Component {
                   onChange={this.onHandleChange}
                   value={friendshibonus}
                 />
-                <p
-                  className="fieldText"
-                >
-                  <FormattedMessage id="data.calFriendShipBonus" />&nbsp;<i data-tip={intl.formatMessage({ id: 'data.friendshipbonus' })} className="fas fa-info"/>
+                <p className="fieldText">
+                  <FormattedMessage id="data.calFriendShipBonus" />
+                  &nbsp;(&nbsp;
+                  <i
+                    data-tip={intl.formatMessage({
+                      id: "data.friendshipbonus"
+                    })}
+                    className="fas fa-info"
+                  />
+                  &nbsp;)
                 </p>
                 <ReactTooltip />
               </Col>
@@ -175,6 +223,6 @@ class CalculatorForm extends Component {
   }
 }
 CalculatorForm.propTypes = {
-  intl: intlShape.isRequired,
+  intl: intlShape.isRequired
 };
 export default injectIntl(CalculatorForm);

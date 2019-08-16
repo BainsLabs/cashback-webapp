@@ -68,7 +68,7 @@ class Profile extends Component {
             <Col>
               <InputField
                 label={intl.formatMessage({ id: 'data.displayname' })}
-                value={userprofile.username}
+                value="-"
                 placeholder="Display name"
               />
             </Col>

@@ -9,13 +9,13 @@ const welcomeGift = () => (
     </h6>
     <Row>
       <Col md={6} className="gift__section">
-        <p>$</p>
+        <p>$5</p>
         <p>
           <FormattedMessage id="data.headermyearningspending" />
         </p>
       </Col>
       <Col md={6} className="gift__section__left">
-        <p>-</p>
+        <p>5 TLC</p>
         <p>
           <FormattedMessage id="data.headermyearningspending" />
         </p>

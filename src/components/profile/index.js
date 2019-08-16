@@ -15,9 +15,9 @@ const ProfileContainer = () => (
       className="banner-padding"
       textPosition="center"
     >
-      <h3 className="vipbanner-text">
+      <h2 className="vipbanner-text">
         <FormattedMessage id="data.myProfile" />
-      </h3>
+      </h2>
     </Banner>
     <Container>
       <Profile />

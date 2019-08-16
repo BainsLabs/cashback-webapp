@@ -144,7 +144,7 @@ export default () => (
                       <FormattedMessage id="data.footerMARKETPLACE" />
                     </li>
                     <li className="padding">
-                      <FormattedMessage id="data.ELECTRONICS" />
+                      <FormattedMessage id="data.footerSERVICES" />
                     </li>
                   </ul>
                 </Col>

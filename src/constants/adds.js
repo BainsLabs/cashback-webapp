@@ -83,7 +83,7 @@ export const adds = [
 export const addsDemo = [
   {
     cahsback: "2.4%",
-    tlc: "1.23",
+    tlc: "1.2",
     bgImg: Alibaba,
     icon: AlibabaLOGO,
     offerType: <FormattedMessage id="data.headermyearningsvipcashback" />,
@@ -198,22 +198,6 @@ export const members = [
 
 export const featureAdds = [
   {
-    cahsback: "2.4%",
-    tlc: "1.23",
-    bgImg: Alibaba,
-    icon: AlibabaLOGO,
-    offerType: <FormattedMessage id="data.headermyearningsvipcashback" />,
-    tlcText: "TLC"
-  },
-  {
-    cahsback: "0.4%",
-    tlc: "2 ",
-    bgImg: emirates,
-    icon: emiratesLogo,
-    offerType: <FormattedMessage id="data.headermyearningsvipcashback" />,
-    tlcText: "TLC"
-  },
-  {
     cahsback: "4%",
     tlc: "2 ",
     bgImg: expedia,
@@ -222,10 +206,26 @@ export const featureAdds = [
     tlcText: "TLC"
   },
   {
-    cahsback: "1.4%",
-    tlc: "0.7 ",
-    bgImg: Goto,
-    icon: GotoLogo,
+    cahsback: "2.4%",
+    tlc: "1.2",
+    bgImg: tripbg,
+    icon: tripicon,
+    offerType: <FormattedMessage id="data.headermyearningsvipcashback" />,
+    tlcText: "TLC"
+  },
+  {
+    cahsback: "3.5%",
+    tlc: "1.7",
+    bgImg: nikebg,
+    icon: nikeicon,
+    offerType: <FormattedMessage id="data.headermyearningsvipcashback" />,
+    tlcText: "TLC"
+  },
+  {
+    cahsback: "2.4%",
+    tlc: "1.2",
+    bgImg: agodabg,
+    icon: agodaicon,
     offerType: <FormattedMessage id="data.headermyearningsvipcashback" />,
     tlcText: "TLC"
   }

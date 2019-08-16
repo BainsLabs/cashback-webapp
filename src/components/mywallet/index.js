@@ -10,9 +10,9 @@ const MyWallet = (props) => {
   return (
     <>
       <Banner imgSrc={BannerImage} className="banner-padding" textPosition="center">
-        <h3 className="vipbanner-text">
+        <h2 className="vipbanner-text">
           <FormattedMessage id="data.mywallet" />
-        </h3>
+        </h2>
       </Banner>
       <Container>
         <Row>

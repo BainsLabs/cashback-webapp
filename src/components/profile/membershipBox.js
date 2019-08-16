@@ -1,15 +1,15 @@
-import React, { useState } from 'react';
-import { Container, Row, Col } from 'react-bootstrap';
-import { withRouter } from 'react-router-dom';
-import { connect } from 'react-redux';
-import ComingSoon from 'components/commingSoon';
-import Moment from 'moment';
-import { FormattedMessage } from 'react-intl';
+import React, { useState } from "react";
+import { Container, Row, Col } from "react-bootstrap";
+import { withRouter } from "react-router-dom";
+import { connect } from "react-redux";
+import ComingSoon from "components/commingSoon";
+import Moment from "moment";
+import { FormattedMessage } from "react-intl";
 
-const MemberShipBox = (props) => {
+const MemberShipBox = props => {
   const [open, modalOpen] = useState(false);
   const userprofile = props.user.userDetail.Items[0];
-  const joindate = Moment(userprofile.createdAt).format('DD MMM, YYYY');
+  const joindate = Moment(userprofile.createdAt).format("DD MMM, YYYY");
   return (
     <>
       <Container>
@@ -21,16 +21,20 @@ const MemberShipBox = (props) => {
               </h3>
               <Container className="membership__box text-center membership">
                 <h6>
-                  <FormattedMessage id="data.free" />
+                  {userprofile.status === "success" ? (
+                    "VIP"
+                  ) : (
+                    <FormattedMessage id="data.free" />
+                  )}
                 </h6>
                 <FormattedMessage id="data.joiningd" />
-                {userprofile.provider === 'mtb' ? (
+                {userprofile.provider === "mtb" ? (
                   <h5> 14th, August 2019 </h5>
                 ) : (
                   <h5>{joindate}</h5>
                 )}
                 <button
-                  onClick={() => props.history.push('/refer-friend')}
+                  onClick={() => props.history.push("/refer-friend")}
                   className="freemembership"
                 >
                   <FormattedMessage id="data.referfriend" />
@@ -45,28 +49,39 @@ const MemberShipBox = (props) => {
               </h3>
               <Container className="membership__box text-center membership">
                 <FormattedMessage id="data.vipdate" />
-                {userprofile.provider === 'mtb' && userprofile.status === 'success' ? (
+                {userprofile.provider === "mtb" &&
+                userprofile.status === "success" ? (
                   <h6>14th, August 2019</h6>
-                ) : userprofile.provider === '6degrees' && userprofile.status === 'success' ? (
+                ) : userprofile.provider === "6degrees" &&
+                  userprofile.status === "success" ? (
                   <h6>{joindate}</h6>
                 ) : (
                   <h6>-</h6>
                 )}
                 <FormattedMessage id="data.viprdate" />
-                {userprofile.provider === 'mtb' && userprofile.status === 'success' ? (
-                  <h5>14th, August 2020</h5>
-                ) : userprofile.provider === '6degrees' && userprofile.status === 'success' ? (
-                  <h5>
+                {userprofile.provider === "mtb" &&
+                userprofile.status === "success" ? (
+                  <h6>14th, August 2020</h6>
+                ) : userprofile.provider === "6degrees" &&
+                  userprofile.status === "success" ? (
+                  <h6>
                     {Moment(joindate)
-                      .add(1, 'years')
-                      .format('DD, MMM YYYY')}
-                  </h5>
+                      .add(1, "years")
+                      .format("DD, MMM YYYY")}
+                  </h6>
                 ) : (
                   <h5>-</h5>
                 )}
-                <button onClick={() => modalOpen(true)} className="upgradeVIP">
-                  <FormattedMessage id="data.vipupgrade" />
-                </button>
+                {userprofile.status === "success" ? (
+                  ""
+                ) : (
+                  <button
+                    onClick={() => modalOpen(true)}
+                    className="upgradeVIP"
+                  >
+                    <FormattedMessage id="data.vipupgrade" />
+                  </button>
+                )}
               </Container>
             </Container>
           </Col>
@@ -77,21 +92,20 @@ const MemberShipBox = (props) => {
               </h3>
               <Container className="membership__box text-center membership">
                 <h6>
-                  <FormattedMessage id="data.vip" /> 5%
-                  {' '}
-                  {userprofile.status === 'success' ? (
+                  <FormattedMessage id="data.vip" /> 5%{" "}
+                  {userprofile.status === "success" ? (
                     <i className="fas fa-check-circle icon-color" />
                   ) : (
-                    ''
+                    ""
                   )}
                 </h6>
                 <h6>
-                  <FormattedMessage id="data.vip" /> 10%
-                  {' '}
-                  {userprofile.status === 'success' && userprofile.level === '2' ? (
+                  <FormattedMessage id="data.vip" /> 10%{" "}
+                  {userprofile.status === "success" &&
+                  userprofile.level === "2" ? (
                     <i className="fas fa-check-circle icon-color" />
                   ) : (
-                    ''
+                    ""
                   )}
                 </h6>
                 <h6>
@@ -103,7 +117,10 @@ const MemberShipBox = (props) => {
                     ""
                   )} */}
                 </h6>
-                <button onClick={() => props.history.push('/vip-benefits')} className="savechanges">
+                <button
+                  onClick={() => props.history.push("/vip-benefits")}
+                  className="savechanges"
+                >
                   <FormattedMessage id="data.footerVIPBENEFITS" />
                 </button>
               </Container>
@@ -117,7 +134,7 @@ const MemberShipBox = (props) => {
 };
 
 const mapStateToProps = state => ({
-  user: state.User,
+  user: state.User
 });
 
 export default withRouter(connect(mapStateToProps)(MemberShipBox));

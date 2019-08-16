@@ -7,6 +7,7 @@ import friendshipbonus2 from "static/images/vip-banefits/friendshipbonus.jpg";
 import friendshipbonus from "static/images/vip-banefits/friendshipbonus.png";
 import chifriendshipbonus from "static/images/vip-banefits/chinesefriendshipbonus.png";
 import VipBonus from "static/images/vip-banefits/vipbonus.png";
+import VipBonuschi from "static/images/vip-banefits/vipchi.png";
 import Vipcashback from "static/images/vip-banefits/vipcashback.png";
 import chinesevipcashback from "static/images/vip-banefits/chinesevipcashback.png";
 import BenefitsCard from "components/common/benefitscard";
@@ -50,7 +51,8 @@ const VipPage = () => {
                 className="vip__button"
                 onClick={() => modalOpen(true)}
               >
-                UPGRADE TO VIP TODAY&nbsp;
+                <FormattedMessage id="data.vipupgrade" />
+                &nbsp;
                 <i className="fas fa-angle-right" />
               </button>
             </p>
@@ -64,7 +66,7 @@ const VipPage = () => {
               className="vip__benfits text-center"
             >
               <p className="vip__text">
-                <FormattedMessage id="data.headermyearningsvipcashback" />
+                <FormattedMessage id="data.headermyearningsvipcashback2" />
               </p>
               <p className="vip__benefitdesc">1</p>
             </BenefitsCard>
@@ -104,7 +106,9 @@ const VipPage = () => {
           </Col>
           <Col md={6}>
             <p className="cashtext">
-              <h3>1. VIP Cash Back</h3>
+              <h3>
+                1. <FormattedMessage id="data.headermyearningsvipcashback2" />
+              </h3>
               <FormattedMessage id="data.vipcashbackText" />
             </p>
           </Col>
@@ -112,12 +116,18 @@ const VipPage = () => {
         <Row>
           <Col md={6}>
             <p className="cashtext">
-              <h3>2. VIP Bonus</h3>
+              <h3>
+                2. <FormattedMessage id="data.headermyearningsvipbvipbonus" />
+              </h3>
               <FormattedMessage id="data.vipbonustext" />
             </p>
           </Col>
           <Col md={6}>
-            <img src={VipBonus} alt="vip casback" className="cashback__img" />
+            <img
+              src={language === "en-US" ? VipBonus : VipBonuschi}
+              alt="vip casback"
+              className="cashback__img"
+            />
           </Col>
         </Row>
         <Row>
@@ -141,7 +151,10 @@ const VipPage = () => {
           </Col>
           <Col md={6}>
             <p className="cashtext">
-              <h3>3. Friendship Bonus</h3>
+              <h3>
+                3.{" "}
+                <FormattedMessage id="data.headermyearningsfriendshipbonus" />
+              </h3>
               <FormattedMessage id="data.friendshipbonus1" />
               <FormattedMessage id="data.friendshipbonus2" />
             </p>

@@ -1,11 +1,11 @@
-import React from 'react';
-import Card from 'components/common/Card';
-import CardContent from 'components/common/CardContent';
-import { adds, members } from 'constants/adds';
-import { Row, Col, Container } from 'react-bootstrap';
-import { FormattedMessage } from 'react-intl';
-import uuidv1 from 'uuid';
-import { withRouter } from 'react-router-dom';
+import React from "react";
+import Card from "components/common/Card";
+import CardContent from "components/common/CardContent";
+import { adds, members } from "constants/adds";
+import { Row, Col, Container } from "react-bootstrap";
+import { FormattedMessage } from "react-intl";
+import uuidv1 from "uuid";
+import { withRouter } from "react-router-dom";
 
 export default withRouter(props => (
   <div className="add-section">
@@ -17,14 +17,16 @@ export default withRouter(props => (
           </h2>
           <ul>
             <li>
-              Rev Share Deals
+              <FormattedMessage id="data.ShareDeal" />
               {/* <FormattedMessage id="data.mostused" /> */}
             </li>
             <li>
-              Flat Rate Deals
+              <FormattedMessage id="data.FlatDeal" />
               {/* <FormattedMessage id="data.recharge" /> */}
             </li>
-            <li>TLC Deals</li>
+            <li>
+              <FormattedMessage id="data.HPhotdeals" />
+            </li>
             {/* <li>
               <FormattedMessage id="data.travel" />
             </li>
@@ -64,7 +66,10 @@ export default withRouter(props => (
                   <div className="card__add-section">
                     <img src={item.image} alt="brand" className={item.class} />
                     <br />
-                    <button onClick={() => props.history.push(item.url)} type="button">
+                    <button
+                      onClick={() => props.history.push(item.url)}
+                      type="button"
+                    >
                       {item.btnText}
                     </button>
                   </div>

@@ -30,7 +30,7 @@ class SignUp extends Component {
     password: "",
     referUsernameError: "",
     passwordError: <FormattedMessage id="data.passwordText" />,
-    refer: "",
+    refer: "FRIEND",
     friendUsername: "",
     signUperror: "",
     name: "",
@@ -174,7 +174,6 @@ class SignUp extends Component {
         newUser
       });
 
-
       await this.handleConfirmationSubmit();
     } catch (e) {
       this.setState({ isLoading: false, signUperror: e.message });
@@ -182,8 +181,8 @@ class SignUp extends Component {
   };
 
   handleConfirmationSubmit = async () => {
-    const { modalState,getUserEmail } = this.props;
-    const { email,username } = this.state;
+    const { modalState, getUserEmail } = this.props;
+    const { email, username } = this.state;
     let emailLowerCase = email.toLowerCase();
     this.setState({ isLoading: true });
     try {

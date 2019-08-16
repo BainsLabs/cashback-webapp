@@ -1,16 +1,18 @@
-import React from 'react';
-import ReferLinkSection from 'components/ReferAFriend/ReferFriendSection/ReferLinkSection';
-import SocialMediaReferSection from 'components/ReferAFriend/ReferFriendSection/SocialMediaReferSection';
-import ReferUsernameSection from 'components/ReferAFriend/ReferFriendSection/ReferUsernameSection';
-import { connect } from 'react-redux';
+import React from "react";
+import ReferLinkSection from "components/ReferAFriend/ReferFriendSection/ReferLinkSection";
+import SocialMediaReferSection from "components/ReferAFriend/ReferFriendSection/SocialMediaReferSection";
+import ReferUsernameSection from "components/ReferAFriend/ReferFriendSection/ReferUsernameSection";
+import { connect } from "react-redux";
 
-const ReferFriend = (props) => {
-  const UserAuthenticated = localStorage.getItem('authenticated');
+const ReferFriend = props => {
+  const UserAuthenticated = localStorage.getItem("authenticated");
   const { user } = props;
   const Link = UserAuthenticated
-    ? `${user.userDetail.Items[0].username}.6dgrees.CASH`
-    : 'xyz.6degrees.CASH';
-  const username = UserAuthenticated ? user.userDetail.Items[0].username : 'xyz.6degrees.CASH';
+    ? `${user.userDetail.Items[0].username}.6Degrees.CASH`
+    : "xyz.6degrees.CASH";
+  const username = UserAuthenticated
+    ? user.userDetail.Items[0].username
+    : "xyz.6degrees.CASH";
   return (
     <section>
       <div className="container">
@@ -23,7 +25,7 @@ const ReferFriend = (props) => {
 };
 
 const mapStateToProps = state => ({
-  user: state.User,
+  user: state.User
 });
 
 export default connect(mapStateToProps)(ReferFriend);
