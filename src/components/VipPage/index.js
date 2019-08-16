@@ -155,7 +155,7 @@ const VipPage = () => {
                 3.{" "}
                 <FormattedMessage id="data.headermyearningsfriendshipbonus" />
               </h3>
-              <FormattedMessage id="data.friendshipbonus1" />
+              <FormattedMessage id="data.friendshipbonus1" />&nbsp;
               <FormattedMessage id="data.friendshipbonus2" />
             </p>
           </Col>

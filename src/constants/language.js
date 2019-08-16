@@ -277,7 +277,7 @@ export default {
       calTotalFriendShip: 'Total Friendship Team',
       electronic: 'ELECTRONIC',
       cashbacktext:
-        '6Degrees promotes global and local brands that you know and trust. When you buy your favourite products though your 6Degrees account, you save money in Cash Back. On average an active shopper may save hundreds of dollars a year.To start saving Join FREE today!',
+        '6Degrees promotes global and local brands that you know and trust. When you buy your favourite products though your 6Degrees account, you save money in Cash Back. On average an active shopper may save hundreds of dollars a year. To start saving Join FREE today!',
       dummytext: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
       step1: 'Step 1',
       step2: 'Step 2',

@@ -94,7 +94,7 @@ class CalculatorForm extends Component {
                 <Input
                   disabled
                   type="number"
-                  className="calculator__rfield"
+                  className="calculator__rfield text-center"
                   value={monthlyfriendshipbonus}
                 />
                 <p>
@@ -113,7 +113,7 @@ class CalculatorForm extends Component {
                 <Input
                   disabled
                   type="text"
-                  className="calculator__rfield"
+                  className="calculator__rfield text-center"
                   value={totalteam || 0}
                 />
                 <p>
