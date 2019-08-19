@@ -37,12 +37,12 @@ class TopNavbar extends Component {
     window.location.reload();
   };
 
-  onCountryChange = (e) => {
-    console.log(e.target.value, 'country');
-    // eslint-disable-next-line no-undef
-    localStorage.setItem('country', e.target.value);
-    window.location.reload();
-  };
+  // onCountryChange = (e) => {
+  //   console.log(e.target.value, 'country');
+  //   // eslint-disable-next-line no-undef
+  //   localStorage.setItem('country', e.target.value);
+  //   window.location.reload();
+  // };
 
   ModalClose = async () => {
     const { modalState } = this.props;

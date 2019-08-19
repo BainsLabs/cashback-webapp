@@ -66,7 +66,7 @@ class SignIn extends Component {
           history.push('/my-earnings');
           window.location.reload();
         })
-        .catch(e => this.setState({ isLoading: false, loginError: <FormattedMessage id="data.incorrectusernamepass" /> ,error: true}));
+        .catch(e => this.setState({ isLoading: false, loginError: <p><FormattedMessage id="data.incorrectusernamepass" /></p> ,error: true}));
     } else {
       this.setState({
         error: true,

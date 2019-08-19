@@ -26,9 +26,9 @@ const VipPage = () => {
         className="banner-padding"
         textPosition="center"
       >
-        <h3 className="vipbanner-text">
+        <h2 className="vipbanner-text">
           <FormattedMessage id="data.vipbanner" />
-        </h3>
+        </h2>
       </Banner>
       <Container className="text-center vip__container">
         <Row>

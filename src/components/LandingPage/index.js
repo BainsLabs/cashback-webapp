@@ -1,42 +1,46 @@
-import React, { useEffect } from "react";
-import Banner from "components/common/Banner";
-import { connect } from "react-redux";
-import CategorySection from "components/LandingPage/CategorySection";
-import { Container, Row, Col } from "react-bootstrap";
-import bannerImg from "static/images/home-page/banner-1.jpg";
-import bannerImg1 from "static/images/home-page/banner-2.jpg";
-import bannerImg2 from "static/images/home-page/banner-3.jpg";
-import Card from "components/common/Card";
-import BlackLine from "static/icons-images/black-line.png";
-import JoinFree from "static/images/home-page/joinfree-bg.jpg";
-import ReferAFriendBG from "static/images/home-page/referAfriend-bg.png";
-import joinNow from "static/icons-images/join-now.png";
-import { withRouter } from "react-router-dom";
-import { modalState } from "redux/actions/modalActions";
-import AddSection from "components/LandingPage/AddSection";
-import DealsNews from "components/LandingPage/DealsNews";
-import { featureAdds } from "constants/adds";
-import { FormattedMessage } from "react-intl";
-import CardContent from "components/common/CardContent";
-import uuidv1 from "uuid";
+import React, { useEffect } from 'react';
+import Banner from 'components/common/Banner';
+import { connect } from 'react-redux';
+import CategorySection from 'components/LandingPage/CategorySection';
+import { Container, Row, Col } from 'react-bootstrap';
+import bannerImg from 'static/images/home-page/banner-1.jpg';
+import bannerImg1 from 'static/images/home-page/banner-2.jpg';
+import bannerImg2 from 'static/images/home-page/banner-3.jpg';
+import bannerImgchi from 'static/images/home-page/bannerchi1.jpg';
+import bannerImgchi1 from 'static/images/home-page/bannerchi2.jpg';
+import bannerImgchi2 from 'static/images/home-page/bannerchi3.jpg';
+import Card from 'components/common/Card';
+import BlackLine from 'static/icons-images/black-line.png';
+import JoinFree from 'static/images/home-page/joinfree-bg.jpg';
+import ReferAFriendBG from 'static/images/home-page/referAfriend-bg.png';
+import joinNow from 'static/icons-images/join-now.png';
+import { withRouter } from 'react-router-dom';
+import { modalState } from 'redux/actions/modalActions';
+import AddSection from 'components/LandingPage/AddSection';
+import DealsNews from 'components/LandingPage/DealsNews';
+import { featureAdds } from 'constants/adds';
+import { FormattedMessage } from 'react-intl';
+import CardContent from 'components/common/CardContent';
+import uuidv1 from 'uuid';
 // import CommonSlider from 'components/common/Slider/Slider'
-import Slider from "react-slick";
+import Slider from 'react-slick';
 
 // eslint-disable-next-line arrow-parens
 const LandingPage = props => {
+  let language = localStorage.getItem('country')
   // let cashBack = props.contents.map((cont) => {
   //   return {cont.location === "myearningvip" && cont.section==="header" ? cont.content:""}
-  useEffect(() => localStorage.setItem("country", "en-US"));
+  // useEffect(() => localStorage.setItem('country', 'en-US'));
   // })
   const setting = {
     lazyLoad: true,
     infinite: true,
     autoplay: true,
-    speed: "3000",
+    speed: '3000',
     slidesToShow: 1,
     slidesToScroll: 1,
     initialSlide: 1,
-    arrows:false,
+    arrows: false,
     responsive: [
       {
         breakpoint: 1024,
@@ -44,35 +48,34 @@ const LandingPage = props => {
           slidesToShow: 1,
           slidesToScroll: 1,
           infinite: true,
-          dots: true
-        }
+          dots: true,
+        },
       },
       {
         breakpoint: 600,
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
-          initialSlide: 1
-        }
+          initialSlide: 1,
+        },
       },
       {
         breakpoint: 480,
         settings: {
           slidesToShow: 1,
-          slidesToScroll: 1
-        }
-      }
-    ]
+          slidesToScroll: 1,
+        },
+      },
+    ],
   };
   return (
     <>
-      <Slider
-        {...setting}
-      >
-        <Banner imgSrc={bannerImg} height="29rem" position="top"/>
-        <Banner imgSrc={bannerImg1} height="29rem" position="top"/>
-        <Banner imgSrc={bannerImg2} height="29rem" position="top"/>
+  <Slider {...setting}>
+        <Banner imgSrc={language === 'en-US' ? bannerImg : bannerImgchi} height="29rem" position="top" />
+        <Banner imgSrc={language === 'en-US' ?bannerImg1 : bannerImgchi1} height="29rem" position="top" />
+        <Banner imgSrc={language === 'en-US' ? bannerImg2 :bannerImgchi2} height="29rem" position="top" />
       </Slider>
+
       {/* <Container>
           <div className="home__banner">
             <p>$100</p>
@@ -114,7 +117,7 @@ const LandingPage = props => {
               </Col>
               <Col lg={4}>
                 <button
-                  onClick={() => props.modalState("signup")}
+                  onClick={() => props.modalState('signup')}
                   className="banner-btn banner-btn-mobile"
                   type="button"
                 >
@@ -189,7 +192,7 @@ const LandingPage = props => {
               </Col>
               <Col lg={4}>
                 <button
-                  onClick={() => props.history.push("/refer-friend")}
+                  onClick={() => props.history.push('/refer-friend')}
                   className="banner-btn"
                   type="button"
                 >
@@ -206,16 +209,16 @@ const LandingPage = props => {
 };
 
 const mapStateToProps = state => ({
-  contents: state.Content.contentList || []
+  contents: state.Content.contentList || [],
 });
 
 const mapDispatchToProps = {
-  modalState
+  modalState,
 };
 
 export default withRouter(
   connect(
     mapStateToProps,
-    mapDispatchToProps
-  )(LandingPage)
+    mapDispatchToProps,
+  )(LandingPage),
 );

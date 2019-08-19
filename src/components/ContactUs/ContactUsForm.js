@@ -10,12 +10,6 @@ class ContactUsForm extends Component {
     const { intl } = this.props;
     return (
       <div className="container contact_us">
-        <h2 className="text-center font-weight-bold">
-          <FormattedMessage id="data.getintouch" />
-        </h2>
-        <p className="text-center contactus__text">
-          <FormattedMessage id="data.feedbacktext" />
-        </p>
         <div className="contactus__form">
           <Row className="contactus__general">
             <Col md={6}>

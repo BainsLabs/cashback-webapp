@@ -17,6 +17,7 @@ import VipPage from "components/VipPage";
 import AuthenticatedRoute from "utils/AuthenticatedRoute";
 import ProfileContainer from "components/profile";
 import MyWallet from "components/mywallet";
+import FavMerchants from "components/favmerchants"
 
 export default ({ childProps }) => (
   <Switch>
@@ -60,6 +61,12 @@ export default ({ childProps }) => (
       path="/profile"
       exact
       component={ProfileContainer}
+      props={childProps}
+    />
+     <AuthenticatedRoute
+      path="/favourite-merchants"
+      exact
+      component={FavMerchants}
       props={childProps}
     />
     <AuthenticatedRoute path="/my-wallet" exact component={MyWallet} props={childProps} />

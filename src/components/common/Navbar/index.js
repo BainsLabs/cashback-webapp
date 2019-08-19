@@ -78,14 +78,20 @@ const NavBar = (props) => {
                       <FormattedMessage id="data.mywallet" />
                     </Link>
                   </NavDropdown.Item>
-                  <NavDropdown.Item>
-                    <Link to="/contact">
-                      <FormattedMessage id="data.customercare" />
-                    </Link>
-                  </NavDropdown.Item>
+
                   <NavDropdown.Item>
                     <Link to="/my-earnings">
                       <FormattedMessage id="data.myearnings" />
+                    </Link>
+                  </NavDropdown.Item>
+                  <NavDropdown.Item>
+                    <Link to="/favourite-merchants">
+                      <FormattedMessage id="data.favmerchants" />
+                    </Link>
+                  </NavDropdown.Item>
+                  <NavDropdown.Item>
+                    <Link to="/contact">
+                      <FormattedMessage id="data.customercare" />
                     </Link>
                   </NavDropdown.Item>
                 </NavDropdown>
