@@ -3,7 +3,8 @@
 import React, { Component } from 'react';
 import { Row, Col } from 'react-bootstrap';
 import { Auth } from 'aws-amplify';
-import logo from 'static/images/home-page/logo.png';
+import logo from 'static/icons-images/Logo1_Horiz_Black.png';
+import logochi from 'static/images/home-page/logo(chi).png';
 import Input from 'components/common/inputField';
 import { connect } from 'react-redux';
 import DropdownComponent from 'components/common/DropDown';
@@ -50,6 +51,7 @@ class TopNavbar extends Component {
   };
 
   render() {
+    // const language = localStorage.getItem('country')
     const { user, content, intl } = this.props;
     const authenticated = localStorage.getItem('authenticated');
     return (
@@ -58,7 +60,7 @@ class TopNavbar extends Component {
           <Row>
             <Col lg={3}>
               <Link to="/">
-                <img src={logo} width="250rem" alt="logo" />
+                <img src={localStorage.getItem('country') === 'en-US' ? logo :logochi} width="250rem" alt="logo" />
               </Link>
             </Col>
             <Col lg={6}>

@@ -9,7 +9,7 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { modalState } from 'redux/actions/modalActions';
 
-import joinNow from 'static/icons-images/join-now.png';
+import joinNow from 'static/icons-images/Logo1_White_1000px.png';
 
 const Subscribe = (props) => {
   const { intl } = props;
@@ -46,7 +46,7 @@ const Subscribe = (props) => {
           <Col lg={8}>
             <Row>
               <Col lg={4} className="join-now__logo">
-                <img src={joinNow} alt="joinNowLogo" />
+                <img src={joinNow} alt="joinNowLogo" height="150px" />
               </Col>
               <Col lg={8} className="join-now__text">
                 <FormattedMessage id="data.HPBanner" />

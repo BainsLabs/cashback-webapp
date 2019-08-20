@@ -13,7 +13,7 @@ import Card from 'components/common/Card';
 import BlackLine from 'static/icons-images/black-line.png';
 import JoinFree from 'static/images/home-page/joinfree-bg.jpg';
 import ReferAFriendBG from 'static/images/home-page/referAfriend-bg.png';
-import joinNow from 'static/icons-images/join-now.png';
+import joinNow from 'static/icons-images/Logo1_White_1000px.png';
 import { withRouter } from 'react-router-dom';
 import { modalState } from 'redux/actions/modalActions';
 import AddSection from 'components/LandingPage/AddSection';
@@ -71,9 +71,9 @@ const LandingPage = props => {
   return (
     <>
   <Slider {...setting}>
-        <Banner imgSrc={language === 'en-US' ? bannerImg : bannerImgchi} height="29rem" position="top" />
-        <Banner imgSrc={language === 'en-US' ?bannerImg1 : bannerImgchi1} height="29rem" position="top" />
-        <Banner imgSrc={language === 'en-US' ? bannerImg2 :bannerImgchi2} height="29rem" position="top" />
+        <Banner imgSrc={language === 'en-US' ? bannerImg : bannerImgchi} height="40rem" position="top" />
+        <Banner imgSrc={language === 'en-US' ?bannerImg1 : bannerImgchi1} height="40rem" position="top" />
+        <Banner imgSrc={language === 'en-US' ? bannerImg2 :bannerImgchi2} height="40rem" position="top" />
       </Slider>
 
       {/* <Container>
@@ -108,7 +108,7 @@ const LandingPage = props => {
               <Col lg={8}>
                 <Row>
                   <Col lg={4} className="join-now__logo">
-                    <img src={joinNow} alt="joinNowLogo" />
+                    <img src={joinNow} alt="joinNowLogo" height="150px"/>
                   </Col>
                   <Col lg={8} className="join-now__text">
                     <FormattedMessage id="data.HPBanner" />

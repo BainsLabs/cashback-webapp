@@ -14,6 +14,7 @@ import LoaderButton from "components/common/LoaderButton";
 import { Link, withRouter } from "react-router-dom";
 import { UserSignUp } from "redux/actions/userActions";
 import { modalState } from "redux/actions/modalActions";
+import WelcomeModal from "components/welcome"
 import {
   userRegister,
   getUserEmail,
@@ -39,6 +40,7 @@ class SignUp extends Component {
     sponsorId: "",
     isAccepted: false,
     newUser: null,
+    open: false,
     emailError: false
   };
 
@@ -163,11 +165,12 @@ class SignUp extends Component {
     let { email, username, password, sponsorId, countryValue } = this.state;
     this.setState({ isLoading: true });
     try {
+      console.log(countryValue, "countryyyyyyyy")
       const newUser = await userRegister({
         email,
         username,
         password,
-        countryValue,
+        country:countryValue,
         sponsorId
       });
       this.setState({
@@ -175,10 +178,13 @@ class SignUp extends Component {
       });
 
       await this.handleConfirmationSubmit();
+
     } catch (e) {
       this.setState({ isLoading: false, signUperror: e.message });
     }
   };
+
+
 
   handleConfirmationSubmit = async () => {
     const { modalState, getUserEmail } = this.props;
@@ -188,19 +194,31 @@ class SignUp extends Component {
     try {
       await Auth.signIn(emailLowerCase, this.state.password);
       localStorage.setItem("authenticated", true);
-      this.props.history.push("/");
-      modalState(null);
+      modalState('welcome');
+      // this.props.history.push("/");
+
       let params = {
         username,
         checkType: "getUserEmail"
       };
+      this.modalOpen()
       await getUserEmail(params);
-      window.location.reload();
+      // window.location.reload();
     } catch (e) {
       this.setState({ isLoading: false, signUperror: e.message });
     }
   };
-
+  modalOpen = () => {
+    const {open} = this.state
+    this.setState({
+      open: true
+    })
+  }
+  modalClose = () => {
+    this.setState({
+      open: false
+    })
+  }
   render() {
     const {
       username,
@@ -214,7 +232,7 @@ class SignUp extends Component {
       friendUsername,
       name,
       isLoading,
-      emailError
+      emailError,open
     } = this.state;
     const { intl, modalState } = this.props;
     return (
@@ -360,6 +378,7 @@ class SignUp extends Component {
             />
           </Col>
         </Row>
+
       </section>
     );
   }
