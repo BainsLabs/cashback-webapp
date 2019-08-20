@@ -83,7 +83,7 @@ export const adds = [
 export const addsDemo = [
   {
     cahsback: "2.4%",
-    tlc: "1.2",
+    tlc: "1.23",
     bgImg: Alibaba,
     icon: AlibabaLOGO,
     offerType: <FormattedMessage id="data.headermyearningsvipcashback" />,
@@ -215,7 +215,7 @@ export const featureAdds = [
   },
   {
     cahsback: "3.5%",
-    tlc: "1.7",
+    tlc: "1.75",
     bgImg: nikebg,
     icon: nikeicon,
     offerType: <FormattedMessage id="data.headermyearningsvipcashback" />,
