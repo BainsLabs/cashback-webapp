@@ -9,14 +9,9 @@ import marketplace from 'static/images/home-page/marketplace.png';
 import services from 'static/images/home-page/services.png';
 import tlcDeals from 'static/images/home-page/TLC-Deals.png';
 
-
 import { FormattedMessage } from 'react-intl';
 // eslint-disable-next-line import/prefer-default-export
 export const categories = [
-  {
-    icon: travel,
-    label: <FormattedMessage id="data.HPfinance" />,
-  },
   {
     icon: electronics,
     label: <FormattedMessage id="data.HPelectronics" />,
@@ -35,8 +30,7 @@ export const categories = [
   },
   {
     icon: lifeStyle,
-    label: <FormattedMessage id="data.footerLIFESTYLE" />
-
+    label: <FormattedMessage id="data.footerLIFESTYLE" />,
   },
   {
     icon: marketplace,

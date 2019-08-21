@@ -12,8 +12,8 @@ import SignUpContent from 'components/UserForm/SignUp/SignUpContent';
 import SignInContent from 'components/UserForm/SignIn/SignInContent';
 import ForgotPassword from 'components/UserForm/ForgotPassword';
 import brandLogo from 'static/images/login-signup/left-logo.png';
-import Welcome from 'static/images/cashback/welcome-screen(eng).png'
-import Welcomechi from 'static/images/cashback/welcome-screen(chi).png'
+import Welcome from 'static/images/cashback/welcome-screen(eng).png';
+import Welcomechi from 'static/images/cashback/welcome-screen(chi).png';
 import { FormattedMessage } from 'react-intl';
 import styled from 'styled-components';
 
@@ -36,28 +36,36 @@ const StyledDiv = styled(Col)`
 const UserModal = (props) => {
   const { userModal, onHide } = props;
   const { name, open } = userModal;
-  let language = localStorage.getItem('country')
+  const language = localStorage.getItem('country');
   return (
     <Modal open={open} onClose={onHide} center blockScroll styles={modalStyles}>
-      {name === "signin" ? <img src={language === "en-US" ? Welcome : Welcomechi} alt="welcome to 6degrees" height="600px" width="800px"/> : <Row>
-        <StyledDiv md={5} className="no-padding left-bg auth-modal__left-side">
-          <div className="bg-img">
-            {/* <Banner imgSrc={leftImage} className="auth-modal__left-side" textPosition="center"> */}
-            <img src={brandLogo} alt="imageLogo" className="mx-auto d-block" />
-            {name === 'signin' || name === 'forgot' ? (
-              <SignInContent label={<FormattedMessage id="data.signUp" />} />
-            ) : (
-              <SignUpContent label={<FormattedMessage id="data.signIn" />} />
-            )}
-            {/* </Banner> */}
-          </div>
-        </StyledDiv>
-        <Col md={6} className="usermodal__form auth-modal__right-side">
-          <img src={LogoIcon} alt="logo" className="mx-auto d-block usermodal__logo" />
-          {name === 'signin' ? <SignIn /> : name === 'signup' ? <SignUp /> : <ForgotPassword />}
-        </Col>
-      </Row>}
-
+      {name === 'welcome' ? (
+        <img
+          src={language === 'en-US' ? Welcome : Welcomechi}
+          alt="welcome to 6degrees"
+          height="600px"
+          width="800px"
+        />
+      ) : (
+        <Row>
+          <StyledDiv md={5} className="no-padding left-bg auth-modal__left-side">
+            <div className="bg-img">
+              {/* <Banner imgSrc={leftImage} className="auth-modal__left-side" textPosition="center"> */}
+              <img src={brandLogo} alt="imageLogo" className="mx-auto d-block" />
+              {name === 'signin' || name === 'forgot' ? (
+                <SignInContent label={<FormattedMessage id="data.signUp" />} />
+              ) : (
+                <SignUpContent label={<FormattedMessage id="data.signIn" />} />
+              )}
+              {/* </Banner> */}
+            </div>
+          </StyledDiv>
+          <Col md={6} className="usermodal__form auth-modal__right-side">
+            <img src={LogoIcon} alt="logo" className="mx-auto d-block usermodal__logo" />
+            {name === 'signin' ? <SignIn /> : name === 'signup' ? <SignUp /> : <ForgotPassword />}
+          </Col>
+        </Row>
+      )}
     </Modal>
   );
 };

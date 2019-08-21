@@ -1,6 +1,8 @@
 import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import { FormattedMessage } from 'react-intl';
+import ReactTooltip from 'react-tooltip';
+import Progress from 'static/images/cashback/progress.jpeg';
 
 const welcomeGift = () => (
   <Container className="welcomegift__section">
@@ -47,7 +49,9 @@ const welcomeGift = () => (
         <p>$</p>
       </Col>
       <Col md={3} className="gift__section__three">
-        <i className="fas fa-info icon_color" />
+        <i data-tip="70% Progress" className="fas fa-info icon_color" />
+
+        <ReactTooltip />
       </Col>
     </Row>
   </Container>

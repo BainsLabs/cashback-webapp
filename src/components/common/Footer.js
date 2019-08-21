@@ -33,7 +33,7 @@ export default () => {
           </Col>
 
           {links.map(item => (
-            <Col key={uuidv1()} lg={4} className="footer__links">
+            <Col key={uuidv1()} lg={4} className={item.mainClassName || 'footer__links'}>
               <ul>
                 <li key={uuidv1()}>
                   <h4 key={uuidv1()}>{item.heading}</h4>

@@ -1,6 +1,6 @@
 /* eslint-disable import/prefer-default-export */
-import React from "react";
-import { FormattedMessage } from "react-intl";
+import React from 'react';
+import { FormattedMessage } from 'react-intl';
 
 export const links = [
   {
@@ -8,19 +8,19 @@ export const links = [
     link: [
       {
         linkLabel: <FormattedMessage id="data.BannerSC" />,
-        url: "/categories"
+        url: '/categories',
       },
       {
         linkLabel: <FormattedMessage id="data.menuHPcashbackworks" />,
-        url: "/how-cashback-works"
+        url: '/how-cashback-works',
       },
       {
         linkLabel: <FormattedMessage id="data.menuHPcapsrefer" />,
-        url: "/refer-friend"
+        url: '/refer-friend',
       },
       {
         linkLabel: <FormattedMessage id="data.footerVIPBENEFITS" />,
-        url: "/vip-benefits"
+        url: '/vip-benefits',
       },
       // {
       //   linkLabel: <FormattedMessage id="data.menuHPmyaccount" />,
@@ -28,54 +28,47 @@ export const links = [
       // },
       {
         linkLabel: <FormattedMessage id="data.headermyearningsterms" />,
-        url: "/terms-conditions"
-      }
-    ]
+        url: '/terms-conditions',
+      },
+    ],
   },
   {
-    className: "footer__category",
+    mainClassName: 'footer__Cat',
+    className: 'footer__category',
     heading: <FormattedMessage id="data.HPcategories" />,
     link: [
       {
-        linkLabel: <FormattedMessage id="data.footerAll" />,
-        url: "/categories"
-      },
-      {
         linkLabel: <FormattedMessage id="data.HPtravel" />,
-        url: "/categories"
+        url: '/categories',
       },
       {
         linkLabel: <FormattedMessage id="data.HPelectronics" />,
-        url: "/categories"
+        url: '/categories',
       },
       {
         linkLabel: <FormattedMessage id="data.HPfashion" />,
-        url: "/categories"
+        url: '/categories',
       },
       {
         linkLabel: <FormattedMessage id="data.HPhealth" />,
-        url: "/categories"
+        url: '/categories',
       },
       {
         linkLabel: <FormattedMessage id="data.footerLIFESTYLE" />,
-        url: "/categories"
+        url: '/categories',
       },
       {
         linkLabel: <FormattedMessage id="data.footerMARKETPLACE" />,
-        url: "/categories"
+        url: '/categories',
       },
       {
         linkLabel: <FormattedMessage id="data.footerSERVICES" />,
-        url: "/categories"
+        url: '/categories',
       },
       {
         linkLabel: <FormattedMessage id="data.footerTLC" />,
-        url: "/categories"
+        url: '/categories',
       },
-      {
-        linkLabel: <FormattedMessage id="data.footerOther" />,
-        url: "/categories"
-      }
-    ]
-  }
+    ],
+  },
 ];

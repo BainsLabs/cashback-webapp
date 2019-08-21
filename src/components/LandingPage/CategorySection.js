@@ -17,13 +17,12 @@ export default () => {
             initialSlideSetting="2"
           >
             {categories.map(item => (
-              <li key={uuidv1()} style={{ width: 0 }} className="category-slider">
-                <Link to="/categories">
-                  {' '}
+              <Link to="/categories" style={{ width: 0 }} className="category-slider">
+                <li key={uuidv1()}>
                   <img src={item.icon} alt={item.label} />
                   <p className="category-label">{item.label}</p>
-                </Link>
-              </li>
+                </li>
+              </Link>
             ))}
           </CommonSlider>
         </ul>

@@ -1,5 +1,6 @@
 .footer
   background: map-get($fontColor, 'green')
+
   +margin('top', 3rem)
   +padding('', 7rem 0rem 2rem 0rem)
 
@@ -27,28 +28,37 @@
 
 .footer__links
   +margin('top', 0.5rem)
-.footer__category
-  -moz-column-count: 2;
-  -moz-column-gap: 20px;
-  -webkit-column-count: 2;
-  -webkit-column-gap: 20px;
-  column-count: 2;
-  column-gap: 20px;
 
+.footer__Cat
+  @extend .footer__links
+
+  ul
+    li
+      h4
+        +padding('left', 2rem)
+
+.footer__category
+  -moz-column-count: 2
+  -moz-column-gap: 20px
+  -webkit-column-count: 2
+  -webkit-column-gap: 20px
+  column-count: 2
+  column-gap: 20px
 
 .footer__description
   color: transparentize(map-get($fontColor, 'black'), 0.3)
   text-justify: left
   text-align: left
   font-size: 16px
-  +margin('', 1rem 0)
 
+  +margin('', 1rem 0)
 
 .footer-text
   text-align: center
-  +margin('top', 2rem)
-  color: map-get($fontColor, 'black')
 
+  +margin('top', 2rem)
+
+  color: map-get($fontColor, 'black')
 
 .hidden-heading
   visibility: hidden

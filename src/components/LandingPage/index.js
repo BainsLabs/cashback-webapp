@@ -36,7 +36,7 @@ const LandingPage = props => {
     lazyLoad: true,
     infinite: true,
     autoplay: true,
-    speed: '3000',
+    speed: '10000',
     slidesToShow: 1,
     slidesToScroll: 1,
     initialSlide: 1,
