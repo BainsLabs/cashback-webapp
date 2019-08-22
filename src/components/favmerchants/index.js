@@ -22,7 +22,7 @@ const FavMerchant = () => {
                 <FormattedMessage id="data.myfavmerchants" />
               </h3>
 
-              <Table striped className="favmerchant text-center">
+              <Table striped responsive className="favmerchant text-center">
                 <thead>
                   <tr>
                     <th>

@@ -26,14 +26,14 @@ class Profile extends Component {
             </span>
           </h6>
           <Row>
-            <Col>
+            <Col md={4} xs={12}>
               <InputField
                 label={intl.formatMessage({ id: 'data.countryofresidence' })}
                 value={userprofile.country}
                 placeholder="country"
               />
             </Col>
-            <Col>
+            <Col md={4} xs={12}>
               <InputField
                 label={intl.formatMessage({ id: 'data.headermyearningsvipbusername' })}
                 value={userprofile.username}
@@ -51,21 +51,21 @@ class Profile extends Component {
         </Container>
         <Container className="form__container">
           <Row>
-            <Col>
+            <Col md={4} xs={12}>
               <InputField
                 label={intl.formatMessage({ id: 'data.firstname' })}
                 value={userprofile.first_name}
                 placeholder="First Name"
               />
             </Col>
-            <Col>
+            <Col md={4} xs={12}>
               <InputField
                 label={intl.formatMessage({ id: 'data.lastname' })}
                 value={userprofile.last_name}
                 placeholder="Last Name"
               />
             </Col>
-            <Col>
+            <Col md={4} xs={12}>
               <InputField
                 label={intl.formatMessage({ id: 'data.displayname' })}
                 value="-"
@@ -76,25 +76,25 @@ class Profile extends Component {
         </Container>
         <Container className="form__container">
           <Row>
-            <Col>
+            <Col md={4} xs={12}>
               <InputField
                 label={intl.formatMessage({ id: 'data.defaultlanguage' })}
                 value="English"
               />
             </Col>
-            <Col>
+            <Col md={4} xs={12}>
               <InputField
                 label={intl.formatMessage({ id: 'data.mnumber' })}
                 value={userprofile.phoneNumber}
                 placeholder="9988998898"
               />
             </Col>
-            <Col>
+            <Col md={4} xs={12}>
               <InputField label={intl.formatMessage({ id: 'data.bday' })} type="date" />
             </Col>
           </Row>
           <Row>
-            <Col className="text-right">
+            <Col className="text-right" xs={12}>
               <button className="savechanges">
                 <FormattedMessage id="data.savechanges" />
               </button>

@@ -45,7 +45,7 @@ const VipPage = () => {
             <p className="bluetext">
               <FormattedMessage id="data.blueText" />
             </p>
-            <p>
+            <p className="text-center">
               <button
                 type="button"
                 className="vip__button"
@@ -161,9 +161,9 @@ const VipPage = () => {
           </Col>
         </Row>
         <Row className="calculator__form text-center">
-          <Col>
+
             <CalculatorForm />
-          </Col>
+
         </Row>
       </Container>
     </>

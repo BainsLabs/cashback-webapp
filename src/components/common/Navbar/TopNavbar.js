@@ -65,14 +65,14 @@ class TopNavbar extends Component {
             </Col>
             <Col lg={6}>
               <Row>
-                <Col lg={8}>
+                <Col lg={8} style={{visibility:'hidden'}} >
                   <Input
                     placeholder={intl.formatMessage({ id: 'data.search' })}
                     autoFocus
                     className="top-navbar__search"
                   />
                 </Col>
-                <Col lg={4}>
+                <Col lg={4} xs={12}>
                   <DropdownComponent
                     icon={faMapMarkerAlt}
                     iconLeft
@@ -84,8 +84,8 @@ class TopNavbar extends Component {
               </Row>
             </Col>
             <Col lg={3}>
-              <Row>
-                <Col lg={4} className="no-padding">
+              <Row className="logout__container">
+                <Col lg={4} xs={6} className="no-padding">
                   <DropdownComponent
                     icon={faSortDown}
                     label={<FormattedMessage id="data.topLanguage" />}
@@ -95,7 +95,7 @@ class TopNavbar extends Component {
                   />
                 </Col>
                 {authenticated ? (
-                  <Col>
+                  <Col lg={8} xs={6}>
                     <button
                       type="button"
                       className="top-navbar__join-btn"

@@ -24,13 +24,13 @@ const AccountSecurity = (props) => {
             </Col>
           </Row>
           <Row>
-            <Col>
+            <Col md={4} xs={12}>
               <InputField label={intl.formatMessage({ id: 'data.oldpassword' })} />
             </Col>
-            <Col>
+            <Col md={4} xs={12}>
               <InputField label={intl.formatMessage({ id: 'data.newpass' })} />
             </Col>
-            <Col>
+            <Col md={4} xs={12}>
               <InputField label={intl.formatMessage({ id: 'data.confirm' })} />
             </Col>
           </Row>

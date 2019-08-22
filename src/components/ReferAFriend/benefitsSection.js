@@ -12,7 +12,7 @@ export default () => {
   const language = localStorage.getItem('country');
   return (
     <section>
-      <Row>
+      <Row className="text-center">
         <img
           src={language === 'en-US' ? SideContentImage : SideContentImagechi}
           alt="refer friend content"

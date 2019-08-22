@@ -79,7 +79,7 @@ class CalculatorForm extends Component {
     } = this.state;
     const { intl } = this.props;
     return (
-      <Container>
+      <Container className="no-padding">
         <Row>
           <Col className="calculator__container">
             <Row>

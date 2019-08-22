@@ -6,7 +6,7 @@ const StyledDiv = styled.div`
   color: ${props => (props.color ? props.color : '#000')};
   padding: 1rem;
   margin-top: 3rem;
-  margin-left: ${props => (props.marginLeft ? props.marginLeft : '2rem')};
+  margin-left: ${props => props.marginLeft};
 `;
 
 export default (props) => {

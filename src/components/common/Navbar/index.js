@@ -37,8 +37,10 @@ const NavBar = (props) => {
         <MobileNavBar Open={sidebar} closeMenu={sidebarState} />
       </div> */}
       <TopNavbar />
-      <secondaryNavbar />
-      {/* <Navbar className="navbar" expand="lg">
+      {/* <secondaryNavbar /> */}
+      <Navbar className="navbar" expand="lg">
+      <Navbar.Toggle aria-controls="basic-navbar-nav" />
+  <Navbar.Collapse id="basic-navbar-nav">
         <div
           className={language === 'en-US' ? 'container secondary__nav' : 'container chinese__nav'}
         >
@@ -105,9 +107,10 @@ const NavBar = (props) => {
                 </button>
               </Nav.Item>
             )}
-          </Nav> */}
-      {/* </div> */}
-      {/* </Navbar> */}
+          </Nav>
+      </div>
+      </Navbar.Collapse>
+      </Navbar>
     </>
   );
 };

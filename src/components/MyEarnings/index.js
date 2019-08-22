@@ -38,28 +38,44 @@ export default () => {
             title={<FormattedMessage id="data.headermyearningsreferealbonus" />}
           >
             {/* <ReferBonus /> */}
-            <img src={language === 'en-US' ? ComingSoon : ChineseComingSoon} alt="comming soon" />
+            <img
+              className="commingsoon"
+              src={language === 'en-US' ? ComingSoon : ChineseComingSoon}
+              alt="comming soon"
+            />
           </Tab>
           <Tab
             eventKey="vipcashback"
             title={<FormattedMessage id="data.headermyearningsvipvipcashback" />}
           >
             {/* <VipCashBack /> */}
-            <img src={language === 'en-US' ? ComingSoon : ChineseComingSoon} alt="comming soon" />
+            <img
+              className="commingsoon"
+              src={language === 'en-US' ? ComingSoon : ChineseComingSoon}
+              alt="comming soon"
+            />
           </Tab>
           <Tab
             eventKey="vipbonus"
             title={<FormattedMessage id="data.headermyearningsvipbvipbonus" />}
           >
             {/* <VipBonus /> */}
-            <img src={language === 'en-US' ? ComingSoon : ChineseComingSoon} alt="comming soon" />
+            <img
+              className="commingsoon"
+              src={language === 'en-US' ? ComingSoon : ChineseComingSoon}
+              alt="comming soon"
+            />
           </Tab>
           <Tab
             eventKey="friendship"
             title={<FormattedMessage id="data.headermyearningsfriendshipbonus" />}
           >
             {/* <FriendShipBonus /> */}
-            <img src={language === 'en-US' ? ComingSoon : ChineseComingSoon} alt="comming soon" />
+            <img
+              className="commingsoon"
+              src={language === 'en-US' ? ComingSoon : ChineseComingSoon}
+              alt="comming soon"
+            />
           </Tab>
         </Tabs>
       </Container>

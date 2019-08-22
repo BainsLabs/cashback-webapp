@@ -376,7 +376,7 @@ export default {
       request: 'Request',
       payout: 'Payout',
       mywallet: 'My Wallet',
-      vipupgrade: 'UGRADE TO VIP TODAY',
+      vipupgrade: 'UPGRADE TO VIP TODAY',
       changep: 'CHANGE PASSWORD',
       countryofresidence: 'Country of Residence',
       firstname: 'First Name',

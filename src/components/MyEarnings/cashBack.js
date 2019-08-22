@@ -27,7 +27,7 @@ export default () => (
       </ul>
     </Container>
     <Container className="merchant__container">
-      <Table striped className="merchant">
+      <Table striped responsive className="merchant">
         <thead>
           <tr>
             <th>

@@ -39,7 +39,7 @@ export default withRouter(props => (
           </ul>
           <Row>
             {adds.map(item => (
-              <Col xs={6} md={6} lg={4} className="mb-3 pl-0 category__item " key={uuidv1()}>
+              <Col xs={12} md={6} lg={4} className="mb-3 pl-0 category__item " key={uuidv1()}>
                 <Card
                   classValue="card__content-hover"
                   backgroundImage={item.bgImg}

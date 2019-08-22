@@ -11,7 +11,7 @@ export default () => {
   return (
     <section className="footer">
       <Container>
-        <Row>
+        <Row className="footer__container">
           <Col lg={4}>
             <div className="footer__logo">
               <img src={language === 'en-US' ? logo : logochi} width="inherit" alt="logo" />
