@@ -17,6 +17,7 @@ class App extends Component {
   };
 
   componentWillMount() {
+    window.scrollTo(0, 0);
     localStorage.setItem('country', 'en-US');
   }
 

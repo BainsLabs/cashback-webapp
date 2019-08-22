@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Container, Col, Row } from "react-bootstrap";
 import Banner from "components/common/Banner";
 import vipImage from "static/images/vip-banefits/vip.jpg";
@@ -19,6 +19,7 @@ import ComingSoon from "components/commingSoon";
 const VipPage = () => {
   const language = localStorage.getItem("country");
   const [open, modalOpen] = useState(false);
+  useEffect(() => window.scrollTo(0, 0));
   return (
     <>
       <Banner
