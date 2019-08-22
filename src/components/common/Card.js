@@ -8,6 +8,7 @@ const StyledDiv = styled.div`
   background-size: cover;
   background-position: center;
   text-align: ${props => (props.textPosition ? props.textPosition : 'center')};
+  height: ${props => props.height}
 `;
 
 export default (props) => {

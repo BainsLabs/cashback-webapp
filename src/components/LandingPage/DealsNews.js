@@ -1,13 +1,13 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import { Row, Col } from 'react-bootstrap';
 import HP from 'static/images/home-page/tlc-logo1.png';
 import newsImage from 'static/icons-images/news-img1.jpg';
 import HP2 from 'static/images/home-page/tlc-logo2.png';
 import { FormattedMessage } from 'react-intl';
-import ComingSoon from 'components/commingSoon'
+import ComingSoon from 'components/commingSoon';
 
 export default () => {
-  const [open, openModal] = useState(false)
+  const [open, openModal] = useState(false);
   return (
     <Row className="deals-news">
       <Col className="deals__section no-padding" lg={12}>
@@ -17,11 +17,11 @@ export default () => {
         <button type="button" className="text-white float-right deals__section-see-all">
           <FormattedMessage id="data.HPseeall" />
         </button>
-        <Row className="deals__section-content">
-          <Col md={4}>
+        <Row className="deals__section-content ">
+          <Col md={4} className="text-center">
             <img src={HP} alt="hp-logo" />
           </Col>
-          <Col md={8}>
+          <Col md={8} className="shopnow__button">
             <p>
               <FormattedMessage id="data.LPDEals" />
             </p>
@@ -31,10 +31,10 @@ export default () => {
           </Col>
         </Row>
         <Row className="deals__section-content">
-          <Col md={4}>
+          <Col md={4} className="text-center">
             <img src={HP2} alt="hp-logo" />
           </Col>
-          <Col md={8}>
+          <Col md={8} className="shopnow__button">
             <p>
               <FormattedMessage id="data.delasNewsLP1" />
             </p>
@@ -44,7 +44,7 @@ export default () => {
           </Col>
         </Row>
       </Col>
-      <ComingSoon open={open} onClose={() => openModal(false)}/>
+      <ComingSoon open={open} onClose={() => openModal(false)} />
       {/* <Col lg={3}>
         <div className="news__section no-padding">
           <span className="news__section-heading">
@@ -105,4 +105,4 @@ export default () => {
       </Col> */}
     </Row>
   );
-}
+};

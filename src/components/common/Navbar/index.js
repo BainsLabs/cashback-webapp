@@ -13,6 +13,7 @@ import { modalState } from 'redux/actions/modalActions';
 import DropdownComponent from 'components/common/DropDown';
 import MobileNavBar from './Mobile/MobileNavbar';
 import TopNavbar from './TopNavbar';
+import secondaryNavbar from './secondaryNavbar';
 
 const style = {
   buttonBackground: {
@@ -32,11 +33,12 @@ const NavBar = (props) => {
   const authenticated = localStorage.getItem('authenticated');
   return (
     <>
-      <div className="mobile" style={style.buttonBackground}>
+      {/* <div className="mobile" style={style.buttonBackground}>
         <MobileNavBar Open={sidebar} closeMenu={sidebarState} />
-      </div>
+      </div> */}
       <TopNavbar />
-      <Navbar className="navbar" expand="lg">
+      <secondaryNavbar />
+      {/* <Navbar className="navbar" expand="lg">
         <div
           className={language === 'en-US' ? 'container secondary__nav' : 'container chinese__nav'}
         >
@@ -103,9 +105,9 @@ const NavBar = (props) => {
                 </button>
               </Nav.Item>
             )}
-          </Nav>
-        </div>
-      </Navbar>
+          </Nav> */}
+      {/* </div> */}
+      {/* </Navbar> */}
     </>
   );
 };
