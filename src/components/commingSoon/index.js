@@ -10,9 +10,9 @@ export default (props) => {
     <>
       <Modal open={props.open} onClose={props.onClose}>
         {language === 'en-US' ? (
-          <img src={CommingSoon} alt="vip comingsoon" width="600px" height="400px" />
+          <img src={CommingSoon} alt="vip comingsoon" className="coming__soon" />
         ) : (
-          <img src={CommingSoonchin} alt="vip comingsoon" width="600px" height="400px" />
+          <img src={CommingSoonchin} alt="vip comingsoon" className="coming__soon" />
         )}
       </Modal>
     </>

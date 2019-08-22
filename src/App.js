@@ -16,6 +16,10 @@ class App extends Component {
     isLoader: false,
   };
 
+  componentWillMount() {
+    localStorage.setItem('country', 'en-US');
+  }
+
   async componentDidMount() {
     this.setState({
       isLoader: true,
