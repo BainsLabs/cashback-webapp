@@ -60,12 +60,44 @@ class CalculatorForm extends Component {
   };
 
   onHandleChange = async e => {
-    this.setState(
-      {
-        [e.target.name]: e.target.value
-      },
-      () => this.onMaths()
-    );
+    if(e.target.name==='avgcashback'){
+      if(e.target.value<=10 && e.target.value >= 1){
+        this.setState(
+          {
+            [e.target.name]: e.target.value
+          },
+          () => this.onMaths()
+        )
+      }
+    }
+    if(e.target.name === "monthlyspend" ){
+      if(e.target.value<=100 && e.target.value >= 1){
+        this.setState(
+          {
+            [e.target.name]: e.target.value
+          },
+          () => this.onMaths()
+        )
+      }
+    }
+    if(e.target.name === "friendshibonus"){
+      this.setState(
+        {
+          [e.target.name]: e.target.value
+        },
+        () => this.onMaths()
+      )
+    }
+    if(e.target.name === "friendsreferred"){
+      if(e.target.value <= 20 && e.target.value >= 2){
+        this.setState(
+          {
+            [e.target.name]: e.target.value
+          },
+          () => this.onMaths()
+        )
+      }
+    }
   };
 
   render() {
@@ -136,6 +168,8 @@ class CalculatorForm extends Component {
                   name="monthlyspend"
                   onChange={this.onHandleChange}
                   value={monthlyspend}
+                  min="1"
+                  max="100"
                 />
                 <p className="fieldText">
                   <FormattedMessage id="data.calMonthlySpend" />
@@ -155,6 +189,8 @@ class CalculatorForm extends Component {
                   name="friendsreferred"
                   onChange={this.onHandleChange}
                   value={friendsreferred}
+                  min="2"
+                  max="20"
                 />
                 <p className="fieldText">
                   <FormattedMessage id="data.calfriendsRefered" />
@@ -179,6 +215,8 @@ class CalculatorForm extends Component {
                   name="avgcashback"
                   onChange={this.onHandleChange}
                   value={avgcashback}
+                  min="1"
+                  max="10"
                 />
                 <p className="fieldText">
                   <FormattedMessage id="data.calAvgCB" />
@@ -192,13 +230,18 @@ class CalculatorForm extends Component {
                 <ReactTooltip />
               </Col>
               <Col md={6}>
-                <Input
+                {/* <Input
                   type="number"
                   className="calculator__field"
                   name="friendshibonus"
                   onChange={this.onHandleChange}
                   value={friendshibonus}
-                />
+                /> */}
+                <select name="friendshibonus" onChange={this.onHandleChange}>
+                  <option value="5">5</option>
+                  <option value="10">10</option>
+                  <option value="20">20</option>
+                </select>
                 <p className="fieldText">
                   <FormattedMessage id="data.calFriendShipBonus" />
                   &nbsp;(&nbsp;
