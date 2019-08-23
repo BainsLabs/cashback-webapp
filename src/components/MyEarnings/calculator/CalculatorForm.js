@@ -91,6 +91,10 @@ class CalculatorForm extends Component {
     }
   };
 
+  decimalCheck = (event) => {
+    return event.charCode >= 48 && event.charCode <= 57;
+  }
+
   render() {
     const {
       monthlyspend,
@@ -157,8 +161,7 @@ class CalculatorForm extends Component {
                   name="monthlyspend"
                   onChange={this.onHandleChange}
                   value={monthlyspend}
-                  min="1"
-                  max="100"
+                  // max="100"
                 />
                 <p className="fieldText">
                   <FormattedMessage id="data.calMonthlySpend" />
@@ -177,8 +180,8 @@ class CalculatorForm extends Component {
                   name="friendsreferred"
                   onChange={this.onHandleChange}
                   value={friendsreferred}
-                  min="2"
-                  max="20"
+                  // min="2"
+                  // max="20"
                 />
                 <p className="fieldText">
                   <FormattedMessage id="data.calfriendsRefered" />
@@ -202,8 +205,6 @@ class CalculatorForm extends Component {
                   name="avgcashback"
                   onChange={this.onHandleChange}
                   value={avgcashback}
-                  min="1"
-                  max="10"
                 />
                 <p className="fieldText">
                   <FormattedMessage id="data.calAvgCB" />
