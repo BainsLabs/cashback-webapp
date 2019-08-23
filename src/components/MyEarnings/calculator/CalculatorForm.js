@@ -50,15 +50,6 @@ class CalculatorForm extends Component {
     );
   };
 
-<<<<<<< HEAD
-  onHandleChange = async (e) => {
-    this.setState(
-      {
-        [e.target.name]: e.target.value,
-      },
-      () => this.onMaths(),
-    );
-=======
   onHandleChange = async e => {
     if(e.target.name==='avgcashback'){
       if(e.target.value<=10 && e.target.value >= 1 || e.target.value === ''){
@@ -98,7 +89,6 @@ class CalculatorForm extends Component {
         )
       }
     }
->>>>>>> 80b07ea547467ac7bfcc63d0b9d88b937b37f3a4
   };
 
   render() {
