@@ -4,18 +4,50 @@ import { Container } from 'react-bootstrap';
 import uuidv1 from 'uuid';
 import { Link } from 'react-router-dom';
 import CommonSlider from 'components/common/Slider/Slider';
+import Slider from 'react-slick';
 
 export default () => {
+  const setting = {
+    lazyLoad: true,
+    infinite: true,
+    autoplay: true,
+    speed: '500',
+    slidesToShow: 5,
+    slidesToScroll: 1,
+    initialSlide: 1,
+    arrows: true,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          infinite: true,
+          dots: true,
+        },
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          initialSlide: 1,
+        },
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+    ],
+  };
   return (
     <section className="home__category">
       <Container className="home-category">
         <ul className="home__category-list">
-          <CommonSlider
-            speedSetting="1000"
-            slidesToScrollSetting="1"
-            slidesToShowSetting="3"
-            initialSlideSetting="1"
-          >
+          <Slider {...setting}>
             {categories.map(item => (
               <Link to="/categories" style={{ width: 0 }} className="category-slider">
                 <li key={uuidv1()}>
@@ -24,7 +56,7 @@ export default () => {
                 </li>
               </Link>
             ))}
-          </CommonSlider>
+          </Slider>
         </ul>
       </Container>
     </section>
