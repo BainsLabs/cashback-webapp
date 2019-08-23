@@ -24,7 +24,7 @@ export const verifyEmailAPI = params => axios.post(
 );
 
 export const userRegisterApi = params => axios
-  .post('https://3ihrhx1pyd.execute-api.us-east-1.amazonaws.com/dev/users/register', params)
+  .post('https://devnew.mytravelbiz-api.com/mtb/user/registration', params)
   .then(res => res)
   .catch(e => JSON.stringify(e));
 export const userGetEmailApi = params => axios.post('https://3ihrhx1pyd.execute-api.us-east-1.amazonaws.com/dev/users/user-check', params);

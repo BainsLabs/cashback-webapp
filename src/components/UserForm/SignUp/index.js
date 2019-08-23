@@ -167,11 +167,7 @@ class SignUp extends Component {
     try {
       console.log(countryValue, "countryyyyyyyy")
       const newUser = await userRegister({
-        email,
-        username,
-        password,
-        country:countryValue,
-        sponsorId
+        "sessionId":"bc6cf670-c592-11e9-9c42-853f08122a65","step":"registration","personalInformation":{"firstName":"akshaytest","midInit":null,"lastName":"sharmatest","birthDate":"23/08/2001","company":null},"address":"9012321","address2":"oladfjoadi","city":"doklajdfisai","country":"IN","countryState":"adsasd","postalCode":"21321321","socialSecNumber":null,"email":"akshayjazzzteasfdastaewasg@g.com","mobilePhone":"2342342","mobileCode":"+91","homePhone":null,"homeCode":null,"workPhone":null,"workCode":null,"reference":"social","password":"Akshay@123","domain":["akshayjazzzteasfdastaewasg@g.com.mytravelbiz.com"],"treeStructure":null,"newsletter":false,"package":"3","rankAward":"optOut","shipMethod":null,"billing":{"method":"wire_transfer","tid":"15783860-c593-11e9-9c42-853f08122a65"},"sponsorId":null,"position":null,"uplinedid":null,"settings":{"defaultLanguage":"en_US"},"shipingAddress":{"address":"9012321","address2":"oladfjoadi","city":"doklajdfisai","country":"IN","countryState":"adsasd","postalCode":"21321321"}
       });
       this.setState({
         newUser
