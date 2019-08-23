@@ -61,7 +61,7 @@ class CalculatorForm extends Component {
 
   onHandleChange = async e => {
     if(e.target.name==='avgcashback'){
-      if(e.target.value<=10 && e.target.value >= 1){
+      if(e.target.value<=10 && e.target.value >= 1 || e.target.value === ''){
         this.setState(
           {
             [e.target.name]: e.target.value
@@ -71,7 +71,7 @@ class CalculatorForm extends Component {
       }
     }
     if(e.target.name === "monthlyspend" ){
-      if(e.target.value<=100 && e.target.value >= 1){
+      if(e.target.value<=100 && e.target.value >= 1 || e.target.value === ''){
         this.setState(
           {
             [e.target.name]: e.target.value
@@ -88,8 +88,8 @@ class CalculatorForm extends Component {
         () => this.onMaths()
       )
     }
-    if(e.target.name === "friendsreferred"){
-      if(e.target.value <= 20 && e.target.value >= 2){
+    if(e.target.name === "friendsreferred" ){
+      if(e.target.value <= 20 && e.target.value >= 2 || e.target.value === ''){
         this.setState(
           {
             [e.target.name]: e.target.value
