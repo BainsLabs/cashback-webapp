@@ -121,7 +121,7 @@ class SignUp extends Component {
     const { friendUsername } = this.state;
     const { getUserEmail } = this.props;
     const params = {
-      username: friendUsername,
+      username: friendUsername.toLowerCase(),
       checkType: "getUserEmail"
     };
 
