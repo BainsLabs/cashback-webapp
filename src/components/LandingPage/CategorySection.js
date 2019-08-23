@@ -12,7 +12,7 @@ export default () => {
     infinite: true,
     autoplay: true,
     speed: '500',
-    slidesToShow: 5,
+    slidesToShow: 8,
     slidesToScroll: 1,
     initialSlide: 1,
     arrows: true,
