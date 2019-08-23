@@ -36,7 +36,7 @@ const LandingPage = props => {
     lazyLoad: true,
     infinite: true,
     autoplay: true,
-    speed: '10000',
+    speed: '5000',
     slidesToShow: 1,
     slidesToScroll: 1,
     initialSlide: 1,
@@ -71,9 +71,9 @@ const LandingPage = props => {
   return (
     <>
   <Slider {...setting}>
-        <Banner imgSrc={language === 'en-US' ? bannerImg : bannerImgchi} height="40rem" position="top" />
-        <Banner imgSrc={language === 'en-US' ?bannerImg1 : bannerImgchi1} height="40rem" position="top" />
-        <Banner imgSrc={language === 'en-US' ? bannerImg2 :bannerImgchi2} height="40rem" position="top" />
+        <img src={language === 'en-US' ? bannerImg : bannerImgchi} />
+        <img src={language === 'en-US' ?bannerImg1 : bannerImgchi1}  />
+        <img src={language === 'en-US' ? bannerImg2 :bannerImgchi2}  />
       </Slider>
 
       {/* <Container>

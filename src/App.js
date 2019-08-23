@@ -18,7 +18,13 @@ class App extends Component {
 
   componentWillMount() {
     window.scrollTo(0, 0);
-    localStorage.setItem('country', 'en-US');
+    console.log(localStorage.getItem('country'), 'countryyy');
+    if (localStorage.getItem('country') === 'en-US' || localStorage.getItem('country') === null) {
+      localStorage.setItem('country', 'en-US');
+    } else {
+      localStorage.getItem('country', 'zh-CN');
+    }
+    // localStorage.setItem('country', 'en-US');
   }
 
   async componentDidMount() {

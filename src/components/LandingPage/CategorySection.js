@@ -8,13 +8,13 @@ import CommonSlider from 'components/common/Slider/Slider';
 export default () => {
   return (
     <section className="home__category">
-      <Container>
+      <Container className="home-category">
         <ul className="home__category-list">
           <CommonSlider
-            speedSetting="500"
+            speedSetting="1000"
             slidesToScrollSetting="1"
-            slidesToShowSetting="5"
-            initialSlideSetting="2"
+            slidesToShowSetting="3"
+            initialSlideSetting="1"
           >
             {categories.map(item => (
               <Link to="/categories" style={{ width: 0 }} className="category-slider">
