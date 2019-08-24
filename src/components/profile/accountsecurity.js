@@ -43,6 +43,13 @@ class AccountSecurity extends Component {
           if (data === 'SUCCESS') {
             this.setState({
               snackbarState: !snackbarState,
+              password: '',
+              newPassword: '',
+              confirmPassword: '',
+              passwordError: '',
+              oldPasswordState: false,
+              newPasswordState: false,
+              confirmPasswordState: false,
             });
           }
         })

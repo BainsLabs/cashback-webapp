@@ -61,6 +61,7 @@ const UserModal = (props) => {
             </div>
           </StyledDiv>
           <Col md={6} className="usermodal__form auth-modal__right-side">
+            {console.log(name, "nameeee")}
             <img src={LogoIcon} alt="logo" className="mx-auto d-block usermodal__logo" />
             {name === 'signin' ? <SignIn /> : name === 'signup' ? <SignUp /> : <ForgotPassword />}
           </Col>
