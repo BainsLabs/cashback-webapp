@@ -49,9 +49,9 @@ class SignIn extends Component {
     event.preventDefault();
     const { username, password } = this.state;
     const { modalState, getUserEmail, history } = this.props;
-    let usernameLower = username.toLowerCase()
+    const usernameLower = username.toLowerCase();
     const params = {
-      username:usernameLower,
+      username: usernameLower,
       checkType: 'getUserEmail',
     };
     this.setState({ isLoading: true, usernameError: '', loginError: '' });
@@ -66,11 +66,23 @@ class SignIn extends Component {
           history.push('/my-earnings');
           window.location.reload();
         })
-        .catch(e => this.setState({ isLoading: false, loginError: <p><FormattedMessage id="data.incorrectusernamepass" /></p> ,error: true}));
+        .catch(e => this.setState({
+          isLoading: false,
+          loginError: (
+            <p>
+              <FormattedMessage id="data.incorrectusernamepass" />
+            </p>
+          ),
+          error: true,
+        }));
     } else {
       this.setState({
         error: true,
-        loginError: <p><FormattedMessage id="data.usernotexists" /></p>,
+        loginError: (
+          <p>
+            <FormattedMessage id="data.usernotexists" />
+          </p>
+        ),
         isLoading: false,
       });
     }
@@ -108,7 +120,7 @@ class SignIn extends Component {
           {' '}
           <FormattedMessage id="data.to" />
           {' '}
-6Degrees.CASH
+          6Degrees.CASH
         </h3>
         <Form>
           <Form.Row>
@@ -156,12 +168,11 @@ class SignIn extends Component {
             </Col>
           </Form.Row>
         </Form>
-
-        {/* <div className="forgot-password__container">
+        <div className="forgot-password__container">
           <button type="button" className="forgot_password" onClick={() => modalState('forget')}>
             Click here to reset your password
           </button>
-        </div> */}
+        </div>
       </section>
     );
   }
@@ -176,9 +187,11 @@ const mapDispatchToProps = {
   getUserEmail,
 };
 
-export default injectIntl(withRouter(
-  connect(
-    null,
-    mapDispatchToProps,
-  )(SignIn),
-));
+export default injectIntl(
+  withRouter(
+    connect(
+      null,
+      mapDispatchToProps,
+    )(SignIn),
+  ),
+);

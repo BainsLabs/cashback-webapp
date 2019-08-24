@@ -7,7 +7,7 @@ export default (props) => {
   const selectOptions = options.map(option => (
     <option
       key={option.key}
-      value={option.item}
+      value={option.key}
       selected={option.default ? option.default : ''}
       disabled={option.disable ? option.disable : ''}
       className={optionClass}
