@@ -10,7 +10,13 @@ export default (state = { authenticated: false }, action) => {
       };
     case SignUp.GET_EMAIL:
       return {
+        ...state,
         userDetail: action.payload,
+      };
+    case SignUp.GET_USERNAME:
+      return {
+        ...state,
+        username: action.payload,
       };
     case User.LOGOUT_USER:
       return {

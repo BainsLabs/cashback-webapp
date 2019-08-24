@@ -29,6 +29,14 @@ export const getUserEmail = params => async (dispatch) => {
   });
   return res.data;
 };
+export const getUserName = params => async (dispatch) => {
+  const res = await userGetEmailApi(params);
+  dispatch({
+    type: user.GET_USERNAME,
+    payload: res.data,
+  });
+  return res.data;
+};
 
 export const verifyEmail = params => async (dispatch) => {
   const res = await verifyEmailAPI(params);
