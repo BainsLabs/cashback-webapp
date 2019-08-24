@@ -117,9 +117,7 @@ class SignIn extends Component {
       <section className="auth-right__signIn">
         <h3>
           <FormattedMessage id="data.buttonlplogin" />
-          {' '}
           <FormattedMessage id="data.to" />
-          {' '}
           6Degrees.CASH
         </h3>
         <Form>
@@ -168,11 +166,9 @@ class SignIn extends Component {
             </Col>
           </Form.Row>
         </Form>
-        <div className="forgot-password__container">
-          <button type="button" className="forgot_password" onClick={() => modalState('forget')}>
+          {/* <button type="button" className="forgot_password" onClick={() => modalState('forgot')}>
             Click here to reset your password
-          </button>
-        </div>
+          </button> */}
       </section>
     );
   }
