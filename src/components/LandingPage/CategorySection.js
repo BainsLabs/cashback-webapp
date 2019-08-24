@@ -8,11 +8,10 @@ import Slider from 'react-slick';
 
 export default () => {
   const setting = {
-    lazyLoad: true,
     infinite: true,
     autoplay: true,
     speed: '500',
-    slidesToShow: 8,
+    slidesToShow: 9,
     slidesToScroll: 1,
     initialSlide: 1,
     arrows: true,
@@ -45,7 +44,7 @@ export default () => {
   };
   return (
     <section className="home__category">
-      <Container className="home-category">
+      <div className="home-category">
         <ul className="home__category-list">
           <Slider {...setting}>
             {categories.map(item => (
@@ -58,7 +57,7 @@ export default () => {
             ))}
           </Slider>
         </ul>
-      </Container>
+      </div>
     </section>
   );
 };

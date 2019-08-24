@@ -36,7 +36,7 @@ class SignUp extends Component {
     signUperror: "",
     name: "",
     domain: "",
-    countryValue: "Andorra",
+    countryValue: "AD",
     sponsorId: "",
     isAccepted: false,
     newUser: null,
