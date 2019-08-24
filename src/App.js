@@ -8,8 +8,7 @@ import Subscribe from 'components/common/Subscribe';
 import Routes from 'Routes';
 import { connect } from 'react-redux';
 import { getContent } from 'redux/actions/contentActions';
-import LoadingOverlay from 'react-loading-overlay';
-import ScaleLoader from 'react-spinners/ScaleLoader';
+import '@material/react-snackbar/dist/snackbar.css';
 
 class App extends Component {
   state = {
