@@ -10,8 +10,7 @@ import { connect } from 'react-redux';
 import { getContent } from 'redux/actions/contentActions';
 import '@material/react-snackbar/dist/snackbar.css';
 import { getUserName } from 'redux/actions/signupActions';
-import { modalState } from "redux/actions/modalActions";
-
+import { modalState } from 'redux/actions/modalActions';
 
 class App extends Component {
   state = {
@@ -20,9 +19,8 @@ class App extends Component {
 
   async componentWillMount() {
     // const testingDomain = 'https://michelle.6degrees.cash';
-    const { getUserName,modalState } = this.props;
+    const { getUserName, modalState } = this.props;
     if (window.location.href.split('.')[0].split('//')[1] !== 'test') {
-
       const params = {
         username: window.location.href
           .split('.')[0]
@@ -32,11 +30,11 @@ class App extends Component {
       };
       const user = await getUserName(params);
       console.log(user);
-      if(user.Count === 0) {
-        window.location = "https://test.6degrees.cash"
+      if (user.Count === 0) {
+        window.location = 'https://test.6degrees.cash';
         return;
       }
-      await modalState('signup')
+      await modalState('signup');
     }
     window.scrollTo(0, 0);
     console.log(localStorage.getItem('country'), 'countryyy');

@@ -134,7 +134,7 @@ class SignUp extends Component {
     if (user.Count !== 0) {
       this.setState({
         name: `${user.Items[0].first_name} ${user.Items[0].last_name}`,
-        sponsorId: user.Items[0].uuid,
+        sponsorId: user.Items[0].dist_id,
       });
     } else {
       this.setState({
