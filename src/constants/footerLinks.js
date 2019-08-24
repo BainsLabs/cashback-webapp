@@ -42,6 +42,10 @@ export const links = [
         url: '/categories',
       },
       {
+        linkLabel: <FormattedMessage id="data.HPfinance" />,
+        url: '/categories',
+      },
+      {
         linkLabel: <FormattedMessage id="data.HPelectronics" />,
         url: '/categories',
       },

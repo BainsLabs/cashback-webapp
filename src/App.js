@@ -41,7 +41,6 @@ class App extends Component {
       await modalState('signup');
     }
     window.scrollTo(0, 0);
-    console.log(localStorage.getItem('country'), 'countryyy');
 
     // localStorage.setItem('country', 'en-US');
   }
