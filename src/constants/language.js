@@ -377,6 +377,7 @@ export default {
       payout: 'Payout',
       mywallet: 'My Wallet',
       vipupgrade: 'UPGRADE TO VIP TODAY',
+      alreadyLoggedIn: 'You are already logged in',
       passwordChange: 'Your password changed successfully',
       changep: 'CHANGE PASSWORD',
       countryofresidence: 'Country of Residence',
@@ -423,6 +424,7 @@ export default {
   'zh-CN': {
     data: {
       passwordChangeLimit: '超出尝试限制，请在一段时间后尝试.',
+      alreadyLoggedIn: '您已经登录',
       newPasswordError: '新密码和确认密码不匹配',
       oldPasswordError: '输入的旧密码不正确',
       emailexist: '电子邮件已存在',
