@@ -53,7 +53,7 @@ const UserModal = (props) => {
               {/* <Banner imgSrc={leftImage} className="auth-modal__left-side" textPosition="center"> */}
               <img src={brandLogo} alt="imageLogo" className="mx-auto d-block" />
               {name === 'signin' || name === 'forgot' ? (
-                <SignInContent label={<FormattedMessage id="data.signUp" />} />
+                <SignInContent SignUpContent label={<FormattedMessage id="data.signUp" />} />
               ) : (
                 <SignUpContent label={<FormattedMessage id="data.signIn" />} />
               )}

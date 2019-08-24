@@ -1,7 +1,8 @@
 .refer__banner
-  @include margin('', 8rem 0 6rem 7.5rem)
+  +margin('', 8rem 0 6rem 7.5rem)
+
   font-size: 2.5rem
-  color: map-get($fontColor,'white')
+  color: map-get($fontColor, 'white')
   font-weight: bolder
   letter-spacing: 0.5rem
   font-family: 'Avenir LT Std 95 Black'
@@ -9,7 +10,6 @@
 
 .side__content
   width: 100%
-  +margin('top',2rem)
-  +margin('left',4rem)
   max-width: 254px
 
+  +margin('', 2rem auto)
