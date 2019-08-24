@@ -19,30 +19,30 @@ class App extends Component {
 
   async componentWillMount() {
     // const testingDomain = 'https://michelle.6degrees.cash';
-    const { getUserName, modalState } = this.props;
-    // if (window.location.href.split('.')[0].split('//')[1] !== 'test') {
-    //   const params = {
-    //     username: window.location.href
-    //       .split('.')[0]
-    //       .split('//')[1]
-    //       .toLowerCase(),
-    //     checkType: 'getUserEmail',
-    //   };
-    //   const user = await getUserName(params);
-    //   console.log(user);
-    //   if (user.Count === 0) {
-    //     window.location = 'https://test.6degrees.cash';
-    //     return;
-    //   }
-    //   await modalState('signup');
-    // }
-    window.scrollTo(0, 0);
-    console.log(localStorage.getItem('country'), 'countryyy');
     if (localStorage.getItem('country') === 'en-US' || localStorage.getItem('country') === null) {
       localStorage.setItem('country', 'en-US');
     } else {
       localStorage.getItem('country', 'zh-CN');
     }
+    const { getUserName, modalState } = this.props;
+    if (window.location.href.split('.')[0].split('//')[1] !== 'test') {
+      const params = {
+        username: window.location.href
+          .split('.')[0]
+          .split('//')[1]
+          .toLowerCase(),
+        checkType: 'getUserEmail',
+      };
+      const user = await getUserName(params);
+      if (user.Count === 0) {
+        window.location = 'https://test.6degrees.cash';
+        return;
+      }
+      await modalState('signup');
+    }
+    window.scrollTo(0, 0);
+    console.log(localStorage.getItem('country'), 'countryyy');
+
     // localStorage.setItem('country', 'en-US');
   }
 
