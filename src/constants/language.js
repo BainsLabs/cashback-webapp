@@ -122,6 +122,7 @@ export default {
       search: ' Search',
       headermyearningsvipmerchant: 'MERCHANT',
       HPtravel: 'Travel',
+      mailsent: 'Thanks for Contacting Us. We will get back to you shortly.',
       copyrfshareonsocialmedia: 'Share on Social Media',
       HPelectronics: 'Electronics',
       copyabovefriendshipbonusfriendshipbonuspaid: 'Total Friendship Bonus Paid',
@@ -423,6 +424,7 @@ export default {
   },
   'zh-CN': {
     data: {
+      mailsent: '谢谢您联络我们。我们会尽快给您回复',
       passwordChangeLimit: '超出尝试限制，请在一段时间后尝试.',
       alreadyLoggedIn: '您已经登录',
       newPasswordError: '新密码和确认密码不匹配',

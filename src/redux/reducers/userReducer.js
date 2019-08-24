@@ -18,6 +18,11 @@ export default (state = { authenticated: false }, action) => {
         ...state,
         username: action.payload,
       };
+    case SignUp.CONTACT_MAIL:
+      return {
+        ...state,
+        contact: action.payload,
+      };
     case User.LOGOUT_USER:
       return {
         authenticated: action.payload.authenticated,
