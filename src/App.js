@@ -24,7 +24,9 @@ class App extends Component {
     } else {
       localStorage.getItem('country', 'zh-CN');
     }
-    // const { getUserName, modalState, user, getUserEmail } = this.props;
+    // const {
+    //   getUserName, modalState, user, getUserEmail,
+    // } = this.props;
     // const params = {
     //   username: window.location.href
     //     .split('.')[0]
@@ -32,14 +34,10 @@ class App extends Component {
     //     .toLowerCase(),
     //   checkType: 'getUserEmail',
     // };
-    // let userDetails = await getUserEmail(params);
+    // const userDetails = await getUserEmail(params);
     // if (window.location.href.split('.')[0].split('//')[1] !== 'test') {
-    //   const username = userDetails.Items[0].username;
-    //   console.log(username,"usernameeeeee")
-    //   if (window.location.href.split('.')[0].split('//')[1] !== localStorage.getItem('username')) {
-    //     window.location = 'https://test.6degrees.cash';
-    //     return;
-    //   }
+    //   const { username } = userDetails.Items[0];
+    //   console.log(username, 'usernameeeeee');
     //   const params = {
     //     username: window.location.href
     //       .split('.')[0]
@@ -52,6 +50,15 @@ class App extends Component {
     //     window.location = 'https://test.6degrees.cash';
     //     return;
     //   }
+    //   if (localStorage.getItem('authenticated')) {
+    //     if (
+    //       window.location.href.split('.')[0].split('//')[1] !== localStorage.getItem('username')
+    //     ) {
+    //       window.location = 'https://test.6degrees.cash';
+    //       return;
+    //     }
+    //   }
+
     //   await modalState('signup');
     // }
     window.scrollTo(0, 0);

@@ -14,7 +14,7 @@ import UserModal from 'components/UserForm/Modal';
 import { Link } from 'react-router-dom';
 import { country, language } from 'constants/dropdown';
 import { FormattedMessage, injectIntl, intlShape } from 'react-intl';
-import ReactTooltip from 'react-tooltip'
+import ReactTooltip from 'react-tooltip';
 
 class TopNavbar extends Component {
   ModalOpen = async (name) => {
@@ -22,7 +22,7 @@ class TopNavbar extends Component {
     const { modalState } = this.props;
     // const modalType = e === 'SignIn' ? modalState('signin') : modalState('signup');
     await modalState(name);
-    await ReactTooltip.rebuild()
+    await ReactTooltip.rebuild();
   };
 
   LogOut = async () => {
@@ -61,12 +61,16 @@ class TopNavbar extends Component {
           <Row>
             <Col lg={3}>
               <Link to="/">
-                <img src={localStorage.getItem('country') === 'en-US' ? logo :logochi} width="250rem" alt="logo" />
+                <img
+                  src={localStorage.getItem('country') === 'en-US' ? logo : logochi}
+                  width="250rem"
+                  alt="logo"
+                />
               </Link>
             </Col>
             <Col lg={6}>
               <Row>
-                <Col lg={8} style={{visibility:'hidden'}} >
+                <Col lg={8} style={{ visibility: 'hidden' }}>
                   <Input
                     placeholder={intl.formatMessage({ id: 'data.search' })}
                     autoFocus
@@ -86,7 +90,7 @@ class TopNavbar extends Component {
             </Col>
             <Col lg={3}>
               <Row className="logout__container">
-                <Col lg={4} xs={6} className="no-padding">
+                <Col lg={4} xs={4} className="no-padding">
                   <DropdownComponent
                     icon={faSortDown}
                     label={<FormattedMessage id="data.topLanguage" />}
@@ -96,7 +100,7 @@ class TopNavbar extends Component {
                   />
                 </Col>
                 {authenticated ? (
-                  <Col lg={8} xs={6}>
+                  <Col lg={8} xs={8}>
                     <button
                       type="button"
                       className="top-navbar__join-btn"

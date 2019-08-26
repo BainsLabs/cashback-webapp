@@ -40,7 +40,7 @@ const VipPage = () => {
             <h3 className="vipbanner-text">
               <FormattedMessage id="data.enjoyVip" />
             </h3>
-            <p>
+            <p className="vip__description">
               <FormattedMessage id="data.vipdesc" />
             </p>
             <p className="bluetext">
