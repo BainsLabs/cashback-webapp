@@ -31,6 +31,11 @@ export default (state = { authenticated: false }, action) => {
       return {
         registerUser: action.payload,
       };
+    case User.GET_PROFILE:
+      return {
+        ...state,
+        profile: action.payload,
+      };
     default:
       return state;
   }

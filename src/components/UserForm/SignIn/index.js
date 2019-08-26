@@ -6,7 +6,7 @@ import { Auth } from 'aws-amplify';
 import { withRouter } from 'react-router-dom';
 import LoaderButton from 'components/common/LoaderButton';
 import { modalState } from 'redux/actions/modalActions';
-import { getUserEmail } from 'redux/actions/signupActions';
+import { getUserEmail, getUserProfile } from 'redux/actions/signupActions';
 import { connect } from 'react-redux';
 import { FormattedMessage, injectIntl, intlShape } from 'react-intl';
 
@@ -48,7 +48,7 @@ class SignIn extends Component {
   handleSubmit = async (event) => {
     event.preventDefault();
     const { username, password } = this.state;
-    const { modalState, getUserEmail, history } = this.props;
+    const { modalState, getUserEmail, history, getUserProfile } = this.props;
     const usernameLower = username.toLowerCase();
     const params = {
       username: usernameLower,
@@ -60,10 +60,15 @@ class SignIn extends Component {
     if (email.Count !== 0) {
       userEmail = email && email.Items && email.Items[0].email;
       Auth.signIn(userEmail, password)
-        .then(() => {
+        .then(async () => {
+          const userData = await getUserProfile(params)
+          console.log(userData, "userrrrrr")
+          localStorage.setItem('profile', JSON.stringify(userData))
           modalState(null);
           localStorage.setItem('authenticated', true);
+          localStorage.setItem('username',usernameLower)
           history.push('/my-earnings');
+
           window.location.reload();
         })
         .catch(e => this.setState({
@@ -181,6 +186,7 @@ SignIn.propTypes = {
 const mapDispatchToProps = {
   modalState,
   getUserEmail,
+  getUserProfile,
 };
 
 export default injectIntl(

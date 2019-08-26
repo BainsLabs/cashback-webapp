@@ -9,7 +9,8 @@ import { injectIntl, intlShape, FormattedMessage } from 'react-intl';
 class Profile extends Component {
   render() {
     const { intl } = this.props;
-    const userprofile = this.props.user.userDetail.Items[0];
+    const userprofile = JSON.parse(localStorage.getItem('profile')).Items[0];
+    console.log(userprofile, 'profilee');
     const countryValue = country.filter(c => c.key === userprofile.country);
     return (
       <Container className="profile__container">
