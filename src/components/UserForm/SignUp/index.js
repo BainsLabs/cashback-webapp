@@ -69,16 +69,16 @@ class SignUp extends Component {
       emailError == false
     );
   };
-   componentWillMount() {
-    const {urlUser} = this.props
-    const urlUsername = urlUser.username.Items[0].username
-    if(urlUsername !== ''){
-      this.setState({
-        friendUsername: urlUsername
-      },async  () => await this.referUser())
+  //  componentWillMount() {
+  //   const {urlUser} = this.props
+  //   const urlUsername = urlUser.username.Items[0].username || ''
+  //   if(urlUsername !== ''){
+  //     this.setState({
+  //       friendUsername: urlUsername
+  //     },async  () => await this.referUser())
 
-    }
-  }
+  //   }
+  // }
   userCheck = async () => {
     const { username } = this.state;
     const { getUserEmail } = this.props;
@@ -238,8 +238,8 @@ class SignUp extends Component {
       open,
     } = this.state;
     const { intl, modalState, urlUser } = this.props;
-    const urlUsername = urlUser.username.Items[0].username
-    console.log(urlUsername, "usernamee")
+    // const urlUsername = urlUser.username.Items[0].username
+    // console.log(urlUsername, "usernamee")
     return (
       <section className="auth-right__signUp">
         <div>
