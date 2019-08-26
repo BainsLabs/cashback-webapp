@@ -13,30 +13,8 @@ export default withRouter(props => (
       <Row>
         <Col lg={9} className="add-section__heading">
           <h2>
-            <FormattedMessage id="data.HPtitletopcoupons" />
+            <FormattedMessage id="data.filterboxSCfeaturedmarchant" />
           </h2>
-          <ul>
-            <li>
-              <FormattedMessage id="data.ShareDeal" />
-              {/* <FormattedMessage id="data.mostused" /> */}
-            </li>
-            <li>
-              <FormattedMessage id="data.FlatDeal" />
-              {/* <FormattedMessage id="data.recharge" /> */}
-            </li>
-            <li>
-              <FormattedMessage id="data.HPhotdeals" />
-            </li>
-            {/* <li>
-              <FormattedMessage id="data.travel" />
-            </li>
-            <li>
-              <FormattedMessage id="data.fashion" />
-            </li>
-            <li>
-              <FormattedMessage id="data.electronic" />
-            </li> */}
-          </ul>
           <Row>
             {adds.map(item => (
               <Col xs={12} md={6} lg={4} className="mb-3 pl-0 category__item " key={uuidv1()}>

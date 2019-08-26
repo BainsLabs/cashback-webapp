@@ -31,7 +31,7 @@
     color: transparentize(map-get($fontColor, 'black'), 0.2)
 
   button
-    +margin('top', 5rem)
+    +margin('top', 1rem)
 
     color: map-get($fontColor, 'black')
     background: map-get($fontColor, 'yellow')
@@ -98,8 +98,11 @@
 .auth-right__signUp-btn
   @extend .auth-right__signIn-btn
 
+  background: map-get($fontColor, 'darkBlue')
   +margin('', 1rem 0 0 0)
   +padding('', 1rem 4rem)
+  span
+    color: map-get($fontColor, 'white')
 
 .myaccount
   background: none

@@ -7,7 +7,7 @@ export default (props) => {
     <>
       <div className="card__container pb-2">
         <Row className="hidden-content">
-          <Col xs={5} lg={5} className="no-padding">
+          <Col xs={6} lg={7} className="no-padding">
             <p className="cashback-percentage">
               <span className="cashback-offer">{data.cashbackText}</span>
               <span>{data.cahsback}</span>
@@ -18,7 +18,7 @@ export default (props) => {
             <p className="cashback-percentage">{data.tlc}</p>
             <p className="cashback-offer">{data.tlcText}</p>
           </Col>
-          <Col xs={4} lg={4} className="no-padding">
+          <Col xs={3} lg={2} className="no-padding">
             <img src={brandLogo} alt="KFC-LOGO" className="card__content-image" />
           </Col>
         </Row>
