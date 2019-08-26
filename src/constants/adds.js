@@ -241,3 +241,37 @@ export const featureAdds = [
     tlcText: "TLC"
   }
 ];
+export const TLCdeals = [
+  {
+    cahsback: "4%",
+    tlc: "2 ",
+    bgImg: expedia,
+    icon: expediaLogo,
+    offerType: <FormattedMessage id="data.headermyearningsvipcashback" />,
+    tlcText: "TLC"
+  },
+  {
+    cahsback: "2.4%",
+    tlc: "1.2",
+    bgImg: tripbg,
+    icon: tripicon,
+    offerType: <FormattedMessage id="data.headermyearningsvipcashback" />,
+    tlcText: "TLC"
+  },
+  {
+    cahsback: "3.5%",
+    tlc: "1.75",
+    bgImg: nikebg,
+    icon: nikeicon,
+    offerType: <FormattedMessage id="data.headermyearningsvipcashback" />,
+    tlcText: "TLC"
+  },
+  {
+    cahsback: "2.4%",
+    tlc: "1.2",
+    bgImg: agodabg,
+    icon: agodaicon,
+    offerType: <FormattedMessage id="data.headermyearningsvipcashback" />,
+    tlcText: "TLC"
+  }
+];
