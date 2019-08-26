@@ -129,8 +129,8 @@ class SignIn extends Component {
     return (
       <section className="auth-right__signIn">
         <h3>
-          <FormattedMessage id="data.buttonlplogin" />
-          <FormattedMessage id="data.to" />
+          <FormattedMessage id="data.buttonlplogin" />&nbsp;
+          <FormattedMessage id="data.to" />&nbsp;
           6Degrees.CASH
         </h3>
         <Form>

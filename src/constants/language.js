@@ -251,7 +251,7 @@ export default {
       earnrb:
         'You will receive $5 and 10 TLC for helping your friends save $25. There is no limit to this Referral Bonus, keep spreading the good word.',
       toreceivebonus:
-        'To receive your Referral Bonus, the person you have referred must earn $25 payable cash back or more',
+        'To receive your Referral Bonus, the person you have referred must earn $25 paid cash back or more',
       socialText:
         'Refer a Friend is to be used for recommending 6Degrees.CASH to people you know. You should only contact people via email or other electronic communications if you have their consent.',
       vipbanner: 'Unlock A World Of Possibilities',
@@ -772,7 +772,7 @@ export default {
       trackperfomance: '你可以跟踪你朋友的邀请和储蓄表现。到我的帐户>我的收入>推荐奖金。',
       earnrb:
         '您将收到5美元和10 TLC帮助您的朋友节省25美元。这是没有限制的推荐奖金，继续传播良好的口碑。',
-      toreceivebonus: '要收到你的推荐奖金，你推荐的人必须赚回25美元或更多的现金',
+      toreceivebonus: '要获得推荐奖金，您推荐的人必须获得25美元或以上的现金支付',
       socialText:
         '推荐朋友是用来推荐6度的。把钱给你认识的人。只有在得到他人同意的情况下，你才可以通过电子邮件或其他电子通讯方式与他人联系。',
       vipbanner: '打开一个可能性的世界',

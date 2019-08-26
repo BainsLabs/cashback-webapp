@@ -5,20 +5,29 @@
 
   .top-navbar__select-country,
   .top-navbar__select-language
-    +margin('', 1rem auto 0)
+    +margin('', 1rem 0)
+
+    text-align: left
 
   .top-navbar__search
     width: auto
+
   .mobilenav__list
     list-style: none
-    +margin('top',.5rem)
+
+    +margin('top', 0.5rem)
+
     li
-      +margin('top',.2rem)
+      +margin('top', 0.2rem)
+
       a
-        color: map-get($fontColor,'white')
+        color: map-get($fontColor, 'white')
         text-decoration: none
+
         &:hover
-          color: map-get($fontColor,'yellow')
+          color: map-get($fontColor, 'yellow')
+
+
 +media-breakpoint-up(xl)
   // .mobile
   //   display: none
