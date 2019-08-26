@@ -116,7 +116,7 @@ export default () => (
               <Row>
                 <Col className="category-section__heading">
                   <h2>
-                    <FormattedMessage id="data.ALL" />
+                    <FormattedMessage id="data.HPcategories" />
                   </h2>
                   <ul>
                     <li className="padding">
@@ -145,6 +145,9 @@ export default () => (
                     </li>
                     <li className="padding">
                       <FormattedMessage id="data.footerTLC" />
+                    </li>
+                    <li className="padding">
+                      <FormattedMessage id="data.footerOther" />
                     </li>
                   </ul>
                 </Col>

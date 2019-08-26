@@ -82,6 +82,7 @@ export const adds = [
 
 export const addsDemo = [
   {
+    cashbackText: "Up to",
     cahsback: "2.4%",
     tlc: "1.23",
     bgImg: Alibaba,
@@ -90,6 +91,7 @@ export const addsDemo = [
     tlcText: "TLC"
   },
   {
+    cashbackText: "Up to",
     cahsback: "0.4%",
     tlc: "2",
     bgImg: emirates,
@@ -98,6 +100,7 @@ export const addsDemo = [
     tlcText: "TLC"
   },
   {
+    cashbackText: "Up to",
     cahsback: "4%",
     tlc: "2",
     bgImg: expedia,
@@ -106,6 +109,7 @@ export const addsDemo = [
     tlcText: "TLC"
   },
   {
+    cashbackText: "Up to",
     cahsback: "1.4%",
     tlc: "0.7",
     bgImg: Goto,
@@ -114,6 +118,7 @@ export const addsDemo = [
     tlcText: "TLC"
   },
   {
+    cashbackText: "Up to",
     cahsback: "2.4%",
     tlc: "1.2",
     bgImg: hotel,
@@ -122,6 +127,7 @@ export const addsDemo = [
     tlcText: "TLC"
   },
   {
+    cashbackText: "Up to",
     cahsback: "2.4%",
     tlc: "1.2",
     bgImg: Parkpalaza,
@@ -131,6 +137,7 @@ export const addsDemo = [
   },
 
   {
+    cashbackText: "Up to",
     cahsback: "2.4%",
     tlc: "1.2",
     bgImg: tripbg,
@@ -139,6 +146,7 @@ export const addsDemo = [
     tlcText: "TLC"
   },
   {
+    cashbackText: "Up to",
     cahsback: "3.2%",
     tlc: "1.6",
     bgImg: sephorobg,
@@ -147,6 +155,7 @@ export const addsDemo = [
     tlcText: "TLC"
   },
   {
+    cashbackText: "Up to",
     cahsback: "3.5%",
     tlc: "1.7",
     bgImg: nikebg,
@@ -155,6 +164,7 @@ export const addsDemo = [
     tlcText: "TLC"
   },
   {
+    cashbackText: "Up to",
     cahsback: "1%",
     tlc: "0.5",
     bgImg: etihadbg,
@@ -163,6 +173,7 @@ export const addsDemo = [
     tlcText: "TLC"
   },
   {
+    cashbackText: "Up to",
     cahsback: "2.4%",
     tlc: "1.2",
     bgImg: agodabg,
