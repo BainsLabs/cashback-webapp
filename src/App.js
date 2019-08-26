@@ -24,36 +24,36 @@ class App extends Component {
     } else {
       localStorage.getItem('country', 'zh-CN');
     }
-    const { getUserName, modalState, user, getUserEmail } = this.props;
-    const params = {
-      username: window.location.href
-        .split('.')[0]
-        .split('//')[1]
-        .toLowerCase(),
-      checkType: 'getUserEmail',
-    };
-    let userDetails = await getUserEmail(params);
-    if (window.location.href.split('.')[0].split('//')[1] !== 'test') {
-      const username = userDetails.Items[0].username;
-      console.log(username,"usernameeeeee")
-      if (window.location.href.split('.')[0].split('//')[1] !== localStorage.getItem('username')) {
-        window.location = 'https://test.6degrees.cash';
-        return;
-      }
-      const params = {
-        username: window.location.href
-          .split('.')[0]
-          .split('//')[1]
-          .toLowerCase(),
-        checkType: 'getUserEmail',
-      };
-      const user = await getUserName(params);
-      if (user.Count === 0) {
-        window.location = 'https://test.6degrees.cash';
-        return;
-      }
-      await modalState('signup');
-    }
+    // const { getUserName, modalState, user, getUserEmail } = this.props;
+    // const params = {
+    //   username: window.location.href
+    //     .split('.')[0]
+    //     .split('//')[1]
+    //     .toLowerCase(),
+    //   checkType: 'getUserEmail',
+    // };
+    // let userDetails = await getUserEmail(params);
+    // if (window.location.href.split('.')[0].split('//')[1] !== 'test') {
+    //   const username = userDetails.Items[0].username;
+    //   console.log(username,"usernameeeeee")
+    //   if (window.location.href.split('.')[0].split('//')[1] !== localStorage.getItem('username')) {
+    //     window.location = 'https://test.6degrees.cash';
+    //     return;
+    //   }
+    //   const params = {
+    //     username: window.location.href
+    //       .split('.')[0]
+    //       .split('//')[1]
+    //       .toLowerCase(),
+    //     checkType: 'getUserEmail',
+    //   };
+    //   const user = await getUserName(params);
+    //   if (user.Count === 0) {
+    //     window.location = 'https://test.6degrees.cash';
+    //     return;
+    //   }
+    //   await modalState('signup');
+    // }
     window.scrollTo(0, 0);
 
     // localStorage.setItem('country', 'en-US');
@@ -97,7 +97,7 @@ const mapDispatchToProps = {
   getContent,
   getUserName,
   modalState,
-  getUserEmail
+  getUserEmail,
 };
 export default withRouter(
   connect(
