@@ -48,10 +48,13 @@ class App extends Component {
         window.location = 'https://test.6degrees.cash';
         return;
       }
-      if (window.location.href.split('.')[0].split('//')[1] !== localStorage.getItem('username')) {
-        window.location = 'https://test.6degrees.cash';
-        return;
+      if(localStorage.getItem("authenticated")){
+        if (window.location.href.split('.')[0].split('//')[1] !== localStorage.getItem('username')) {
+          window.location = 'https://test.6degrees.cash';
+          return;
+        }
       }
+
       await modalState('signup');
     }
     window.scrollTo(0, 0);
