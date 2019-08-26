@@ -36,10 +36,6 @@ class App extends Component {
     if (window.location.href.split('.')[0].split('//')[1] !== 'test') {
       const username = userDetails.Items[0].username;
       console.log(username,"usernameeeeee")
-      if (window.location.href.split('.')[0].split('//')[1] !== localStorage.getItem('username')) {
-        window.location = 'https://test.6degrees.cash';
-        return;
-      }
       const params = {
         username: window.location.href
           .split('.')[0]
@@ -49,6 +45,10 @@ class App extends Component {
       };
       const user = await getUserName(params);
       if (user.Count === 0) {
+        window.location = 'https://test.6degrees.cash';
+        return;
+      }
+      if (window.location.href.split('.')[0].split('//')[1] !== localStorage.getItem('username')) {
         window.location = 'https://test.6degrees.cash';
         return;
       }
