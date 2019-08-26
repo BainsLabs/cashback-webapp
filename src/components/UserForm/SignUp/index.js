@@ -71,13 +71,18 @@ class SignUp extends Component {
   };
    componentWillMount() {
     const {urlUser} = this.props
-    const urlUsername = urlUser.username.Items[0].username
-    if(urlUsername !== ''){
-      this.setState({
-        friendUsername: urlUsername
-      },async  () => await this.referUser())
+    let urlUsername;
+    if(urlUser && urlUser.username && urlUser.username.Count > 0){
+      urlUsername = urlUser.username.Items[0].username
+      console.log(urlUsername, "usernamee")
+      if(urlUsername !== ''){
+        this.setState({
+          friendUsername: urlUsername
+        },async  () => await this.referUser())
 
+      }
     }
+
   }
   userCheck = async () => {
     const { username } = this.state;
@@ -238,8 +243,11 @@ class SignUp extends Component {
       open,
     } = this.state;
     const { intl, modalState, urlUser } = this.props;
-    const urlUsername = urlUser.username.Items[0].username
-    console.log(urlUsername, "usernamee")
+    let urlUsername;
+    if(urlUser && urlUser.username && urlUser.username.Count > 0){
+      urlUsername = urlUser.username.Items[0].username
+      console.log(urlUsername, "usernamee")
+    }
     return (
       <section className="auth-right__signUp">
         <div>
