@@ -33,7 +33,6 @@ class TopNavbar extends Component {
   };
 
   onCountryChange = (e) => {
-    console.log(e.target.value, 'country');
     // eslint-disable-next-line no-undef
     localStorage.setItem('country', e.target.value);
     window.location.reload();

@@ -65,7 +65,15 @@ class SignIn extends Component {
           console.log(userData, "userrrrrr")
           localStorage.setItem('profile', JSON.stringify(userData))
           modalState(null);
-          localStorage.setItem('authenticated', true);
+          if(window.location.href.split('.')[0].split('//')[1] !== 'test'){
+            if(window.location.href.split('.')[0].split('//')[1] === userData.Items[0].username){
+              localStorage.setItem('authenticated', true);
+              return;
+            }
+          }
+          if(window.location.href.split('.')[0].split('//')[1] === 'test')  {
+            localStorage.setItem('authenticated', true);
+          }
           localStorage.setItem('username',usernameLower)
           history.push('/my-earnings');
 
