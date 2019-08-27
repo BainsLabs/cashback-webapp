@@ -12,7 +12,7 @@ export default withRouter(props => (
     <Container>
       <Row>
         <Col lg={9} className="add-section__heading">
-          <h2>
+          <h2 className="text-uppercase">
             <FormattedMessage id="data.filterboxSCfeaturedmarchant" />
           </h2>
           <Row>
