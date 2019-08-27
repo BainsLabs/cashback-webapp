@@ -71,9 +71,9 @@ class SignIn extends Component {
               return;
             }
           }
-          if(window.location.href.split('.')[0].split('//')[1] === 'test')  {
+          // if(window.location.href.split('.')[0].split('//')[1] === 'test')  {
             localStorage.setItem('authenticated', true);
-          }
+          // }
           localStorage.setItem('username',usernameLower)
           history.push('/my-earnings');
 
