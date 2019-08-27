@@ -19,7 +19,8 @@ import WelcomeModal from "components/welcome"
 import {
   userRegister,
   getUserEmail,
-  verifyEmail
+  verifyEmail,
+  getUserName
 } from "redux/actions/signupActions";
 import ReactTooltip from "react-tooltip";
 import uuid from 'uuid'
