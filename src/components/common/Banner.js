@@ -4,11 +4,12 @@ import styled from 'styled-components';
 const StyledDiv = styled.div`
   background-image: url(${props => props.imgSrc});
   background-repeat: no-repeat;
-  background-size: cover;
-  background-position: ${props => (props.position ? props.position : 'center center')};
+  background-size: contain;
+  background-position: ${props => (props.position ? props.position : 'center top')};
   width: inherit;
   text-align: ${props => (props.textPosition ? props.textPosition : 'left')};
-  height: ${props => props.height};
+  height: ${props => (props.height ? props.height : '27vw')};
+  position: relative;
 `;
 
 export default (props) => {

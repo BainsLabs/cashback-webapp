@@ -24,7 +24,6 @@ const VipPage = () => {
     <>
       <Banner
         imgSrc={VipBanner}
-        className="banner-padding"
         textPosition="center"
       >
         <h2 className="vipbanner-text text-uppercase">

@@ -7,14 +7,10 @@ import ContactServices from 'components/ContactUs/ContactServices';
 
 const ContactUs = () => (
   <>
-    <Banner imgSrc={ContactBanner} className="banner-padding">
+    <Banner imgSrc={ContactBanner}>
       <h2 className="vipbanner-text text-center">
         <FormattedMessage id="data.getintouch" />
       </h2>
-
-      <p className="text-center contactus__text">
-        <FormattedMessage id="data.feedbacktext" />
-      </p>
     </Banner>
 
     <ContactUsForm />
