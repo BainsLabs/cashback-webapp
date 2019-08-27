@@ -3,6 +3,7 @@ import styled from 'styled-components';
 //
 const StyledDiv = styled.div`
   background-image: url(${props => props.imgSrc});
+  background-repeat: no-repeat;
   background-size: cover;
   background-position: ${props => (props.position ? props.position : 'center center')};
   width: inherit;

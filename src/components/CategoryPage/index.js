@@ -1,12 +1,12 @@
-import React from "react";
-import { Row, Col, Container } from "react-bootstrap";
-import Banner from "components/common/Banner";
-import bannerImg from "static/images/shop-categories/category-banner.png";
-import Card from "components/common/Card";
-import CardContent from "components/common/CardContent";
-import { addsDemo } from "constants/adds";
-import uuidv1 from "uuid";
-import { FormattedMessage } from "react-intl";
+import React from 'react';
+import { Row, Col, Container } from 'react-bootstrap';
+import Banner from 'components/common/Banner';
+import bannerImg from 'static/images/shop-categories/category-banner.png';
+import Card from 'components/common/Card';
+import CardContent from 'components/common/CardContent';
+import { addsDemo } from 'constants/adds';
+import uuidv1 from 'uuid';
+import { FormattedMessage } from 'react-intl';
 
 export default () => (
   <>
@@ -116,17 +116,17 @@ export default () => (
               <Row>
                 <Col className="category-section__heading">
                   <h2>
-                    <FormattedMessage id="data.ALL" />
+                    <FormattedMessage id="data.HPcategories" />
                   </h2>
                   <ul>
-                    <li className="right-padding">
-                      <FormattedMessage id="data.MOSTUSED" />
+                    <li className="padding">
+                      <FormattedMessage id="data.ELECTRONICS" />
                     </li>
                     <li className="padding">
-                      <FormattedMessage id="data.RECHARGE" />
+                      <FormattedMessage id="data.HPfinance" />
                     </li>
                     <li className="padding">
-                      <FormattedMessage id="data.FOOD" />
+                      <FormattedMessage id="data.HPhealth" />
                     </li>
                     <li className="padding">
                       <FormattedMessage id="data.TRAVEL" />
@@ -135,29 +135,26 @@ export default () => (
                       <FormattedMessage id="data.FASHION" />
                     </li>
                     <li className="padding">
-                      <FormattedMessage id="data.ELECTRONICS" />
-                    </li>
-                    <li className="padding">
                       <FormattedMessage id="data.footerLIFESTYLE" />
                     </li>
-                    <li className="right-padding">
+                    <li className="padding">
                       <FormattedMessage id="data.footerMARKETPLACE" />
                     </li>
                     <li className="padding">
                       <FormattedMessage id="data.footerSERVICES" />
+                    </li>
+                    <li className="padding">
+                      <FormattedMessage id="data.footerTLC" />
+                    </li>
+                    <li className="padding">
+                      <FormattedMessage id="data.footerOther" />
                     </li>
                   </ul>
                 </Col>
               </Row>
               <Row>
                 {addsDemo.map(item => (
-                  <Col
-                    xs={12}
-                    md={6}
-                    lg={4}
-                    className="mb-3 pl-0"
-                    key={uuidv1()}
-                  >
+                  <Col xs={12} md={6} lg={4} className="mb-3 pl-0" key={uuidv1()}>
                     <Card
                       classValue="card__content-hover"
                       backgroundImage={item.bgImg}

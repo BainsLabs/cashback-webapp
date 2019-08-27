@@ -1,4 +1,5 @@
 /* eslint-disable no-shadow */
+
 import React, { Component } from "react";
 import { Row, Col } from "react-bootstrap";
 import { connect } from "react-redux";
@@ -26,23 +27,23 @@ import uuid from 'uuid'
 class SignUp extends Component {
   state = {
     isLoading: false,
-    username: "",
-    usernameError: "",
-    email: "",
-    password: "",
-    referUsernameError: "",
+    username: '',
+    usernameError: '',
+    email: '',
+    password: '',
+    referUsernameError: '',
     passwordError: <FormattedMessage id="data.passwordText" />,
-    refer: "FRIEND",
-    friendUsername: "",
-    signUperror: "",
-    name: "",
-    domain: "",
-    countryValue: "",
     sponsorId: null,
+    refer: 'FRIEND',
+    friendUsername: '',
+    signUperror: '',
+    name: '',
+    domain: '',
+    countryValue: 'AD',
     isAccepted: false,
     newUser: null,
     open: false,
-    emailError: false
+    emailError: false,
   };
 
   validateForm = () => {
@@ -54,15 +55,15 @@ class SignUp extends Component {
       friendUsername,
       isAccepted,
       emailError,
-      usernameError
+      usernameError,
     } = this.state;
-    if (refer === "FRIEND") {
+    if (refer === 'FRIEND') {
       return (
         friendUsername.length > 0 &&
         username.length > 0 &&
         email.length > 0 &&
         password.length > 0 &&
-        usernameError == "" &&
+        usernameError == '' &&
         emailError == false
       );
     }
@@ -70,17 +71,31 @@ class SignUp extends Component {
       username.length > 0 &&
       email.length > 0 &&
       password.length > 0 &&
-      usernameError == "" &&
+      usernameError == '' &&
       emailError == false
     );
   };
+   componentWillMount() {
+    const {urlUser} = this.props
+    let urlUsername;
+    if(urlUser && urlUser.username && urlUser.username.Count > 0){
+      urlUsername = urlUser.username.Items[0].username
+      console.log(urlUsername, "usernamee")
+      if(urlUsername !== ''){
+        this.setState({
+          friendUsername: urlUsername
+        },async  () => await this.referUser())
 
+      }
+    }
+
+  }
   userCheck = async () => {
     const { username } = this.state;
     const { getUserEmail } = this.props;
     const params = {
       username,
-      checkType: "usernameCheck"
+      checkType: 'usernameCheck',
     };
     const usercheckResult = await getUserEmail(params);
     if (usercheckResult.result) {
@@ -89,11 +104,11 @@ class SignUp extends Component {
           <p>
             <FormattedMessage id="data.alreadyExist" />
           </p>
-        )
+        ),
       });
     } else {
       this.setState({
-        usernameError: ""
+        usernameError: '',
       });
     }
   };
@@ -103,18 +118,18 @@ class SignUp extends Component {
     const rest = await verifyEmail({ email });
     if (rest.result) {
       this.setState({
-        emailError: true
+        emailError: true,
       });
       return;
     }
     this.setState({
-      emailError: false
+      emailError: false,
     });
   };
   onCountryChange = e => {
     console.log(e.target.value);
     this.setState({
-      countryValue: e.target.value
+      countryValue: e.target.value,
     });
   };
 
@@ -122,19 +137,19 @@ class SignUp extends Component {
     const { friendUsername } = this.state;
     const { getUserEmail } = this.props;
     const params = {
-      username: friendUsername,
-      checkType: "getUserEmail"
+      username: friendUsername.toLowerCase(),
+      checkType: 'getUserEmail',
     };
 
     const user = await getUserEmail(params);
     if (user.Count !== 0) {
       this.setState({
         name: `${user.Items[0].first_name} ${user.Items[0].last_name}`,
-        sponsorId: user.Items[0].uuid
+        sponsorId: user.Items[0].dist_id,
       });
     } else {
       this.setState({
-        referUsernameError: "Username does not exist"
+        referUsernameError: 'Username does not exist',
       });
     }
   };
@@ -149,14 +164,14 @@ class SignUp extends Component {
     this.setState(
       {
         [event.target.name]: event.target.value,
-        referUsernameError: "",
-        signUperror: ""
+        referUsernameError: '',
+        signUperror: '',
       },
       () => {
         this.validateFields();
         this.validateForm();
         console.log(this.state);
-      }
+      },
     );
   };
 
@@ -166,20 +181,16 @@ class SignUp extends Component {
     let { email, username, password, sponsorId, countryValue } = this.state;
     this.setState({ isLoading: true });
     try {
-      console.log(countryValue, "countryyyyyyyy")
       const newUser = await userRegister({"sessionId":uuid(),"step":"registration","personalInformation":{"firstName":"akshaytest","midInit":null,"lastName":"sharmatest","birthDate":"23/08/2001","company":null},"address":"9012321","address2":"oladfjoadi","city":"doklajdfisai","country":"IN","countryState":"adsasd","postalCode":"21321321","socialSecNumber":null,email,"mobilePhone":"2342342","mobileCode":"+91","homePhone":null,"homeCode":null,"workPhone":null,"workCode":null,"reference":"social",password,"domain":[`${username}.mytravelbiz.com`],"treeStructure":null,"newsletter":false,"package":"3","rankAward":"optOut","shipMethod":null,"billing":{"method":"wire_transfer","tid":"15783860-c593-11e9-9c42-853f08122a65"},sponsorId,"position":null,"uplinedid":null,"settings":{"defaultLanguage":"en_US"},"shipingAddress":{"address":"9012321","address2":"oladfjoadi","city":"doklajdfisai","country":"IN","countryState":"adsasd","postalCode":"21321321"}});
       this.setState({
-        newUser
+        newUser,
       });
 
       await this.handleConfirmationSubmit();
-
     } catch (e) {
       this.setState({ isLoading: false, signUperror: e.message });
     }
   };
-
-
 
   handleConfirmationSubmit = async () => {
     const { modalState, getUserEmail } = this.props;
@@ -188,15 +199,15 @@ class SignUp extends Component {
     this.setState({ isLoading: true });
     try {
       await Auth.signIn(emailLowerCase, this.state.password);
-      localStorage.setItem("authenticated", true);
+      localStorage.setItem('authenticated', true);
       modalState('welcome');
       // this.props.history.push("/");
 
       let params = {
         username,
-        checkType: "getUserEmail"
+        checkType: 'getUserEmail',
       };
-      this.modalOpen()
+      this.modalOpen();
       await getUserEmail(params);
       // window.location.reload();
     } catch (e) {
@@ -204,16 +215,16 @@ class SignUp extends Component {
     }
   };
   modalOpen = () => {
-    const {open} = this.state
+    const { open } = this.state;
     this.setState({
-      open: true
-    })
-  }
+      open: true,
+    });
+  };
   modalClose = () => {
     this.setState({
-      open: false
-    })
-  }
+      open: false,
+    });
+  };
   render() {
     const {
       username,
@@ -227,9 +238,15 @@ class SignUp extends Component {
       friendUsername,
       name,
       isLoading,
-      emailError,open
+      emailError,
+      open,
     } = this.state;
-    const { intl, modalState } = this.props;
+    const { intl, modalState, urlUser } = this.props;
+    let urlUsername;
+    if(urlUser && urlUser.username && urlUser.username.Count > 0){
+      urlUsername = urlUser.username.Items[0].username
+      console.log(urlUsername, "usernamee")
+    }
     return (
       <section className="auth-right__signUp">
         <div>
@@ -241,7 +258,7 @@ class SignUp extends Component {
           <Col>
             <Input
               placeholder={intl.formatMessage({
-                id: "data.fieldsuchooseusername"
+                id: 'data.fieldsuchooseusername',
               })}
               onBlur={this.userCheck}
               value={username}
@@ -255,7 +272,7 @@ class SignUp extends Component {
         <Row>
           <Col>
             <Input
-              placeholder={intl.formatMessage({ id: "data.HPenteryouremail" })}
+              placeholder={intl.formatMessage({ id: 'data.HPenteryouremail' })}
               value={email}
               name="email"
               type="email"
@@ -272,17 +289,13 @@ class SignUp extends Component {
         <Row>
           <Col>
             <Input
-              placeholder={intl.formatMessage({ id: "data.fieldsu" })}
+              placeholder={intl.formatMessage({ id: 'data.fieldsu' })}
               type="password"
               name="password"
               onChange={this.handleChange}
               value={password}
             />
-            &nbsp;
-            <i
-              data-tip={intl.formatMessage({ id: "data.passwordText" })}
-              class="fas fa-info"
-            />
+            <i data-tip={intl.formatMessage({ id: 'data.passwordText' })} class="far fa-question-circle" />
             <ReactTooltip />
             {/* {!this.validateFields() && <span className="errormessage ">{passwordError}</span>} */}
           </Col>
@@ -315,11 +328,11 @@ class SignUp extends Component {
             />
           </Col>
         </Row>
-        {refer === "FRIEND" ? (
+        {refer === 'FRIEND' ? (
           <Row>
             <Col>
               <Input
-                placeholder={intl.formatMessage({ id: "data.friendsUsername" })}
+                placeholder={intl.formatMessage({ id: 'data.friendsUsername' })}
                 onBlur={this.referUser}
                 type="text"
                 name="friendUsername"
@@ -328,11 +341,11 @@ class SignUp extends Component {
               />
               <span className="text-danger">{referUsernameError}</span>
             </Col>
-            {name !== "" ? (
+            {name !== '' ? (
               <Col>
                 <Input
-                  placeholder={intl.formatMessage({ id: "data.friendsName" })}
-                  onBlur={this.referUser}
+                  placeholder={intl.formatMessage({ id: 'data.friendsName' })}
+                  // onBlur={this.referUser}
                   type="text"
                   disabled
                   name="name"
@@ -341,11 +354,11 @@ class SignUp extends Component {
                 />
               </Col>
             ) : (
-              ""
+              ''
             )}
           </Row>
         ) : (
-          ""
+          ''
         )}
         <Row>
           <Col>
@@ -364,23 +377,24 @@ class SignUp extends Component {
               block
               disabled={!this.validateForm()}
               isLoading={isLoading}
-              className={`auth-right__signUp-btn ${
-                !this.validateForm() ? "disablled" : ""
-              }`}
+              className={`auth-right__signUp-btn ${!this.validateForm() ? 'disablled' : ''}`}
               text={<FormattedMessage id="data.signUp" />}
               loadingText="Signing up…"
               onClick={this.handleSubmit}
             />
           </Col>
         </Row>
-
       </section>
     );
   }
 }
 
 SignUp.propTypes = {
-  intl: intlShape.isRequired
+  intl: intlShape.isRequired,
+};
+
+const mapStateToProps = state => {
+  return {urlUser: state.User}
 };
 
 const mapDispatchToProps = {
@@ -388,14 +402,15 @@ const mapDispatchToProps = {
   userRegister,
   modalState,
   getUserEmail,
-  verifyEmail
+  verifyEmail,
+  getUserName,
 };
 
 export default injectIntl(
   withRouter(
     connect(
-      null,
-      mapDispatchToProps
-    )(SignUp)
-  )
+      mapStateToProps,
+      mapDispatchToProps,
+    )(SignUp),
+  ),
 );

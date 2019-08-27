@@ -8,17 +8,19 @@
 
 .home__category-list
   list-style: none
+  text-align: center
+  width: 100%
 
   a
     text-decoration: none
 
     img
+      width: 60%
+
       //
 
   // +padding('', 2rem)
   // +padding('bottom', 0rem)
-
-  text-align: center
 
   p
     color: map-get($fontColor, 'white')
@@ -26,6 +28,7 @@
     +margin('top', 1rem)
 
     font-weight: bold
+    font-size: 0.8rem
 
   li
     display: inline-block
@@ -40,7 +43,7 @@
       +margin('left', 9rem)
 
 .category-slider
-  padding: 2rem
+  padding: 1rem 1rem
 
   +margin('top', 7px)
 
@@ -52,3 +55,6 @@
     // transform: translateY(-0.15em)
     border-radius: 2rem
     background: map-get($fontColor, 'yellow')
+
+.home-category
+  padding: 1rem 0.9rem

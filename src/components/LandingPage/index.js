@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useState } from 'react';
 import Banner from 'components/common/Banner';
 import { connect } from 'react-redux';
 import CategorySection from 'components/LandingPage/CategorySection';
@@ -22,21 +22,31 @@ import { featureAdds } from 'constants/adds';
 import { FormattedMessage } from 'react-intl';
 import CardContent from 'components/common/CardContent';
 import uuidv1 from 'uuid';
+import { Snackbar } from '@material/react-snackbar';
 // import CommonSlider from 'components/common/Slider/Slider'
 import Slider from 'react-slick';
 
 // eslint-disable-next-line arrow-parens
 const LandingPage = props => {
+  const [snackbarState, setSnackbarState] = useState(false)
   let language = localStorage.getItem('country')
+  const authenticated = localStorage.getItem('authenticated');
   // let cashBack = props.contents.map((cont) => {
   //   return {cont.location === "myearningvip" && cont.section==="header" ? cont.content:""}
   // useEffect(() => localStorage.setItem('country', 'en-US'));
   // })
+  const loginCheck = () => {
+    if (authenticated) {
+      setSnackbarState(true);
+      return;
+    }
+    props.modalState('signup')
+  }
   const setting = {
     lazyLoad: true,
     infinite: true,
     autoplay: true,
-    speed: '10000',
+    speed: '5000',
     slidesToShow: 1,
     slidesToScroll: 1,
     initialSlide: 1,
@@ -48,7 +58,6 @@ const LandingPage = props => {
           slidesToShow: 1,
           slidesToScroll: 1,
           infinite: true,
-          dots: true,
         },
       },
       {
@@ -71,9 +80,9 @@ const LandingPage = props => {
   return (
     <>
   <Slider {...setting}>
-        <Banner imgSrc={language === 'en-US' ? bannerImg : bannerImgchi} height="40rem" position="top" />
-        <Banner imgSrc={language === 'en-US' ?bannerImg1 : bannerImgchi1} height="40rem" position="top" />
-        <Banner imgSrc={language === 'en-US' ? bannerImg2 :bannerImgchi2} height="40rem" position="top" />
+        <img src={language === 'en-US' ? bannerImg : bannerImgchi} />
+        <img src={language === 'en-US' ?bannerImg1 : bannerImgchi1}  />
+        <img src={language === 'en-US' ? bannerImg2 :bannerImgchi2}  />
       </Slider>
 
       {/* <Container>
@@ -117,7 +126,7 @@ const LandingPage = props => {
               </Col>
               <Col lg={4}>
                 <button
-                  onClick={() => props.modalState('signup')}
+                  onClick={loginCheck}
                   className="banner-btn banner-btn-mobile"
                   type="button"
                 >
@@ -126,6 +135,7 @@ const LandingPage = props => {
               </Col>
             </Row>
           </div>
+          <Snackbar message={<FormattedMessage id="data.alreadyLoggedIn" />} open={snackbarState} />
         </Banner>
         <div className="merchant">
           <Row>
@@ -203,6 +213,7 @@ const LandingPage = props => {
           </>
         </Banner>
         <DealsNews />
+
       </Container>
     </>
   );

@@ -2,14 +2,16 @@ import React, { Component } from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { country } from 'constants/dropdown';
 import InputField from 'components/common/inputField';
 import { injectIntl, intlShape, FormattedMessage } from 'react-intl';
 
 class Profile extends Component {
   render() {
     const { intl } = this.props;
-    const userprofile = this.props.user.userDetail.Items[0];
-    console.log(userprofile, 'proifle');
+    const userprofile = JSON.parse(localStorage.getItem('profile')).Items[0];
+    console.log(userprofile, 'profilee');
+    const countryValue = country.filter(c => c.key === userprofile.country);
     return (
       <Container className="profile__container">
         <h3>
@@ -29,7 +31,7 @@ class Profile extends Component {
             <Col md={4} xs={12}>
               <InputField
                 label={intl.formatMessage({ id: 'data.countryofresidence' })}
-                value={userprofile.country}
+                value={countryValue[0].item}
                 placeholder="country"
               />
             </Col>

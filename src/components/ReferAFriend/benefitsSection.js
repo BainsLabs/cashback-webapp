@@ -12,12 +12,14 @@ export default () => {
   const language = localStorage.getItem('country');
   return (
     <section>
-      <Row className="text-center">
-        <img
-          src={language === 'en-US' ? SideContentImage : SideContentImagechi}
-          alt="refer friend content"
-          className="side__content"
-        />
+      <Row>
+        <Col className="text-center">
+          <img
+            src={language === 'en-US' ? SideContentImage : SideContentImagechi}
+            alt="refer friend content"
+            className="side__content"
+          />
+        </Col>
         {/* <BenefitsCard className="benefits" backgroundColor="#ffec8d">
         <Row>
           <Col xs={12} className="no-padding ">

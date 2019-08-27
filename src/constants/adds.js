@@ -26,11 +26,16 @@ import sephorobg from "static/images/shop-categories/merchant-imgs-logos/sephoro
 import sephoroicon from "static/images/shop-categories/merchant-imgs-logos/sephoro.png";
 import tripbg from "static/images/shop-categories/merchant-imgs-logos/trip.jpg";
 import tripicon from "static/images/shop-categories/merchant-imgs-logos/trip-logo.png";
+import cwj from "static/images/shop-categories/cwj.jpg";
+import shirt from "static/images/shop-categories/shirt.jpg";
+import warsi from "static/images/shop-categories/Warsi.jpg";
+import food from "static/images/shop-categories/food.jpg";
 import VIP from "static/icons-images/vip.png";
 import { FormattedMessage } from "react-intl";
 
 export const adds = [
   {
+    cashbackText: "Up to",
     cahsback: "2.4%",
     tlc: "1.23",
     bgImg: Alibaba,
@@ -39,6 +44,7 @@ export const adds = [
     tlcText: "TLC"
   },
   {
+    cashbackText: "Up to",
     cahsback: "0.4%",
     tlc: "2 ",
     bgImg: emirates,
@@ -47,6 +53,7 @@ export const adds = [
     tlcText: "TLC"
   },
   {
+    cashbackText: "Up to",
     cahsback: "4%",
     tlc: "2 ",
     bgImg: expedia,
@@ -55,6 +62,7 @@ export const adds = [
     tlcText: "TLC"
   },
   {
+    cashbackText: "Up to",
     cahsback: "1.4%",
     tlc: "0.7 ",
     bgImg: Goto,
@@ -63,6 +71,7 @@ export const adds = [
     tlcText: "TLC"
   },
   {
+    cashbackText: "Up to",
     cahsback: "2.4%",
     tlc: "1.2 ",
     bgImg: hotel,
@@ -71,6 +80,7 @@ export const adds = [
     tlcText: "TLC"
   },
   {
+    cashbackText: "Up to",
     cahsback: "2.4%",
     tlc: "1.2 ",
     bgImg: Parkpalaza,
@@ -82,6 +92,7 @@ export const adds = [
 
 export const addsDemo = [
   {
+    cashbackText: "Up to",
     cahsback: "2.4%",
     tlc: "1.23",
     bgImg: Alibaba,
@@ -90,6 +101,7 @@ export const addsDemo = [
     tlcText: "TLC"
   },
   {
+    cashbackText: "Up to",
     cahsback: "0.4%",
     tlc: "2",
     bgImg: emirates,
@@ -98,6 +110,7 @@ export const addsDemo = [
     tlcText: "TLC"
   },
   {
+    cashbackText: "Up to",
     cahsback: "4%",
     tlc: "2",
     bgImg: expedia,
@@ -106,6 +119,7 @@ export const addsDemo = [
     tlcText: "TLC"
   },
   {
+    cashbackText: "Up to",
     cahsback: "1.4%",
     tlc: "0.7",
     bgImg: Goto,
@@ -114,6 +128,7 @@ export const addsDemo = [
     tlcText: "TLC"
   },
   {
+    cashbackText: "Up to",
     cahsback: "2.4%",
     tlc: "1.2",
     bgImg: hotel,
@@ -122,6 +137,7 @@ export const addsDemo = [
     tlcText: "TLC"
   },
   {
+    cashbackText: "Up to",
     cahsback: "2.4%",
     tlc: "1.2",
     bgImg: Parkpalaza,
@@ -131,6 +147,7 @@ export const addsDemo = [
   },
 
   {
+    cashbackText: "Up to",
     cahsback: "2.4%",
     tlc: "1.2",
     bgImg: tripbg,
@@ -139,6 +156,7 @@ export const addsDemo = [
     tlcText: "TLC"
   },
   {
+    cashbackText: "Up to",
     cahsback: "3.2%",
     tlc: "1.6",
     bgImg: sephorobg,
@@ -147,6 +165,7 @@ export const addsDemo = [
     tlcText: "TLC"
   },
   {
+    cashbackText: "Up to",
     cahsback: "3.5%",
     tlc: "1.7",
     bgImg: nikebg,
@@ -155,6 +174,7 @@ export const addsDemo = [
     tlcText: "TLC"
   },
   {
+    cashbackText: "Up to",
     cahsback: "1%",
     tlc: "0.5",
     bgImg: etihadbg,
@@ -163,6 +183,7 @@ export const addsDemo = [
     tlcText: "TLC"
   },
   {
+    cashbackText: "Up to",
     cahsback: "2.4%",
     tlc: "1.2",
     bgImg: agodabg,
@@ -198,6 +219,7 @@ export const members = [
 
 export const featureAdds = [
   {
+    cashbackText: "Up to",
     cahsback: "4%",
     tlc: "2 ",
     bgImg: expedia,
@@ -206,6 +228,7 @@ export const featureAdds = [
     tlcText: "TLC"
   },
   {
+    cashbackText: "Up to",
     cahsback: "2.4%",
     tlc: "1.2",
     bgImg: tripbg,
@@ -214,6 +237,7 @@ export const featureAdds = [
     tlcText: "TLC"
   },
   {
+    cashbackText: "Up to",
     cahsback: "3.5%",
     tlc: "1.75",
     bgImg: nikebg,
@@ -222,11 +246,50 @@ export const featureAdds = [
     tlcText: "TLC"
   },
   {
+    cashbackText: "Up to",
     cahsback: "2.4%",
     tlc: "1.2",
     bgImg: agodabg,
     icon: agodaicon,
     offerType: <FormattedMessage id="data.headermyearningsvipcashback" />,
     tlcText: "TLC"
+  }
+];
+export const TLCdeals = [
+  {
+    cashbackText: "Price",
+    cahsback: "$11",
+    tlc: "25%",
+    bgImg: shirt,
+    // icon: expediaLogo,
+    // offerType: <FormattedMessage id="data.headermyearningsvipcashback" />,
+    tlcText: "Pay in TLC"
+  },
+  {
+    cashbackText: "Price",
+    cahsback: "$2.4",
+    tlc: "40%",
+    bgImg: food,
+    // icon: tripicon,
+    offerType: 'Taste Factory',
+    tlcText: "Pay in TLC"
+  },
+  {
+    cashbackText: "Price",
+    cahsback: "$350",
+    tlc: "20%",
+    bgImg: cwj,
+    // icon: nikeicon,
+    offerType: 'CWJ',
+    tlcText: "Pay in TLC"
+  },
+  {
+    cashbackText: "Price",
+    cahsback: "$220",
+    tlc: "10%",
+    bgImg: warsi,
+    // icon: agodaicon,
+    offerType: 'Warsi E Services',
+    tlcText: "Pay in TLC"
   }
 ];

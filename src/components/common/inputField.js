@@ -2,7 +2,7 @@ import React from 'react';
 
 export default (props) => {
   const {
-    placeholder, className, label, labelClass, disabled, onChange, type,
+    placeholder, className, label, labelClass, disabled, onChange, type, name,
   } = props;
   return (
     <>
@@ -10,6 +10,7 @@ export default (props) => {
 
       <input
         className={className}
+        name={name}
         placeholder={placeholder}
         onChange={onChange}
         type={type}

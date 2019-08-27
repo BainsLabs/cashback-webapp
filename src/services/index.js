@@ -33,3 +33,7 @@ export const userRegisterApi = params => axios
   .then(res => res)
   .catch(e => JSON.stringify(e));
 export const userGetEmailApi = params => axios.post('https://3ihrhx1pyd.execute-api.us-east-1.amazonaws.com/dev/users/user-check', params);
+export const contactAPI = params => axios.post(
+  'https://3ihrhx1pyd.execute-api.us-east-1.amazonaws.com/dev/users/email-to-customer-care',
+  params,
+);

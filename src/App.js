@@ -8,17 +8,58 @@ import Subscribe from 'components/common/Subscribe';
 import Routes from 'Routes';
 import { connect } from 'react-redux';
 import { getContent } from 'redux/actions/contentActions';
-import LoadingOverlay from 'react-loading-overlay';
-import ScaleLoader from 'react-spinners/ScaleLoader';
+import '@material/react-snackbar/dist/snackbar.css';
+import { getUserName, getUserEmail } from 'redux/actions/signupActions';
+import { modalState } from 'redux/actions/modalActions';
 
 class App extends Component {
   state = {
     isLoader: false,
   };
 
-  componentWillMount() {
+  async componentWillMount() {
+    // const testingDomain = 'https://michelle.6degrees.cash';
+    if (localStorage.getItem('country') === 'en-US' || localStorage.getItem('country') === null) {
+      localStorage.setItem('country', 'en-US');
+    } else {
+      localStorage.getItem('country', 'zh-CN');
+    }
+    // const { getUserName, modalState, user, getUserEmail } = this.props;
+    // const params = {
+    //   username: window.location.href
+    //     .split('.')[0]
+    //     .split('//')[1]
+    //     .toLowerCase(),
+    //   checkType: 'getUserEmail',
+    // };
+    // let userDetails = await getUserEmail(params);
+    // if (window.location.href.split('.')[0].split('//')[1] !== 'test') {
+    //   const username = userDetails.Items[0].username;
+    //   console.log(username,"usernameeeeee")
+    //   const params = {
+    //     username: window.location.href
+    //       .split('.')[0]
+    //       .split('//')[1]
+    //       .toLowerCase(),
+    //     checkType: 'getUserEmail',
+    //   };
+    //   const user = await getUserName(params);
+    //   if (user.Count === 0) {
+    //     window.location = 'https://test.6degrees.cash';
+    //     return;
+    //   }
+    //   if(localStorage.getItem("authenticated")){
+    //     if (window.location.href.split('.')[0].split('//')[1] !== localStorage.getItem('username')) {
+    //       window.location = 'https://test.6degrees.cash';
+    //       return;
+    //     }
+    //   }
+
+    // await modalState('signup');
+    // }
     window.scrollTo(0, 0);
-    localStorage.setItem('country', 'en-US');
+
+    // localStorage.setItem('country', 'en-US');
   }
 
   async componentDidMount() {
@@ -50,12 +91,20 @@ class App extends Component {
     );
   }
 }
+
+const mapStateToProps = state => ({
+  user: state.User,
+});
+
 const mapDispatchToProps = {
   getContent,
+  getUserName,
+  modalState,
+  getUserEmail,
 };
 export default withRouter(
   connect(
-    null,
+    mapStateToProps,
     mapDispatchToProps,
   )(App),
 );

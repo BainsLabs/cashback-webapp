@@ -6,7 +6,7 @@ import { Auth } from 'aws-amplify';
 import { withRouter } from 'react-router-dom';
 import LoaderButton from 'components/common/LoaderButton';
 import { modalState } from 'redux/actions/modalActions';
-import { getUserEmail } from 'redux/actions/signupActions';
+import { getUserEmail, getUserProfile } from 'redux/actions/signupActions';
 import { connect } from 'react-redux';
 import { FormattedMessage, injectIntl, intlShape } from 'react-intl';
 
@@ -48,10 +48,10 @@ class SignIn extends Component {
   handleSubmit = async (event) => {
     event.preventDefault();
     const { username, password } = this.state;
-    const { modalState, getUserEmail, history } = this.props;
-    let usernameLower = username.toLowerCase()
+    const { modalState, getUserEmail, history, getUserProfile } = this.props;
+    const usernameLower = username.toLowerCase();
     const params = {
-      username:usernameLower,
+      username: usernameLower,
       checkType: 'getUserEmail',
     };
     this.setState({ isLoading: true, usernameError: '', loginError: '' });
@@ -60,17 +60,42 @@ class SignIn extends Component {
     if (email.Count !== 0) {
       userEmail = email && email.Items && email.Items[0].email;
       Auth.signIn(userEmail, password)
-        .then(() => {
+        .then(async () => {
+          const userData = await getUserProfile(params)
+          console.log(userData, "userrrrrr")
+          localStorage.setItem('profile', JSON.stringify(userData))
           modalState(null);
-          localStorage.setItem('authenticated', true);
+          if(window.location.href.split('.')[0].split('//')[1] !== 'test'){
+            if(window.location.href.split('.')[0].split('//')[1] === userData.Items[0].username){
+              localStorage.setItem('authenticated', true);
+              return;
+            }
+          }
+          if(window.location.href.split('.')[0].split('//')[1] === 'test')  {
+            localStorage.setItem('authenticated', true);
+          }
+          localStorage.setItem('username',usernameLower)
           history.push('/my-earnings');
+
           window.location.reload();
         })
-        .catch(e => this.setState({ isLoading: false, loginError: <p><FormattedMessage id="data.incorrectusernamepass" /></p> ,error: true}));
+        .catch(e => this.setState({
+          isLoading: false,
+          loginError: (
+            <p>
+              <FormattedMessage id="data.incorrectusernamepass" />
+            </p>
+          ),
+          error: true,
+        }));
     } else {
       this.setState({
         error: true,
-        loginError: <p><FormattedMessage id="data.usernotexists" /></p>,
+        loginError: (
+          <p>
+            <FormattedMessage id="data.usernotexists" />
+          </p>
+        ),
         isLoading: false,
       });
     }
@@ -104,11 +129,9 @@ class SignIn extends Component {
     return (
       <section className="auth-right__signIn">
         <h3>
-          <FormattedMessage id="data.buttonlplogin" />
-          {' '}
-          <FormattedMessage id="data.to" />
-          {' '}
-6Degrees.CASH
+          <FormattedMessage id="data.buttonlplogin" />&nbsp;
+          <FormattedMessage id="data.to" />&nbsp;
+          6Degrees.CASH
         </h3>
         <Form>
           <Form.Row>
@@ -156,12 +179,9 @@ class SignIn extends Component {
             </Col>
           </Form.Row>
         </Form>
-
-        {/* <div className="forgot-password__container">
-          <button type="button" className="forgot_password" onClick={() => modalState('forget')}>
+          {/* <button type="button" className="forgot_password" onClick={() => modalState('forgot')}>
             Click here to reset your password
-          </button>
-        </div> */}
+          </button> */}
       </section>
     );
   }
@@ -174,11 +194,14 @@ SignIn.propTypes = {
 const mapDispatchToProps = {
   modalState,
   getUserEmail,
+  getUserProfile,
 };
 
-export default injectIntl(withRouter(
-  connect(
-    null,
-    mapDispatchToProps,
-  )(SignIn),
-));
+export default injectIntl(
+  withRouter(
+    connect(
+      null,
+      mapDispatchToProps,
+    )(SignIn),
+  ),
+);

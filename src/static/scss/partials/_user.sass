@@ -31,7 +31,7 @@
     color: transparentize(map-get($fontColor, 'black'), 0.2)
 
   button
-    +margin('top', 5rem)
+    +margin('top', 1rem)
 
     color: map-get($fontColor, 'black')
     background: map-get($fontColor, 'yellow')
@@ -74,9 +74,10 @@
     font-size: 0.8rem
     background: none
     border: 0px
-    position: absolute
+    // position: absolute
     top: 5rem
     left: 5rem
+    padding-top: 2rem
 
     &:hover
       text-decoration: underline
@@ -97,9 +98,14 @@
 .auth-right__signUp-btn
   @extend .auth-right__signIn-btn
 
+  background: map-get($fontColor, 'darkBlue')
   +margin('', 1rem 0 0 0)
   +padding('', 1rem 4rem)
+  span
+    color: map-get($fontColor, 'white')
 
+.tlcdeals
+  padding-top: 1rem
 .myaccount
   background: none
   border: none
@@ -147,6 +153,9 @@
     color: red
     font-size: 0.7rem
 
+.error
+  color: red
+  font-size: 0.7rem
 
 .profile__container
 
@@ -238,3 +247,15 @@ input[type=date]::-webkit-inner-spin-button
   +margin('top',3.2rem)
 .icon-color
   color: #69a469
+
+
+.forgot_password
+  background: none
+  transition: none
+  border: 0px
+  box-shadow: none
+  &:hover
+    cursor: pointer
+    box-shadow: none
+    transform: none
+    text-decoration: underline

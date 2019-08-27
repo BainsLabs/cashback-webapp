@@ -8,6 +8,7 @@
     "@fortawesome/fontawesome-svg-core": "^1.2.19",
     "@fortawesome/free-solid-svg-icons": "^5.9.0",
     "@fortawesome/react-fontawesome": "^0.1.4",
+    "@material/react-snackbar": "^0.15.0",
     "@reactions/component": "^2.0.2",
     "amazon-cognito-identity-js": "2.0.20",
     "aws-amplify": "^1.1.6",

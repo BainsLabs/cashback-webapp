@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   Row, Col, InputGroup, FormControl, Button,
 } from 'react-bootstrap';
@@ -6,14 +6,23 @@ import { FormattedMessage, injectIntl, intlShape } from 'react-intl';
 import JoinFree from 'static/images/home-page/joinfree-bg.jpg';
 import Banner from 'components/common/Banner';
 import { connect } from 'react-redux';
+import { Snackbar } from '@material/react-snackbar';
 import { withRouter } from 'react-router-dom';
 import { modalState } from 'redux/actions/modalActions';
 
 import joinNow from 'static/icons-images/Logo1_White_1000px.png';
 
 const Subscribe = (props) => {
+  const [snackbarState, setSnackbarState] = useState(false);
+  const authenticated = localStorage.getItem('authenticated');
   const { intl } = props;
-  // const enterYourEmail =
+  const loginCheck = () => {
+    if (authenticated) {
+      setSnackbarState(true);
+      return;
+    }
+    props.modalState('signup');
+  };
   return (
     <div className="container subscribe">
       {/* <Row>
@@ -54,17 +63,14 @@ const Subscribe = (props) => {
             </Row>
           </Col>
           <Col lg={4}>
-            <button
-              onClick={() => props.modalState('signup')}
-              className="banner-btn banner-btn-mobile"
-              type="button"
-            >
+            <button onClick={loginCheck} className="banner-btn banner-btn-mobile" type="button">
               <FormattedMessage id="data.referJoinNow" />
             </button>
           </Col>
         </Row>
       </div>
       {/* </Banner> */}
+      <Snackbar message={<FormattedMessage id="data.alreadyLoggedIn" />} open={snackbarState} />
     </div>
   );
 };

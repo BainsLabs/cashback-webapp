@@ -53,7 +53,7 @@ const UserModal = (props) => {
               {/* <Banner imgSrc={leftImage} className="auth-modal__left-side" textPosition="center"> */}
               <img src={brandLogo} alt="imageLogo" className="mx-auto d-block" />
               {name === 'signin' || name === 'forgot' ? (
-                <SignInContent label={<FormattedMessage id="data.signUp" />} />
+                <SignInContent SignUpContent label={<FormattedMessage id="data.signUp" />} />
               ) : (
                 <SignUpContent label={<FormattedMessage id="data.signIn" />} />
               )}
@@ -61,6 +61,7 @@ const UserModal = (props) => {
             </div>
           </StyledDiv>
           <Col md={6} className="usermodal__form auth-modal__right-side">
+            {console.log(name, 'nameeee')}
             <img src={LogoIcon} alt="logo" className="mx-auto d-block usermodal__logo" />
             {name === 'signin' ? <SignIn /> : name === 'signup' ? <SignUp /> : <ForgotPassword />}
           </Col>

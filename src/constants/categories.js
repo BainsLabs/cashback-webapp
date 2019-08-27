@@ -25,6 +25,10 @@ export const categories = [
     label: <FormattedMessage id="data.HPhealth" />,
   },
   {
+    icon: travel,
+    label: <FormattedMessage id="data.HPtravel" />,
+  },
+  {
     icon: fashion,
     label: <FormattedMessage id="data.HPfashion" />,
   },
