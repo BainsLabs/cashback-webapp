@@ -9,13 +9,9 @@ export default (props) => {
   return (
     <>
       <Modal open={props.open} onClose={props.onClose}>
-        {language === 'en-US' ? (
-          <div className="coming__soon">
-            <img src={CommingSoon} alt="vip comingsoon" />
-          </div>
-        ) : (
-          <img src={CommingSoonchin} alt="vip comingsoon" />
-        )}
+        <div className="coming__soon">
+          <img src={language === 'en-US' ? CommingSoon : CommingSoonchin} alt="vip comingsoon" />
+        </div>
       </Modal>
     </>
   );

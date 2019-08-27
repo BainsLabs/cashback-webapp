@@ -296,6 +296,7 @@ class SignUp extends Component {
               onChange={this.handleChange}
               value={password}
             />
+            &nbsp;
             <i data-tip={intl.formatMessage({ id: 'data.passwordText' })} class="far fa-question-circle" />
             <ReactTooltip />
             {/* {!this.validateFields() && <span className="errormessage ">{passwordError}</span>} */}
