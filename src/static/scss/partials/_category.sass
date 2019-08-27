@@ -1,7 +1,11 @@
 .category__banner
-  +padding('', 20rem 0 1rem 0)
+  // +padding('', 0rem 0 1rem 0)
 
   color: map-get($fontColor, 'black')
+  bottom: 10%
+  right: 0
+  left: 0
+  position: absolute
 
   h3
     font-size: 2rem
@@ -30,8 +34,6 @@
   +padding('top', 1rem)
 
   .filters:not(:first-child)
-
-    
     +padding('top', 1rem)
     +padding('bottom', 1rem)
 
@@ -51,8 +53,10 @@
 
 .filters
   background: map-get($fontColor, 'darkGray')
-  +margin('bottom',2px)
+
+  +margin('bottom', 2px)
+
   padding: 2rem 20px 10px 15px
-  
+
 .filter-div
   padding: 10px 0

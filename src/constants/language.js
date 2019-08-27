@@ -420,10 +420,12 @@ export default {
       oldPasswordError: 'Old Password entered is incorrect',
       newPasswordError: 'New Password and confirm password doesn"t match',
       passwordChangeLimit: 'Attempt limit exceeded, please try after some time.',
+      upto: 'Up To',
     },
   },
   'zh-CN': {
     data: {
+      upto: '取决于',
       mailsent: '谢谢您联络我们。我们会尽快给您回复',
       passwordChangeLimit: '超出尝试限制，请在一段时间后尝试.',
       alreadyLoggedIn: '您已经登录',

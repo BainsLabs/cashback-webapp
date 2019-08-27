@@ -50,50 +50,126 @@ class CalculatorForm extends Component {
     );
   };
 
-  onHandleChange = async e => {
-    if(e.target.name==='avgcashback'){
-      if(e.target.value<=10 && e.target.value >= 1 || e.target.value === ''){
+  onIncrement = (fieldname) => {
+    const { monthlyspend, friendsreferred, avgcashback } = this.state;
+    switch (fieldname) {
+      case 'monthlyspend':
+        if (monthlyspend < 100 || monthlyspend === '') {
+          this.setState(
+            {
+              monthlyspend: monthlyspend + 1,
+            },
+            () => this.onMaths(),
+          );
+        }
+        break;
+      case 'friendsreferred':
+        if (friendsreferred < 20 || friendsreferred === '') {
+          this.setState(
+            {
+              friendsreferred: friendsreferred + 1,
+            },
+            () => this.onMaths(),
+          );
+        }
+        break;
+      case 'avgcashback':
+        if (avgcashback < 10 || avgcashback === '') {
+          this.setState(
+            {
+              avgcashback: avgcashback + 1,
+            },
+            () => this.onMaths(),
+          );
+        }
+        break;
+      default:
+        break;
+    }
+  };
+
+  onDecrement = (fieldname) => {
+    const { monthlyspend, friendsreferred, avgcashback } = this.state;
+    switch (fieldname) {
+      case 'monthlyspend':
+        if (monthlyspend > 0 || monthlyspend === '') {
+          this.setState(
+            {
+              monthlyspend: monthlyspend - 1,
+            },
+            () => this.onMaths(),
+          );
+        }
+        break;
+      case 'friendsreferred':
+        if (friendsreferred > 0 || friendsreferred === '') {
+          this.setState(
+            {
+              friendsreferred: friendsreferred - 1,
+            },
+            () => this.onMaths(),
+          );
+        }
+        break;
+      case 'avgcashback':
+        if (avgcashback > 0 || avgcashback === '') {
+          this.setState(
+            {
+              avgcashback: avgcashback - 1,
+            },
+            () => this.onMaths(),
+          );
+        }
+        break;
+      default:
+        break;
+    }
+  };
+
+  onHandleChange = async (e) => {
+    if (e.target.name === 'avgcashback') {
+      if ((e.target.value <= 10 && e.target.value >= 1) || e.target.value === '') {
         this.setState(
           {
-            [e.target.name]: e.target.value
+            [e.target.name]: e.target.value,
           },
-          () => this.onMaths()
-        )
+          () => this.onMaths(),
+        );
       }
     }
-    if(e.target.name === "monthlyspend" ){
-      if(e.target.value<=100 && e.target.value >= 1 || e.target.value === ''){
+    if (e.target.name === 'monthlyspend') {
+      if ((e.target.value <= 100 && e.target.value >= 1) || e.target.value === '') {
         this.setState(
           {
-            [e.target.name]: e.target.value
+            [e.target.name]: e.target.value,
           },
-          () => this.onMaths()
-        )
+          () => this.onMaths(),
+        );
       }
     }
-    if(e.target.name === "friendshibonus"){
+    if (e.target.name === 'friendshibonus') {
       this.setState(
         {
-          [e.target.name]: e.target.value
+          [e.target.name]: e.target.value,
         },
-        () => this.onMaths()
-      )
+        () => this.onMaths(),
+      );
     }
-    if(e.target.name === "friendsreferred" ){
-      if(e.target.value <= 20 && e.target.value >= 2 || e.target.value === ''){
+    if (e.target.name === 'friendsreferred') {
+      if ((e.target.value <= 20 && e.target.value >= 2) || e.target.value === '') {
         this.setState(
           {
-            [e.target.name]: e.target.value
+            [e.target.name]: e.target.value,
           },
-          () => this.onMaths()
-        )
+          () => this.onMaths(),
+        );
       }
     }
   };
 
   decimalCheck = (event) => {
     return event.charCode >= 48 && event.charCode <= 57;
-  }
+  };
 
   render() {
     const {
@@ -120,10 +196,11 @@ class CalculatorForm extends Component {
               <Col md={6} className="calculator__result">
                 <Input
                   disabled
-                  type="number"
+                  // type="number"
                   className="calculator__rfield text-center"
                   value={monthlyfriendshipbonus}
                 />
+
                 <p>
                   <FormattedMessage id="data.calMonthly" />
                   &nbsp;
@@ -155,14 +232,34 @@ class CalculatorForm extends Component {
             </Row>
             <Row className="text-center">
               <Col md={6}>
-                <Input
-                  type="number"
-                  className="calculator__field"
-                  name="monthlyspend"
-                  onChange={this.onHandleChange}
-                  value={monthlyspend}
-                  // max="100"
-                />
+                <Row>
+                  <Col md={2} xs={2}>
+                    <button
+                      onClick={() => this.onDecrement('monthlyspend')}
+                      className="cal__button"
+                    >
+                      <i className="fas fa-minus" />
+                    </button>
+                  </Col>
+                  <Col md={8} xs={8}>
+                    <Input
+                      type="number"
+                      className="calculator__field"
+                      name="monthlyspend"
+                      onChange={this.onHandleChange}
+                      value={monthlyspend}
+                      // max="100"
+                    />
+                  </Col>
+                  <Col md={2} xs={2}>
+                    <button
+                      onClick={() => this.onIncrement('monthlyspend')}
+                      className="cal__button"
+                    >
+                      <i className="fas fa-plus" />
+                    </button>
+                  </Col>
+                </Row>
                 <p className="fieldText">
                   <FormattedMessage id="data.calMonthlySpend" />
                   &nbsp;
@@ -174,15 +271,35 @@ class CalculatorForm extends Component {
                 <ReactTooltip />
               </Col>
               <Col md={6}>
-                <Input
-                  type="number"
-                  className="calculator__field"
-                  name="friendsreferred"
-                  onChange={this.onHandleChange}
-                  value={friendsreferred}
-                  // min="2"
-                  // max="20"
-                />
+                <Row>
+                  <Col md={2} xs={2}>
+                    <button
+                      onClick={() => this.onDecrement('friendsreferred')}
+                      className="cal__button"
+                    >
+                      <i className="fas fa-minus" />
+                    </button>
+                  </Col>
+                  <Col md={8} xs={8}>
+                    <Input
+                      type="number"
+                      className="calculator__field"
+                      name="friendsreferred"
+                      onChange={this.onHandleChange}
+                      value={friendsreferred}
+                      // min="2"
+                      // max="20"
+                    />
+                  </Col>
+                  <Col md={2} xs={2}>
+                    <button
+                      onClick={() => this.onIncrement('friendsreferred')}
+                      className="cal__button"
+                    >
+                      <i className="fas fa-plus" />
+                    </button>
+                  </Col>
+                </Row>
                 <p className="fieldText">
                   <FormattedMessage id="data.calfriendsRefered" />
                   &nbsp;
@@ -199,13 +316,27 @@ class CalculatorForm extends Component {
 
             <Row className="text-center">
               <Col md={6}>
-                <Input
-                  type="number"
-                  className="calculator__field"
-                  name="avgcashback"
-                  onChange={this.onHandleChange}
-                  value={avgcashback}
-                />
+                <Row>
+                  <Col md={2} xs={2}>
+                    <button className="cal__button">
+                      <i className="fas fa-minus" onClick={() => this.onDecrement('avgcashback')} />
+                    </button>
+                  </Col>
+                  <Col md={8} xs={8}>
+                    <Input
+                      type="number"
+                      className="calculator__field"
+                      name="avgcashback"
+                      onChange={this.onHandleChange}
+                      value={avgcashback}
+                    />
+                  </Col>
+                  <Col md={2} xs={2}>
+                    <button onClick={() => this.onIncrement('avgcashback')} className="cal__button">
+                      <i className="fas fa-plus" />
+                    </button>
+                  </Col>
+                </Row>
                 <p className="fieldText">
                   <FormattedMessage id="data.calAvgCB" />
                   &nbsp;

@@ -12,7 +12,6 @@ const ProfileContainer = () => (
   <>
     <Banner
       imgSrc={BannerImage}
-      className="banner-padding"
       textPosition="center"
     >
       <h2 className="vipbanner-text">

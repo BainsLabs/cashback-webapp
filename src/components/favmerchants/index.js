@@ -9,7 +9,7 @@ import { FormattedMessage } from 'react-intl';
 const FavMerchant = () => {
   return (
     <>
-      <Banner imgSrc={BannerImage} className="banner-padding" textPosition="center">
+      <Banner imgSrc={BannerImage} textPosition="center">
         <h2 className="vipbanner-text">
           <FormattedMessage id="data.favmerchants" />
         </h2>

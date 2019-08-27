@@ -115,6 +115,12 @@
   border-radius: 2rem
   border: 2px solid map-get($fontColor, 'lightGray')
 
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button
+  -webkit-appearance: none
+
+// input[type=number]
+//   -moz-appearance: textfield
   // text-align: left
 
   +padding('', 0.5rem)
@@ -123,7 +129,18 @@
   a
     text-decoration: none
 
+.cal__button
+  background: map-get($fontColor,'darkBlue')
+  color: map-get($fontColor,'white')
+  border: none
+  border-radius: 50%
+  width: 30px
+  height: 30px
+  &:focus
+    outline: none
 
+.fa, .fas
+  font-size: .7rem !important
 .signUp-heading
   font-family: 'Avenir LT Std 85 Heavy'
   +margin('top',2.2rem)

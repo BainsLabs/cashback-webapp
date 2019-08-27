@@ -16,7 +16,7 @@ export default () => {
   const language = localStorage.getItem('country');
   return (
     <>
-      <Banner imgSrc={bannerImg} className="banner-padding">
+      <Banner imgSrc={bannerImg}>
         <h2 className="vipbanner-text text-center">
           <FormattedMessage id="data.myearnings" />
         </h2>

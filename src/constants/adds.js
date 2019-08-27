@@ -35,7 +35,7 @@ import { FormattedMessage } from "react-intl";
 
 export const adds = [
   {
-    cashbackText: "Up to",
+    cashbackText: <FormattedMessage id="data.upto" />,
     cahsback: "2.4%",
     tlc: "1.23",
     bgImg: Alibaba,
@@ -44,7 +44,7 @@ export const adds = [
     tlcText: "TLC"
   },
   {
-    cashbackText: "Up to",
+    cashbackText: <FormattedMessage id="data.upto" />,
     cahsback: "0.4%",
     tlc: "2 ",
     bgImg: emirates,
@@ -53,7 +53,7 @@ export const adds = [
     tlcText: "TLC"
   },
   {
-    cashbackText: "Up to",
+    cashbackText: <FormattedMessage id="data.upto" />,
     cahsback: "4%",
     tlc: "2 ",
     bgImg: expedia,
@@ -62,7 +62,7 @@ export const adds = [
     tlcText: "TLC"
   },
   {
-    cashbackText: "Up to",
+    cashbackText: <FormattedMessage id="data.upto" />,
     cahsback: "1.4%",
     tlc: "0.7 ",
     bgImg: Goto,
@@ -71,7 +71,7 @@ export const adds = [
     tlcText: "TLC"
   },
   {
-    cashbackText: "Up to",
+    cashbackText: <FormattedMessage id="data.upto" />,
     cahsback: "2.4%",
     tlc: "1.2 ",
     bgImg: hotel,
@@ -80,7 +80,7 @@ export const adds = [
     tlcText: "TLC"
   },
   {
-    cashbackText: "Up to",
+    cashbackText: <FormattedMessage id="data.upto" />,
     cahsback: "2.4%",
     tlc: "1.2 ",
     bgImg: Parkpalaza,
@@ -92,7 +92,7 @@ export const adds = [
 
 export const addsDemo = [
   {
-    cashbackText: "Up to",
+    cashbackText: <FormattedMessage id="data.upto" />,
     cahsback: "2.4%",
     tlc: "1.23",
     bgImg: Alibaba,
@@ -101,7 +101,7 @@ export const addsDemo = [
     tlcText: "TLC"
   },
   {
-    cashbackText: "Up to",
+    cashbackText: <FormattedMessage id="data.upto" />,
     cahsback: "0.4%",
     tlc: "2",
     bgImg: emirates,
@@ -110,7 +110,7 @@ export const addsDemo = [
     tlcText: "TLC"
   },
   {
-    cashbackText: "Up to",
+    cashbackText: <FormattedMessage id="data.upto" />,
     cahsback: "4%",
     tlc: "2",
     bgImg: expedia,
@@ -119,7 +119,7 @@ export const addsDemo = [
     tlcText: "TLC"
   },
   {
-    cashbackText: "Up to",
+    cashbackText: <FormattedMessage id="data.upto" />,
     cahsback: "1.4%",
     tlc: "0.7",
     bgImg: Goto,
@@ -128,7 +128,7 @@ export const addsDemo = [
     tlcText: "TLC"
   },
   {
-    cashbackText: "Up to",
+    cashbackText: <FormattedMessage id="data.upto" />,
     cahsback: "2.4%",
     tlc: "1.2",
     bgImg: hotel,
@@ -137,7 +137,7 @@ export const addsDemo = [
     tlcText: "TLC"
   },
   {
-    cashbackText: "Up to",
+    cashbackText: <FormattedMessage id="data.upto" />,
     cahsback: "2.4%",
     tlc: "1.2",
     bgImg: Parkpalaza,
@@ -147,7 +147,7 @@ export const addsDemo = [
   },
 
   {
-    cashbackText: "Up to",
+    cashbackText: <FormattedMessage id="data.upto" />,
     cahsback: "2.4%",
     tlc: "1.2",
     bgImg: tripbg,
@@ -156,7 +156,7 @@ export const addsDemo = [
     tlcText: "TLC"
   },
   {
-    cashbackText: "Up to",
+    cashbackText: <FormattedMessage id="data.upto" />,
     cahsback: "3.2%",
     tlc: "1.6",
     bgImg: sephorobg,
@@ -165,7 +165,7 @@ export const addsDemo = [
     tlcText: "TLC"
   },
   {
-    cashbackText: "Up to",
+    cashbackText: <FormattedMessage id="data.upto" />,
     cahsback: "3.5%",
     tlc: "1.7",
     bgImg: nikebg,
@@ -174,7 +174,7 @@ export const addsDemo = [
     tlcText: "TLC"
   },
   {
-    cashbackText: "Up to",
+    cashbackText: <FormattedMessage id="data.upto" />,
     cahsback: "1%",
     tlc: "0.5",
     bgImg: etihadbg,
@@ -183,7 +183,7 @@ export const addsDemo = [
     tlcText: "TLC"
   },
   {
-    cashbackText: "Up to",
+    cashbackText: <FormattedMessage id="data.upto" />,
     cahsback: "2.4%",
     tlc: "1.2",
     bgImg: agodabg,
@@ -192,7 +192,7 @@ export const addsDemo = [
     tlcText: "TLC"
   },
   {
-    cashbackText: "Up to",
+    cashbackText: <FormattedMessage id="data.upto" />,
     cahsback: "$7",
     tlc: "7",
     bgImg: Cheap0airbg,
@@ -219,7 +219,7 @@ export const members = [
 
 export const featureAdds = [
   {
-    cashbackText: "Up to",
+    cashbackText: <FormattedMessage id="data.upto" />,
     cahsback: "4%",
     tlc: "2 ",
     bgImg: expedia,
@@ -228,7 +228,7 @@ export const featureAdds = [
     tlcText: "TLC"
   },
   {
-    cashbackText: "Up to",
+    cashbackText: <FormattedMessage id="data.upto" />,
     cahsback: "2.4%",
     tlc: "1.2",
     bgImg: tripbg,
@@ -237,7 +237,7 @@ export const featureAdds = [
     tlcText: "TLC"
   },
   {
-    cashbackText: "Up to",
+    cashbackText: <FormattedMessage id="data.upto" />,
     cahsback: "3.5%",
     tlc: "1.75",
     bgImg: nikebg,
@@ -246,7 +246,7 @@ export const featureAdds = [
     tlcText: "TLC"
   },
   {
-    cashbackText: "Up to",
+    cashbackText: <FormattedMessage id="data.upto" />,
     cahsback: "2.4%",
     tlc: "1.2",
     bgImg: agodabg,
