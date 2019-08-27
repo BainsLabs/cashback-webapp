@@ -20,7 +20,9 @@ import {
   userRegister,
   getUserEmail,
   verifyEmail,
-  getUserName
+  getUserName,
+  userStatusCheck,
+  getUserProfile
 } from "redux/actions/signupActions";
 import ReactTooltip from "react-tooltip";
 import uuid from 'uuid'
@@ -178,11 +180,18 @@ class SignUp extends Component {
 
   handleSubmit = async event => {
     event.preventDefault();
-    const { userRegister } = this.props;
+    const { userRegister, userStatusCheck } = this.props;
     let { email, username, password, sponsorId, countryValue } = this.state;
     this.setState({ isLoading: true });
     try {
-      const newUser = await userRegister({"sessionId":uuid(),"step":"registration","personalInformation":{"firstName":"akshaytest","midInit":null,"lastName":"sharmatest","birthDate":"23/08/2001","company":null},"address":"9012321","address2":"oladfjoadi","city":"doklajdfisai","country":"IN","countryState":"adsasd","postalCode":"21321321","socialSecNumber":null,email,"mobilePhone":"2342342","mobileCode":"+91","homePhone":null,"homeCode":null,"workPhone":null,"workCode":null,"reference":"social",password,"domain":[`${username}.mytravelbiz.com`],"treeStructure":null,"newsletter":false,"package":"3","rankAward":"optOut","shipMethod":null,"billing":{"method":"wire_transfer","tid":"15783860-c593-11e9-9c42-853f08122a65"},sponsorId,"position":null,"uplinedid":null,"settings":{"defaultLanguage":"en_US"},"shipingAddress":{"address":"9012321","address2":"oladfjoadi","city":"doklajdfisai","country":"IN","countryState":"adsasd","postalCode":"21321321"}});
+      const newUser = await userRegister({"sessionId":uuid(),"step":"registration","personalInformation":{"firstName":"-","midInit":null,"lastName":"-","birthDate":"27/08/2001","company":null},"address":"-","address2":"-","city":"-","country":countryValue,"countryState":"-","postalCode":"123456","socialSecNumber":null,email,"mobilePhone":"56546546546","mobileCode":"+91","homePhone":null,"homeCode":null,"workPhone":null,"workCode":null,"reference":"social",password,"domain":[`${username}.mytravelbiz.com`],"treeStructure":null,"newsletter":false,"package":"3","rankAward":"optOut","shipMethod":null,"billing":{"method":"wire_transfer","tid":"3d6660f0-c8bb-11e9-a016-7fc6866dcc1e"},"sponsorId":null,"position":null,"uplinedid":null,"settings":{"defaultLanguage":"en_US"},"shipingAddress":{"address":"-","address2":"-","city":"-","country":countryValue,"countryState":"-","postalCode":"123456"}});
+      let userStatus = 200;
+      let userStatusPending = 201
+      while(userStatus !== userStatusPending){
+        const res = await userStatusCheck({email, "tid":"3d6660f0-c8bb-11e9-a016-7fc6866dcc1e"})
+        userStatusPending = res.statusCode
+        console.log(userStatusPending)
+      }
       this.setState({
         newUser,
       });
@@ -194,11 +203,12 @@ class SignUp extends Component {
   };
 
   handleConfirmationSubmit = async () => {
-    const { modalState, getUserEmail } = this.props;
+    const { modalState, getUserEmail, getUserProfile  } = this.props;
     const { email, username } = this.state;
     let emailLowerCase = email.toLowerCase();
     this.setState({ isLoading: true });
     try {
+
       await Auth.signIn(emailLowerCase, this.state.password);
       localStorage.setItem('authenticated', true);
       modalState('welcome');
@@ -209,6 +219,9 @@ class SignUp extends Component {
         checkType: 'getUserEmail',
       };
       this.modalOpen();
+      const userData = await getUserProfile(params)
+      console.log(userData, "userrrrrr")
+      localStorage.setItem('profile', JSON.stringify(userData))
       await getUserEmail(params);
       // window.location.reload();
     } catch (e) {
@@ -405,6 +418,8 @@ const mapDispatchToProps = {
   getUserEmail,
   verifyEmail,
   getUserName,
+  userStatusCheck,
+  getUserProfile
 };
 
 export default injectIntl(

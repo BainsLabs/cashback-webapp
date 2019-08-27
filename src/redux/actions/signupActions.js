@@ -5,6 +5,7 @@ import {
   userGetEmailApi,
   verifyEmailAPI,
   contactAPI,
+  userStatusCheckApi,
 } from 'services';
 import * as user from '../actionsTypes/signupTypes';
 
@@ -22,6 +23,11 @@ export const userRegister = params => async (dispatch) => {
     type: user.USER_REGISTER,
     payload: res.data,
   });
+  return res.data;
+};
+
+export const userStatusCheck = params => async (dispatch) => {
+  const res = await userStatusCheckApi(params);
   return res.data;
 };
 

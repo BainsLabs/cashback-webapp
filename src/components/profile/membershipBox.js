@@ -21,7 +21,7 @@ const MemberShipBox = props => {
               </h3>
               <Container className="membership__box text-center membership">
                 <h6>
-                  {userprofile.status === "success" ? (
+                  {userprofile.level === 0 ? (
                     "VIP"
                   ) : (
                     <FormattedMessage id="data.free" />
@@ -72,7 +72,7 @@ const MemberShipBox = props => {
                 ) : (
                   <h5>-</h5>
                 )}
-                {userprofile.status === "success" ? (
+                {userprofile.level === 0 ? (
                   ""
                 ) : (
                   <button
