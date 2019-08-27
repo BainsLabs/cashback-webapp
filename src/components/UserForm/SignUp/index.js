@@ -1,22 +1,28 @@
 /* eslint-disable no-shadow */
-import React, { Component } from 'react';
-import { Row, Col } from 'react-bootstrap';
-import { connect } from 'react-redux';
-import Input from 'components/common/inputField';
-import Select from 'components/common/selectField';
-import { ReferOptions } from 'constants/referOptions';
-import DropdownComponent from 'components/common/DropDown';
-import { faMapMarkerAlt } from '@fortawesome/fontawesome-free-solid';
-import { country } from 'constants/dropdown';
-import { FormattedMessage, injectIntl, intlShape } from 'react-intl';
-import { Auth } from 'aws-amplify';
-import LoaderButton from 'components/common/LoaderButton';
-import { Link, withRouter } from 'react-router-dom';
-import { UserSignUp } from 'redux/actions/userActions';
-import { modalState } from 'redux/actions/modalActions';
-import WelcomeModal from 'components/welcome';
-import { userRegister, getUserEmail, verifyEmail,getUserName } from 'redux/actions/signupActions';
-import ReactTooltip from 'react-tooltip';
+
+import React, { Component } from "react";
+import { Row, Col } from "react-bootstrap";
+import { connect } from "react-redux";
+import Input from "components/common/inputField";
+import Select from "components/common/selectField";
+import { ReferOptions } from "constants/referOptions";
+import DropdownComponent from "components/common/DropDown";
+import { faMapMarkerAlt } from "@fortawesome/fontawesome-free-solid";
+import { country } from "constants/dropdown";
+import { FormattedMessage, injectIntl, intlShape } from "react-intl";
+import { Auth } from "aws-amplify";
+import LoaderButton from "components/common/LoaderButton";
+import { Link, withRouter } from "react-router-dom";
+import { UserSignUp } from "redux/actions/userActions";
+import { modalState } from "redux/actions/modalActions";
+import WelcomeModal from "components/welcome"
+import {
+  userRegister,
+  getUserEmail,
+  verifyEmail
+} from "redux/actions/signupActions";
+import ReactTooltip from "react-tooltip";
+import uuid from 'uuid'
 
 class SignUp extends Component {
   state = {
@@ -27,13 +33,13 @@ class SignUp extends Component {
     password: '',
     referUsernameError: '',
     passwordError: <FormattedMessage id="data.passwordText" />,
+    sponsorId: null,
     refer: 'FRIEND',
     friendUsername: '',
     signUperror: '',
     name: '',
     domain: '',
     countryValue: 'AD',
-    sponsorId: '',
     isAccepted: false,
     newUser: null,
     open: false,
@@ -175,14 +181,7 @@ class SignUp extends Component {
     let { email, username, password, sponsorId, countryValue } = this.state;
     this.setState({ isLoading: true });
     try {
-      console.log(countryValue, 'countryyyyyyyy');
-      const newUser = await userRegister({
-        email,
-        username,
-        password,
-        country: countryValue,
-        sponsorId,
-      });
+      const newUser = await userRegister({"sessionId":uuid(),"step":"registration","personalInformation":{"firstName":"akshaytest","midInit":null,"lastName":"sharmatest","birthDate":"23/08/2001","company":null},"address":"9012321","address2":"oladfjoadi","city":"doklajdfisai","country":"IN","countryState":"adsasd","postalCode":"21321321","socialSecNumber":null,email,"mobilePhone":"2342342","mobileCode":"+91","homePhone":null,"homeCode":null,"workPhone":null,"workCode":null,"reference":"social",password,"domain":[`${username}.mytravelbiz.com`],"treeStructure":null,"newsletter":false,"package":"3","rankAward":"optOut","shipMethod":null,"billing":{"method":"wire_transfer","tid":"15783860-c593-11e9-9c42-853f08122a65"},sponsorId,"position":null,"uplinedid":null,"settings":{"defaultLanguage":"en_US"},"shipingAddress":{"address":"9012321","address2":"oladfjoadi","city":"doklajdfisai","country":"IN","countryState":"adsasd","postalCode":"21321321"}});
       this.setState({
         newUser,
       });
