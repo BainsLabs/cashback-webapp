@@ -65,8 +65,7 @@ export default {
       copymyearningsvip5: 'You Qualify for 5% VIP Cash Back',
       headercuintouch: 'GET IN TOUCH',
       headermyearningsvipdeclined: 'Declined',
-      usernameerror:
-        'User name may only contain letters and numbers. No spaces,or any of the following characters !@#$%^&*()-+_=,;:/?|<>}{[]',
+      usernameerror: 'No spaces,or any of the following characters !@#$%^&*()-+_=,;:/?|<>}{[]',
       copymyearningsvipbcontent:
         'You will receive $5 and 5 TLC when your referred f… limit to the amount of VIP Bonuses you can earn.',
       filterboxSCtlcdeal: 'TLC Deals',
@@ -427,8 +426,7 @@ export default {
   },
   'zh-CN': {
     data: {
-      usernameerror:
-        '用户名只能包含字母和数字。空间不足，或者以下任何字符！@＃$％^＆*（） -  + _ =，;：/？ | <>} {[]',
+      usernameerror: '或者以下任何字符！@＃$％^＆*（） -  + _ =，;：/？ | <>} {[]',
       upto: '取决于',
       mailsent: '谢谢您联络我们。我们会尽快给您回复',
       passwordChangeLimit: '超出尝试限制，请在一段时间后尝试.',
