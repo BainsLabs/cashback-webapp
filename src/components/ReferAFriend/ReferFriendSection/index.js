@@ -6,9 +6,10 @@ import { connect } from 'react-redux';
 
 const ReferFriend = (props) => {
   const UserAuthenticated = localStorage.getItem('authenticated');
+  const Profile = JSON.parse(localStorage.getItem('profile'));
   const { user } = props;
-  const Link = UserAuthenticated ? `${user.profile.Items[0].username}.6Degrees.CASH` : '';
-  const username = UserAuthenticated ? user.profile.Items[0].username : '';
+  const Link = UserAuthenticated ? `${Profile.Items[0].username}.6Degrees.CASH` : '';
+  const username = UserAuthenticated ? Profile.Items[0].username : '';
   return (
     <section>
       <div className="container">

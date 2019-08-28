@@ -26,12 +26,7 @@ export default props => (
     </Row>
     <Row>
       <Col className="text-center">
-        <Input
-          value={props.inputValue}
-          className="refer__field"
-          readonly
-          placeholder="xyz.6Degrees.cash"
-        />
+        <Input value={props.inputValue} className="refer__field" readonly />
       </Col>
     </Row>
     <Row>
