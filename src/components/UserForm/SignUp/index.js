@@ -85,7 +85,7 @@ class SignUp extends Component {
     if(Object.keys(address).length > 0){
       console.log(address, "testing addreess")
       this.setState({
-        countryValue: {value: address.address.country_code, label: address.address.country }
+        countryValue: {value: address.address.country_code.toUpperCase(), label: address.address.country }
       })
     }
     let urlUsername;
@@ -211,7 +211,7 @@ class SignUp extends Component {
         postalCode: '123456',
         socialSecNumber: null,
         email,
-        mobilePhone: '123456789',
+        mobilePhone: '111111',
         mobileCode: '+91',
         homePhone: null,
         homeCode: null,
