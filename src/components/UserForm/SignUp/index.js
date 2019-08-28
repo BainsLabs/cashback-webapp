@@ -336,6 +336,11 @@ class SignUp extends Component {
               autoFocus
               name="username"
             />
+            <i
+              data-tip={intl.formatMessage({ id: 'data.usernameerror' })}
+              class="far fa-question-circle"
+            />
+            <ReactTooltip />
             <p className="errormessage no-padding">{usernameError}</p>
           </Col>
         </Row>
@@ -365,7 +370,6 @@ class SignUp extends Component {
               onChange={this.handleChange}
               value={password}
             />
-            &nbsp;
             <i
               data-tip={intl.formatMessage({ id: 'data.passwordText' })}
               class="far fa-question-circle"
