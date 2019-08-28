@@ -1,31 +1,32 @@
 /* eslint-disable no-shadow */
 
-import React, { Component } from "react";
-import { Row, Col } from "react-bootstrap";
-import { connect } from "react-redux";
-import Input from "components/common/inputField";
-import Select from "components/common/selectField";
-import { ReferOptions } from "constants/referOptions";
-import DropdownComponent from "components/common/DropDown";
-import { faMapMarkerAlt } from "@fortawesome/fontawesome-free-solid";
-import { country } from "constants/dropdown";
-import { FormattedMessage, injectIntl, intlShape } from "react-intl";
-import { Auth } from "aws-amplify";
-import LoaderButton from "components/common/LoaderButton";
-import { Link, withRouter } from "react-router-dom";
-import { UserSignUp } from "redux/actions/userActions";
-import { modalState } from "redux/actions/modalActions";
-import WelcomeModal from "components/welcome"
+import React, { Component } from 'react';
+import { Row, Col } from 'react-bootstrap';
+import { connect } from 'react-redux';
+import Input from 'components/common/inputField';
+import CommonSelect from 'components/common/selectField';
+import { ReferOptions } from 'constants/referOptions';
+// import DropdownComponent from 'components/common/DropDown';
+import { faMapMarkerAlt } from '@fortawesome/fontawesome-free-solid';
+import { country } from 'constants/dropdown';
+import { FormattedMessage, injectIntl, intlShape } from 'react-intl';
+import { Auth } from 'aws-amplify';
+import LoaderButton from 'components/common/LoaderButton';
+import { Link, withRouter } from 'react-router-dom';
+import { UserSignUp } from 'redux/actions/userActions';
+import { modalState } from 'redux/actions/modalActions';
+import WelcomeModal from 'components/welcome';
 import {
   userRegister,
   getUserEmail,
   verifyEmail,
   getUserName,
   userStatusCheck,
-  getUserProfile
-} from "redux/actions/signupActions";
-import ReactTooltip from "react-tooltip";
-import uuid from 'uuid'
+  getUserProfile,
+} from 'redux/actions/signupActions';
+import ReactTooltip from 'react-tooltip';
+import uuid from 'uuid';
+import Select from 'react-select';
 
 class SignUp extends Component {
   state = {
@@ -43,6 +44,7 @@ class SignUp extends Component {
     name: '',
     domain: '',
     countryValue: 'AD',
+    contryLabel: '',
     isAccepted: false,
     newUser: null,
     open: false,
@@ -78,20 +80,27 @@ class SignUp extends Component {
       emailError == false
     );
   };
-   componentWillMount() {
-    const {urlUser} = this.props
+  componentWillMount() {
+    const { urlUser,address } = this.props;
+    if(Object.keys(address).length > 0){
+      console.log(address, "testing addreess")
+      this.setState({
+        countryValue: {value: address.address.country_code, label: address.address.country }
+      })
+    }
     let urlUsername;
-    if(urlUser && urlUser.username && urlUser.username.Count > 0){
-      urlUsername = urlUser.username.Items[0].username
-      console.log(urlUsername, "usernamee")
-      if(urlUsername !== ''){
-        this.setState({
-          friendUsername: urlUsername
-        },async  () => await this.referUser())
-
+    if (urlUser && urlUser.username && urlUser.username.Count > 0) {
+      urlUsername = urlUser.username.Items[0].username;
+      console.log(urlUsername, 'usernamee');
+      if (urlUsername !== '') {
+        this.setState(
+          {
+            friendUsername: urlUsername,
+          },
+          async () => await this.referUser(),
+        );
       }
     }
-
   }
   userCheck = async () => {
     const { username } = this.state;
@@ -129,10 +138,10 @@ class SignUp extends Component {
       emailError: false,
     });
   };
-  onCountryChange = e => {
-    console.log(e.target.value);
+  onCountryChange = selectedOption => {
+    console.log(selectedOption);
     this.setState({
-      countryValue: e.target.value,
+      countryValue: selectedOption
     });
   };
 
@@ -184,13 +193,58 @@ class SignUp extends Component {
     let { email, username, password, sponsorId, countryValue } = this.state;
     this.setState({ isLoading: true });
     try {
-      const newUser = await userRegister({"sessionId":uuid(),"step":"registration","personalInformation":{"firstName":"-","midInit":null,"lastName":"-","birthDate":"27/08/2001","company":null},"address":"-","address2":"-","city":"-","country":countryValue,"countryState":"-","postalCode":"123456","socialSecNumber":null,email,"mobilePhone":"56546546546","mobileCode":"+91","homePhone":null,"homeCode":null,"workPhone":null,"workCode":null,"reference":"social",password,"domain":[`${username}.mytravelbiz.com`],"treeStructure":null,"newsletter":false,"package":"3","rankAward":"optOut","shipMethod":null,"billing":{"method":"wire_transfer","tid":"3d6660f0-c8bb-11e9-a016-7fc6866dcc1e"},"sponsorId":null,"position":null,"uplinedid":null,"settings":{"defaultLanguage":"en_US"},"shipingAddress":{"address":"-","address2":"-","city":"-","country":countryValue,"countryState":"-","postalCode":"123456"}});
+      const newUser = await userRegister({
+        sessionId: uuid(),
+        step: 'registration',
+        personalInformation: {
+          firstName: '-',
+          midInit: null,
+          lastName: '-',
+          birthDate: '27/08/2001',
+          company: null,
+        },
+        address: '-',
+        address2: '-',
+        city: '-',
+        country: countryValue.value,
+        countryState: '-',
+        postalCode: '123456',
+        socialSecNumber: null,
+        email,
+        mobilePhone: '1111111111',
+        mobileCode: '+91',
+        homePhone: null,
+        homeCode: null,
+        workPhone: null,
+        workCode: null,
+        reference: 'social',
+        password,
+        domain: [`${username}.mytravelbiz.com`],
+        treeStructure: null,
+        newsletter: false,
+        package: '3',
+        rankAward: 'optOut',
+        shipMethod: null,
+        billing: { method: 'wire_transfer', tid: '3d6660f0-c8bb-11e9-a016-7fc6866dcc1e' },
+        sponsorId: null,
+        position: null,
+        uplinedid: null,
+        settings: { defaultLanguage: 'en_US' },
+        shipingAddress: {
+          address: '-',
+          address2: '-',
+          city: '-',
+          country: countryValue.value,
+          countryState: '-',
+          postalCode: '123456',
+        },
+      });
       let userStatus = 200;
-      let userStatusPending = 201
-      while(userStatus !== userStatusPending){
-        const res = await userStatusCheck({email, "tid":"3d6660f0-c8bb-11e9-a016-7fc6866dcc1e"})
-        userStatusPending = res.statusCode
-        console.log(userStatusPending)
+      let userStatusPending = 201;
+      while (userStatus !== userStatusPending) {
+        const res = await userStatusCheck({ email, tid: '3d6660f0-c8bb-11e9-a016-7fc6866dcc1e' });
+        userStatusPending = res.statusCode;
+        console.log(userStatusPending);
       }
       this.setState({
         newUser,
@@ -203,12 +257,11 @@ class SignUp extends Component {
   };
 
   handleConfirmationSubmit = async () => {
-    const { modalState, getUserEmail, getUserProfile  } = this.props;
+    const { modalState, getUserEmail, getUserProfile } = this.props;
     const { email, username } = this.state;
     let emailLowerCase = email.toLowerCase();
     this.setState({ isLoading: true });
     try {
-
       await Auth.signIn(emailLowerCase, this.state.password);
       localStorage.setItem('authenticated', true);
       modalState('welcome');
@@ -219,9 +272,9 @@ class SignUp extends Component {
         checkType: 'getUserEmail',
       };
       this.modalOpen();
-      const userData = await getUserProfile(params)
-      console.log(userData, "userrrrrr")
-      localStorage.setItem('profile', JSON.stringify(userData))
+      const userData = await getUserProfile(params);
+      console.log(userData, 'userrrrrr');
+      localStorage.setItem('profile', JSON.stringify(userData));
       await getUserEmail(params);
       // window.location.reload();
     } catch (e) {
@@ -240,6 +293,9 @@ class SignUp extends Component {
     });
   };
   render() {
+    const colourStyles = {
+      control: styles => ({ ...styles, background: 'none',borderRadius:'2rem',border: '2px solid #B7BFCD', paddingLeft: '11px',outline: 'none' }),
+    };
     const {
       username,
       email,
@@ -257,9 +313,9 @@ class SignUp extends Component {
     } = this.state;
     const { intl, modalState, urlUser } = this.props;
     let urlUsername;
-    if(urlUser && urlUser.username && urlUser.username.Count > 0){
-      urlUsername = urlUser.username.Items[0].username
-      console.log(urlUsername, "usernamee")
+    if (urlUser && urlUser.username && urlUser.username.Count > 0) {
+      urlUsername = urlUser.username.Items[0].username;
+      console.log(urlUsername, 'usernamee');
     }
     return (
       <section className="auth-right__signUp">
@@ -310,15 +366,30 @@ class SignUp extends Component {
               value={password}
             />
             &nbsp;
-            <i data-tip={intl.formatMessage({ id: 'data.passwordText' })} class="far fa-question-circle" />
+            <i
+              data-tip={intl.formatMessage({ id: 'data.passwordText' })}
+              class="far fa-question-circle"
+            />
             <ReactTooltip />
             {/* {!this.validateFields() && <span className="errormessage ">{passwordError}</span>} */}
           </Col>
         </Row>
         <Row>
           <Col>
+            <label>
+              <FormattedMessage id="data.filterboxSCselectcountry" />
+            </label>
             <Select
-              label={<FormattedMessage id="data.filterboxSCselectcountry" />}
+              defaultValue={country[0]}
+              isSearchable={true}
+              options={country}
+              onChange={this.onCountryChange}
+              name="country"
+              value={countryValue}
+              styles={colourStyles}
+            />
+            {/* <Select
+
               options={country}
               className="signup__select"
               labelClass="signup__selectlabel"
@@ -326,12 +397,12 @@ class SignUp extends Component {
               onChange={this.onCountryChange}
               name="country"
               value={countryValue}
-            />
+            /> */}
           </Col>
         </Row>
         <Row>
           <Col>
-            <Select
+            <CommonSelect
               label={<FormattedMessage id="data.copysu" />}
               options={ReferOptions}
               className="signup__select"
@@ -409,7 +480,9 @@ SignUp.propTypes = {
 };
 
 const mapStateToProps = state => {
-  return {urlUser: state.User}
+  return { urlUser: state.User,
+    address: state.GeoReducer || {}
+   };
 };
 
 const mapDispatchToProps = {
@@ -420,7 +493,7 @@ const mapDispatchToProps = {
   verifyEmail,
   getUserName,
   userStatusCheck,
-  getUserProfile
+  getUserProfile,
 };
 
 export default injectIntl(

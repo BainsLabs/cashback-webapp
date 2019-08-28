@@ -15,8 +15,38 @@ import { Link } from 'react-router-dom';
 import { country, language } from 'constants/dropdown';
 import { FormattedMessage, injectIntl, intlShape } from 'react-intl';
 import ReactTooltip from 'react-tooltip';
+import Select from 'react-select';
+import { reverseGeo } from 'redux/actions/geoActions'
 
 class TopNavbar extends Component {
+  state = {
+    countryValue: '',
+  }
+  async componentDidMount() {
+    await this.getLocation()
+  }
+  getLocation = () => {
+    const { reverseGeo, address } = this.props
+      return new Promise((res,rej) => {
+        if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(async (location) => {
+           reverseGeo(location.coords.longitude, location.coords.latitude).then((data) => {
+            this.setState({
+              countryValue: {
+                label: data.address.country,
+                value: data.address.country_code
+              }
+            })
+
+           })
+           res('done')
+        });
+        } else {
+          console.log('browser not supported')
+          rej('error')
+        }
+      })
+  }
   ModalOpen = async (name) => {
     // e.preventDefault();
     const { modalState } = this.props;
@@ -32,18 +62,19 @@ class TopNavbar extends Component {
     window.location.reload();
   };
 
-  onCountryChange = (e) => {
+
+  onLanguageChange = (e) => {
     // eslint-disable-next-line no-undef
     localStorage.setItem('country', e.target.value);
     window.location.reload();
   };
 
-  // onCountryChange = (e) => {
-  //   console.log(e.target.value, 'country');
-  //   // eslint-disable-next-line no-undef
-  //   localStorage.setItem('country', e.target.value);
-  //   window.location.reload();
-  // };
+  onCountryChange = selectedValue => {
+    console.log(selectedValue, 'country');
+    this.setState({
+      countryValue: selectedValue
+    })
+  };
 
   ModalClose = async () => {
     const { modalState } = this.props;
@@ -51,8 +82,12 @@ class TopNavbar extends Component {
   };
 
   render() {
+    const colourStyles = {
+      control: styles => ({ ...styles,borderRadius: '2rem', backgroundColor: '#fbec8d', marginTop: '1rem' }),
+    };
     // const language = localStorage.getItem('country')
     const { user, content, intl } = this.props;
+    const {countryValue} = this.state
     const authenticated = localStorage.getItem('authenticated');
     return (
       <section className="top-navbar">
@@ -69,21 +104,23 @@ class TopNavbar extends Component {
             </Col>
             <Col lg={6}>
               <Row>
-                <Col lg={8} style={{ visibility: 'hidden' }}>
+                <Col lg={6} style={{ visibility: 'hidden' }}>
                   <Input
                     placeholder={intl.formatMessage({ id: 'data.search' })}
                     autoFocus
                     className="top-navbar__search"
                   />
                 </Col>
-                <Col lg={4} xs={12}>
-                  <DropdownComponent
-                    icon={faMapMarkerAlt}
-                    iconLeft
-                    menu={country}
-                    label={<FormattedMessage id="data.filterboxSCselectcountry" />}
-                    className="top-navbar__select-country"
-                  />
+                <Col lg={6} xs={12}>
+                <Select
+                  defaultValue={country[0]}
+                  isSearchable={true}
+                  name="country"
+                  options={country}
+                  onChange={this.onCountryChange}
+                  styles={colourStyles}
+                  value={countryValue}
+                />
                 </Col>
               </Row>
             </Col>
@@ -95,7 +132,7 @@ class TopNavbar extends Component {
                     label={<FormattedMessage id="data.topLanguage" />}
                     menu={language}
                     className="top-navbar__select-language"
-                    languageChange={this.onCountryChange}
+                    languageChange={this.onLanguageChange}
                   />
                 </Col>
                 {authenticated ? (
@@ -143,10 +180,13 @@ TopNavbar.propTypes = {
 
 const mapDispatchToProps = {
   modalState,
+  reverseGeo
 };
 
 const mapStateToProps = (state) => {
-  return { user: state.User };
+  return {
+    user: state.User,
+  };
 };
 
 export default injectIntl(

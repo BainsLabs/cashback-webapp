@@ -24,9 +24,9 @@ class App extends Component {
     } else {
       localStorage.getItem('country', 'zh-CN');
     }
-    // const {
-    //   getUserName, modalState, user, getUserEmail,
-    // } = this.props;
+    const {
+      getUserName, modalState, user, getUserEmail,
+    } = this.props;
     // const params = {
     //   username: window.location.href
     //     .split('.')[0]
