@@ -38,6 +38,10 @@ export const userStatusCheckApi = params => axios
   .then(res => res)
   .catch(e => JSON.stringify(e));
 
+export const reverseGeoApi = (lon, lat) => axios.get(
+  `https://nominatim.openstreetmap.org/reverse?format=json&zoom=18&addressdetails=1&lon=${lon}&lat=${lat}`,
+);
+
 export const userGetEmailApi = params => axios.post('https://3ihrhx1pyd.execute-api.us-east-1.amazonaws.com/dev/users/user-check', params);
 export const contactAPI = params => axios.post(
   'https://3ihrhx1pyd.execute-api.us-east-1.amazonaws.com/dev/users/email-to-customer-care',
