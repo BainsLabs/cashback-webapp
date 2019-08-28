@@ -1,16 +1,61 @@
-.join-now__logo
-  @include padding('top',4rem)
+// .join-now__logo
+//   +padding('top', 2rem)
+
+//   img
+//     width: 10vw
+//
+
+.landing__join
+  img
+    width: 100%
+    max-width: 100px
 
 .join-now__text
-  @include padding('',4rem 2rem 0 0)
+  +padding('', 4rem 2rem 0 0)
+
   font-size: 2.7rem
-  color: map-get($fontColor,'white')
+  color: map-get($fontColor, 'white')
   font-weight: bolder
   line-height: 3rem
   text-align: right
   font-family: 'Avenir LT Std 95 Black'
+
   p
     text-align: right
 
 .join-now
-  @include margin('',0rem 0)
+  +margin('', 0rem 0)
+
+.landing__join
+  background: url('/images/joinfree-bg.jpg')
+  background-size: cover
+  background-repeat: no-repeat
+  background-position: center
+
+.referlanding__join
+  background: url('/images/referAfriend-bg.png')
+  background-size: cover
+  background-repeat: no-repeat
+  background-position: center right
+
+.bannerbutton
+  button
+    @extend .banner-btn
+
+.bannertext
+  +margin('top', 4rem)
+
+  span
+    font-size: 2.5rem
+    font-family: 'Avenir LT Std 95 Black'
+    color: map-get($fontColor, 'white')
+    text-align: left
+    line-height: 3rem
+
+.referbannertext
+  @extend .bannertext
+
+  margin-top: 7rem
+
+  span
+    padding-top: 2rem

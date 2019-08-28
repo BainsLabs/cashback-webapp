@@ -39,8 +39,8 @@ export default withRouter(props => (
                   backgroundColor="#96c1eb"
                   textPosition="center"
                   border
-                  height="100%"
                   // width="15rem"
+                  height="100%"
                 >
                   <div className="card__add-section" style={{ paddingTop: '2.5rem' }}>
                     <img src={item.image} alt="brand" className={item.class} />

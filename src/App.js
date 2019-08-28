@@ -18,7 +18,6 @@ class App extends Component {
   };
 
   async componentWillMount() {
-
     // const testingDomain = 'https://michelle.6degrees.cash';
     if (localStorage.getItem('country') === 'en-US' || localStorage.getItem('country') === null) {
       localStorage.setItem('country', 'en-US');
@@ -67,10 +66,7 @@ class App extends Component {
     // localStorage.setItem('country', 'en-US');
   }
 
-
-
   async componentDidMount() {
-
     this.setState({
       isLoader: true,
     });
@@ -109,7 +105,6 @@ const mapDispatchToProps = {
   getUserName,
   modalState,
   getUserEmail,
-
 };
 export default withRouter(
   connect(
