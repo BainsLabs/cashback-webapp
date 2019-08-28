@@ -7,14 +7,18 @@ export default (props) => {
     <>
       <div className="card__container pb-2">
         <Row className="hidden-content">
-          <Col xs={6} lg={brandLogo ? 7 : 8} className="no-padding">
+          <Col xs={6} lg={brandLogo ? 7 : 6} className="no-padding">
             <p className="cashback-percentage">
               <span className="cashback-offer">{data.cashbackText}</span>
               <span>{data.cahsback}</span>
             </p>
-            <p className="cashback-offer">{data.offerType}</p>
+            {brandLogo ? <p className="cashback-offer">{data.offerType}</p> : ''}
           </Col>
-          <Col xs={brandLogo ? 3 : 6} lg={brandLogo ? 3 : 4} className="no-padding">
+          <Col
+            xs={brandLogo ? 3 : 6}
+            lg={brandLogo ? 3 : 6}
+            className={brandLogo ? 'no-padding' : 'text-center'}
+          >
             <p className="cashback-percentage">{data.tlc}</p>
             <p className="cashback-offer">{data.tlcText}</p>
           </Col>
@@ -32,14 +36,14 @@ export default (props) => {
               <img src={brandLogo} alt="KFC-LOGO" className="card__content-image-hover" />
             </Col>
           ) : (
-            ''
+            <span className="hover-offerType">{data.offerType}</span>
           )}
 
           <Col lg={12} className="no-padding">
             <p className="cashback-hover-text-border">
               <span>{data.cahsback}</span>
               &nbsp;
-              <span className="hover-offerType">{data.offerType}</span>
+              {brandLogo ? <span className="hover-offerType">{data.offerType}</span> : ''}
             </p>
           </Col>
           <Col lg={12}>
