@@ -95,7 +95,7 @@ class SignUp extends Component {
       if (urlUsername !== '') {
         this.setState(
           {
-            friendUsername: urlUsername,
+            friendUsername: urlUsername.toLowerCase(),
           },
           async () => await this.referUser(),
         );
@@ -106,7 +106,7 @@ class SignUp extends Component {
     const { username } = this.state;
     const { getUserEmail } = this.props;
     const params = {
-      username,
+      username: username.toLowerCase(),
       checkType: 'usernameCheck',
     };
     const usercheckResult = await getUserEmail(params);
@@ -127,7 +127,7 @@ class SignUp extends Component {
   onVerifyEmail = async () => {
     const { verifyEmail } = this.props;
     const { email } = this.state;
-    const rest = await verifyEmail({ email });
+    const rest = await verifyEmail({ email: email.toLowerCase() });
     if (rest.result) {
       this.setState({
         emailError: true,
@@ -211,7 +211,7 @@ class SignUp extends Component {
         postalCode: '123456',
         socialSecNumber: null,
         email,
-        mobilePhone: '1111111111',
+        mobilePhone: '123456789',
         mobileCode: '+91',
         homePhone: null,
         homeCode: null,
@@ -226,7 +226,7 @@ class SignUp extends Component {
         rankAward: 'optOut',
         shipMethod: null,
         billing: { method: 'wire_transfer', tid: '3d6660f0-c8bb-11e9-a016-7fc6866dcc1e' },
-        sponsorId: null,
+        sponsorId,
         position: null,
         uplinedid: null,
         settings: { defaultLanguage: 'en_US' },
@@ -242,9 +242,9 @@ class SignUp extends Component {
       let userStatus = 200;
       let userStatusPending = 201;
       while (userStatus !== userStatusPending) {
-        const res = await userStatusCheck({ email, tid: '3d6660f0-c8bb-11e9-a016-7fc6866dcc1e' });
-        userStatusPending = res.statusCode;
-        console.log(userStatusPending);
+          const res = await userStatusCheck({ email, tid: '3d6660f0-c8bb-11e9-a016-7fc6866dcc1e' });
+          userStatusPending = res.statusCode;
+          console.log(userStatusPending);
       }
       this.setState({
         newUser,

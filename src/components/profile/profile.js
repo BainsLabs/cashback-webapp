@@ -11,7 +11,7 @@ class Profile extends Component {
     const { intl } = this.props;
     const userprofile = JSON.parse(localStorage.getItem('profile')).Items[0];
     console.log(userprofile, 'profilee');
-    const countryValue = country.filter(c => c.key === userprofile.country);
+    const countryValue = country.filter(c => c.value === userprofile.country);
     return (
       <Container className="profile__container">
         <h3>
@@ -31,7 +31,7 @@ class Profile extends Component {
             <Col md={4} xs={12}>
               <InputField
                 label={intl.formatMessage({ id: 'data.countryofresidence' })}
-                value={countryValue[0].item}
+                value={countryValue[0].label}
                 placeholder="country"
               />
             </Col>
