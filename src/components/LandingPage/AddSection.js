@@ -42,7 +42,7 @@ export default withRouter(props => (
                   // width="15rem"
                   height="100%"
                 >
-                  <div className="card__add-section" style={{ paddingTop: '2.5rem' }}>
+                  <div className="card__add-section">
                     <img src={item.image} alt="brand" className={item.class} />
                     <br />
                     <button onClick={() => props.history.push(item.url)} type="button">
