@@ -20,7 +20,7 @@ const MemberShipBox = (props) => {
                 <FormattedMessage id="data.membership" />
               </h3>
               <Container className="membership__box text-center membership">
-                <h6>{userprofile.level === 0 ? 'VIP' : <FormattedMessage id="data.free" />}</h6>
+                <h6>{userprofile.level !== '0' ? 'VIP' : <FormattedMessage id="data.free" />}</h6>
                 <FormattedMessage id="data.joiningd" />
                 {userprofile.provider === 'mtb' ? (
                   <h5> 14th, August 2019 </h5>
@@ -62,7 +62,7 @@ const MemberShipBox = (props) => {
                 ) : (
                   <h5>-</h5>
                 )}
-                {userprofile.level === 0 ? (
+                {userprofile.level !== '0' ? (
                   ''
                 ) : (
                   <button onClick={() => modalOpen(true)} className="upgradeVIP">
@@ -83,7 +83,11 @@ const MemberShipBox = (props) => {
                   {' '}
 5%
                   {' '}
-                  {userprofile.level === 0 ? <i className="fas fa-check-circle icon-color" /> : ''}
+                  {userprofile.level !== '0' ? (
+                    <i className="fas fa-check-circle icon-color" />
+                  ) : (
+                    ''
+                  )}
                 </h6>
                 <h6>
                   <FormattedMessage id="data.vip" />

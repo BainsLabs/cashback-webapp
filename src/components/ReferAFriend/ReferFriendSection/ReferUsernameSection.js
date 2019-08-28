@@ -19,7 +19,7 @@ export default props => (
     </Row>
     <Row>
       <Col className="text-center">
-        <Input value={props.username} className="refer__field" readonly placeholder="username" />
+        <Input value={props.username} className="refer__field" readonly />
       </Col>
     </Row>
   </div>

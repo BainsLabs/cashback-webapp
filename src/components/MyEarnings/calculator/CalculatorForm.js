@@ -74,7 +74,7 @@ class CalculatorForm extends Component {
         }
         break;
       case 'avgcashback':
-        if (avgcashback < 10 || avgcashback === '') {
+        if (avgcashback < 20 || avgcashback === '') {
           this.setState(
             {
               avgcashback: avgcashback + 1,
@@ -248,6 +248,7 @@ class CalculatorForm extends Component {
                       name="monthlyspend"
                       onChange={this.onHandleChange}
                       value={monthlyspend}
+                      readOnly
                       // max="100"
                     />
                   </Col>
@@ -287,6 +288,7 @@ class CalculatorForm extends Component {
                       name="friendsreferred"
                       onChange={this.onHandleChange}
                       value={friendsreferred}
+                      readOnly
                       // min="2"
                       // max="20"
                     />
@@ -329,6 +331,7 @@ class CalculatorForm extends Component {
                       name="avgcashback"
                       onChange={this.onHandleChange}
                       value={avgcashback}
+                      readOnly
                     />
                   </Col>
                   <Col md={2} xs={2}>
