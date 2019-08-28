@@ -11,7 +11,7 @@ import bannerImgchi1 from 'static/images/home-page/bannerchi2.jpg';
 import bannerImgchi2 from 'static/images/home-page/bannerchi3.jpg';
 import Card from 'components/common/Card';
 import BlackLine from 'static/icons-images/black-line.png';
-import JoinFree from 'static/images/home-page/joinfree-bg.jpg';
+// import JoinFree from 'static/images/home-page/joinfree-bg.jpg';
 import ReferAFriendBG from 'static/images/home-page/referAfriend-bg.png';
 import joinNow from 'static/icons-images/Logo1_White_1000px.png';
 import { withRouter } from 'react-router-dom';
@@ -111,20 +111,16 @@ const LandingPage = props => {
       <CategorySection />
       <AddSection />
       <Container>
-        <Banner imgSrc={JoinFree} textPosition="center">
-          <div className="join-now">
-            <Row>
-              <Col lg={8}>
-                <Row>
-                  <Col lg={4} className="join-now__logo">
-                    <img src={joinNow} alt="joinNowLogo" height="150px"/>
-                  </Col>
-                  <Col lg={8} className="join-now__text">
-                    <FormattedMessage id="data.HPBanner" />
-                  </Col>
-                </Row>
-              </Col>
-              <Col lg={4}>
+
+        <>
+            <Row className="landing__join">
+                <Col lg={2} className="join__logo">
+                <img src={joinNow} alt="joinNowLogo" />
+                </Col>
+                <Col lg={6} className="bannertext">
+                <FormattedMessage id="data.HPBanner" />
+                </Col>
+                <Col lg={4}>
                 <button
                   onClick={loginCheck}
                   className="banner-btn banner-btn-mobile"
@@ -132,11 +128,10 @@ const LandingPage = props => {
                 >
                   <FormattedMessage id="data.referJoinNow" />
                 </button>
-              </Col>
+                </Col>
             </Row>
-          </div>
           <Snackbar message={<FormattedMessage id="data.alreadyLoggedIn" />} open={snackbarState} />
-        </Banner>
+        </>
         <div className="merchant">
           <Row>
             <Col xs={12}>
@@ -192,26 +187,26 @@ const LandingPage = props => {
             ))}
           </Row>
         </div>
-        <Banner imgSrc={ReferAFriendBG} textPosition="center">
-          <>
-            <Row>
-              <Col lg={8}>
-                <p className="refer__banner">
-                  <FormattedMessage id="data.menuHPcapsrefer" />
-                </p>
-              </Col>
-              <Col lg={4}>
+
+        <>
+            <Row className="referlanding__join text-center">
+                <Col lg={8} className="referbannertext">
+                <FormattedMessage id="data.menuHPcapsrefer" />
+                </Col>
+                <Col lg={4} className="bannerbutton">
                 <button
                   onClick={() => props.history.push('/refer-friend')}
-                  className="banner-btn"
+                  className="referbanner-btn"
                   type="button"
                 >
                   <FormattedMessage id="data.menuHPcapsrefer" />
                 </button>
-              </Col>
+                </Col>
             </Row>
-          </>
-        </Banner>
+          <Snackbar message={<FormattedMessage id="data.alreadyLoggedIn" />} open={snackbarState} />
+        </>
+
+
         <DealsNews />
 
       </Container>
