@@ -12,6 +12,7 @@ import SignUpContent from 'components/UserForm/SignUp/SignUpContent';
 import SignInContent from 'components/UserForm/SignIn/SignInContent';
 import ForgotPassword from 'components/UserForm/ForgotPassword';
 import brandLogo from 'static/images/login-signup/left-logo.png';
+import brandLogochi from 'static/images/login-signup/logo-icon(leftchinese).png';
 import Welcome from 'static/images/cashback/welcome-screen(eng).png';
 import Welcomechi from 'static/images/cashback/welcome-screen(chi).png';
 import { FormattedMessage } from 'react-intl';
@@ -51,7 +52,11 @@ const UserModal = (props) => {
           <StyledDiv md={5} className="no-padding left-bg auth-modal__left-side">
             <div className="bg-img">
               {/* <Banner imgSrc={leftImage} className="auth-modal__left-side" textPosition="center"> */}
-              <img src={brandLogo} alt="imageLogo" className="mx-auto d-block" />
+              <img
+                src={language === 'en-US' ? brandLogo : brandLogochi}
+                alt="imageLogo"
+                className="mx-auto d-block"
+              />
               {name === 'signin' || name === 'forgot' ? (
                 <SignInContent SignUpContent label={<FormattedMessage id="data.signUp" />} />
               ) : (
