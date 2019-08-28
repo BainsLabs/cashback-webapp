@@ -192,6 +192,7 @@ class SignUp extends Component {
     const { userRegister, userStatusCheck } = this.props;
     let { email, username, password, sponsorId, countryValue } = this.state;
     this.setState({ isLoading: true });
+    const tid = uuid()
     try {
       const newUser = await userRegister({
         sessionId: uuid(),
@@ -225,7 +226,7 @@ class SignUp extends Component {
         package: '3',
         rankAward: 'optOut',
         shipMethod: null,
-        billing: { method: 'wire_transfer', tid: '3d6660f0-c8bb-11e9-a016-7fc6866dcc1e' },
+        billing: { method: 'wire_transfer', tid },
         sponsorId,
         position: null,
         uplinedid: null,
@@ -242,7 +243,7 @@ class SignUp extends Component {
       let userStatus = 200;
       let userStatusPending = 201;
       while (userStatus !== userStatusPending) {
-          const res = await userStatusCheck({ email, tid: '3d6660f0-c8bb-11e9-a016-7fc6866dcc1e' });
+          const res = await userStatusCheck({ email, tid });
           userStatusPending = res.statusCode;
           console.log(userStatusPending);
       }
