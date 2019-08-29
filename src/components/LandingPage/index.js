@@ -4,7 +4,6 @@ import CategorySection from 'components/LandingPage/CategorySection';
 import { Container, Row, Col } from 'react-bootstrap';
 import { cloudfrontUrl } from 'utils/uitility';
 import Card from 'components/common/Card';
-import joinNow from 'static/icons-images/Logo1_White_1000px.png';
 import { withRouter } from 'react-router-dom';
 import { modalState } from 'redux/actions/modalActions';
 import AddSection from 'components/LandingPage/AddSection';
@@ -122,7 +121,7 @@ const LandingPage = props => {
         <>
           <Row className="landing__join">
             <Col lg={2} className="join__logo">
-              <img src={joinNow} alt="joinNowLogo" />
+              <img src={cloudfrontUrl('icons-images/Logo1_White_1000px.png')} alt="joinNowLogo" />
             </Col>
             <Col lg={6} className="bannertext">
               <FormattedMessage id="data.HPBanner" />
