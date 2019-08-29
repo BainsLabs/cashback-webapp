@@ -1,7 +1,8 @@
 .navbar
   background: map-get($sectionColor, 'blue')
-  +margin('top', .2rem)
-  +padding('',1.2rem)
+
+  +margin('top', 0.2rem)
+  +padding('', 1.2rem)
 
 .navbar__list
   font-size: 0.8rem
@@ -13,20 +14,61 @@
     color: map-get($fontColor, 'black')
     text-decoration: none
     text-transform: uppercase
+
     &:hover
       // border-bottom: 1px solid map-get($fontColor,'white' )
       color: map-get($fontColor, 'yellow')
+
 .navbar__list div:not(:first-child)
-  +margin('left',6rem)
+  +margin('left', 6rem)
+
 .navbar__list
   a
     &:hover
-      color: map-get($fontColor,'yellow')
+      color: map-get($fontColor, 'yellow')
+
 .dropdownnav
-  margin: -.5rem !important
+  margin: (-0.5rem) !important
+
 .secondary__nav
-  +padding('',0.2rem 5rem 0rem 5rem)
+  +padding('', 0.2rem 5rem 0rem 5rem)
+
 .chinese__nav
-  +padding('',0.2rem 5rem 0rem 12rem)
+  +padding('', 0.2rem 5rem 0rem 12rem)
+
 .navbar-expand-lg .navbar-nav .dropdown-menu
   margin: 0rem
+
+// .loader-button
+//   display: grid
+//   grid-template-columns: repeat(2, 1fr)
+
+//   span
+//     +padding('top', 1.2rem)
+
+.lds-dual-ring
+  display: inline-block
+  width: 30px
+  height: 30px
+  left: 10%
+  position: absolute
+    // /* top: 0
+  bottom: 25%
+
+.lds-dual-ring:after
+  content: ' '
+  display: block
+  width: 30px
+  height: 30px
+  margin: 1px
+  border-radius: 50%
+  border: 5px solid #fff
+  border-color: map-get($fontColor, 'yellow') transparent map-get($fontColor, 'yellow') transparent
+  animation: lds-dual-ring 1.2s linear infinite
+
+@keyframes lds-dual-ring
+  0%
+    transform: rotate(0deg)
+
+  100%
+    transform: rotate(360deg)

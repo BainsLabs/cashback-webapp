@@ -9,6 +9,7 @@ import { connect } from 'react-redux';
 import { Snackbar } from '@material/react-snackbar';
 import { withRouter } from 'react-router-dom';
 import { modalState } from 'redux/actions/modalActions';
+import ReactTooltip from 'react-tooltip';
 
 import joinNow from 'static/icons-images/Logo1_White_1000px.png';
 
@@ -16,11 +17,12 @@ const Subscribe = (props) => {
   const [snackbarState, setSnackbarState] = useState(false);
   const authenticated = localStorage.getItem('authenticated');
   const { intl } = props;
-  const loginCheck = () => {
+  const loginCheck = async () => {
     if (authenticated) {
       setSnackbarState(true);
       return;
     }
+
     props.modalState('signup');
   };
   return (
