@@ -455,8 +455,8 @@ class SignUp extends Component {
           <Col>
             <Input id="isAccepted" type="checkbox" className="signup__check" />
             &nbsp;
-            <span className="terms" onClick={() => modalState(null)}>
-              <Link to="/terms-conditions">
+            <span className="terms">
+              <Link to="/terms-conditions" target="_blank">
                 <FormattedMessage id="data.agressterm" />
               </Link>
             </span>

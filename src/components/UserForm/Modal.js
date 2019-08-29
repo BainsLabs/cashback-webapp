@@ -39,7 +39,7 @@ const UserModal = (props) => {
   const { name, open } = userModal;
   const language = localStorage.getItem('country');
   return (
-    <Modal open={open} onClose={onHide} center blockScroll styles={modalStyles}>
+    <Modal open={open} onClose={onHide} center blockScroll styles={modalStyles} closeOnOverlayClick={false}>
       {name === 'welcome' ? (
         <img
           src={language === 'en-US' ? Welcome : Welcomechi}
