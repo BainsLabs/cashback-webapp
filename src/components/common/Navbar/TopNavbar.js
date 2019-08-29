@@ -3,7 +3,7 @@
 import React, { Component } from 'react';
 import { Row, Col } from 'react-bootstrap';
 import { Auth } from 'aws-amplify';
-import logo from 'static/icons-images/Logo1_Horiz_Black.png';
+import logo from 'static/images/home-page/logo(eng).png';
 import logochi from 'static/images/home-page/logo(chi).png';
 import Input from 'components/common/inputField';
 import { connect } from 'react-redux';
