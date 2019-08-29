@@ -12,28 +12,29 @@ import uuidv1 from 'uuid';
 
 export default () => {
   return (
-    <Row>
-      <Col className="add-section__heading">
-        <h2 className="text-uppercase">
-          <FormattedMessage id="data.filterboxSCtlcdeal" />
-        </h2>
-
-        <Row className="tlcdeals">
-          {TLCdeals.map(item => (
-            <Col xs={12} md={6} lg={3} className="mb-3 tlccategory__item " key={uuidv1()}>
-              <Card
-                classValue="card__content-hover"
-                backgroundImage={item.bgImg}
-                textPosition="center"
-                border
-              >
-                <CardContent brandLogo={item.icon} data={item} />
-              </Card>
-            </Col>
-          ))}
-        </Row>
-      </Col>
-    </Row>
+    <div className="merchant">
+      <Row>
+        <Col xs={12}>
+          <h3>
+            <FormattedMessage id="data.filterboxSCtlcdeal" />
+          </h3>
+        </Col>
+      </Row>
+      <Row>
+        {TLCdeals.map(item => (
+          <Col xs={12} md={6} lg={3} className="mb-3 tlccategory__item " key={uuidv1()}>
+            <Card
+              classValue="card__content-hover"
+              backgroundImage={item.bgImg}
+              textPosition="center"
+              border
+            >
+              <CardContent brandLogo={item.icon} data={item} />
+            </Card>
+          </Col>
+        ))}
+      </Row>
+    </div>
   );
 };
 //
