@@ -23,6 +23,7 @@ const modalStyles = {
     padding: 0,
     borderRadius: '2rem',
     position: 'relative',
+    width: '100%',
   },
   closeButton: {
     borderRadius: '2rem',
@@ -39,7 +40,14 @@ const UserModal = (props) => {
   const { name, open } = userModal;
   const language = localStorage.getItem('country');
   return (
-    <Modal open={open} onClose={onHide} center blockScroll styles={modalStyles} closeOnOverlayClick={false}>
+    <Modal
+      open={open}
+      onClose={onHide}
+      center
+      blockScroll
+      styles={modalStyles}
+      closeOnOverlayClick={false}
+    >
       {name === 'welcome' ? (
         <img
           src={language === 'en-US' ? Welcome : Welcomechi}
