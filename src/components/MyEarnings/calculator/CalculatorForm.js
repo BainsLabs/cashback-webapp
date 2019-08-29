@@ -51,7 +51,7 @@ class CalculatorForm extends Component {
   };
 
   onIncrement = (fieldname) => {
-    const { monthlyspend, friendsreferred, avgcashback } = this.state;
+    const { monthlyspend, friendsreferred, avgcashback, friendshibonus } = this.state;
     switch (fieldname) {
       case 'monthlyspend':
         if (monthlyspend < 100 || monthlyspend === '') {
@@ -83,13 +83,31 @@ class CalculatorForm extends Component {
           );
         }
         break;
+        case 'friendshibonus':
+          if (friendshibonus == 5) {
+            this.setState(
+              {
+                friendshibonus: friendshibonus + 5,
+              },
+              () => this.onMaths(),
+            );
+          }
+          if (friendshibonus == 10) {
+            this.setState(
+              {
+                friendshibonus: friendshibonus + 10,
+              },
+              () => this.onMaths(),
+            );
+          }
+          break;
       default:
         break;
     }
   };
 
   onDecrement = (fieldname) => {
-    const { monthlyspend, friendsreferred, avgcashback } = this.state;
+    const { monthlyspend, friendsreferred, avgcashback, friendshibonus } = this.state;
     switch (fieldname) {
       case 'monthlyspend':
         if (monthlyspend > 0 || monthlyspend === '') {
@@ -116,6 +134,24 @@ class CalculatorForm extends Component {
           this.setState(
             {
               avgcashback: avgcashback - 1,
+            },
+            () => this.onMaths(),
+          );
+        }
+        break;
+      case 'friendshibonus':
+        if (friendshibonus == 10) {
+          this.setState(
+            {
+              friendshibonus: friendshibonus - 5,
+            },
+            () => this.onMaths(),
+          );
+        }
+        if (friendshibonus == 20) {
+          this.setState(
+            {
+              friendshibonus: friendshibonus - 10,
             },
             () => this.onMaths(),
           );
@@ -233,7 +269,7 @@ class CalculatorForm extends Component {
             <Row className="text-center">
               <Col md={6}>
                 <Row>
-                  <Col md={2} xs={2}>
+                  <Col md={2} xs={2} className="text-right no-padding">
                     <button
                       onClick={() => this.onDecrement('monthlyspend')}
                       className="cal__button"
@@ -252,7 +288,7 @@ class CalculatorForm extends Component {
                       // max="100"
                     />
                   </Col>
-                  <Col md={2} xs={2}>
+                  <Col md={2} xs={2} className="text-left no-padding">
                     <button
                       onClick={() => this.onIncrement('monthlyspend')}
                       className="cal__button"
@@ -273,7 +309,7 @@ class CalculatorForm extends Component {
               </Col>
               <Col md={6}>
                 <Row>
-                  <Col md={2} xs={2}>
+                  <Col md={2} xs={2} className="text-right no-padding">
                     <button
                       onClick={() => this.onDecrement('friendsreferred')}
                       className="cal__button"
@@ -293,7 +329,7 @@ class CalculatorForm extends Component {
                       // max="20"
                     />
                   </Col>
-                  <Col md={2} xs={2}>
+                  <Col md={2} xs={2} className="text-left no-padding">
                     <button
                       onClick={() => this.onIncrement('friendsreferred')}
                       className="cal__button"
@@ -319,9 +355,9 @@ class CalculatorForm extends Component {
             <Row className="text-center">
               <Col md={6}>
                 <Row>
-                  <Col md={2} xs={2}>
-                    <button className="cal__button">
-                      <i className="fas fa-minus" onClick={() => this.onDecrement('avgcashback')} />
+                  <Col md={2} xs={2} className="text-right no-padding">
+                    <button className="cal__button" onClick={() => this.onDecrement('avgcashback')}>
+                      <i className="fas fa-minus"  />
                     </button>
                   </Col>
                   <Col md={8} xs={8}>
@@ -334,7 +370,7 @@ class CalculatorForm extends Component {
                       readOnly
                     />
                   </Col>
-                  <Col md={2} xs={2}>
+                  <Col md={2} xs={2} className="text-left no-padding">
                     <button onClick={() => this.onIncrement('avgcashback')} className="cal__button">
                       <i className="fas fa-plus" />
                     </button>
@@ -351,18 +387,29 @@ class CalculatorForm extends Component {
                 <ReactTooltip />
               </Col>
               <Col md={6}>
-                {/* <Input
-                  type="number"
-                  className="calculator__field"
-                  name="friendshibonus"
-                  onChange={this.onHandleChange}
-                  value={friendshibonus}
-                /> */}
-                <select name="friendshibonus" onChange={this.onHandleChange}>
-                  <option value="5">5</option>
-                  <option value="10">10</option>
-                  <option value="20">20</option>
-                </select>
+                <Row>
+              <Col md={2} xs={2} className="text-right no-padding">
+                    <button className="cal__button" onClick={() => this.onDecrement('friendshibonus')}>
+                      <i className="fas fa-minus"  />
+                    </button>
+                  </Col>
+                  <Col md={8} xs={8}>
+                     <Input
+                        type="number"
+                        className="calculator__field"
+                        name="friendshibonus"
+                        value={friendshibonus}
+                        readOnly
+                    />
+                  </Col>
+                  <Col md={2} xs={2} className="text-left no-padding">
+                    <button onClick={() => this.onIncrement('friendshibonus')} className="cal__button">
+                      <i className="fas fa-plus" />
+                    </button>
+                  </Col>
+
+
+                  </Row>
                 <p className="fieldText">
                   <FormattedMessage id="data.calFriendShipBonus" />
                   &nbsp;
