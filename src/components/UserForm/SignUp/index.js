@@ -432,7 +432,7 @@ class SignUp extends Component {
               />
               <span className="text-danger">{referUsernameError}</span>
             </Col>
-            {name !== '' ? (
+            {name !== '' && name !== '- -' ? (
               <Col>
                 <Input
                   placeholder={intl.formatMessage({ id: 'data.friendsName' })}
