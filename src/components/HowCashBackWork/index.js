@@ -1,15 +1,13 @@
 import React from 'react';
 import Banner from 'components/common/Banner';
 import { Container } from 'react-bootstrap';
-import CashBackBanner from 'static/images/cashback/banner.jpg';
-import WhatIsCashback from 'components/HowCashBackWork/WhatIsCashback';
-import EarnExtraReward from 'components/HowCashBackWork/ExtraRewards';
+import { cloudfrontUrl } from 'utils/uitility';
 import HowAffiliateWorks from 'components/HowCashBackWork/HowAffiliateWorks';
 import { FormattedMessage } from 'react-intl';
 
 const HowCashbackWorks = () => (
   <>
-    <Banner imgSrc={CashBackBanner} textPosition="center">
+    <Banner imgSrc={cloudfrontUrl('images/cashback/banner.jpg')} textPosition="center">
       <Container>
         <div className="cashback__banner">
           <h3>

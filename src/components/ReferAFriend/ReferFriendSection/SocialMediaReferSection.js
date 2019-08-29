@@ -1,12 +1,6 @@
 import React from 'react';
 import { Row, Col } from 'react-bootstrap';
-import Wechat from 'static/icons-images/weixin-brands.svg';
-import fb from 'static/icons-images/facebook-brands.svg';
-import instagram from 'static/icons-images/instagram-brands.svg';
-import linkedIn from 'static/icons-images/linkedin-brands.svg';
-import pinterest from 'static/icons-images/pinterest-brands.svg';
-import twitter from 'static/icons-images/twitter-brands.svg';
-import whatsapp from 'static/icons-images/whatsapp-brands.svg';
+import { cloudfrontUrl } from 'utils/uitility';
 import { FormattedMessage } from 'react-intl';
 
 export default () => (
@@ -27,25 +21,53 @@ export default () => (
       <Col className="text-center">
         <ul className="social__list">
           <li>
-            <img src={Wechat} alt="wechat" className="refer__social" />
+            <img
+              src={cloudfrontUrl('icons-images/weixin-brands.svg')}
+              alt="wechat"
+              className="refer__social"
+            />
           </li>
           <li>
-            <img src={instagram} alt="instagram" className="refer__social" />
+            <img
+              src={cloudfrontUrl('icons-images/instagram-brands.svg')}
+              alt="instagram"
+              className="refer__social"
+            />
           </li>
           <li>
-            <img src={whatsapp} alt="whatsapp" className="refer__social" />
+            <img
+              src={cloudfrontUrl('icons-images/whatsapp-brands.svg')}
+              alt="whatsapp"
+              className="refer__social"
+            />
           </li>
           <li>
-            <img src={twitter} alt="twitter" className="refer__social" />
+            <img
+              src={cloudfrontUrl('icons-images/twitter-brands.svg')}
+              alt="twitter"
+              className="refer__social"
+            />
           </li>
           <li>
-            <img src={fb} alt="fb" className="refer__social" />
+            <img
+              src={cloudfrontUrl('icons-images/facebook-brands.svg')}
+              alt="fb"
+              className="refer__social"
+            />
           </li>
           <li>
-            <img src={linkedIn} alt="linkedIn" className="refer__social" />
+            <img
+              src={cloudfrontUrl('icons-images/linkedin-brands.svg')}
+              alt="linkedIn"
+              className="refer__social"
+            />
           </li>
           <li>
-            <img src={pinterest} alt="pinterest" className="refer__social" />
+            <img
+              src={cloudfrontUrl('icons-images/pinterest-brands.svg')}
+              alt="pinterest"
+              className="refer__social"
+            />
           </li>
         </ul>
       </Col>

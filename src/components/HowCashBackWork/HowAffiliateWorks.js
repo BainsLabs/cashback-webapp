@@ -1,15 +1,7 @@
 import React from 'react';
 import { Container, Col, Row } from 'react-bootstrap';
-import { CashbackImg } from 'constants/cashbackimg';
+import { cloudfrontUrl } from 'utils/uitility';
 import { FormattedMessage } from 'react-intl';
-import howcashback from 'static/images/cashback/howcashbackwork.png';
-import howcashbackchin from 'static/images/cashback/chinesehowcashback.png';
-import savemoney from 'static/images/cashback/savemoney.png';
-import savemoneychi from 'static/images/cashback/chinesesavemoney.png';
-import welcomegift from 'static/images/cashback/welcomegift.png';
-import welcomegiftchi from 'static/images/cashback/chinesewelcomegift.png';
-import referal from 'static/images/cashback/referal-bonus.png';
-import referalchi from 'static/images/cashback/chinesereferbonus.png';
 
 const HowAffiliateWorks = () => {
   const language = localStorage.getItem('country');
@@ -27,7 +19,11 @@ const HowAffiliateWorks = () => {
           <Row>
             <Col md={7}>
               <img
-                src={language === 'en-US' ? howcashback : howcashbackchin}
+                src={
+                  language === 'en-US'
+                    ? cloudfrontUrl('images/cashback/howcashbackwork.png')
+                    : cloudfrontUrl('images/cashback/chinesehowcashback.png')
+                }
                 alt="refer bonus"
                 className="howcashback__img"
               />
@@ -45,11 +41,17 @@ const HowAffiliateWorks = () => {
           </Row>
           <Row>
             <Col md={5} className="howcashback__text">
-              <p><FormattedMessage id="data.savemoney" /></p>
+              <p>
+                <FormattedMessage id="data.savemoney" />
+              </p>
             </Col>
             <Col md={7}>
               <img
-                src={language === 'en-US' ? savemoney : savemoneychi}
+                src={
+                  language === 'en-US'
+                    ? cloudfrontUrl('images/cashback/savemoney.png')
+                    : cloudfrontUrl('images/cashback/chinesesavemoney.png')
+                }
                 alt="refer bonus"
                 className="howcashback__img"
               />
@@ -65,7 +67,11 @@ const HowAffiliateWorks = () => {
           <Row>
             <Col md={8}>
               <img
-                src={language === 'en-US' ? welcomegift : welcomegiftchi}
+                src={
+                  language === 'en-US'
+                    ? cloudfrontUrl('images/cashback/welcomegift.png')
+                    : cloudfrontUrl('images/cashback/chinesewelcomegift.png')
+                }
                 alt="refer bonus"
                 className="howcashback__img"
               />
@@ -87,7 +93,11 @@ const HowAffiliateWorks = () => {
             </Col>
             <Col md={8}>
               <img
-                src={language === 'en-US' ? referal : referalchi}
+                src={
+                  language === 'en-US'
+                    ? cloudfrontUrl('images/cashback/referal-bonus.png')
+                    : cloudfrontUrl('images/cashback/chinesereferbonus.png')
+                }
                 alt="refer bonus"
                 className="howcashback__img"
               />

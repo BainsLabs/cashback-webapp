@@ -1,10 +1,8 @@
 import React from 'react';
 import { Tabs, Tab, Container } from 'react-bootstrap';
 import Banner from 'components/common/Banner';
-import bannerImg from 'static/images/my-earning/banner.jpg';
+import { cloudfrontUrl } from 'utils/uitility';
 import { FormattedMessage } from 'react-intl';
-import ComingSoon from 'static/images/my-earning/tab-coming-soon.png';
-import ChineseComingSoon from 'static/images/my-earning/tab-coming-soon(chinese).jpg';
 import Cashback from './cashBack';
 import WelComeGift from './welcomeGift';
 // import ReferBonus from './ReferralBonus';
@@ -16,7 +14,7 @@ export default () => {
   const language = localStorage.getItem('country');
   return (
     <>
-      <Banner imgSrc={bannerImg}>
+      <Banner imgSrc={cloudfrontUrl('images/my-earning/banner.jpg')}>
         <h2 className="vipbanner-text text-center">
           <FormattedMessage id="data.myearnings" />
         </h2>
@@ -40,7 +38,11 @@ export default () => {
             {/* <ReferBonus /> */}
             <img
               className="commingsoon"
-              src={language === 'en-US' ? ComingSoon : ChineseComingSoon}
+              src={
+                language === 'en-US'
+                  ? cloudfrontUrl('images/my-earning/tab-coming-soon.png')
+                  : cloudfrontUrl('images/my-earning/tab-coming-soon(chinese).jpg')
+              }
               alt="comming soon"
             />
           </Tab>
@@ -51,7 +53,11 @@ export default () => {
             {/* <VipCashBack /> */}
             <img
               className="commingsoon"
-              src={language === 'en-US' ? ComingSoon : ChineseComingSoon}
+              src={
+                language === 'en-US'
+                  ? cloudfrontUrl('images/my-earning/tab-coming-soon.png')
+                  : cloudfrontUrl('images/my-earning/tab-coming-soon(chinese).jpg')
+              }
               alt="comming soon"
             />
           </Tab>
@@ -62,7 +68,11 @@ export default () => {
             {/* <VipBonus /> */}
             <img
               className="commingsoon"
-              src={language === 'en-US' ? ComingSoon : ChineseComingSoon}
+              src={
+                language === 'en-US'
+                  ? cloudfrontUrl('images/my-earning/tab-coming-soon.png')
+                  : cloudfrontUrl('images/my-earning/tab-coming-soon(chinese).jpg')
+              }
               alt="comming soon"
             />
           </Tab>
@@ -73,7 +83,11 @@ export default () => {
             {/* <FriendShipBonus /> */}
             <img
               className="commingsoon"
-              src={language === 'en-US' ? ComingSoon : ChineseComingSoon}
+              src={
+                language === 'en-US'
+                  ? cloudfrontUrl('images/my-earning/tab-coming-soon.png')
+                  : cloudfrontUrl('images/my-earning/tab-coming-soon(chinese).jpg')
+              }
               alt="comming soon"
             />
           </Tab>

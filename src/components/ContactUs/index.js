@@ -1,13 +1,12 @@
 import React from 'react';
 import Banner from 'components/common/Banner';
-import ContactBanner from 'static/images/contact/contact-banner.jpg';
 import ContactUsForm from 'components/ContactUs/ContactUsForm';
 import { FormattedMessage } from 'react-intl';
-import ContactServices from 'components/ContactUs/ContactServices';
+import { cloudfrontUrl } from 'utils/uitility';
 
 const ContactUs = () => (
   <>
-    <Banner imgSrc={ContactBanner}>
+    <Banner imgSrc={cloudfrontUrl('images/contact/contact-banner.jpg')}>
       <h2 className="vipbanner-text text-center">
         <FormattedMessage id="data.getintouch" />
       </h2>

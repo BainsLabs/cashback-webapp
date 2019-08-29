@@ -2,14 +2,14 @@ import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import Input from 'components/common/inputField';
 import { FormattedMessage, injectIntl, intlShape } from 'react-intl';
+import { cloudfrontUrl } from 'utils/uitility';
 import Banner from 'components/common/Banner';
-import BannerImage from 'static/images/cashback/wallet.png';
 
 const MyWallet = (props) => {
   const { intl } = props;
   return (
     <>
-      <Banner imgSrc={BannerImage} textPosition="center">
+      <Banner imgSrc={cloudfrontUrl('images/cashback/wallet.png')} textPosition="center">
         <h2 className="vipbanner-text">
           <FormattedMessage id="data.mywallet" />
         </h2>

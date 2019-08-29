@@ -3,13 +3,13 @@ import Banner from 'components/common/Banner';
 import {
   Container, Row, Col, Table,
 } from 'react-bootstrap';
-import BannerImage from 'static/images/my-earning/favmerchants.png';
+import { cloudfrontUrl } from 'utils/uitility';
 import { FormattedMessage } from 'react-intl';
 
 const FavMerchant = () => {
   return (
     <>
-      <Banner imgSrc={BannerImage} textPosition="center">
+      <Banner imgSrc={cloudfrontUrl('images/my-earning/favmerchants.png')} textPosition="center">
         <h2 className="vipbanner-text">
           <FormattedMessage id="data.favmerchants" />
         </h2>

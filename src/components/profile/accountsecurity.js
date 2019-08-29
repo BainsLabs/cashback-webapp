@@ -3,8 +3,7 @@ import { Auth } from 'aws-amplify';
 import {
   Container, Row, Col, InputGroup, FormControl, Button, Form,
 } from 'react-bootstrap';
-import InputField from 'components/common/inputField';
-import ChangePassword from 'static/images/profile/change-password.png';
+import { cloudfrontUrl } from 'utils/uitility';
 import { FormattedMessage, injectIntl, intlShape } from 'react-intl';
 import { Snackbar } from '@material/react-snackbar';
 
@@ -119,7 +118,10 @@ class AccountSecurity extends Component {
             <Row>
               <Col className="account__security">
                 <span>
-                  <img src={ChangePassword} alt="changepassword" />
+                  <img
+                    src={cloudfrontUrl('images/profile/change-password.png')}
+                    alt="changepassword"
+                  />
                   &nbsp;
                   <FormattedMessage id="data.changepass" />
                 </span>

@@ -1,18 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { Container, Col, Row } from "react-bootstrap";
+import { cloudfrontUrl } from 'utils/uitility'
 import Banner from "components/common/Banner";
-import vipImage from "static/images/vip-banefits/vip.jpg";
-import VipBanner from "static/images/vip-banefits/vip-banner.jpg";
-import friendshipbonus2 from "static/images/vip-banefits/friendshipbonus.jpg";
-import friendshipbonus from "static/images/vip-banefits/friendshipbonus.png";
-import chifriendshipbonus from "static/images/vip-banefits/chinesefriendshipbonus.png";
-import VipBonus from "static/images/vip-banefits/vipbonus.png";
-import VipBonuschi from "static/images/vip-banefits/vipchi.png";
-import Vipcashback from "static/images/vip-banefits/vipcashback.png";
-import chinesevipcashback from "static/images/vip-banefits/chinesevipcashback.png";
 import BenefitsCard from "components/common/benefitscard";
 import { FormattedMessage } from "react-intl";
-// import CalculatorModal from 'components/MyEarnings/calculator/calculatorModal';
 import CalculatorForm from "components/MyEarnings/calculator/CalculatorForm";
 import ComingSoon from "components/commingSoon";
 
@@ -23,7 +14,7 @@ const VipPage = () => {
   return (
     <>
       <Banner
-        imgSrc={VipBanner}
+        imgSrc={cloudfrontUrl('images/vip-banefits/vip-banner.jpg')}
         textPosition="center"
       >
         <h2 className="vipbanner-text text-uppercase">
@@ -33,7 +24,7 @@ const VipPage = () => {
       <Container className="text-center vip__container">
         <Row>
           <Col md={6}>
-            <img src={vipImage} alt="vipImage" className="vip__image" />
+            <img src={cloudfrontUrl('images/vip-banefits/vip.jpg')} alt="vipImage" className="vip__image" />
           </Col>
           <Col md={6} className="vip__desc text-left">
             <h3 className="viptext">
@@ -99,7 +90,7 @@ const VipPage = () => {
           {console.log(language, "lan")}
           <Col md={6}>
             <img
-              src={language === "en-US" ? Vipcashback : chinesevipcashback}
+              src={language === "en-US" ? cloudfrontUrl('images/vip-banefits/vipcashback.png') : cloudfrontUrl('images/vip-banefits/chinesevipcashback.png')}
               alt="vip casback"
               className="cashback__img"
             />
@@ -124,7 +115,7 @@ const VipPage = () => {
           </Col>
           <Col md={6}>
             <img
-              src={language === "en-US" ? VipBonus : VipBonuschi}
+              src={language === "en-US" ? cloudfrontUrl('images/vip-banefits/vipbonus.png') : cloudfrontUrl('images/vip-banefits/vipchi.png')}
               alt="vip casback"
               className="cashback__img"
             />
@@ -135,7 +126,7 @@ const VipPage = () => {
             <Col>
               <img
                 src={
-                  language === "en-US" ? friendshipbonus : chifriendshipbonus
+                  language === "en-US" ? cloudfrontUrl('images/vip-banefits/friendshipbonus.png') : cloudfrontUrl('images/vip-banefits/chinesefriendshipbonus.png')
                 }
                 alt="vip casback"
                 className="vipcashback__img"
@@ -143,7 +134,7 @@ const VipPage = () => {
             </Col>
             <Col>
               <img
-                src={friendshipbonus2}
+                src={cloudfrontUrl('images/vip-banefits/friendshipbonus.jpg')}
                 alt="vip casback"
                 className="vipcashback__img"
               />
