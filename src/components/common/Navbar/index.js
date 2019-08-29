@@ -39,77 +39,67 @@ const NavBar = (props) => {
       <TopNavbar />
       {/* <secondaryNavbar /> */}
       <Navbar className="navbar" expand="lg">
-      <Navbar.Toggle aria-controls="basic-navbar-nav" />
-  <Navbar.Collapse id="basic-navbar-nav">
-        <div
-          className={language === 'en-US' ? 'container secondary__nav' : 'container chinese__nav'}
-        >
-          <Nav className="navbar__list">
-            <Nav.Item>
-              <Link to="/categories">
-                <FormattedMessage id="data.menuHPshopcategories" />
-              </Link>
-            </Nav.Item>
-            <Nav.Item>
-              <Link to="/how-cashback-works" className="text-capitalize">
-                <FormattedMessage id="data.menuHPcashbackworks" />
-              </Link>
-            </Nav.Item>
-            <Nav.Item>
-              <Link to="/refer-friend">
-                <FormattedMessage id="data.menuHPcapsrefer" />
-              </Link>
-            </Nav.Item>
-            <Nav.Item>
-              <Link to="/vip-benefits">
-                <FormattedMessage id="data.vipbenefits" />
-              </Link>
-            </Nav.Item>
-            {authenticated ? (
+        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Collapse id="basic-navbar-nav">
+          <div
+            className={language === 'en-US' ? 'container secondary__nav' : 'container chinese__nav'}
+          >
+            <Nav className="navbar__list">
               <Nav.Item>
-                <NavDropdown
-                  className="dropdownnav"
-                  title={intl.formatMessage({ id: 'data.menuHPmyaccount' })}
-                  id="basic-nav-dropdown"
-                >
-                  <NavDropdown.Item>
-                    <Link to="/profile">
+                <Link to="/categories">
+                  <FormattedMessage id="data.menuHPshopcategories" />
+                </Link>
+              </Nav.Item>
+              <Nav.Item>
+                <Link to="/how-cashback-works" className="text-capitalize">
+                  <FormattedMessage id="data.menuHPcashbackworks" />
+                </Link>
+              </Nav.Item>
+              <Nav.Item>
+                <Link to="/refer-friend">
+                  <FormattedMessage id="data.menuHPcapsrefer" />
+                </Link>
+              </Nav.Item>
+              <Nav.Item>
+                <Link to="/vip-benefits">
+                  <FormattedMessage id="data.vipbenefits" />
+                </Link>
+              </Nav.Item>
+              {authenticated ? (
+                <Nav.Item>
+                  <NavDropdown
+                    className="dropdownnav"
+                    title={intl.formatMessage({ id: 'data.menuHPmyaccount' })}
+                    id="basic-nav-dropdown"
+                  >
+                    <NavDropdown.Item href="/profile">
                       <FormattedMessage id="data.myprofile" />
-                    </Link>
-                  </NavDropdown.Item>
-                  <NavDropdown.Item>
-                    <Link to="/my-wallet">
+                    </NavDropdown.Item>
+                    <NavDropdown.Item href="/my-wallet">
                       <FormattedMessage id="data.mywallet" />
-                    </Link>
-                  </NavDropdown.Item>
+                    </NavDropdown.Item>
 
-                  <NavDropdown.Item>
-                    <Link to="/my-earnings">
+                    <NavDropdown.Item href="/my-earnings">
                       <FormattedMessage id="data.myearnings" />
-                    </Link>
-                  </NavDropdown.Item>
-                  <NavDropdown.Item>
-                    <Link to="/favourite-merchants">
+                    </NavDropdown.Item>
+                    <NavDropdown.Item href="/favourite-merchants">
                       <FormattedMessage id="data.favmerchants" />
-                    </Link>
-                  </NavDropdown.Item>
-                  <NavDropdown.Item>
-                    <Link to="/contact">
+                    </NavDropdown.Item>
+                    <NavDropdown.Item href="/contact">
                       <FormattedMessage id="data.customercare" />
-                    </Link>
-                  </NavDropdown.Item>
-                </NavDropdown>
-              </Nav.Item>
-            ) : (
-              <Nav.Item>
-                <button type="button" onClick={() => modalState('signin')} className="myaccount">
-                  <FormattedMessage id="data.menuHPmyaccount" />
-                </button>
-              </Nav.Item>
-            )}
-          </Nav>
-      </div>
-      </Navbar.Collapse>
+                    </NavDropdown.Item>
+                  </NavDropdown>
+                </Nav.Item>
+              ) : (
+                <Nav.Item>
+                  <button type="button" onClick={() => modalState('signin')} className="myaccount">
+                    <FormattedMessage id="data.menuHPmyaccount" />
+                  </button>
+                </Nav.Item>
+              )}
+            </Nav>
+          </div>
+        </Navbar.Collapse>
       </Navbar>
     </>
   );
