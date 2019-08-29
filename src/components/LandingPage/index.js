@@ -3,15 +3,9 @@ import Banner from 'components/common/Banner';
 import { connect } from 'react-redux';
 import CategorySection from 'components/LandingPage/CategorySection';
 import { Container, Row, Col } from 'react-bootstrap';
-import bannerImg from 'static/images/home-page/banner-1(eng).jpg';
-import bannerImg1 from 'static/images/home-page/banner-2(eng).jpg';
-import bannerImg2 from 'static/images/home-page/banner-3(eng).jpg';
-import bannerImgchi from 'static/images/home-page/banner-1(chi).jpg';
-import bannerImgchi1 from 'static/images/home-page/banner-2(chi).jpg';
-import bannerImgchi2 from 'static/images/home-page/banner-3(chi).jpg';
+import { cloudfrontUrl } from 'utils/uitility'
 import Card from 'components/common/Card';
 import BlackLine from 'static/icons-images/black-line.png';
-// import JoinFree from 'static/images/home-page/joinfree-bg.jpg';
 import ReferAFriendBG from 'static/images/home-page/referAfriend-bg.png';
 import joinNow from 'static/icons-images/Logo1_White_1000px.png';
 import { withRouter } from 'react-router-dom';
@@ -80,9 +74,9 @@ const LandingPage = props => {
   return (
     <>
   <Slider {...setting}>
-        <img src={language === 'en-US' ? bannerImg : bannerImgchi} />
-        <img src={language === 'en-US' ?bannerImg1 : bannerImgchi1}  />
-        <img src={language === 'en-US' ? bannerImg2 :bannerImgchi2}  />
+        <img src={language === 'en-US' ? cloudfrontUrl('images/home-page/banner-1(eng).jpg'): cloudfrontUrl('images/home-page/banner-1(chi).jpg')} />
+        <img src={language === 'en-US' ? cloudfrontUrl('images/home-page/banner-2(eng).jpg') : cloudfrontUrl('images/home-page/banner-2(chi).jpg')}  />
+        <img src={language === 'en-US' ? cloudfrontUrl('images/home-page/banner-3(eng).jpg') : cloudfrontUrl('images/home-page/banner-3(chi).jpg')}  />
       </Slider>
 
       {/* <Container>

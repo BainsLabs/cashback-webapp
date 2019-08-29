@@ -1,51 +1,42 @@
 import React from 'react';
-import travel from 'static/images/home-page/Travel.png';
-import electronics from 'static/images/home-page/Electronics.png';
-import finance from 'static/images/home-page/Finance.png';
-import hb from 'static/images/home-page/Health-Beauty.png';
-import fashion from 'static/images/home-page/Fashion.png';
-import lifeStyle from 'static/images/home-page/LIFESTYLE.png';
-import marketplace from 'static/images/home-page/marketplace.png';
-import services from 'static/images/home-page/services.png';
-import tlcDeals from 'static/images/home-page/TLC-Deals.png';
 
 import { FormattedMessage } from 'react-intl';
 // eslint-disable-next-line import/prefer-default-export
 export const categories = [
   {
-    icon: electronics,
+    icon: 'images/home-page/Electronics.png',
     label: <FormattedMessage id="data.HPelectronics" />,
   },
   {
-    icon: finance,
+    icon: 'images/home-page/Finance.png',
     label: <FormattedMessage id="data.HPfinance" />,
   },
   {
-    icon: hb,
+    icon: 'images/home-page/Health-Beauty.png',
     label: <FormattedMessage id="data.HPhealth" />,
   },
   {
-    icon: travel,
+    icon: 'images/home-page/Travel.png',
     label: <FormattedMessage id="data.HPtravel" />,
   },
   {
-    icon: fashion,
+    icon: 'images/home-page/Fashion.png',
     label: <FormattedMessage id="data.HPfashion" />,
   },
   {
-    icon: lifeStyle,
+    icon: 'images/home-page/LIFESTYLE.png',
     label: <FormattedMessage id="data.footerLIFESTYLE" />,
   },
   {
-    icon: marketplace,
+    icon: 'images/home-page/marketplace.png',
     label: <FormattedMessage id="data.footerMARKETPLACE" />,
   },
   {
-    icon: services,
+    icon: 'images/home-page/services.png',
     label: <FormattedMessage id="data.footerSERVICES" />,
   },
   {
-    icon: tlcDeals,
+    icon: 'images/home-page/TLC-Deals.png',
     label: <FormattedMessage id="data.footerTLC" />,
   },
 ];

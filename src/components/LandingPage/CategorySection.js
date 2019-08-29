@@ -5,6 +5,7 @@ import uuidv1 from 'uuid';
 import { Link } from 'react-router-dom';
 import CommonSlider from 'components/common/Slider/Slider';
 import Slider from 'react-slick';
+import { cloudfrontUrl } from 'utils/uitility';
 
 export default () => {
   const setting = {
@@ -49,7 +50,7 @@ export default () => {
             {categories.map(item => (
               <Link to="/categories" style={{ width: 0 }} className="category-slider">
                 <li key={uuidv1()}>
-                  <img src={item.icon} alt={item.label} />
+                  <img src={cloudfrontUrl(item.icon)} alt={item.label} />
                   <p className="category-label">{item.label}</p>
                 </li>
               </Link>

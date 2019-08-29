@@ -21,3 +21,8 @@ export const teamByDegree = (referred) => {
     res(powerValue);
   });
 };
+
+export const cloudfrontUrl = (path) => {
+  const url = 'https://static.6degrees.cash';
+  return `${url}/${path}`;
+};
