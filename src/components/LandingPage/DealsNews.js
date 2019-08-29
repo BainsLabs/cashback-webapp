@@ -1,13 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Row, Col } from 'react-bootstrap';
-import HP from 'static/images/home-page/tlc-logo1.png';
-import newsImage from 'static/icons-images/news-img1.jpg';
-import HP2 from 'static/images/home-page/tlc-logo2.png';
 import { FormattedMessage } from 'react-intl';
-import ComingSoon from 'components/commingSoon';
 import { TLCdeals } from 'constants/adds';
 import Card from 'components/common/Card';
 import CardContent from 'components/common/CardContent';
+import { cloudfrontUrl } from 'utils/uitility';
 import uuidv1 from 'uuid';
 
 export default () => {
@@ -25,11 +22,11 @@ export default () => {
           <Col xs={12} md={6} lg={3} className="mb-3 tlccategory__item " key={uuidv1()}>
             <Card
               classValue="card__content-hover"
-              backgroundImage={item.bgImg}
+              backgroundImage={cloudfrontUrl(item.bgImg)}
               textPosition="center"
               border
             >
-              <CardContent brandLogo={item.icon} data={item} />
+              <CardContent data={item} />
             </Card>
           </Col>
         ))}

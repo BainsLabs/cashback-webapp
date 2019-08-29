@@ -17,6 +17,7 @@ import { FormattedMessage, injectIntl, intlShape } from 'react-intl';
 import ReactTooltip from 'react-tooltip';
 import Select from 'react-select';
 import { reverseGeo } from 'redux/actions/geoActions'
+import { cloudfrontUrl } from 'utils/uitility';
 
 class TopNavbar extends Component {
   state = {
@@ -96,7 +97,7 @@ class TopNavbar extends Component {
             <Col lg={3}>
               <Link to="/">
                 <img
-                  src={localStorage.getItem('country') === 'en-US' ? logo : logochi}
+                  src={localStorage.getItem('country') === 'en-US' ? cloudfrontUrl('images/home-page/logo(eng).png') : cloudfrontUrl('images/home-page/logo(chi).png')}
                   width="250rem"
                   alt="logo"
                 />

@@ -1,295 +1,266 @@
 /* eslint-disable import/prefer-default-export */
-import React from "react";
-import Alibaba from "static/images/card/alibaba.jpg";
-import AlibabaLOGO from "static/images/card/alibaba-logo.png";
-import emirates from "static/images/card/emirates.jpg";
-import emiratesLogo from "static/images/card/emirate-logo.png";
-import expedia from "static/images/card/expedia.jpg";
-import expediaLogo from "static/images/card/epedia-logo.png";
-
-import Goto from "static/images/card/goto.jpg";
-import GotoLogo from "static/images/card/goto-logo.png";
-import hotel from "static/images/card/hotel.jpg";
-import hotelLogo from "static/images/card/hotel-logo.png";
-import Parkpalaza from "static/images/card/parkplaza.jpg";
-import ParkpalazaLogo from "static/images/card/park-plaza-logo.png";
-import Refer from "static/icons-images/refer.jpg";
-import Cheap0airbg from "static/images/shop-categories/merchant-imgs-logos/cheap0air.jpg";
-import Cheap0airicon from "static/images/shop-categories/merchant-imgs-logos/cheap0air.png";
-import agodabg from "static/images/shop-categories/merchant-imgs-logos/agoda.jpg";
-import agodaicon from "static/images/shop-categories/merchant-imgs-logos/agoda.png";
-import etihadbg from "static/images/shop-categories/merchant-imgs-logos/etihad-log.jpg";
-import etihadicon from "static/images/shop-categories/merchant-imgs-logos/etihad-log.png";
-import nikebg from "static/images/shop-categories/merchant-imgs-logos/nike.jpg";
-import nikeicon from "static/images/shop-categories/merchant-imgs-logos/nike.png";
-import sephorobg from "static/images/shop-categories/merchant-imgs-logos/sephoro.jpg";
-import sephoroicon from "static/images/shop-categories/merchant-imgs-logos/sephoro.png";
-import tripbg from "static/images/shop-categories/merchant-imgs-logos/trip.jpg";
-import tripicon from "static/images/shop-categories/merchant-imgs-logos/trip-logo.png";
-import cwj from "static/images/shop-categories/cwj.jpg";
-import shirt from "static/images/shop-categories/shirt.jpg";
-import warsi from "static/images/shop-categories/Warsi.jpg";
-import food from "static/images/shop-categories/food.jpg";
-import VIP from "static/icons-images/vip.png";
-import { FormattedMessage } from "react-intl";
+import React from 'react';
+import tripbg from 'static/images/shop-categories/merchant-imgs-logos/trip.jpg';
+import tripicon from 'static/images/shop-categories/merchant-imgs-logos/trip-logo.png';
+import { FormattedMessage } from 'react-intl';
 
 export const adds = [
   {
     cashbackText: <FormattedMessage id="data.upto" />,
-    cahsback: "2.4%",
-    tlc: "1.23",
-    bgImg: Alibaba,
-    icon: AlibabaLOGO,
+    cahsback: '2.4%',
+    tlc: '1.23',
+    bgImg: 'images/card/alibaba.jpg',
+    icon: 'images/card/alibaba-logo.png',
     offerType: <FormattedMessage id="data.headermyearningsvipcashback" />,
-    tlcText: "TLC"
+    tlcText: 'TLC',
   },
   {
     cashbackText: <FormattedMessage id="data.upto" />,
-    cahsback: "0.4%",
-    tlc: "2 ",
-    bgImg: emirates,
-    icon: emiratesLogo,
+    cahsback: '0.4%',
+    tlc: '2 ',
+    bgImg: 'images/card/emirates.jpg',
+    icon: 'images/card/emirate-logo.png',
     offerType: <FormattedMessage id="data.headermyearningsvipcashback" />,
-    tlcText: "TLC"
+    tlcText: 'TLC',
   },
   {
     cashbackText: <FormattedMessage id="data.upto" />,
-    cahsback: "4%",
-    tlc: "2 ",
-    bgImg: expedia,
-    icon: expediaLogo,
+    cahsback: '4%',
+    tlc: '2 ',
+    bgImg: 'images/card/expedia.jpg',
+    icon: 'images/card/epedia-logo.png',
     offerType: <FormattedMessage id="data.headermyearningsvipcashback" />,
-    tlcText: "TLC"
+    tlcText: 'TLC',
   },
   {
     cashbackText: <FormattedMessage id="data.upto" />,
-    cahsback: "1.4%",
-    tlc: "0.7 ",
-    bgImg: Goto,
-    icon: GotoLogo,
+    cahsback: '1.4%',
+    tlc: '0.7 ',
+    bgImg: 'images/card/goto.jpg',
+    icon: 'images/card/goto-logo.png',
     offerType: <FormattedMessage id="data.headermyearningsvipcashback" />,
-    tlcText: "TLC"
+    tlcText: 'TLC',
   },
   {
     cashbackText: <FormattedMessage id="data.upto" />,
-    cahsback: "2.4%",
-    tlc: "1.2 ",
-    bgImg: hotel,
-    icon: hotelLogo,
+    cahsback: '2.4%',
+    tlc: '1.2 ',
+    bgImg: 'images/card/hotel.jpg',
+    icon: 'images/card/hotel-logo.png',
     offerType: <FormattedMessage id="data.headermyearningsvipcashback" />,
-    tlcText: "TLC"
+    tlcText: 'TLC',
   },
   {
     cashbackText: <FormattedMessage id="data.upto" />,
-    cahsback: "2.4%",
-    tlc: "1.2 ",
-    bgImg: Parkpalaza,
-    icon: ParkpalazaLogo,
+    cahsback: '2.4%',
+    tlc: '1.2 ',
+    bgImg: 'images/card/parkplaza.jpg',
+    icon: 'images/card/park-plaza-logo.png',
     offerType: <FormattedMessage id="data.headermyearningsvipcashback" />,
-    tlcText: "TLC"
-  }
+    tlcText: 'TLC',
+  },
 ];
 
 export const addsDemo = [
   {
     cashbackText: <FormattedMessage id="data.upto" />,
-    cahsback: "2.4%",
-    tlc: "1.23",
-    bgImg: Alibaba,
-    icon: AlibabaLOGO,
+    cahsback: '2.4%',
+    tlc: '1.23',
+    bgImg: 'images/card/alibaba.jpg',
+    icon: 'images/card/alibaba-logo.png',
     offerType: <FormattedMessage id="data.headermyearningsvipcashback" />,
-    tlcText: "TLC"
+    tlcText: 'TLC',
   },
   {
     cashbackText: <FormattedMessage id="data.upto" />,
-    cahsback: "0.4%",
-    tlc: "2",
-    bgImg: emirates,
-    icon: emiratesLogo,
+    cahsback: '0.4%',
+    tlc: '2',
+    bgImg: 'images/card/emirates.jpg',
+    icon: 'images/card/emirate-logo.png',
     offerType: <FormattedMessage id="data.headermyearningsvipcashback" />,
-    tlcText: "TLC"
+    tlcText: 'TLC',
   },
   {
     cashbackText: <FormattedMessage id="data.upto" />,
-    cahsback: "4%",
-    tlc: "2",
-    bgImg: expedia,
-    icon: expediaLogo,
+    cahsback: '4%',
+    tlc: '2',
+    bgImg: 'images/card/expedia.jpg',
+    icon: 'images/card/epedia-logo.png',
     offerType: <FormattedMessage id="data.headermyearningsvipcashback" />,
-    tlcText: "TLC"
+    tlcText: 'TLC',
   },
   {
     cashbackText: <FormattedMessage id="data.upto" />,
-    cahsback: "1.4%",
-    tlc: "0.7",
-    bgImg: Goto,
-    icon: GotoLogo,
+    cahsback: '1.4%',
+    tlc: '0.7',
+    bgImg: 'images/card/goto.jpg',
+    icon: 'images/card/goto-logo.png',
     offerType: <FormattedMessage id="data.headermyearningsvipcashback" />,
-    tlcText: "TLC"
+    tlcText: 'TLC',
   },
   {
     cashbackText: <FormattedMessage id="data.upto" />,
-    cahsback: "2.4%",
-    tlc: "1.2",
-    bgImg: hotel,
-    icon: hotelLogo,
+    cahsback: '2.4%',
+    tlc: '1.2',
+    bgImg: 'images/card/hotel.jpg',
+    icon: 'images/card/hotel-logo.png',
     offerType: <FormattedMessage id="data.headermyearningsvipcashback" />,
-    tlcText: "TLC"
+    tlcText: 'TLC',
   },
   {
     cashbackText: <FormattedMessage id="data.upto" />,
-    cahsback: "2.4%",
-    tlc: "1.2",
-    bgImg: Parkpalaza,
-    icon: ParkpalazaLogo,
+    cahsback: '2.4%',
+    tlc: '1.2',
+    bgImg: 'images/card/parkplaza.jpg',
+    icon: 'images/card/park-plaza-logo.png',
     offerType: <FormattedMessage id="data.headermyearningsvipcashback" />,
-    tlcText: "TLC"
+    tlcText: 'TLC',
   },
 
   {
     cashbackText: <FormattedMessage id="data.upto" />,
-    cahsback: "2.4%",
-    tlc: "1.2",
-    bgImg: tripbg,
-    icon: tripicon,
+    cahsback: '2.4%',
+    tlc: '1.2',
+    bgImg: 'images/shop-categories/merchant-imgs-logos/trip.jpg',
+    icon: 'images/shop-categories/merchant-imgs-logos/trip-logo.png',
     offerType: <FormattedMessage id="data.headermyearningsvipcashback" />,
-    tlcText: "TLC"
+    tlcText: 'TLC',
   },
   {
     cashbackText: <FormattedMessage id="data.upto" />,
-    cahsback: "3.2%",
-    tlc: "1.6",
-    bgImg: sephorobg,
-    icon: sephoroicon,
+    cahsback: '3.2%',
+    tlc: '1.6',
+    bgImg: 'images/shop-categories/merchant-imgs-logos/sephoro.jpg',
+    icon: 'images/shop-categories/merchant-imgs-logos/sephoro.png',
     offerType: <FormattedMessage id="data.headermyearningsvipcashback" />,
-    tlcText: "TLC"
+    tlcText: 'TLC',
   },
   {
     cashbackText: <FormattedMessage id="data.upto" />,
-    cahsback: "3.5%",
-    tlc: "1.7",
-    bgImg: nikebg,
-    icon: nikeicon,
+    cahsback: '3.5%',
+    tlc: '1.7',
+    bgImg: 'images/shop-categories/merchant-imgs-logos/nike.jpg',
+    icon: 'images/shop-categories/merchant-imgs-logos/nike.png',
     offerType: <FormattedMessage id="data.headermyearningsvipcashback" />,
-    tlcText: "TLC"
+    tlcText: 'TLC',
   },
   {
     cashbackText: <FormattedMessage id="data.upto" />,
-    cahsback: "1%",
-    tlc: "0.5",
-    bgImg: etihadbg,
-    icon: etihadicon,
+    cahsback: '1%',
+    tlc: '0.5',
+    bgImg: 'images/shop-categories/merchant-imgs-logos/etihad-log.jpg',
+    icon: 'images/shop-categories/merchant-imgs-logos/etihad-log.png',
     offerType: <FormattedMessage id="data.headermyearningsvipcashback" />,
-    tlcText: "TLC"
+    tlcText: 'TLC',
   },
   {
     cashbackText: <FormattedMessage id="data.upto" />,
-    cahsback: "2.4%",
-    tlc: "1.2",
-    bgImg: agodabg,
-    icon: agodaicon,
+    cahsback: '2.4%',
+    tlc: '1.2',
+    bgImg: 'images/shop-categories/merchant-imgs-logos/agoda.jpg',
+    icon: 'images/shop-categories/merchant-imgs-logos/agoda.png',
     offerType: <FormattedMessage id="data.headermyearningsvipcashback" />,
-    tlcText: "TLC"
+    tlcText: 'TLC',
   },
   {
     cashbackText: <FormattedMessage id="data.upto" />,
-    cahsback: "$7",
-    tlc: "7",
-    bgImg: Cheap0airbg,
-    icon: Cheap0airicon,
+    cahsback: '$7',
+    tlc: '7',
+    bgImg: 'images/shop-categories/merchant-imgs-logos/cheap0air.jpg',
+    icon: 'images/shop-categories/merchant-imgs-logos/cheap0air.png',
     offerType: <FormattedMessage id="data.headermyearningsvipcashback" />,
-    tlcText: "TLC"
-  }
+    tlcText: 'TLC',
+  },
 ];
 
 export const members = [
   {
-    image: Refer,
+    image: 'icons-images/refer.jpg',
     btnText: <FormattedMessage id="data.HPreferafriend" />,
-    class: "big-img",
-    url: "/refer-friend"
+    class: 'big-img',
+    url: '/refer-friend',
   },
   {
-    image: VIP,
+    image: 'icons-images/vip.png',
     btnText: <FormattedMessage id="data.HPbecomevip" />,
-    class: "small-img",
-    url: "/vip-benefits"
-  }
+    class: 'small-img',
+    url: '/vip-benefits',
+  },
 ];
 
 export const featureAdds = [
   {
     cashbackText: <FormattedMessage id="data.upto" />,
-    cahsback: "4%",
-    tlc: "2 ",
-    bgImg: expedia,
-    icon: expediaLogo,
+    cahsback: '4%',
+    tlc: '2 ',
+    bgImg: 'images/card/expedia.jpg',
+    icon: 'images/card/epedia-logo.png',
     offerType: <FormattedMessage id="data.headermyearningsvipcashback" />,
-    tlcText: "TLC"
+    tlcText: 'TLC',
   },
   {
     cashbackText: <FormattedMessage id="data.upto" />,
-    cahsback: "2.4%",
-    tlc: "1.2",
-    bgImg: tripbg,
-    icon: tripicon,
+    cahsback: '2.4%',
+    tlc: '1.2',
+    bgImg: 'images/shop-categories/merchant-imgs-logos/trip.jpg',
+    icon: 'images/shop-categories/merchant-imgs-logos/trip-logo.png',
     offerType: <FormattedMessage id="data.headermyearningsvipcashback" />,
-    tlcText: "TLC"
+    tlcText: 'TLC',
   },
   {
     cashbackText: <FormattedMessage id="data.upto" />,
-    cahsback: "3.5%",
-    tlc: "1.75",
-    bgImg: nikebg,
-    icon: nikeicon,
+    cahsback: '3.5%',
+    tlc: '1.75',
+    bgImg: 'images/shop-categories/merchant-imgs-logos/nike.jpg',
+    icon: 'images/shop-categories/merchant-imgs-logos/nike.png',
     offerType: <FormattedMessage id="data.headermyearningsvipcashback" />,
-    tlcText: "TLC"
+    tlcText: 'TLC',
   },
   {
     cashbackText: <FormattedMessage id="data.upto" />,
-    cahsback: "2.4%",
-    tlc: "1.2",
-    bgImg: agodabg,
-    icon: agodaicon,
+    cahsback: '2.4%',
+    tlc: '1.2',
+    bgImg: 'images/shop-categories/merchant-imgs-logos/agoda.jpg',
+    icon: 'images/shop-categories/merchant-imgs-logos/agoda.png',
     offerType: <FormattedMessage id="data.headermyearningsvipcashback" />,
-    tlcText: "TLC"
-  }
+    tlcText: 'TLC',
+  },
 ];
 export const TLCdeals = [
   {
-    cashbackText: "Price",
-    cahsback: "$11",
-    tlc: "25%",
-    bgImg: shirt,
+    cashbackText: 'Price',
+    cahsback: '$11',
+    tlc: '25%',
+    bgImg: 'images/shop-categories/shirt.jpg',
     // icon: expediaLogo,
     offerType: 'Sprout',
-    tlcText: "Pay in TLC"
+    tlcText: 'Pay in TLC',
   },
   {
-    cashbackText: "Price",
-    cahsback: "$2.4",
-    tlc: "40%",
-    bgImg: food,
+    cashbackText: 'Price',
+    cahsback: '$2.4',
+    tlc: '40%',
+    bgImg: 'images/shop-categories/food.jpg',
     // icon: tripicon,
     offerType: 'Taste Factory',
-    tlcText: "Pay in TLC"
+    tlcText: 'Pay in TLC',
   },
   {
-    cashbackText: "Price",
-    cahsback: "$350",
-    tlc: "20%",
-    bgImg: cwj,
+    cashbackText: 'Price',
+    cahsback: '$350',
+    tlc: '20%',
+    bgImg: 'images/shop-categories/cwj.jpg',
     // icon: nikeicon,
     offerType: 'CWJ',
-    tlcText: "Pay in TLC"
+    tlcText: 'Pay in TLC',
   },
   {
-    cashbackText: "Price",
-    cahsback: "$220",
-    tlc: "10%",
-    bgImg: warsi,
+    cashbackText: 'Price',
+    cahsback: '$220',
+    tlc: '10%',
+    bgImg: 'images/shop-categories/Warsi.jpg',
     // icon: agodaicon,
     offerType: 'Warsi E Services',
-    tlcText: "Pay in TLC"
-  }
+    tlcText: 'Pay in TLC',
+  },
 ];
