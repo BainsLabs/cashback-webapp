@@ -1,10 +1,9 @@
 import React from 'react';
 import uuidv1 from 'uuid/v1';
-import logo from 'static/images/home-page/footer-logo(eng).png';
-import logochi from 'static/images/home-page/footer-logo(chi).png';
 import { links } from 'constants/footerLinks';
 import { Row, Col, Container } from 'react-bootstrap';
 import { FormattedMessage } from 'react-intl';
+import { cloudfrontUrl } from 'utils/uitility';
 
 export default () => {
   const language = localStorage.getItem('country');
@@ -14,7 +13,15 @@ export default () => {
         <Row className="footer__container">
           <Col lg={4}>
             <div className="footer__logo">
-              <img src={language === 'en-US' ? logo : logochi} width="inherit" alt="logo" />
+              <img
+                src={
+                  language === 'en-US'
+                    ? cloudfrontUrl('images/home-page/footer-logo(eng).png')
+                    : cloudfrontUrl('images/home-page/footer-logo(chi).png')
+                }
+                width="inherit"
+                alt="logo"
+              />
               <p className="footer__description">
                 <FormattedMessage id="data.footerDesc" />
               </p>

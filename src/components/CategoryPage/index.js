@@ -7,6 +7,7 @@ import CardContent from 'components/common/CardContent';
 import { addsDemo } from 'constants/adds';
 import uuidv1 from 'uuid';
 import { FormattedMessage } from 'react-intl';
+import { cloudfrontUrl } from 'utils/uitility';
 
 export default () => (
   <>
@@ -157,11 +158,11 @@ export default () => (
                   <Col xs={12} md={6} lg={4} className="mb-3 pl-0" key={uuidv1()}>
                     <Card
                       classValue="card__content-hover"
-                      backgroundImage={item.bgImg}
+                      backgroundImage={cloudfrontUrl(item.bgImg)}
                       textPosition="center"
                       border
                     >
-                      <CardContent brandLogo={item.icon} data={item} />
+                      <CardContent brandLogo={cloudfrontUrl(item.icon)} data={item} />
                     </Card>
                   </Col>
                 ))}

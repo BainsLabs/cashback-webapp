@@ -1,12 +1,9 @@
 import React, { useState } from 'react';
-import Banner from 'components/common/Banner';
 import { connect } from 'react-redux';
 import CategorySection from 'components/LandingPage/CategorySection';
 import { Container, Row, Col } from 'react-bootstrap';
-import { cloudfrontUrl } from 'utils/uitility'
+import { cloudfrontUrl } from 'utils/uitility';
 import Card from 'components/common/Card';
-import BlackLine from 'static/icons-images/black-line.png';
-import ReferAFriendBG from 'static/images/home-page/referAfriend-bg.png';
 import joinNow from 'static/icons-images/Logo1_White_1000px.png';
 import { withRouter } from 'react-router-dom';
 import { modalState } from 'redux/actions/modalActions';
@@ -17,13 +14,12 @@ import { FormattedMessage } from 'react-intl';
 import CardContent from 'components/common/CardContent';
 import uuidv1 from 'uuid';
 import { Snackbar } from '@material/react-snackbar';
-// import CommonSlider from 'components/common/Slider/Slider'
 import Slider from 'react-slick';
 
 // eslint-disable-next-line arrow-parens
 const LandingPage = props => {
-  const [snackbarState, setSnackbarState] = useState(false)
-  let language = localStorage.getItem('country')
+  const [snackbarState, setSnackbarState] = useState(false);
+  let language = localStorage.getItem('country');
   const authenticated = localStorage.getItem('authenticated');
   // let cashBack = props.contents.map((cont) => {
   //   return {cont.location === "myearningvip" && cont.section==="header" ? cont.content:""}
@@ -34,8 +30,8 @@ const LandingPage = props => {
       setSnackbarState(true);
       return;
     }
-    props.modalState('signup')
-  }
+    props.modalState('signup');
+  };
   const setting = {
     lazyLoad: true,
     infinite: true,
@@ -73,10 +69,28 @@ const LandingPage = props => {
   };
   return (
     <>
-  <Slider {...setting}>
-        <img src={language === 'en-US' ? cloudfrontUrl('images/home-page/banner-1(eng).jpg'): cloudfrontUrl('images/home-page/banner-1(chi).jpg')} />
-        <img src={language === 'en-US' ? cloudfrontUrl('images/home-page/banner-2(eng).jpg') : cloudfrontUrl('images/home-page/banner-2(chi).jpg')}  />
-        <img src={language === 'en-US' ? cloudfrontUrl('images/home-page/banner-3(eng).jpg') : cloudfrontUrl('images/home-page/banner-3(chi).jpg')}  />
+      <Slider {...setting}>
+        <img
+          src={
+            language === 'en-US'
+              ? cloudfrontUrl('images/home-page/banner-1(eng).jpg')
+              : cloudfrontUrl('images/home-page/banner-1(chi).jpg')
+          }
+        />
+        <img
+          src={
+            language === 'en-US'
+              ? cloudfrontUrl('images/home-page/banner-2(eng).jpg')
+              : cloudfrontUrl('images/home-page/banner-2(chi).jpg')
+          }
+        />
+        <img
+          src={
+            language === 'en-US'
+              ? cloudfrontUrl('images/home-page/banner-3(eng).jpg')
+              : cloudfrontUrl('images/home-page/banner-3(chi).jpg')
+          }
+        />
       </Slider>
 
       {/* <Container>
@@ -105,25 +119,20 @@ const LandingPage = props => {
       <CategorySection />
       <AddSection />
       <Container>
-
         <>
-            <Row className="landing__join">
-                <Col lg={2} className="join__logo">
-                <img src={joinNow} alt="joinNowLogo" />
-                </Col>
-                <Col lg={6} className="bannertext">
-                <FormattedMessage id="data.HPBanner" />
-                </Col>
-                <Col lg={4}>
-                <button
-                  onClick={loginCheck}
-                  className="banner-btn banner-btn-mobile"
-                  type="button"
-                >
-                  <FormattedMessage id="data.referJoinNow" />
-                </button>
-                </Col>
-            </Row>
+          <Row className="landing__join">
+            <Col lg={2} className="join__logo">
+              <img src={joinNow} alt="joinNowLogo" />
+            </Col>
+            <Col lg={6} className="bannertext">
+              <FormattedMessage id="data.HPBanner" />
+            </Col>
+            <Col lg={4}>
+              <button onClick={loginCheck} className="banner-btn banner-btn-mobile" type="button">
+                <FormattedMessage id="data.referJoinNow" />
+              </button>
+            </Col>
+          </Row>
           <Snackbar message={<FormattedMessage id="data.alreadyLoggedIn" />} open={snackbarState} />
         </>
         <div className="merchant">
@@ -170,11 +179,11 @@ const LandingPage = props => {
               <Col xs={12} md={6} lg={3} className="mb-3 pl-0" key={uuidv1()}>
                 <Card
                   classValue="card__content-hover"
-                  backgroundImage={item.bgImg}
+                  backgroundImage={cloudfrontUrl(item.bgImg)}
                   textPosition="center"
                   border
                 >
-                  <CardContent brandLogo={item.icon} data={item} />
+                  <CardContent brandLogo={cloudfrontUrl(item.icon)} data={item} />
                 </Card>
               </Col>
               // </Col>
@@ -183,26 +192,24 @@ const LandingPage = props => {
         </div>
 
         <>
-            <Row className="referlanding__join text-center">
-                <Col lg={8} className="referbannertext">
+          <Row className="referlanding__join text-center">
+            <Col lg={8} className="referbannertext">
+              <FormattedMessage id="data.menuHPcapsrefer" />
+            </Col>
+            <Col lg={4} className="bannerbutton">
+              <button
+                onClick={() => props.history.push('/refer-friend')}
+                className="referbanner-btn"
+                type="button"
+              >
                 <FormattedMessage id="data.menuHPcapsrefer" />
-                </Col>
-                <Col lg={4} className="bannerbutton">
-                <button
-                  onClick={() => props.history.push('/refer-friend')}
-                  className="referbanner-btn"
-                  type="button"
-                >
-                  <FormattedMessage id="data.menuHPcapsrefer" />
-                </button>
-                </Col>
-            </Row>
+              </button>
+            </Col>
+          </Row>
           <Snackbar message={<FormattedMessage id="data.alreadyLoggedIn" />} open={snackbarState} />
         </>
 
-
         <DealsNews />
-
       </Container>
     </>
   );

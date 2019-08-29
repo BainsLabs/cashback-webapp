@@ -6,6 +6,7 @@ import { Row, Col, Container } from 'react-bootstrap';
 import { FormattedMessage } from 'react-intl';
 import uuidv1 from 'uuid';
 import { withRouter } from 'react-router-dom';
+import { cloudfrontUrl } from 'utils/uitility';
 
 export default withRouter(props => (
   <div className="add-section">
@@ -20,11 +21,11 @@ export default withRouter(props => (
               <Col xs={12} md={6} lg={4} className="mb-3 pl-0 category__item " key={uuidv1()}>
                 <Card
                   classValue="card__content-hover"
-                  backgroundImage={item.bgImg}
+                  backgroundImage={cloudfrontUrl(item.bgImg)}
                   textPosition="center"
                   border
                 >
-                  <CardContent brandLogo={item.icon} data={item} />
+                  <CardContent brandLogo={cloudfrontUrl(item.icon)} data={item} />
                 </Card>
               </Col>
             ))}
@@ -43,7 +44,7 @@ export default withRouter(props => (
                   height="100%"
                 >
                   <div className="card__add-section">
-                    <img src={item.image} alt="brand" className={item.class} />
+                    <img src={cloudfrontUrl(item.image)} alt="brand" className={item.class} />
                     <br />
                     <button onClick={() => props.history.push(item.url)} type="button">
                       {item.btnText}
