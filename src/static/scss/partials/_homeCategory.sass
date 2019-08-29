@@ -15,7 +15,8 @@
     text-decoration: none
 
     img
-      width: 60%
+      height: 100%
+      max-height: 50px
 
       //
 
@@ -43,12 +44,12 @@
       +margin('left', 9rem)
 
 .category-slider
+  +margin('', 1.2rem 0px)
+
   padding: 1rem 1rem
 
-  +margin('top', 7px)
-
   &:hover
-    +margin('top', 7px)
+    +margin('', 1.2rem 0px)
 
     box-shadow: 0 0.5em 0.8em -0.4em map-get($fontColor, 'black')
 
@@ -57,4 +58,4 @@
     background: map-get($fontColor, 'yellow')
 
 .home-category
-  padding: 1rem 0.9rem
+  padding: 0rem 0.9rem
