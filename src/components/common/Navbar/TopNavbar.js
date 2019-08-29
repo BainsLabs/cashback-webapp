@@ -3,8 +3,7 @@
 import React, { Component } from 'react';
 import { Row, Col } from 'react-bootstrap';
 import { Auth } from 'aws-amplify';
-import logo from 'static/images/home-page/logo(eng).png';
-import logochi from 'static/images/home-page/logo(chi).png';
+import { cloudfrontUrl } from 'utils/uitility';
 import Input from 'components/common/inputField';
 import { connect } from 'react-redux';
 import DropdownComponent from 'components/common/DropDown';
@@ -16,39 +15,37 @@ import { country, language } from 'constants/dropdown';
 import { FormattedMessage, injectIntl, intlShape } from 'react-intl';
 import ReactTooltip from 'react-tooltip';
 import Select from 'react-select';
-import { reverseGeo } from 'redux/actions/geoActions'
-import { cloudfrontUrl } from 'utils/uitility';
+import { reverseGeo } from 'redux/actions/geoActions';
 
 class TopNavbar extends Component {
   state = {
     countryValue: '',
-  }
+  };
   async componentDidMount() {
-    await this.getLocation()
+    await this.getLocation();
   }
   getLocation = () => {
-    const { reverseGeo, address } = this.props
-      return new Promise((res,rej) => {
-        if (navigator.geolocation) {
-          navigator.geolocation.getCurrentPosition(async (location) => {
-           reverseGeo(location.coords.longitude, location.coords.latitude).then((data) => {
+    const { reverseGeo, address } = this.props;
+    return new Promise((res, rej) => {
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(async location => {
+          reverseGeo(location.coords.longitude, location.coords.latitude).then(data => {
             this.setState({
               countryValue: {
                 label: data.address.country,
-                value: data.address.country_code
-              }
-            })
-
-           })
-           res('done')
+                value: data.address.country_code,
+              },
+            });
+          });
+          res('done');
         });
-        } else {
-          console.log('browser not supported')
-          rej('error')
-        }
-      })
-  }
-  ModalOpen = async (name) => {
+      } else {
+        console.log('browser not supported');
+        rej('error');
+      }
+    });
+  };
+  ModalOpen = async name => {
     // e.preventDefault();
     const { modalState } = this.props;
     // const modalType = e === 'SignIn' ? modalState('signin') : modalState('signup');
@@ -63,8 +60,7 @@ class TopNavbar extends Component {
     window.location.reload();
   };
 
-
-  onLanguageChange = (e) => {
+  onLanguageChange = e => {
     // eslint-disable-next-line no-undef
     localStorage.setItem('country', e.target.value);
     window.location.reload();
@@ -73,8 +69,8 @@ class TopNavbar extends Component {
   onCountryChange = selectedValue => {
     console.log(selectedValue, 'country');
     this.setState({
-      countryValue: selectedValue
-    })
+      countryValue: selectedValue,
+    });
   };
 
   ModalClose = async () => {
@@ -84,11 +80,16 @@ class TopNavbar extends Component {
 
   render() {
     const colourStyles = {
-      control: styles => ({ ...styles,borderRadius: '2rem', backgroundColor: '#fbec8d', marginTop: '1rem' }),
+      control: styles => ({
+        ...styles,
+        borderRadius: '2rem',
+        backgroundColor: '#fbec8d',
+        marginTop: '1rem',
+      }),
     };
     // const language = localStorage.getItem('country')
     const { user, content, intl } = this.props;
-    const {countryValue} = this.state
+    const { countryValue } = this.state;
     const authenticated = localStorage.getItem('authenticated');
     return (
       <section className="top-navbar">
@@ -97,7 +98,11 @@ class TopNavbar extends Component {
             <Col lg={3}>
               <Link to="/">
                 <img
-                  src={localStorage.getItem('country') === 'en-US' ? cloudfrontUrl('images/home-page/logo(eng).png') : cloudfrontUrl('images/home-page/logo(chi).png')}
+                  src={
+                    localStorage.getItem('country') === 'en-US'
+                      ? cloudfrontUrl('images/home-page/logo(eng).png')
+                      : cloudfrontUrl('images/home-page/logo(chi).png')
+                  }
                   width="250rem"
                   alt="logo"
                 />
@@ -113,15 +118,15 @@ class TopNavbar extends Component {
                   />
                 </Col>
                 <Col lg={6} xs={12}>
-                <Select
-                  defaultValue={country[0]}
-                  isSearchable={true}
-                  name="country"
-                  options={country}
-                  onChange={this.onCountryChange}
-                  styles={colourStyles}
-                  value={countryValue}
-                />
+                  <Select
+                    defaultValue={country[0]}
+                    isSearchable={true}
+                    name="country"
+                    options={country}
+                    onChange={this.onCountryChange}
+                    styles={colourStyles}
+                    value={countryValue}
+                  />
                 </Col>
               </Row>
             </Col>
@@ -181,10 +186,10 @@ TopNavbar.propTypes = {
 
 const mapDispatchToProps = {
   modalState,
-  reverseGeo
+  reverseGeo,
 };
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
   return {
     user: state.User,
   };

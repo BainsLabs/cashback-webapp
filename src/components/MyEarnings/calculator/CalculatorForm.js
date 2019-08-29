@@ -2,11 +2,9 @@
 import React, { Component } from 'react';
 import { Container, Col, Row } from 'react-bootstrap';
 import Input from 'components/common/inputField';
-import Logo from 'static/images/login-signup/logo-icon(left).png';
 import { totalTeam, teamByDegree } from 'utils/uitility';
 import { FormattedMessage, injectIntl, intlShape } from 'react-intl';
 import ReactTooltip from 'react-tooltip';
-import FriendShipTable from '../FriendShip/FriendShipTable';
 
 class CalculatorForm extends Component {
   state = {

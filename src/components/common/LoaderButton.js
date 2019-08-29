@@ -1,7 +1,4 @@
 import React from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSync } from '@fortawesome/fontawesome-free-solid';
-import loaderImag from 'static/icons-images/loader.gif';
 
 export default ({
   isLoading, text, loadingText, className = '', disabled = false, ...props

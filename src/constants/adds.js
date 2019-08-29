@@ -1,7 +1,5 @@
 /* eslint-disable import/prefer-default-export */
 import React from 'react';
-import tripbg from 'static/images/shop-categories/merchant-imgs-logos/trip.jpg';
-import tripicon from 'static/images/shop-categories/merchant-imgs-logos/trip-logo.png';
 import { FormattedMessage } from 'react-intl';
 
 export const adds = [

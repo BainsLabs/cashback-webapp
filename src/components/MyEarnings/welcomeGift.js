@@ -1,8 +1,7 @@
 import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import { FormattedMessage } from 'react-intl';
-import ReactTooltip from 'react-tooltip';
-import Progress from 'static/images/my-earning/tooltip.png';
+import { cloudfrontUrl } from 'utils/uitility';
 
 const welcomeGift = () => (
   <Container className="welcomegift__section">
@@ -49,7 +48,12 @@ const welcomeGift = () => (
         <p>$</p>
       </Col>
       <Col md={3} className="gift__section__three">
-        <img src={Progress} alt="progress" width="100px" height="100px" />
+        <img
+          src={cloudfrontUrl('images/my-earning/tooltip.png')}
+          alt="progress"
+          width="100px"
+          height="100px"
+        />
       </Col>
     </Row>
   </Container>

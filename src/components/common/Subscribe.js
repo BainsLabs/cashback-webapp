@@ -3,7 +3,6 @@ import {
   Row, Col, InputGroup, FormControl, Button,
 } from 'react-bootstrap';
 import { FormattedMessage, injectIntl, intlShape } from 'react-intl';
-import JoinFree from 'static/images/home-page/joinfree-bg.jpg';
 import Banner from 'components/common/Banner';
 import { connect } from 'react-redux';
 import { Snackbar } from '@material/react-snackbar';
@@ -11,7 +10,6 @@ import { withRouter } from 'react-router-dom';
 import { modalState } from 'redux/actions/modalActions';
 import ReactTooltip from 'react-tooltip';
 import { cloudfrontUrl } from 'utils/uitility';
-import joinNow from 'static/icons-images/Logo1_White_1000px.png';
 
 const Subscribe = (props) => {
   const [snackbarState, setSnackbarState] = useState(false);
@@ -27,31 +25,6 @@ const Subscribe = (props) => {
   };
   return (
     <div className="container subscribe">
-      {/* <Row>
-        <Col>
-          <p>
-            <FormattedMessage id="data.HPdealscashback" />
-          </p>
-          <h3>
-            <FormattedMessage id="data.HPsubscribe" />
-          </h3>
-        </Col>
-        <Col>
-          <InputGroup className="mb-3 subscribe__input">
-            <FormControl
-              placeholder={intl.formatMessage({ id: 'data.HPenteryouremail' })}
-              aria-label="Enter your Email"
-              aria-describedby="basic-addon2"
-            />
-            <InputGroup.Append>
-              <Button variant="outline-secondary">
-                <FormattedMessage id="data.subscribe" />
-              </Button>
-            </InputGroup.Append>
-          </InputGroup>
-        </Col>
-      </Row> */}
-      {/* <Banner imgSrc={JoinFree} textPosition="center"> */}
       <div className="join-now">
         <Row>
           <Col lg={8}>

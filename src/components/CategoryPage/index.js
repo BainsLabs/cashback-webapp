@@ -1,7 +1,6 @@
 import React from 'react';
 import { Row, Col, Container } from 'react-bootstrap';
 import Banner from 'components/common/Banner';
-import bannerImg from 'static/images/shop-categories/category-banner.png';
 import Card from 'components/common/Card';
 import CardContent from 'components/common/CardContent';
 import { addsDemo } from 'constants/adds';
@@ -11,7 +10,7 @@ import { cloudfrontUrl } from 'utils/uitility';
 
 export default () => (
   <>
-    <Banner imgSrc={bannerImg} textPosition="center">
+    <Banner imgSrc={cloudfrontUrl('images/shop-categories/category-banner.png')} textPosition="center">
       <Container>
         <div className="category__banner">
           <h3>
