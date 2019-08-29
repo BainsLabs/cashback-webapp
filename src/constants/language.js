@@ -422,6 +422,7 @@ export default {
       newPasswordError: 'New Password and confirm password doesn"t match',
       passwordChangeLimit: 'Attempt limit exceeded, please try after some time.',
       upto: 'Up To',
+      PRICE: 'Price',
     },
   },
   'zh-CN': {
@@ -518,6 +519,7 @@ export default {
       FOOD: '餐饮',
       RECHARGE: '补给',
       MOSTUSED: '常用',
+      PRICE: '价钱',
       ALL: '所有',
       footerAllRights: '版权所有2019 6Degrees.CASH。版权所有',
       referJoinNow: '免费加入',

@@ -80,9 +80,9 @@ const LandingPage = props => {
   return (
     <>
   <Slider {...setting}>
-        <img src={language === 'en-US' ? bannerImg : bannerImgchi} />
-        <img src={language === 'en-US' ?bannerImg1 : bannerImgchi1}  />
-        <img src={language === 'en-US' ? bannerImg2 :bannerImgchi2}  />
+        <img src={language === 'en-US' ? bannerImg : bannerImgchi} height="450px"/>
+        <img src={language === 'en-US' ?bannerImg1 : bannerImgchi1}  height="450px"/>
+        <img src={language === 'en-US' ? bannerImg2 :bannerImgchi2}  height="450px"/>
       </Slider>
 
       {/* <Container>

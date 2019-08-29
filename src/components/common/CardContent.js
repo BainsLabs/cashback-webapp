@@ -9,10 +9,14 @@ export default (props) => {
         <Row className="hidden-content">
           <Col xs={6} lg={brandLogo ? 7 : 6} className="no-padding">
             <p className="cashback-percentage">
-              <span className="cashback-offer">{data.cashbackText}</span>
+              {brandLogo ? <span className="cashback-offer">{data.cashbackText}</span> : ''}
               <span>{data.cahsback}</span>
             </p>
-            {brandLogo ? <p className="cashback-offer">{data.offerType}</p> : ''}
+            {brandLogo ? (
+              <p className="cashback-offer">{data.offerType}</p>
+            ) : (
+              <span className="cashback-offer">{data.cashbackText}</span>
+            )}
           </Col>
           <Col
             xs={brandLogo ? 3 : 6}

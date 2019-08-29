@@ -262,7 +262,7 @@ export const TLCdeals = [
     tlc: "25%",
     bgImg: shirt,
     // icon: expediaLogo,
-    // offerType: <FormattedMessage id="data.headermyearningsvipcashback" />,
+    offerType: 'Sprout',
     tlcText: "Pay in TLC"
   },
   {
