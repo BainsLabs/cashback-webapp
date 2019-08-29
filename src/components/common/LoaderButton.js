@@ -9,7 +9,7 @@ export default ({
   return (
     // eslint-disable-next-line react/button-has-type
     <button className={`LoaderButton ${className}`} disabled={disabled || isLoading} {...props}>
-      {isLoading && <img src={loaderImag} alt="loading..." />}
+      {isLoading && <div className="lds-dual-ring" />}
       {!isLoading ? text : loadingText}
     </button>
   );

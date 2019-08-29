@@ -36,7 +36,7 @@ const VipPage = () => {
             <img src={vipImage} alt="vipImage" className="vip__image" />
           </Col>
           <Col md={6} className="vip__desc text-left">
-            <h3 className="vipbanner-text">
+            <h3 className="viptext">
               <FormattedMessage id="data.enjoyVip" />
             </h3>
             <p className="vip__description">
