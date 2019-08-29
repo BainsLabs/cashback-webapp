@@ -139,7 +139,7 @@ class AccountSecurity extends Component {
                   />
                   <InputGroup.Append>
                     <Button type="button" name="password" onClick={this.onPasswordShow}>
-                      <i className={oldPasswordState ? 'far fa-eye-slash' : 'far fa-eye'} />
+                      <i className={oldPasswordState ? 'far fa-eye' : 'far fa-eye-slash'} />
                     </Button>
                   </InputGroup.Append>
                 </InputGroup>
@@ -158,7 +158,7 @@ class AccountSecurity extends Component {
                   />
                   <InputGroup.Append>
                     <Button type="button" name="newPassword" onClick={this.onPasswordShow}>
-                      <i className={newPasswordState ? 'far fa-eye-slash' : 'far fa-eye'} />
+                      <i className={newPasswordState ? 'far fa-eye' : 'far fa-eye-slash'} />
                     </Button>
                   </InputGroup.Append>
                 </InputGroup>
@@ -176,7 +176,7 @@ class AccountSecurity extends Component {
                   />
                   <InputGroup.Append>
                     <Button type="button" name="confirmPassword" onClick={this.onPasswordShow}>
-                      <i className={confirmPasswordState ? 'far fa-eye-slash' : 'far fa-eye'} />
+                      <i className={confirmPasswordState ? 'far fa-eye' : 'far fa-eye-slash'} />
                     </Button>
                   </InputGroup.Append>
                 </InputGroup>
