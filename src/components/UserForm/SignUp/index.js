@@ -326,7 +326,7 @@ class SignUp extends Component {
           </h2>
         </div>
         <Row>
-          <Col>
+          <Col className="signup__input">
             <Input
               placeholder={intl.formatMessage({
                 id: 'data.fieldsuchooseusername',
@@ -363,7 +363,7 @@ class SignUp extends Component {
           </Col>
         </Row>
         <Row>
-          <Col>
+          <Col className="signup__input">
             <Input
               placeholder={intl.formatMessage({ id: 'data.fieldsu' })}
               type="password"
