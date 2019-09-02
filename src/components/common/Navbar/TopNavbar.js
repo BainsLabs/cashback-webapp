@@ -25,7 +25,6 @@ class TopNavbar extends Component {
       'label': 'CHINESE',
       'value': 'zh-CN'
     }],
-    languageValue: ''
   };
   async componentDidMount() {
     await this.getLocation();
@@ -68,11 +67,6 @@ class TopNavbar extends Component {
 
   onLanguageChange = e => {
     // eslint-disable-next-line no-undef
-    console.log(localStorage.getItem('country'), "language-value")
-
-    this.setState({
-      languageValue: localStorage.getItem('country')
-    })
     localStorage.setItem('country', e.target.value);
     window.location.reload();
   };
@@ -133,7 +127,9 @@ class TopNavbar extends Component {
                     defaultValue={country[0]}
                     isSearchable={true}
                     name="country"
-                    options={country}
+                    options={country.sort(function(a, b){
+                      if(a.label < b.label) { return -1; }
+                   })}
                     onChange={this.onCountryChange}
                     styles={colourStyles}
                     value={countryValue}
@@ -148,7 +144,6 @@ class TopNavbar extends Component {
                     className="top-navbar__select-language"
                     onChange={this.onLanguageChange}
                     style={{outline: 'none', border: 0}}
-                    value={languageValue}
                   >
                     <option>{intl.formatMessage({ id: 'data.language' })}</option>
                     {languages.map(item => <option name={item.value} value={item.value}>{item.label}</option>)}
