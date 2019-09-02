@@ -18,7 +18,7 @@ import Slider from 'react-slick';
 // eslint-disable-next-line arrow-parens
 const LandingPage = props => {
   const [snackbarState, setSnackbarState] = useState(false);
-  let language = localStorage.getItem('country');
+  const language = localStorage.getItem('country');
   const authenticated = localStorage.getItem('authenticated');
   // let cashBack = props.contents.map((cont) => {
   //   return {cont.location === "myearningvip" && cont.section==="header" ? cont.content:""}
@@ -175,7 +175,7 @@ const LandingPage = props => {
               //       </div>
               //     </>
               //   </Card>
-              <Col xs={12} md={6} lg={3} className="mb-3 pl-0" key={uuidv1()}>
+              <Col xs={12} md={6} lg={3} className="mb-3" key={uuidv1()}>
                 <Card
                   classValue="card__content-hover"
                   backgroundImage={cloudfrontUrl(item.bgImg)}

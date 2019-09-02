@@ -18,7 +18,7 @@ export default withRouter(props => (
           </h2>
           <Row>
             {adds.map(item => (
-              <Col xs={12} md={6} lg={4} className="mb-3 pl-0 category__item " key={uuidv1()}>
+              <Col xs={12} md={6} lg={4} className="mb-3 category__item " key={uuidv1()}>
                 <Card
                   classValue="card__content-hover"
                   backgroundImage={cloudfrontUrl(item.bgImg)}
@@ -34,7 +34,7 @@ export default withRouter(props => (
         <Col lg={3} className="no-padding">
           <Row>
             {members.map(item => (
-              <Col lg={12} md={6} key={uuidv1()} className="mb-3 no-padding">
+              <Col lg={12} md={6} key={uuidv1()} className="mb-3">
                 <Card
                   classValue="card__content-hover"
                   backgroundColor="#96c1eb"
