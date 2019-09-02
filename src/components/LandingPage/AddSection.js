@@ -34,7 +34,7 @@ export default withRouter(props => (
         <Col lg={3} className="no-padding">
           <Row>
             {members.map(item => (
-              <Col lg={12} md={6} key={uuidv1()} className="mb-3 no-padding">
+              <Col lg={12} md={6} key={uuidv1()} className="mb-3">
                 <Card
                   classValue="card__content-hover"
                   backgroundColor="#96c1eb"
