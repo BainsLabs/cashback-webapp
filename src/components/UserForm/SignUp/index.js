@@ -390,6 +390,7 @@ class SignUp extends Component {
               options={country.sort(function(a, b){
                 if(a.label < b.label) { return -1; }
              })}
+              placeholder={intl.formatMessage({ id: 'data.HPselectcountry' })}
               onChange={this.onCountryChange}
               name="country"
               value={countryValue}

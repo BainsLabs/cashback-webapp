@@ -181,7 +181,7 @@ export default {
       copymyearningsvip:
         'You are a VIP Member and qualify to receive 5% VIP…receive bonuses of your Cash Back and TLC Reward.',
       headermyearningsvipoverview: 'OVERVIEW',
-      headermyearningsterms: 'Terms & Conditions',
+      headermyearningsterms: 'TERMS & CONDITIONS',
       menuHP: 'VIP EVENTS',
       copymyearningsvipvipmember:
         'You are a VIP Member and qualify to receive 5% VIP…receive bonuses of your Cash Back and TLC Reward.',
@@ -423,12 +423,12 @@ export default {
       passwordChangeLimit: 'Attempt limit exceeded, please try after some time.',
       upto: 'Up To',
       PRICE: 'Price',
-      paytlc:'PAY IN TLC',
+      paytlc: 'PAY IN TLC',
     },
   },
   'zh-CN': {
     data: {
-      paytlc:'在TLC付款',
+      paytlc: '在TLC付款',
       usernameerror: '或者以下任何字符！@＃$％^＆*（） -  + _ =，;：/？ | <>} {[]',
       upto: '取决于',
       mailsent: '谢谢您联络我们。我们会尽快给您回复',

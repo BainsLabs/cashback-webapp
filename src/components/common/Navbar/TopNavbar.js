@@ -127,6 +127,7 @@ class TopNavbar extends Component {
                     defaultValue={country[0]}
                     isSearchable={true}
                     name="country"
+                    placeholder={intl.formatMessage({ id: 'data.HPselectcountry' })}
                     options={country.sort(function(a, b){
                       if(a.label < b.label) { return -1; }
                    })}
