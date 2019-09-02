@@ -223,7 +223,7 @@ class SignUp extends Component {
         domain: [`${username}.mytravelbiz.com`],
         treeStructure: null,
         newsletter: false,
-        package: '3',
+        package: '2.2',
         rankAward: 'optOut',
         shipMethod: null,
         billing: { method: 'wire_transfer', tid },

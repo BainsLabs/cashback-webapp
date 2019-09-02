@@ -6,12 +6,10 @@ import { Auth } from 'aws-amplify';
 import { cloudfrontUrl } from 'utils/uitility';
 import Input from 'components/common/inputField';
 import { connect } from 'react-redux';
-import DropdownComponent from 'components/common/DropDown';
-import { faMapMarkerAlt, faSortDown } from '@fortawesome/fontawesome-free-solid';
 import { modalState } from 'redux/actions/modalActions';
 import UserModal from 'components/UserForm/Modal';
 import { Link } from 'react-router-dom';
-import { country, language } from 'constants/dropdown';
+import { country } from 'constants/dropdown';
 import { FormattedMessage, injectIntl, intlShape } from 'react-intl';
 import ReactTooltip from 'react-tooltip';
 import Select from 'react-select';
@@ -20,12 +18,20 @@ import { reverseGeo } from 'redux/actions/geoActions';
 class TopNavbar extends Component {
   state = {
     countryValue: '',
+    languages:[{
+      'label': 'ENGLISH',
+      'value': 'en-US'
+    },{
+      'label': 'CHINESE',
+      'value': 'zh-CN'
+    }],
+    languageValue: ''
   };
   async componentDidMount() {
     await this.getLocation();
   }
   getLocation = () => {
-    const { reverseGeo, address } = this.props;
+    const { reverseGeo } = this.props;
     return new Promise((res, rej) => {
       if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(async location => {
@@ -62,6 +68,11 @@ class TopNavbar extends Component {
 
   onLanguageChange = e => {
     // eslint-disable-next-line no-undef
+    console.log(localStorage.getItem('country'), "language-value")
+
+    this.setState({
+      languageValue: localStorage.getItem('country')
+    })
     localStorage.setItem('country', e.target.value);
     window.location.reload();
   };
@@ -89,7 +100,7 @@ class TopNavbar extends Component {
     };
     // const language = localStorage.getItem('country')
     const { user, content, intl } = this.props;
-    const { countryValue } = this.state;
+    const { countryValue, languages, languageValue } = this.state;
     const authenticated = localStorage.getItem('authenticated');
     return (
       <section className="top-navbar">
@@ -133,13 +144,15 @@ class TopNavbar extends Component {
             <Col lg={3}>
               <Row className="logout__container">
                 <Col lg={4} xs={4} className="no-padding">
-                  <DropdownComponent
-                    icon={faSortDown}
-                    label={<FormattedMessage id="data.topLanguage" />}
-                    menu={language}
+                  <select
                     className="top-navbar__select-language"
-                    languageChange={this.onLanguageChange}
-                  />
+                    onChange={this.onLanguageChange}
+                    style={{outline: 'none', border: 0}}
+                    value={languageValue}
+                  >
+                    <option>{intl.formatMessage({ id: 'data.language' })}</option>
+                    {languages.map(item => <option name={item.value} value={item.value}>{item.label}</option>)}
+                  </select>
                 </Col>
                 {authenticated ? (
                   <Col lg={8} xs={8}>
