@@ -387,7 +387,9 @@ class SignUp extends Component {
             <Select
               defaultValue={country[0]}
               isSearchable={true}
-              options={country}
+              options={country.sort(function(a, b){
+                if(a.label < b.label) { return -1; }
+             })}
               onChange={this.onCountryChange}
               name="country"
               value={countryValue}
