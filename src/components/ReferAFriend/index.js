@@ -13,7 +13,7 @@ export default () => {
       <Banner imgSrc={cloudfrontUrl('images/referAfriend/banner.jpg')} textPosition="center">
         <Container>
           <div className="refer-a-friend__banner">
-            <h3>
+            <h3 className="vipbanner-text text-center">
               <FormattedMessage id="data.bannerrf" />
             </h3>
           </div>

@@ -10,9 +10,9 @@ const HowCashbackWorks = () => (
     <Banner imgSrc={cloudfrontUrl('images/cashback/banner.jpg')} textPosition="center">
       <Container>
         <div className="cashback__banner">
-          <h3>
+          <h2 className="vipbanner-text text-center">
             <FormattedMessage id="data.getpaid" />
-          </h3>
+          </h2>
         </div>
       </Container>
     </Banner>

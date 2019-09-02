@@ -237,7 +237,7 @@ class CalculatorForm extends Component {
 
                 <p>
                   <FormattedMessage id="data.calMonthly" />
-                  &nbsp;
+                &nbsp;
                   <i
                     data-tip={intl.formatMessage({ id: 'data.monthlybonus' })}
                     className="fas fa-info-circle"

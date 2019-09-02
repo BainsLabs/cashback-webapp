@@ -7,7 +7,7 @@ export default (props) => {
     <>
       <div className="card__container pb-2">
         <Row className="hidden-content">
-          <Col xs={6} lg={brandLogo ? 7 : 6} className="no-padding">
+          <Col xs={6} lg={brandLogo ? 7 : 6} className={brandLogo ? 'no-padding' : ''}>
             <p className="cashback-percentage">
               {brandLogo ? <span className="cashback-offer">{data.cashbackText}</span> : ''}
               <span>{data.cahsback}</span>

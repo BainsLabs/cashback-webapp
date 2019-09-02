@@ -34,6 +34,7 @@ export const links = [
   },
   {
     mainClassName: 'footer__Cat',
+    mainClassName2: 'footer__Cat2',
     className: 'footer__category',
     heading: <FormattedMessage id="data.HPcategories" />,
     link: [

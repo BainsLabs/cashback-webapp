@@ -2,6 +2,7 @@ import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import { FormattedMessage } from 'react-intl';
 import { cloudfrontUrl } from 'utils/uitility';
+import ReactTooltip from 'react-tooltip';
 
 const welcomeGift = () => (
   <Container className="welcomegift__section">
@@ -48,11 +49,21 @@ const welcomeGift = () => (
         <p>$</p>
       </Col>
       <Col md={3} className="gift__section__three">
+        <i data-tip="" data-for="tip" className="fas fa-info-circle" />
+        <ReactTooltip id="tip">
+          <img
+            src={cloudfrontUrl('images/my-earning/tooltip(y).png')}
+            alt="progress"
+            width="100px"
+            height="100px"
+          />
+        </ReactTooltip>
+        &nbsp;
         <img
           src={cloudfrontUrl('images/my-earning/tooltip.png')}
           alt="progress"
-          width="100px"
-          height="100px"
+          width="50px"
+          height="50px"
         />
       </Col>
     </Row>
