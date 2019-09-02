@@ -5,6 +5,7 @@ import Input from 'components/common/inputField';
 import { FormattedMessage, injectIntl, intlShape } from 'react-intl';
 import { ContactAction } from 'redux/actions/signupActions';
 import { Snackbar } from '@material/react-snackbar';
+import LoaderButton from 'components/common/LoaderButton';
 
 class ContactUsForm extends Component {
   state = {
@@ -12,6 +13,7 @@ class ContactUsForm extends Component {
     email: '',
     message: '',
     snackbarState: false,
+    isLoading: false,
   };
 
   onHandleChange = (e) => {
@@ -28,15 +30,24 @@ class ContactUsForm extends Component {
       email,
       message,
     };
+    this.setState({
+      isLoading: true,
+    });
     await ContactAction(params);
     this.setState({
       snackbarState: true,
+      isLoading: false,
+      username: '',
+      email: '',
+      message: '',
     });
   };
 
   render() {
     const { intl } = this.props;
-    const { snackbarState } = this.state;
+    const {
+      snackbarState, isLoading, username, email, message,
+    } = this.state;
     return (
       <div className="container contact_us">
         <div className="contactus__form">
@@ -49,6 +60,7 @@ class ContactUsForm extends Component {
                 label={intl.formatMessage({ id: 'data.headermyearningsname' })}
                 labelClass="contactus__label"
                 onChange={this.onHandleChange}
+                value={username}
               />
             </Col>
             <Col md={6}>
@@ -59,6 +71,7 @@ class ContactUsForm extends Component {
                 label={intl.formatMessage({ id: 'data.labelemail' })}
                 labelClass="contactus__label"
                 onChange={this.onHandleChange}
+                value={email}
               />
             </Col>
           </Row>
@@ -73,13 +86,19 @@ class ContactUsForm extends Component {
                 label={intl.formatMessage({ id: 'data.formcumessage' })}
                 labelClass="contactus__label"
                 onChange={this.onHandleChange}
+                value={message}
               />
             </Col>
           </Row>
           <div className="text-center">
-            <button className="contactus__button" onClick={this.onHandleSubmit}>
-              <FormattedMessage id="data.submit" />
-            </button>
+            <LoaderButton
+              block
+              isLoading={isLoading}
+              className="auth-right__forgot-btn"
+              text="Submit"
+              loadingText="Sending Mail..."
+              onClick={this.onHandleSubmit}
+            />
           </div>
         </div>
         <Snackbar message={<FormattedMessage id="data.mailsent" />} open={snackbarState} />
