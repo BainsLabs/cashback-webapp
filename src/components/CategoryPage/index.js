@@ -10,12 +10,15 @@ import { cloudfrontUrl } from 'utils/uitility';
 
 export default () => (
   <>
-    <Banner imgSrc={cloudfrontUrl('images/shop-categories/category-banner.png')} textPosition="center">
+    <Banner
+      imgSrc={cloudfrontUrl('images/shop-categories/category-banner.png')}
+      textPosition="center"
+    >
       <Container>
         <div className="category__banner">
-          <h3>
+          <h2 className="vipbanner-text text-center">
             <FormattedMessage id="data.SHOPCATEGORIES" />
-          </h3>
+          </h2>
         </div>
       </Container>
     </Banner>
@@ -119,34 +122,34 @@ export default () => (
                     <FormattedMessage id="data.HPcategories" />
                   </h2>
                   <ul>
-                    <li className="padding">
+                    <li>
                       <FormattedMessage id="data.ELECTRONICS" />
                     </li>
-                    <li className="padding">
+                    <li>
                       <FormattedMessage id="data.HPfinance" />
                     </li>
-                    <li className="padding">
+                    <li>
                       <FormattedMessage id="data.HPhealth" />
                     </li>
-                    <li className="padding">
+                    <li>
                       <FormattedMessage id="data.TRAVEL" />
                     </li>
-                    <li className="padding">
+                    <li>
                       <FormattedMessage id="data.FASHION" />
                     </li>
-                    <li className="padding">
+                    <li>
                       <FormattedMessage id="data.footerLIFESTYLE" />
                     </li>
-                    <li className="padding">
+                    <li>
                       <FormattedMessage id="data.footerMARKETPLACE" />
                     </li>
-                    <li className="padding">
+                    <li>
                       <FormattedMessage id="data.footerSERVICES" />
                     </li>
-                    <li className="padding">
+                    <li>
                       <FormattedMessage id="data.footerTLC" />
                     </li>
-                    <li className="padding">
+                    <li>
                       <FormattedMessage id="data.footerOther" />
                     </li>
                   </ul>
