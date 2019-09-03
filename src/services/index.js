@@ -24,7 +24,7 @@ export const verifyEmailAPI = params => axios.post(
 );
 
 export const userRegisterApi = params => axios
-  .post('http://localhost:3002/user/registration', params, {
+  .post('https://devnew.mytravelbiz-api.com/mtb/user/registration', params, {
     headers: {
       'Content-Type': 'application/json',
       Authorization: '',
