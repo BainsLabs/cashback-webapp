@@ -37,7 +37,7 @@ class SignUp extends Component {
     password: '',
     referUsernameError: '',
     passwordError: <FormattedMessage id="data.passwordText" />,
-    sponsorId: null,
+    sponsorId: 10,
     refer: 'FRIEND',
     friendUsername: '',
     signUperror: '',
@@ -239,6 +239,7 @@ class SignUp extends Component {
           countryState: '-',
           postalCode: '123456',
         },
+        provider: '6degrees',
       });
       let userStatus = 200;
       let userStatusPending = 201;
