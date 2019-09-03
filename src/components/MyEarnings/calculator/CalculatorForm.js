@@ -267,7 +267,7 @@ class CalculatorForm extends Component {
             <Row className="text-center">
               <Col md={6}>
                 <Row>
-                  <Col md={2} xs={2} className="text-right no-padding">
+                  <Col md={2} xs={2} className="text-right ">
                     <button
                       onClick={() => this.onDecrement('monthlyspend')}
                       className="cal__button"
@@ -286,7 +286,7 @@ class CalculatorForm extends Component {
                       // max="100"
                     />
                   </Col>
-                  <Col md={2} xs={2} className="text-left no-padding">
+                  <Col md={2} xs={2} className="text-left ">
                     <button
                       onClick={() => this.onIncrement('monthlyspend')}
                       className="cal__button"
@@ -307,7 +307,7 @@ class CalculatorForm extends Component {
               </Col>
               <Col md={6}>
                 <Row>
-                  <Col md={2} xs={2} className="text-right no-padding">
+                  <Col md={2} xs={2} className="text-right ">
                     <button
                       onClick={() => this.onDecrement('friendsreferred')}
                       className="cal__button"
@@ -327,7 +327,7 @@ class CalculatorForm extends Component {
                       // max="20"
                     />
                   </Col>
-                  <Col md={2} xs={2} className="text-left no-padding">
+                  <Col md={2} xs={2} className="text-left ">
                     <button
                       onClick={() => this.onIncrement('friendsreferred')}
                       className="cal__button"
@@ -353,7 +353,7 @@ class CalculatorForm extends Component {
             <Row className="text-center">
               <Col md={6}>
                 <Row>
-                  <Col md={2} xs={2} className="text-right no-padding">
+                  <Col md={2} xs={2} className="text-right ">
                     <button className="cal__button" onClick={() => this.onDecrement('avgcashback')}>
                       <i className="fas fa-minus"  />
                     </button>
@@ -368,7 +368,7 @@ class CalculatorForm extends Component {
                       readOnly
                     />
                   </Col>
-                  <Col md={2} xs={2} className="text-left no-padding">
+                  <Col md={2} xs={2} className="text-left ">
                     <button onClick={() => this.onIncrement('avgcashback')} className="cal__button">
                       <i className="fas fa-plus" />
                     </button>
@@ -386,7 +386,7 @@ class CalculatorForm extends Component {
               </Col>
               <Col md={6}>
                 <Row>
-              <Col md={2} xs={2} className="text-right no-padding">
+              <Col md={2} xs={2} className="text-right ">
                     <button className="cal__button" onClick={() => this.onDecrement('friendshibonus')}>
                       <i className="fas fa-minus"  />
                     </button>
@@ -400,7 +400,7 @@ class CalculatorForm extends Component {
                         readOnly
                     />
                   </Col>
-                  <Col md={2} xs={2} className="text-left no-padding">
+                  <Col md={2} xs={2} className="text-left ">
                     <button onClick={() => this.onIncrement('friendshibonus')} className="cal__button">
                       <i className="fas fa-plus" />
                     </button>
