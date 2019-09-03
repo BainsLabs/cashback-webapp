@@ -239,7 +239,7 @@ class SignUp extends Component {
           countryState: '-',
           postalCode: '123456',
         },
-        provider: '6degrees',
+        // provider: '6degrees',
       });
       let userStatus = 200;
       let userStatusPending = 201;
