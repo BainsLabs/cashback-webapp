@@ -424,10 +424,12 @@ export default {
       upto: 'Up To',
       PRICE: 'Price',
       paytlc: 'PAY IN TLC',
+      tooltiptext:'You will receive $5 and 5 TLC for helping your friends save $25. There is no limit of this Referral Bonus, keep spread the good word.'
     },
   },
   'zh-CN': {
     data: {
+      tooltiptext:"您将获得5美元和5美元的TLC，帮助您的朋友节省25美元。这个推荐奖金没有限制，继续传播好话。",
       paytlc: '在TLC付款',
       usernameerror: '或者以下任何字符！@＃$％^＆*（） -  + _ =，;：/？ | <>} {[]',
       upto: '取决于',

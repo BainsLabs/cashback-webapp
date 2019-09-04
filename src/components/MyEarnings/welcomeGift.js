@@ -51,12 +51,7 @@ const welcomeGift = () => (
       <Col md={3} className="gift__section__three">
         <i data-tip="" data-for="tip" className="fas fa-info-circle" />
         <ReactTooltip id="tip">
-          <img
-            src={cloudfrontUrl('images/my-earning/tooltip(y).png')}
-            alt="progress"
-            width="100px"
-            height="100px"
-          />
+          <FormattedMessage id="data.tooltiptext" />
         </ReactTooltip>
         &nbsp;
         <img
