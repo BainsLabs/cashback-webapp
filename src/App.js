@@ -12,6 +12,7 @@ import '@material/react-snackbar/dist/snackbar.css';
 import { getUserName, getUserEmail } from 'redux/actions/signupActions';
 import { modalState } from 'redux/actions/modalActions';
 
+
 class App extends Component {
   state = {
     isLoader: false,

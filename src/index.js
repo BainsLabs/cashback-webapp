@@ -16,6 +16,7 @@ import locale_zh from 'react-intl/locale-data/zh';
 import { flattenMessages } from 'utils/flattenMessages';
 import * as serviceWorker from './serviceWorker';
 import 'static/scss/index.sass';
+import 'normalize.css';
 
 const language = localStorage.getItem('country') === null ? 'en-US' : localStorage.getItem('country'); // language without region co
 console.log(language, 'languageeeesss');
