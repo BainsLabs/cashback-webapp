@@ -14,6 +14,7 @@ import { FormattedMessage, injectIntl, intlShape } from 'react-intl';
 import ReactTooltip from 'react-tooltip';
 import Select from 'react-select';
 import { reverseGeo } from 'redux/actions/geoActions';
+import _ from 'lodash'
 
 class TopNavbar extends Component {
   state = {
@@ -130,6 +131,8 @@ class TopNavbar extends Component {
                     placeholder={intl.formatMessage({ id: 'data.HPselectcountry' })}
                     options={country.sort(function(a, b){
                       if(a.label < b.label) { return -1; }
+                      if (a.label > b.label) { return 1; }
+                      return 0;
                    })}
                     onChange={this.onCountryChange}
                     styles={colourStyles}

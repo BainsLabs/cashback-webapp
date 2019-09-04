@@ -390,6 +390,8 @@ class SignUp extends Component {
               isSearchable={true}
               options={country.sort(function(a, b){
                 if(a.label < b.label) { return -1; }
+                if (a.label > b.label) { return 1; }
+                return 0;
              })}
               placeholder={intl.formatMessage({ id: 'data.HPselectcountry' })}
               onChange={this.onCountryChange}
