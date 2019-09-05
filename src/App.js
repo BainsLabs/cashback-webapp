@@ -28,38 +28,38 @@ class App extends Component {
     const {
       getUserName, modalState, user, getUserEmail,
     } = this.props;
-    // const params = {
-    //   username: window.location.href
-    //     .split('.')[0]
-    //     .split('//')[1]
-    //     .toLowerCase(),
-    //   checkType: 'getUserEmail',
-    // };
-    // const userDetails = await getUserEmail(params);
-    // if (window.location.href.split('.')[0].split('//')[1] !== 'loqal') {
-    //   const params = {
-    //     username: window.location.href
-    //       .split('.')[0]
-    //       .split('//')[1]
-    //       .toLowerCase(),
-    //     checkType: 'getUserEmail',
-    //   };
-    //   const user = await getUserName(params);
-    //   if (user.Count === 0) {
-    //     window.location = 'https://loqal.6degrees.cash';
-    //     return;
-    //   }
-    //   if (localStorage.getItem('authenticated')) {
-    //     if (
-    //       window.location.href.split('.')[0].split('//')[1] !== localStorage.getItem('username')
-    //     ) {
-    //       window.location = 'https://loqal.6degrees.cash';
-    //       return;
-    //     }
-    //   }
+    const params = {
+      username: window.location.href
+        .split('.')[0]
+        .split('//')[1]
+        .toLowerCase(),
+      checkType: 'getUserEmail',
+    };
+    const userDetails = await getUserEmail(params);
+    if (window.location.href.split('.')[0].split('//')[1] !== 'loqal') {
+      const params = {
+        username: window.location.href
+          .split('.')[0]
+          .split('//')[1]
+          .toLowerCase(),
+        checkType: 'getUserEmail',
+      };
+      const user = await getUserName(params);
+      if (user.Count === 0) {
+        window.location = 'https://loqal.6degrees.cash';
+        return;
+      }
+      if (localStorage.getItem('authenticated')) {
+        if (
+          window.location.href.split('.')[0].split('//')[1] !== localStorage.getItem('username')
+        ) {
+          window.location = 'https://loqal.6degrees.cash';
+          return;
+        }
+      }
 
-    //   await modalState('signup');
-    // }
+      await modalState('signup');
+    }
     window.scrollTo(0, 0);
 
     // localStorage.setItem('country', 'en-US');
