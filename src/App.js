@@ -37,8 +37,6 @@ class App extends Component {
     };
     const userDetails = await getUserEmail(params);
     if (window.location.href.split('.')[0].split('//')[1] !== 'loqal') {
-      const { username } = userDetails.Items[0];
-      console.log(username, 'usernameeeeee');
       const params = {
         username: window.location.href
           .split('.')[0]
