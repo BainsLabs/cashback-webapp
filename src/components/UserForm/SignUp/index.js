@@ -26,7 +26,8 @@ import {
 } from 'redux/actions/signupActions';
 import ReactTooltip from 'react-tooltip';
 import uuid from 'uuid';
-import Select from 'react-select';
+import Select,{createFilter} from 'react-select';
+import { createInflateRaw } from 'zlib';
 
 class SignUp extends Component {
   state = {
@@ -49,6 +50,9 @@ class SignUp extends Component {
     newUser: null,
     open: false,
     emailError: false,
+    filterConfig:{
+      matchFrom:'start'
+    },
   };
 
   validateForm = () => {
@@ -312,6 +316,7 @@ class SignUp extends Component {
       isLoading,
       emailError,
       open,
+      filterConfig
     } = this.state;
     const { intl, modalState, urlUser } = this.props;
     let urlUsername;
@@ -388,6 +393,7 @@ class SignUp extends Component {
             <Select
               defaultValue={country[0]}
               isSearchable={true}
+              filterOption={createFilter(filterConfig)}
               options={country.sort(function(a, b){
                 if(a.label < b.label) { return -1; }
                 if (a.label > b.label) { return 1; }

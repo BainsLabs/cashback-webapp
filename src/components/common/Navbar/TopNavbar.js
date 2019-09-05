@@ -12,7 +12,7 @@ import { Link } from 'react-router-dom';
 import { country } from 'constants/dropdown';
 import { FormattedMessage, injectIntl, intlShape } from 'react-intl';
 import ReactTooltip from 'react-tooltip';
-import Select from 'react-select';
+import Select,{createFilter} from 'react-select';
 import { reverseGeo } from 'redux/actions/geoActions';
 import _ from 'lodash'
 
@@ -26,6 +26,12 @@ class TopNavbar extends Component {
       'label': 'CHINESE',
       'value': 'zh-CN'
     }],
+    ignoreCase: true,
+    ignoreAccents: false,
+    trim: false,
+    filterConfig:{
+      matchFrom:'start'
+    },
   };
   async componentDidMount() {
     await this.getLocation();
@@ -93,9 +99,16 @@ class TopNavbar extends Component {
         marginTop: '1rem',
       }),
     };
+    const { countryValue, languages,filterConfig } = this.state;
+    // const filterConfig = {
+    //   ignoreCase,
+    //   ignoreAccents,
+    //   trim,
+    //   matchFrom: matchFromStart ? 'start':'any',
+    // }
+
     // const language = localStorage.getItem('country')
     const { user, content, intl } = this.props;
-    const { countryValue, languages, languageValue } = this.state;
     const authenticated = localStorage.getItem('authenticated');
     return (
       <section className="top-navbar">
@@ -128,6 +141,7 @@ class TopNavbar extends Component {
                     defaultValue={country[0]}
                     isSearchable={true}
                     name="country"
+                    filterOption={createFilter(filterConfig)}
                     placeholder={intl.formatMessage({ id: 'data.HPselectcountry' })}
                     options={country.sort(function(a, b){
                       if(a.label < b.label) { return -1; }
