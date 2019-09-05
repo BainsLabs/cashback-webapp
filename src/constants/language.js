@@ -424,12 +424,14 @@ export default {
       upto: 'Up To',
       PRICE: 'Price',
       paytlc: 'PAY IN TLC',
-      tooltiptext:'You will receive $5 and 5 TLC for helping your friends save $25. There is no limit of this Referral Bonus, keep spread the good word.'
+      tooltiptext:
+        'This meter shows progress towards achieving your Welcome Gift. The percentage shows how much Paid Cash Back you have received of the qualifying $25. Free Cash Back does not count towards this qualification.',
     },
   },
   'zh-CN': {
     data: {
-      tooltiptext:"您将获得5美元和5美元的TLC，帮助您的朋友节省25美元。这个推荐奖金没有限制，继续传播好话。",
+      tooltiptext:
+        '此仪表显示了实现欢迎礼物的进度。这个百分比显示你收到的25美元的现金返还金额。自由现金返还不计入此资格。',
       paytlc: '在TLC付款',
       usernameerror: '或者以下任何字符！@＃$％^＆*（） -  + _ =，;：/？ | <>} {[]',
       upto: '取决于',
