@@ -36,7 +36,10 @@ class App extends Component {
       checkType: 'getUserEmail',
     };
     const userDetails = await getUserEmail(params);
-    if (window.location.href.split('.')[0].split('//')[1] !== 'loqal') {
+    if(window.location.href.includes("localhost"))
+{
+}
+else if (window.location.href.split('.')[0].split('//')[1] !== 'loqal') {
       const params = {
         username: window.location.href
           .split('.')[0]
@@ -59,7 +62,7 @@ class App extends Component {
       }
 
       await modalState('signup');
-    }
+    }      
     window.scrollTo(0, 0);
 
     // localStorage.setItem('country', 'en-US');

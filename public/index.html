@@ -47,21 +47,17 @@
     <title>6Degrees</title>
   </head>
   <script>
-    function passWord() {
-      var testV = 1;
-      var pass1 = prompt('Please Enter Your Password', ' ');
-      while (testV <= 1) {
-        // if (!pass1) history.go(-1);
-        if (pass1.toLowerCase() == 'fabfive2018!') {
-          break;
-        } else {
-          window.location = 'https://6degrees.cash';
-        }
-        testV++;
-      }
-    }
-    passWord();
-  </script>
+function passWord() {
+var pass1 = prompt('Please Enter Your Password');
+switch (pass1) {
+case 'fabfive2018!':
+break;
+default:
+window.location = 'https://6degrees.cash';
+}
+}
+passWord();
+</script>
   <body>
     <noscript>
       You need to enable JavaScript to run this app.
